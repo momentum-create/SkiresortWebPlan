@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { MapFeatureDetail } from "./MapFeatureDetail";
 import type { MapFeature } from "./types";
 import {
@@ -37,6 +37,31 @@ export function MapStatusRail({
 }: Props) {
   const t = useTranslations("map");
   const statusLabel = useMapStatusLabel();
+
+  // #region agent log
+  useEffect(() => {
+    fetch("http://127.0.0.1:7819/ingest/3e502c41-3f79-4984-96c0-16a0943ddde1", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Debug-Session-Id": "efd91c",
+      },
+      body: JSON.stringify({
+        sessionId: "efd91c",
+        runId: "rail-mount",
+        hypothesisId: "H1",
+        location: "MapStatusRail.tsx:mount",
+        message: "MapStatusRail mounted",
+        data: {
+          railUi: "no-search-v2",
+          hasSearchProps: false,
+          filterTabs: ["lift", "trail"],
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+  }, []);
+  // #endregion
 
   const visible = useMemo(
     () => features.filter((f) => filter === "all" || f.type === filter),
