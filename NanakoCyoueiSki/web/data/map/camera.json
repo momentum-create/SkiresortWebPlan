@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "2026-06-01",
+  "resortId": "nanako-choei-ski",
+  "image": {
+    "width": 3840,
+    "height": 2560,
+    "src": "/maps/nanako-hero-earthstudio.png"
+  },
+  "camera": {
+    "position": [
+      141.1073872446019,
+      40.6990810811416
+    ],
+    "altitudeM": 292.06717126978504,
+    "groundElevationM": 280,
+    "headingDeg": 268.02066132841924,
+    "tiltDeg": 78.41026408687615,
+    "rollDeg": 0,
+    "fovDeg": 40,
+    "fovAxis": "horizontal"
+  },
+  "notes": "earthStudio.url から parse-earth-studio-url.mjs で取り込み。GSI正射本番では未使用。",
+  "canonicalView": {
+    "source": "Earth Studio Location URL（ユーザー提供 2026-06）",
+    "headingDeg": 268,
+    "tiltDeg": 78.4,
+    "altitudeM": 292,
+    "fovHorizontalDeg": 40,
+    "pairLiftOnScreen": "diagonal ~[1558,2463] → ~[1314,1674] on 3840×2560"
+  },
+  "controlPoints": [
+    {
+      "id": "lift-pair-bottom",
+      "from": "lifts.lift-pair.start",
+      "role": "OSM way/631879096 下駅側"
+    },
+    {
+      "id": "lift-pair-top",
+      "from": "lifts.lift-pair.end",
+      "role": "OSM way/631879096 上駅側"
+    },
+    {
+      "id": "lift-pony-bottom",
+      "from": "lifts.lift-pony.start",
+      "role": "ポニーリフト下"
+    },
+    {
+      "id": "lift-pony-top",
+      "from": "lifts.lift-pony.end",
+      "role": "ポニーリフト上"
+    },
+    {
+      "id": "base-lodge",
+      "lng": 141.0999,
+      "lat": 40.6981,
+      "role": "町営ヒュッテ付近（skimap）"
+    },
+    {
+      "id": "parking",
+      "lng": 141.1001,
+      "lat": 40.6975,
+      "role": "駐車場（skimap P マーク）"
+    }
+  ],
+  "earthStudio": {
+    "importedAt": "2026-06-05T06:11:29.908Z",
+    "url": "https://earth.google.com/studio/@40.6990810811416,141.1073872446019,292.06717126978504a,20y,268.02066132841924h,78.41026408687615t",
+    "notes": "20y = 水平FOVの半分。altitudeM は Studio の a 値をそのまま AGL として使用（要QA）"
+  }
+}

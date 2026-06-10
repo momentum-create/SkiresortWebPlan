@@ -1,0 +1,17 @@
+{
+  "source": "GSI seamlessphoto + hillshademap",
+  "attribution": "© 国土地理院",
+  "zoom": 17,
+  "bbox": {
+    "west": 141.0938,
+    "east": 141.1012,
+    "south": 40.6968,
+    "north": 40.6992
+  },
+  "width": 1920,
+  "height": 1280,
+  "viewBox": "0 0 1920 1280",
+  "projection": "linear-latlng-in-bbox",
+  "generatedAt": "2026-06-05T12:52:35.002Z",
+  "note": "正射座標ベース。Earth Studio 斜め俯瞰に差し替え時は control-points.json で再投影"
+}

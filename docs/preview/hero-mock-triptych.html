@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ヒーロー画像 3案 — 七戸町営スキー場</title>
+  <style>
+    :root {
+      --bg: #f8f9fb;
+      --ink: #141a26;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    header {
+      padding: 2rem 1.5rem 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem; }
+    .lead { color: var(--muted); font-size: 0.875rem; max-width: 52rem; }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+      padding: 1rem 1.5rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    @media (min-width: 900px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .card-head {
+      padding: 1rem 1.25rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tag {
+      display: inline-block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .card-head h2 { font-size: 1rem; margin: 0; font-weight: 600; }
+    .card-head p { font-size: 0.8125rem; color: var(--muted); margin: 0.35rem 0 0; }
+    .hero-mock {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111;
+    }
+    .hero-mock img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+    .hero-mock .grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgb(255 255 255 / 10%), rgb(255 255 255 / 20%), #f8f9fb);
+      pointer-events: none;
+    }
+    .ui {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem 1.1rem 1.25rem;
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0.85;
+    }
+    .title {
+      margin: 0.35rem 0 0;
+      font-size: clamp(1.1rem, 4vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+    .stat-label {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .stat-value {
+      font-family: ui-monospace, monospace;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      margin-top: 0.15rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 0.75rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      background: #0b5f8c;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .card-b .title,
+    .card-b .eyebrow,
+    .card-b .stat-label,
+    .card-b .stat-value { color: #fff; text-shadow: 0 1px 8px rgb(0 0 0 / 45%); }
+    .card-b .stat-label { opacity: 0.9; }
+    .notes {
+      padding: 0.85rem 1.25rem 1.25rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .notes strong { color: var(--ink); }
+    footer {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>トップヒーロー — 色調3案（モック）</h1>
+    <p class="lead">
+      同一構図想定（16:9・斜面 center-right・左下テキスト帯）。本番採用前に Gemini 等で高解像度を再生成。
+      比較用モック — <code>CinematicHero</code> のグラデ・見出し位置を重ねたプレビュー。
+    </p>
+  </header>
+
+  <div class="grid">
+    <article class="card card-a">
+      <div class="card-head">
+        <div class="tag">案 A</div>
+        <h2>クールブルー</h2>
+        <p>寒色アルパイン。雪影・空を青系に統一。八甲田・津軽の「冷たい朝」。</p>
+      </div>
+      <div class="hero-mock">
+        <img src="hero-mock-a-blue.png" alt="案A クールブルー" />
+        <div class="grad"></div>
+        <div class="ui">
+          <div class="eyebrow">青森県七戸町</div>
+          <h3 class="title">七戸町営<br />スキー場</h3>
+          <div class="stat-label">積雪</div>
+          <div class="stat-value">85cm</div>
+          <span class="btn">今日の運営</span>
+        </div>
+      </div>
+      <div class="notes"><strong>向き:</strong> LAAX の「地形＋寒色空」と親和。マップ chrome を neutral に寄せる前提なら自然。</div>
+    </article>
+
+    <article class="card card-b">
+      <div class="card-head">
+        <div class="tag">案 B</div>
+        <h2>モノトーン</h2>
+        <p>銀白×チャコール。色を排しタイポと地形の形だけで勝負。</p>
+      </div>
+      <div class="hero-mock">
+        <img src="hero-mock-b-monochrome.png" alt="案B モノトーン" />
+        <div class="grad" style="background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 25%), rgb(0 0 0 / 55%));"></div>
+        <div class="ui">
+          <div class="eyebrow">青森県七戸町</div>
+          <h3 class="title">七戸町営<br />スキー場</h3>
+          <div class="stat-label">積雪</div>
+          <div class="stat-value">85cm</div>
+          <span class="btn">今日の運営</span>
+        </div>
+      </div>
+      <div class="notes"><strong>向き:</strong> 編集系・Award タイポ向き。UI は白文字＋細いボーダーに切替が必要。</div>
+    </article>
+
+    <article class="card card-c">
+      <div class="card-head">
+        <div class="tag">案 C</div>
+        <h2>ウォーム・エディトリアル</h2>
+        <p>蜂蜜×クリームの朝光。林の幹・雪面に温かみ。プレミアム地方観光の信頼感。</p>
+      </div>
+      <div class="hero-mock">
+        <img src="hero-mock-c-warm-editorial.png" alt="案C ウォームエディトリアル" />
+        <div class="grad"></div>
+        <div class="ui">
+          <div class="eyebrow">青森県七戸町</div>
+          <h3 class="title">七戸町営<br />スキー場</h3>
+          <div class="stat-label">積雪</div>
+          <div class="stat-value">85cm</div>
+          <span class="btn">今日の運営</span>
+        </div>
+      </div>
+      <div class="notes"><strong>向き:</strong> 町営の「やさしさ・家族向け」を写真で伝える。緑レール UI とは別軸で整理推奨。</div>
+    </article>
+  </div>
+
+  <footer>
+    ファイル: <code>docs/preview/hero-mock-*.png</code> · プレビュー: この HTML をブラウザで開く（file:// 可）<br />
+    本番ルール: <code>docs/asset_brief.md</code> — 採用後のみ <code>public/images/hero-sichinohe.png</code> に配置
+  </footer>
+</body>
+</html>

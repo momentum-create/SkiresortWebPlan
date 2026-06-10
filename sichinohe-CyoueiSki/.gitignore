@@ -1,0 +1,8 @@
+# Root-level (詳細は web/.gitignore に準じる)
+
+*.log
+.DS_Store
+Thumbs.db
+
+# 内部資料・未公開ワード（リポジトリに載せない）
+*.docx

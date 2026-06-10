@@ -1,0 +1,89 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lift-pair",
+        "name": "ペアリフト",
+        "type": "lift",
+        "liftType": "chair_lift",
+        "source": "OpenStreetMap way/631879096",
+        "status": "draft"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.0997309,
+            40.69845
+          ],
+          [
+            141.0995525,
+            40.6984175
+          ],
+          [
+            141.0990576,
+            40.698332
+          ],
+          [
+            141.0983214,
+            40.6982009
+          ],
+          [
+            141.0979177,
+            40.6981277
+          ],
+          [
+            141.0974872,
+            40.6980535
+          ],
+          [
+            141.0968891,
+            40.6979416
+          ],
+          [
+            141.0964492,
+            40.6978725
+          ],
+          [
+            141.0959128,
+            40.6977637
+          ],
+          [
+            141.0954407,
+            40.6976844
+          ],
+          [
+            141.0952757,
+            40.6976589
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "lift-pony",
+        "name": "ポニーリフト",
+        "type": "lift",
+        "liftKind": "surface",
+        "liftType": "rope_tow",
+        "source": "国土地理院正射東側ベース + skimap照合（OSM未登録・要現地確認）"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.0995,
+            40.69726
+          ],
+          [
+            141.1003,
+            40.69744
+          ]
+        ]
+      }
+    }
+  ]
+}

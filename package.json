@@ -1,0 +1,35 @@
+{
+  "name": "skiresort-web-template",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "preview:site": "node scripts/build-static-preview.mjs && node scripts/build-evaluation-html.mjs",
+    "preview:evaluation": "node scripts/build-evaluation-html.mjs",
+    "preview:static": "node scripts/build-static-preview.mjs && node scripts/build-evaluation-html.mjs && npx --yes serve public -p 5500",
+    "preview:map": "node sichinohe-CyoueiSki/scripts/build-map-preview.mjs && node sichinohe-CyoueiSki/scripts/build-calibration-qa.mjs && node scripts/build-static-preview.mjs && node scripts/build-evaluation-html.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^11.18.2",
+    "next": "16.2.4",
+    "next-intl": "^4.13.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.4",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

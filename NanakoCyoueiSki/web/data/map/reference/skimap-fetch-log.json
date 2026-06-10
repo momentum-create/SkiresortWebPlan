@@ -1,0 +1,21 @@
+{
+  "tried": [
+    {
+      "url": "https://skimap.org/SkiAreas/maps/1345/2012.jpg",
+      "status": 404
+    },
+    {
+      "url": "https://www.skimap.org/SkiAreas/maps/1345/2012.jpg",
+      "status": 404
+    },
+    {
+      "url": "https://skimap.org/SkiAreas/maps/1345/2012.png",
+      "status": 404
+    },
+    {
+      "url": "https://assets.skimap.org/maps/1345/2012.jpg",
+      "error": "TypeError: fetch failed"
+    }
+  ],
+  "note": "手動で skimap 2012 を保存し skimap-2012.jpg に配置"
+}

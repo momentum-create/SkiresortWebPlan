@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "2026-06-01",
+  "resortId": "nanako-choei-ski",
+  "name": "七戸町営スキー場",
+  "mapAsset": "/maps/nanako-hero.png",
+  "heroImage": {
+    "src": "/maps/nanako-hero.png",
+    "width": 1536,
+    "height": 1024,
+    "viewBox": "0 0 1536 1024",
+    "projection": "gsi-skimap-illustrated-similarity",
+    "attribution": "パンフレット風俯瞰イラスト",
+    "credit": "リフト: OSM + skimap照合キャリブ"
+  },
+  "disclaimer": "パンフレット風イラスト。リフト位置は Google Earth Studio + skimap + OSM で調整中。",
+  "sources": [
+    "Skimap.org SkiAreas/view/1345（参考イラスト）",
+    "OpenStreetMap way/631879096（ペアリフト概略）"
+  ],
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "label": "ペアリフト",
+      "shortLabel": "ペア",
+      "liftKind": "pair",
+      "meta": {
+        "所要": "約4分",
+        "区分": "メインリフト"
+      }
+    },
+    {
+      "id": "lift-pony",
+      "type": "lift",
+      "label": "ポニーリフト",
+      "shortLabel": "ポニー",
+      "liftKind": "surface",
+      "meta": {
+        "区分": "初級エリア",
+        "券種": "ペアリフト券と共通"
+      }
+    },
+    {
+      "id": "trail-champion",
+      "type": "trail",
+      "label": "チャンピオン（上級）",
+      "shortLabel": "チャンピオン",
+      "difficulty": "advanced",
+      "meta": {
+        "距離": "約400m",
+        "雪面": "非圧雪（上部）",
+        "最大斜度": "35度（要確認）"
+      }
+    },
+    {
+      "id": "trail-upper",
+      "type": "trail",
+      "label": "上部エリア（中〜上級）",
+      "shortLabel": "上部",
+      "difficulty": "intermediate-advanced",
+      "meta": {
+        "雪面": "圧雪 / 非圧雪（要確認）"
+      }
+    },
+    {
+      "id": "trail-intermediate",
+      "type": "trail",
+      "label": "中斜面コース（中級）",
+      "shortLabel": "中斜面",
+      "difficulty": "intermediate",
+      "meta": {
+        "特徴": "カービング向け整地（要確認）"
+      }
+    },
+    {
+      "id": "trail-pony",
+      "type": "trail",
+      "label": "ポニーリフト周辺（初級）",
+      "shortLabel": "初級",
+      "difficulty": "beginner",
+      "meta": {
+        "雪面": "圧雪",
+        "特徴": "ワイドな緩斜面"
+      }
+    }
+  ]
+}

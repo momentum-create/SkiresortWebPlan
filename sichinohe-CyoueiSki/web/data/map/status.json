@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "2026-06-01",
+  "resortId": "sichinohe-choei-ski",
+  "updatedAt": "2026-06-10T05:25:49.293Z",
+  "features": [
+    {
+      "id": "lift-pair",
+      "status": "operating"
+    },
+    {
+      "id": "lift-pony",
+      "status": "stopped"
+    },
+    {
+      "id": "trail-champion",
+      "status": "open"
+    },
+    {
+      "id": "trail-upper",
+      "status": "open"
+    },
+    {
+      "id": "trail-intermediate",
+      "status": "open"
+    },
+    {
+      "id": "trail-forest",
+      "status": "open"
+    },
+    {
+      "id": "trail-pony",
+      "status": "open"
+    }
+  ]
+}

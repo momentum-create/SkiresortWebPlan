@@ -1,0 +1,28 @@
+# 静的プレビュー同期（厳守）
+
+## 対象
+
+- `public/preview/index.html`
+- `public/preview/courses.html`
+- `docs/preview/alpine-clarity-v2.html`
+- スタイル: `public/preview/static-preview.css`
+
+## 生成元（手編集禁止）
+
+`scripts/build-static-preview.mjs` が `messages/ja.json` から上記 HTML を再生成する。
+
+**HTML を直接編集しない。** 文言・導線の変更は `messages/ja.json`（または `scripts/build-static-preview.mjs` のデータ定数）を直し、`npm run preview:site` を実行する。
+
+## いつ走らせるか
+
+| 変更内容 | コマンド |
+|----------|----------|
+| explore / courses / nav / hero / tickets 文言 | `npm run preview:site` |
+| マップデータ・ヒットボックス | `npm run preview:map`（末尾で site 同期） |
+| ローカル確認 | `npm run preview:static`（site 同期 + :5500） |
+
+## 導線（Next テンプレと一致）
+
+- Bento 1枚目・CTA 副ボタン → `courses.html`（コースガイド）
+- `courses.html` → `../maps/map-preview.html`（iframe）
+- ヘッダー・ボトムナビ → コース / マップ / チケット / アクセス

@@ -1,0 +1,89 @@
+# Root template subagents — SkiresortWebPlan/.cursor/agents/
+# Sync with AGENTS.md when updating.
+
+version: 1
+fleet: resort-template
+app_root: .
+stack: nextjs-app-router
+
+pipeline:
+  default:
+    - resort-ux-designer
+    - resort-design-director
+    - resort-spec-handoff
+    - resort-template-implementer
+    - resort-qa-a11y
+    - resort-visual-evaluator
+  i18n:
+    - resort-i18n-spec
+    - resort-spec-handoff
+    - resort-template-implementer
+    - resort-qa-a11y
+  live_status:
+    - resort-live-status-spec
+    - resort-spec-handoff
+    - resort-template-implementer
+    - resort-qa-a11y
+  map_bridge:
+    - resort-map-bridge
+    # full map UI → sichinohe-CyoueiSki fleet
+
+agents:
+  - name: resort-ux-designer
+    layer: L1
+    file: .cursor/agents/resort-ux-designer.md
+    output: docs/design_concepts.md
+    code: false
+
+  - name: resort-design-director
+    layer: L1
+    file: .cursor/agents/resort-design-director.md
+    output: docs/final_requirements.md
+    code: false
+    requires: [resort-ux-designer]
+
+  - name: resort-i18n-spec
+    layer: L1
+    file: .cursor/agents/resort-i18n-spec.md
+    output: docs/i18n_requirements.md
+    code: false
+
+  - name: resort-live-status-spec
+    layer: L1
+    file: .cursor/agents/resort-live-status-spec.md
+    output: docs/live_status_contract.md
+    code: false
+
+  - name: resort-map-bridge
+    layer: L1
+    file: .cursor/agents/resort-map-bridge.md
+    output: docs/map_integration_spec.md
+    code: false
+
+  - name: resort-spec-handoff
+    layer: L1-L2
+    file: .cursor/agents/resort-spec-handoff.md
+    output: docs/handoff_checklist.md
+    code: false
+
+  - name: resort-template-implementer
+    layer: L2
+    file: .cursor/agents/resort-template-implementer.md
+    requires: [resort-spec-handoff]
+    code: true
+
+  - name: resort-qa-a11y
+    layer: L3
+    file: .cursor/agents/resort-qa-a11y.md
+    output: docs/qa_report.md
+    code: false
+    rubric: Q1-Q6
+
+  - name: resort-visual-evaluator
+    layer: L3
+    file: .cursor/agents/resort-visual-evaluator.md
+    prompt: agents/resort-visual-evaluator.prompt.md
+    output: docs/qa_report_visual.md
+    code: false
+    rubric: V1-V6
+    requires_ship_with: [resort-qa-a11y]

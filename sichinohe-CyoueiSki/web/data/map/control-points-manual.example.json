@@ -1,0 +1,48 @@
+{
+  "image": {
+    "width": 3840,
+    "height": 2560,
+    "src": "/maps/sichinohe-hero-earthstudio.png"
+  },
+  "camera": {
+    "center": [141.099714, 40.69839],
+    "altitudeM": 1500,
+    "pitchDeg": 60,
+    "headingDeg": 290,
+    "season": "winter"
+  },
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 0,
+      "py": 0,
+      "role": "OSM way/631879096 下駅側 — Earth Studio 画像でマーク"
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 0,
+      "py": 0,
+      "role": "OSM way/631879096 上駅側 — Earth Studio 画像でマーク"
+    },
+    {
+      "id": "base-lodge",
+      "lng": 141.0999,
+      "lat": 40.6981,
+      "px": 0,
+      "py": 0,
+      "role": "町営ヒュッテ付近（任意）"
+    },
+    {
+      "id": "parking",
+      "lng": 141.1001,
+      "lat": 40.6975,
+      "px": 0,
+      "py": 0,
+      "role": "駐車場中央（任意）"
+    }
+  ]
+}

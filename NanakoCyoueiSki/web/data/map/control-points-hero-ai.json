@@ -1,0 +1,50 @@
+{
+  "image": {
+    "width": 1536,
+    "height": 1024,
+    "src": "/maps/nanako-hero.png"
+  },
+  "baseline": "GSI+skimap2012照合イラスト v2",
+  "calibratedAt": "2026-06-05",
+  "pipeline": "手順1 GSI → 2 skimap → 3 イラスト生成(GSI+skimap+スタイル参照) → 5 端点キャリブ → 6 align-hero-gsi",
+  "references": [
+    "nanako-hero-gsi.png（国土地理院正射）",
+    "reference/skimap-2012.jpg",
+    "nanako-hero-illustrated.png（スタイル参照）"
+  ],
+  "notes": "ペアリフト: OSM way/631879096。ポニー: GSI正射+skimap（OSM未登録）。4点アフィンで絵に合わせ。",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 688,
+      "py": 782,
+      "role": "ペアリフト下駅（イラスト基部）"
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 642,
+      "py": 152,
+      "role": "ペアリフト上駅（イラスト山頂）"
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 1272,
+      "py": 688,
+      "role": "ポニー下（東側バーン）"
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 1208,
+      "py": 538,
+      "role": "ポニー上"
+    }
+  ]
+}

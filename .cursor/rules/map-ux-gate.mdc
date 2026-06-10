@@ -1,0 +1,36 @@
+---
+description: マップUI変更時は主コンテンツ（地図画像）を覆わない。map-ux-evaluator 必須。
+globs: sichinohe-CyoueiSki/web/src/components/lift-map/**/*,sichinohe-CyoueiSki/web/public/maps/**/*,sichinohe-CyoueiSki/scripts/build-map-preview.mjs
+alwaysApply: false
+---
+
+# マップUXゲート
+
+## 原則
+
+**地図が主役。** 運行状況リスト・凡例・ヘッダーは地図を覆わない。
+
+## 禁止
+
+1. 地図 stage 内への `absolute` / `fixed` 運行状況パネル（特に bottom-center）
+2. デフォルト表示で地図基部（リフト下駅・駐車場）を二次UIが隠す配置
+3. モバイルで地図可視領域が 50dvh 未満になる常時リスト
+4. **R6**: scale=1 でパン可能、または scale>1 で translate 未クランプ（地図外の `#0c1220` 等が露出）
+
+## 許可パターン
+
+| 画面 | 運行状況の置き方 |
+|------|------------------|
+| `/map` デスクトップ | 右サイドバー（flex 兄弟） |
+| `/map` モバイル | FAB → ボトムシート（初期閉） |
+| `map-preview.html` | `.main` flex 分割（地図 \| サイドバー） |
+
+## エージェント行動
+
+- 上記 globs を変更したら **必ず** `agents/16-map-ux-evaluator.prompt.md` に従い評価する
+- R1（主コンテンツ非遮蔽）または R6（パン境界）が FAIL なら **マージ・出荷不可**
+- 幾何データ品質は `lift-map-no-fake-overlays.mdc` + code-reviewer に委譲
+
+## 再発防止（2026-06-07）
+
+`map-preview.html` の bottom overlay rail は UX インシデント。**二度と absolute 配置で運行状況を載せない。**

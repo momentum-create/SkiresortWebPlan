@@ -1,0 +1,51 @@
+{
+  "image": {
+    "width": 1536,
+    "height": 1024,
+    "src": "/maps/sichinohe-hero.png"
+  },
+  "baseline": "layout-v3 — style plate v2 + official pamphlet layout (2026-06-05)",
+  "calibratedAt": "2026-06-05",
+  "pipeline": "img2img layout-v3 → manual lift anchor on illustrated hero",
+  "references": [
+    "reference/style-plate-v2.png",
+    "reference/official-map-trace-source.png",
+    "reference/sichinohe-hero-layout-v3-candidate.png",
+    "official-map-layout.json"
+  ],
+  "notes": "v3イラスト上のリフト端点。公式マップの位置関係（左周回・中央ペア・右ポニー）を反映。",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 710,
+      "py": 810,
+      "role": "ペア下駅（ロッジ直上・v3）"
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 560,
+      "py": 135,
+      "role": "ペア上駅（山頂・v3）"
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 1240,
+      "py": 730,
+      "role": "ポニー下（右初級斜面・v3）"
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 1175,
+      "py": 565,
+      "role": "ポニー上（v3）"
+    }
+  ]
+}

@@ -1,0 +1,333 @@
+{
+  "meta": {
+    "siteName": "七戸町営スキー場",
+    "defaultDescription": "青森県七戸町の町営スキー場。今日の運営・積雪・アクセス・コース情報を掲載しています。"
+  },
+  "nav": {
+    "home": "ホーム",
+    "today": "今日の運営",
+    "access": "アクセス",
+    "map": "ゲレンデマップ",
+    "liveCams": "ライブカメラ",
+    "tickets": "料金",
+    "faq": "FAQ",
+    "contact": "問い合わせ",
+    "news": "お知らせ",
+    "ariaMain": "メイン"
+  },
+  "a11y": {
+    "skipToContent": "メインコンテンツへ移動"
+  },
+  "home": {
+    "transitTitle": "新幹線から近い、町営の雪山",
+    "transitBody": "東北新幹線七戸十和田駅からアクセスしやすい立地。パウダー志向の上級者からファミリー・初心者まで、目的に合わせて選べるゲレンデです。",
+    "todayLink": "今日の運営・雪を見る",
+    "accessLink": "アクセスを確認",
+    "planTitle": "特集ページ",
+    "planBody": "来場目的に合わせた案内ページです。",
+    "transitEyebrow": "Transit Resort",
+    "transitImageAlt": "東北新幹線と雪山を結ぶトランジットのイメージ",
+    "hero": {
+      "todayCta": "今日の運営",
+      "revealLabel": "運行・積雪の詳細",
+      "freshnessLabel": "更新",
+      "staffVerified": "スタッフ確認"
+    },
+    "pathMagnet": {
+      "eyebrow": "Navigate",
+      "title": "山へ向かう",
+      "faqLink": "FAQ・詳細仕様",
+      "todayLabel": "Today",
+      "todayTitle": "今日の運営",
+      "accessLabel": "Access",
+      "accessTitle": "アクセス",
+      "mapLabel": "Terrain",
+      "mapTitle": "ゲレンデマップ",
+      "ticketsLabel": "Tickets",
+      "ticketsTitle": "料金"
+    },
+    "liveCam": {
+      "eyebrow": "Live",
+      "title": "Now",
+      "allCams": "全カメラ"
+    },
+    "audience": {
+      "eyebrow": "Your mountain",
+      "title": "選ぶ冒険",
+      "powderTitle": "Powder",
+      "powderBody": "非圧雪・上部エリア。競争の少ない雪質を求める方向け。",
+      "powderCta": "Explore",
+      "familyTitle": "Family",
+      "familyBody": "緩斜面・講習・ナイター。はじめてでも安心のエリア。",
+      "familyCta": "Beginners guide"
+    },
+    "news": {
+      "eyebrow": "News",
+      "all": "すべて"
+    },
+    "guides": {
+      "eyebrow": "Guides",
+      "read": "読む",
+      "transitPowderTitle": "Transit Powder",
+      "transitPowderSummary": "駅近アクセスで狙う、七戸のパウダー体験。",
+      "transitShinkansenTitle": "Transit Shinkansen",
+      "transitShinkansenSummary": "東北新幹線を軸にした、短時間の雪山トリップ。",
+      "beginnersTitle": "Beginners Hidden Gem",
+      "beginnersSummary": "初めての方・ファミリー向けの緩やかな滑走案内。"
+    }
+  },
+  "footer": {
+    "copyright": "© 七戸町営スキー場"
+  },
+  "lang": {
+    "switch": "言語",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "liveCams": {
+    "title": "ライブカメラ",
+    "description": "ゲレンデのライブ映像です。設置・配信準備が完了次第、リアルタイム映像を表示します。",
+    "eyebrow": "Live",
+    "previewTitle": "ライブカメラ",
+    "viewAll": "すべて見る",
+    "iframeTitle": "ライブ映像",
+    "altPreparing": "（映像準備中）",
+    "defaultPlaceholder": "ライブカメラは設置準備中です。配信開始後に映像が表示されます。",
+    "status": {
+      "preparing": "準備中",
+      "offline": "停止中",
+      "live": "配信中"
+    }
+  },
+  "today": {
+    "title": "今日の運営・雪",
+    "description": "七戸町営スキー場の積雪・降雪・リフト運行などの最新情報（運用開始後に更新予定）。",
+    "eyebrow": "Conditions",
+    "shellDescription": "運営開始後、公式が確認した内容のみを掲載します。時刻・数値は変わることがあります。",
+    "heroLead": "今日の積雪と運行状況を、はじめにご確認ください。",
+    "prepLastUpdated": "運用準備中"
+  },
+  "access": {
+    "title": "アクセス",
+    "description": "東北新幹線「七戸十和田駅」方面から七戸町営スキー場へのアクセス概要（詳細・運賃は公式確認）。",
+    "eyebrow": "Transit",
+    "shellDescription": "公共交通機関の時刻・運賃は季節やダイヤで変わります。必ず交通機関・タクシーの公式情報でご確認ください。",
+    "foldTitle": "新幹線・アクセスの骨子"
+  },
+  "contact": {
+    "title": "問い合わせ",
+    "description": "問い合わせ先と連絡方法を掲載します。",
+    "eyebrow": "Contact",
+    "shellDescription": "電話・フォームなどの連絡方法は準備中です。急ぎの場合は公式案内をご確認ください。",
+    "generalTitle": "一般問い合わせ",
+    "groupTitle": "団体・取材",
+    "phone": "電話",
+    "hours": "受付時間",
+    "email": "メール",
+    "form": "フォーム"
+  },
+  "news": {
+    "title": "お知らせ",
+    "description": "七戸町営スキー場からの最新情報を掲載します。",
+    "eyebrow": "News",
+    "shellDescription": "現在、初期公開に向けてコンテンツ準備中です。"
+  },
+  "ticketsRental": {
+    "title": "料金・レンタル",
+    "description": "リフト券・レンタル・支払い方法の情報を順次掲載します。",
+    "eyebrow": "Tickets",
+    "shellDescription": "券種、レンタル内容、支払い方法は公式確認後に更新します。",
+    "ticketsSection": "リフト券",
+    "rentalSection": "レンタル",
+    "paymentSection": "支払い方法",
+    "cols": {
+      "ticketName": "券種",
+      "price": "料金",
+      "note": "メモ",
+      "item": "項目",
+      "status": "状況",
+      "method": "方法",
+      "paymentStatus": "対応状況"
+    },
+    "tableAria": {
+      "tickets": "リフト券料金",
+      "rentals": "レンタル",
+      "payments": "支払い方法"
+    }
+  },
+  "lessonsEvents": {
+    "title": "スクール・イベント",
+    "description": "スクール受付やイベント情報を順次掲載します。",
+    "eyebrow": "School",
+    "shellDescription": "講習、無料ナイター講習、イベント予定は公式確認後に掲載します。",
+    "time": "時間",
+    "target": "対象"
+  },
+  "stayLocal": {
+    "title": "周辺情報",
+    "description": "温泉・食・滞在情報を公式確認のうえ順次掲載します。",
+    "eyebrow": "Local",
+    "shellDescription": "周辺温泉・食事・滞在モデルコースは、提携表現や営業時間を確認してから掲載します。"
+  },
+  "liftDeals": {
+    "title": "リフト割引・提携情報",
+    "description": "リフト券や旅行商品の提携情報を掲載予定です。広告・アフィリエイト表記の方針に従って公開します。",
+    "eyebrow": "Deals",
+    "shellDescription": "リフト割引・旅行商品連携を掲載するページです。公開時は「広告」「プロモーション」等の表示義務に従って掲出します。"
+  },
+  "plan": {
+    "beginnersHiddenGem": {
+      "title": "Beginners Hidden Gem",
+      "titleLines": ["Beginners", "Hidden Gem"],
+      "metaDescription": "初心者・ファミリー向けに、緩斜面・講習・ローカル体験を整理する準備ページです。",
+      "eyebrow": "Family",
+      "shellDescription": "初めて雪に触れる来場者向けに、安心導線・講習・周辺体験をまとめるLP骨格です。",
+      "lead": "準備版ページです。公開時に緩斜面マップ・講習予約導線・ファミリー向けTipsを追加します。",
+      "ctaLessons": "スクール・イベント",
+      "ctaCourses": "コース一覧"
+    },
+    "transitShinkansen": {
+      "title": "Transit Shinkansen",
+      "titleLines": ["Transit", "Shinkansen"],
+      "metaDescription": "東北新幹線利用者向けに、途中下車・短時間利用を想定した導線を示す準備ページです。",
+      "eyebrow": "Shinkansen",
+      "shellDescription": "新幹線利用でのアクセス性、滞在時間の使い方、運行確認ページへの導線を整理するLP骨格です。",
+      "lead": "準備版ページです。公開時に新幹線ダイヤ連携・所要時間・当日チェックリストを追加します。",
+      "ctaAccess": "アクセス",
+      "ctaToday": "今日の運営"
+    },
+    "transitPowder": {
+      "title": "Transit Powder",
+      "titleLines": ["Transit", "Powder"],
+      "metaDescription": "駅からの移動負荷を抑えつつ、パウダー滑走を狙う方向けのモデルページ（準備版）です。",
+      "eyebrow": "Powder",
+      "shellDescription": "「Aomori powder ski access」等の高意図クエリ向けLP骨格です。アクセス短縮・運行確認・パウダー導線の3点で構成します。",
+      "lead": "準備版ページです。公開時にコース紹介・雪質ガイド・当日確認フローを追加します。",
+      "ctaToday": "今日の運営",
+      "ctaAccess": "アクセス"
+    }
+  },
+  "common": {
+    "loadingEyebrow": "Loading",
+    "loadingMessage": "読み込み中です。初回は10秒ほどかかることがあります。"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "よくある質問",
+    "description": "来場前によくいただく質問をまとめています。"
+  },
+  "coursesPage": {
+    "intro": "上のマップでリフト・コースの運行状況を確認できます。下の一覧で距離・斜度・雪面などコースごとのスペックを参照してください。",
+    "sectionTitle": "コース一覧（距離・斜度）",
+    "sectionDescription": "コースごとの距離・斜度・圧雪/非圧雪・公開状況は公式確認後に掲載します。",
+    "gsiMap": "公式地形図（国土地理院）"
+  },
+  "map": {
+    "page": {
+      "title": "ゲレンデマップ",
+      "description": "リフト・コースの運行状況と距離・斜度を地図上で確認できます。"
+    },
+    "resortFallback": "七戸町営スキー場",
+    "aria": {
+      "terrainMap": "ゲレンデマップ",
+      "terrainMapLayer": "ゲレンデマップ操作層",
+      "status": "運行状況",
+      "menu": "マップメニュー",
+      "quickNav": "サイト内ナビ",
+      "statusColors": "運行状況の色",
+      "close": "閉じる",
+      "deselect": "選択解除"
+    },
+    "chrome": {
+      "eyebrow": "Resort Map",
+      "fullTitle": "ゲレンデマップ",
+      "lastUpdated": "最終更新 {time}",
+      "refresh": "更新",
+      "backHome": "トップへ",
+      "openFull": "ゲレンデマップを全画面で",
+      "previewBadge": "プレビュー",
+      "coursesGuide": "コースガイド（距離・斜度）"
+    },
+    "filters": {
+      "lifts": "リフト",
+      "trails": "コース"
+    },
+    "status": {
+      "title": "運行状況",
+      "operating": "運転中",
+      "open": "滑走可",
+      "stopped": "停止",
+      "closed": "閉鎖",
+      "hold": "確認中",
+      "partial": "一部",
+      "unknown": "確認中",
+      "legendOperating": "稼働",
+      "legendStopped": "停止",
+      "legendHold": "確認中",
+      "fetchFailed": "運行状況の取得に失敗しました。",
+      "retrying": "再試行中…"
+    },
+    "legend": {
+      "title": "凡例",
+      "expand": "開く",
+      "collapse": "閉じる",
+      "summary": "稼働 / 停止 / 確認中",
+      "difficultyTitle": "コース難易度",
+      "beginner": "初級",
+      "intermediate": "中級",
+      "advanced": "上級",
+      "lift": "リフト",
+      "stoppedHatch": "停止時ハッチ"
+    },
+    "groups": {
+      "lifts": "リフト",
+      "trails": "コース",
+      "lift": "リフト",
+      "trail": "コース"
+    },
+    "fab": {
+      "zoomIn": "拡大",
+      "zoomOut": "縮小",
+      "reset": "全体表示"
+    },
+    "hero": {
+      "alt": "七戸町営スキー場 俯瞰マップ"
+    },
+    "errors": {
+      "mapLoadFailed": "マップデータを読み込めませんでした。",
+      "statusFetchFailed": "取得に失敗しました"
+    },
+    "detail": {
+      "updated": "更新 {time}"
+    },
+    "search": {
+      "label": "リフト・コースを検索",
+      "placeholder": "名前で検索…",
+      "noResults": "該当するリフト・コースがありません",
+      "clear": "検索をクリア"
+    },
+    "stale": {
+      "banner": "運行状況の更新に失敗しています",
+      "retry": "再試行"
+    },
+    "live": {
+      "badge": "ライブ"
+    },
+    "difficulty": {
+      "label": "コース難易度で絞り込み",
+      "all": "すべて",
+      "beginner": "初級",
+      "intermediate": "中級",
+      "advanced": "上級"
+    },
+    "location": {
+      "title": "現在地",
+      "hint": "屋外で GPS を許可すると、ゲレンデ中心からの距離を表示します（地図上には点を描画しません）。",
+      "action": "距離を取得",
+      "loading": "取得中…",
+      "distance": "ゲレンデ中心から約 {km} km",
+      "denied": "位置情報の利用が許可されていません",
+      "unsupported": "この端末では位置情報を利用できません"
+    }
+  }
+}

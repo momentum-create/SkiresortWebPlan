@@ -1,0 +1,30 @@
+---
+description: マップ操作は17 spec → 19 実装 → 18 評価。リスト選択で sheet 禁止。
+globs: sichinohe-CyoueiSki/web/src/components/lift-map/**/*,sichinohe-CyoueiSki/web/public/maps/**/*,sichinohe-CyoueiSki/scripts/build-map-preview.mjs
+alwaysApply: false
+---
+
+# マップインタラクションゲート
+
+## パイプライン（順序固定）
+
+1. **17 map-interaction-spec** — 状態遷移を先に書く（コード禁止）
+2. **19 map-ui-implementer** — spec 通りに実装
+3. **16 + 18** — レイアウトとクリック後を評価（両方 PASS）
+
+## 禁止
+
+1. リスト/FAB 選択で `fixed` bottom sheet / 全幅モーダルを地図上に出す
+2. 情報2行程度の詳細に viewport 20% 超の UI
+3. md+ サイドバー表示中に第二 overlay（FeatureSheet 等）
+4. spec なしでマップ UI を「バイブ」実装
+
+## 許可
+
+- サイドバー内 `MapFeatureDetail` / `.rail-detail` インライン展開
+- モバイル: 単一ボトムパネル内で選択+詳細完結
+- 地図上はパン・ズームのみ
+
+## 再発防止（2026-06-07）
+
+`map-preview.html` の `#sheet` クリック overlay はインシデント。**選択詳細は rail 内のみ。**

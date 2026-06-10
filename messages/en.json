@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "siteName": "Sichinohe Town Ski Area",
+    "tagline": "Sichinohe, Aomori — municipal ski area",
+    "description": "Forest runs at the foot of Mt. Hakkoda. Gentle pitches for families and quality powder.",
+    "copyright": "© 2026 Sichinohe Town Ski Area. All rights reserved."
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Map",
+    "ticket": "Tickets",
+    "today": "Today",
+    "access": "Access",
+    "courses": "Courses",
+    "tickets": "Tickets",
+    "todayStatus": "Today's Status",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "stay": "Stay",
+    "main": "Main"
+  },
+  "lang": {
+    "switch": "Language",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "a11y": {
+    "openMenu": "Open menu",
+    "menu": "Menu",
+    "mobileMenu": "Mobile menu",
+    "bottomNav": "Bottom navigation",
+    "todayStatus": "Today's conditions",
+    "skipToContent": "Skip to main content"
+  },
+  "hero": {
+    "imageAlt": "Sichinohe Town Ski Area — panoramic winter slope and forest at the foot of Hakkoda",
+    "overlayLine1": "At the foot of Hakkoda,",
+    "overlayLine2": "runs through the forest.",
+    "descriptionLine1": "Forest trails beneath the Hakkoda foothills.",
+    "descriptionLine2": "Gentle intermediate slopes for families,",
+    "descriptionLine3": "and quality powder snow."
+  },
+  "liveStatus": {
+    "liveLabel": "Live",
+    "snow": "Snow depth",
+    "weather": "Weather",
+    "lifts": "Lifts",
+    "operating": "operating",
+    "updated": "Updated",
+    "weatherValues": {
+      "sunny": "Sunny"
+    }
+  },
+  "cta": {
+    "buyTickets": "Buy Tickets",
+    "todayStatus": "Today's Status"
+  },
+  "explore": {
+    "eyebrow": "Explore",
+    "title": "Discover the mountain",
+    "description": "Courses, lessons, lodging, and events — find what you need fast.",
+    "items": {
+      "courses": {
+        "title": "Resort Map",
+        "description": "Live status, distance and slope on one map",
+        "badge": "Live"
+      },
+      "lessons": {
+        "title": "Lessons & School",
+        "description": "Small-group lessons for kids and adults"
+      },
+      "stay": {
+        "title": "Stay Packages",
+        "description": "Slope-side lodges with hot springs",
+        "badge": "Hot spring"
+      },
+      "events": {
+        "title": "Events",
+        "description": "Night skiing, fireworks, kids' days"
+      }
+    }
+  },
+  "tickets": {
+    "eyebrow": "Tickets",
+    "title": "Pricing & Tickets",
+    "description": "Save with early-bird web tickets. Day-of purchase available at the gate.",
+    "buy": "Buy Now",
+    "unit": "Adult",
+    "badges": {
+      "popular": "Most Popular"
+    },
+    "plans": {
+      "day": {
+        "name": "Day Pass",
+        "description": "Buy on-site. Unlimited lift access all day.",
+        "features": ["All lifts included", "Same-day purchase", "Child discounts available"]
+      },
+      "early": {
+        "name": "Early-Bird Day Pass",
+        "description": "Book online by 5 PM the day before and save.",
+        "features": ["Web exclusive", "Book by 5 PM prior day", "All lifts included"]
+      },
+      "season": {
+        "name": "Season Pass",
+        "description": "Unlimited skiing all season long.",
+        "features": ["Full season access", "Refer-a-friend discount", "10% off rentals"]
+      }
+    }
+  },
+  "news": {
+    "eyebrow": "News",
+    "title": "News",
+    "viewAll": "View all",
+    "categories": {
+      "notice": "Notice",
+      "event": "Event",
+      "snow": "Snow Report"
+    },
+    "items": {
+      "1": {
+        "title": "Night skiing is now open"
+      },
+      "2": {
+        "title": "Kids ski school registration open"
+      },
+      "3": {
+        "title": "128 cm base — best conditions of the season"
+      }
+    }
+  },
+  "courses": {
+    "eyebrow": "Terrain",
+    "title": "Course Guide",
+    "description": "Resort map and published trail overview. Distances and grades will be posted after official confirmation.",
+    "notice": "Map is an offline preview. For live status, use the production /map page on the resort site.",
+    "mapAria": "Resort map",
+    "mapHint": "Tap trails and lifts or use the list to check operating status.",
+    "openMap": "Open full map",
+    "items": {
+      "champion": {
+        "name": "Champion (advanced)",
+        "level": "Advanced",
+        "summary": "Steep upper section with ungroomed terrain."
+      },
+      "upper": {
+        "name": "Upper area (intermediate–advanced)",
+        "level": "Intermediate–advanced",
+        "summary": "Long run from the upper pair lift."
+      },
+      "intermediate": {
+        "name": "Intermediate slope",
+        "level": "Intermediate",
+        "summary": "Groomed carving-friendly pitch."
+      },
+      "forest": {
+        "name": "Forest loop (beginner, course 4)",
+        "level": "Beginner",
+        "summary": "Gentle loop through the trees."
+      },
+      "pony": {
+        "name": "Pony lift area (beginner)",
+        "level": "Beginner",
+        "summary": "Wide gentle slope for families."
+      }
+    }
+  },
+  "access": {
+    "eyebrow": "Access",
+    "title": "Access & Hours",
+    "transit": "2 hours from Tokyo Station by bullet train → 30-min free shuttle",
+    "addressLabel": "Address",
+    "address": "1-1 Yamasen-cho, Sample City, Sample Prefecture 000-0000, Japan",
+    "hoursLabel": "Hours",
+    "hours": "Lifts 8:30 AM–4:30 PM (Night skiing 6:00–9:00 PM)",
+    "mapButton": "View on Google Maps",
+    "mapPreview": "Map preview (replace with resort map image or embed in production)"
+  }
+}

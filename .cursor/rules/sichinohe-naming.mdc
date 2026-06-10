@@ -1,0 +1,19 @@
+---
+description: 七戸マップ資産・resortId は nanako ではなく sichinohe プレフィックスを使う
+alwaysApply: true
+---
+
+# 命名: Sichinohe（nanako 廃止）
+
+七戸町営スキー場の内部識別子・マップ資産は **`sichinohe`** を使う。`nanako` は使わない。
+
+| 旧 | 新 |
+|----|-----|
+| `nanako-choei-ski` | `sichinohe-choei-ski` |
+| `nanako-hero-v5.png` | `sichinohe-hero-v5.png` |
+| `nanako-hero.png` | `sichinohe-hero.png` |
+| `nanako-hero-gsi.png` 等 | `sichinohe-hero-gsi.png` 等 |
+
+- 本番作業ディレクトリ: `sichinohe-CyoueiSki/web/`（`NanakoCyoueiSki/` はレガシー・触らない）
+- トップヒーロー（非マップ）: 従来どおり `hero-sichinohe.png`（`public/images/`）
+- 新規スクリプト・JSON・manifest・ドキュメントに `nanako` を再導入しない

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>七戸町営スキー場 — トップ（モック）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #f8f9fb;
+      --foreground: #141a26;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --muted: #64748b;
+      --accent: #0b5f8c;
+      --accent-soft: #e8f4fa;
+      --accent-hover: #094d73;
+      --font-display: "Syne", sans-serif;
+      --font-body: "Noto Sans JP", "Hiragino Sans", sans-serif;
+      --font-mono: "IBM Plex Mono", monospace;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+      color: var(--foreground);
+      background: var(--background);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* header */
+    .site-header {
+      position: fixed;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      border-bottom: 1px solid rgb(255 255 255 / 40%);
+      background: rgb(255 255 255 / 72%);
+      backdrop-filter: blur(16px);
+    }
+    .site-header__inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 1rem clamp(1.25rem, 4vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .site-logo {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .site-nav {
+      display: none;
+      gap: 1.5rem;
+      font-size: 0.8125rem;
+    }
+    .site-nav a {
+      text-decoration: none;
+      opacity: 0.85;
+    }
+    .site-nav a:hover { opacity: 1; color: var(--accent); }
+    @media (min-width: 640px) { .site-nav { display: flex; } }
+
+    /* layout */
+    .home-inner {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding-inline: clamp(1.25rem, 4vw, 3rem);
+    }
+    .home-section { padding-block: clamp(5rem, 14vw, 9rem); }
+    .eyebrow {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .display-mega {
+      font-size: clamp(2.75rem, 11vw, 5.75rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1.02;
+      margin: 0;
+    }
+    .display-xl {
+      font-size: clamp(2.125rem, 7vw, 3.75rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin: 0;
+    }
+    .heading-lg {
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin: 0;
+    }
+    .lead {
+      font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+      line-height: 1.85;
+      color: var(--muted);
+      margin: 0;
+    }
+    .lead-whisper {
+      font-size: 0.8125rem;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.25rem;
+      padding: 0.875rem 2rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+    .btn-ghost:hover { background: var(--accent-soft); }
+
+    /* hero */
+    .hero {
+      position: relative;
+      min-height: 92svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      isolation: isolate;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .hero__grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgb(255 255 255 / 10%), rgb(255 255 255 / 20%), var(--background));
+    }
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 7rem clamp(1.25rem, 4vw, 3rem) 2.5rem;
+      max-width: 80rem;
+      margin: 0 auto;
+      width: 100%;
+    }
+    @media (min-width: 640px) { .hero__content { padding-bottom: 4rem; } }
+    .hero__stat-label {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin: 3.5rem 0 0;
+    }
+    @media (min-width: 640px) { .hero__stat-label { margin-top: 5rem; } }
+    .hero__stat-value {
+      font-family: var(--font-mono);
+      font-size: clamp(3.25rem, 16vw, 7rem);
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      margin: 0.5rem 0 0;
+    }
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .freshness {
+      font-size: 0.6875rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* transit */
+    .transit-grid {
+      display: grid;
+      gap: 0;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .transit-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    .transit-img {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      width: 88%;
+      overflow: hidden;
+      background: #dce8ee;
+    }
+    @media (min-width: 1024px) {
+      .transit-img { grid-column: 1 / 8; width: 100%; aspect-ratio: 3 / 4; }
+    }
+    .transit-img img { width: 100%; height: 100%; object-fit: cover; }
+    .transit-card {
+      position: relative;
+      z-index: 2;
+      width: 88%;
+      margin-left: 12%;
+      margin-top: -4rem;
+      background: #fff;
+      padding: 2rem;
+      box-shadow: 0 24px 64px rgb(20 26 38 / 8%);
+    }
+    @media (min-width: 1024px) {
+      .transit-card {
+        grid-column: 7 / 13;
+        margin: 0;
+        transform: translateY(-3rem);
+        padding: 3rem;
+      }
+    }
+
+    /* live */
+    .live-full {
+      position: relative;
+      left: 50%;
+      width: 100vw;
+      max-width: none;
+      transform: translateX(-50%);
+      padding-inline: 1rem;
+    }
+    .live-frame {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #c5d4de, #e8eef2);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    /* path magnet */
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0.75rem;
+    }
+    .path-card {
+      position: relative;
+      background: #fff;
+      padding: 1.5rem;
+      text-decoration: none;
+      transition: box-shadow 0.25s;
+      min-height: 8rem;
+    }
+    .path-card:hover { box-shadow: 0 20px 48px rgb(20 26 38 / 8%); }
+    .path-card--tall { min-height: 11rem; grid-column: span 12; }
+    .path-card--wide { grid-column: span 12; }
+    @media (min-width: 640px) {
+      .path-card--tall.path-wide { grid-column: span 8; min-height: 14rem; }
+      .path-card--narrow { grid-column: span 4; }
+      .path-card--wide { grid-column: span 8; }
+    }
+    .path-card__title {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    .path-card__arrow {
+      position: absolute;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--surface-border);
+    }
+
+    /* audience */
+    .audience-wrap { position: relative; margin-top: 4rem; }
+    .audience-main { width: 100%; }
+    @media (min-width: 1024px) { .audience-main { width: 68%; } }
+    .audience-main-img {
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+      background: #ddd;
+    }
+    .audience-main-img img { width: 100%; height: 100%; object-fit: cover; }
+    .audience-float {
+      width: 82%;
+      margin-left: auto;
+      margin-top: -2.5rem;
+      background: #fff;
+      padding: 1.75rem;
+      box-shadow: 0 24px 64px rgb(20 26 38 / 10%);
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 1024px) {
+      .audience-float {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 42%;
+        margin: 0;
+      }
+    }
+
+    /* news */
+    .news-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-block: 1px solid var(--surface-border);
+      padding-block: 2rem;
+    }
+    @media (min-width: 640px) {
+      .news-row { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+
+    /* guides */
+    .guide-item {
+      border-bottom: 1px solid var(--surface-border);
+      padding-block: 1.25rem;
+    }
+    .guide-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+    }
+    .guide-item summary::-webkit-details-marker { display: none; }
+    .guide-item p { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9375rem; }
+
+    footer {
+      border-top: 1px solid var(--surface-border);
+      background: #fff;
+      padding: 2.5rem clamp(1.25rem, 4vw, 3rem);
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+    .mock-banner {
+      background: #fff8e6;
+      border-bottom: 1px solid #f0e0b8;
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      text-align: center;
+      color: #7a5a12;
+    }
+  </style>
+</head>
+<body>
+  <p class="mock-banner">
+    七戸トップ UI モック（静的 HTML）— ヒーローは mock-c プレースホルダー。dev 本番は <code>public/images/hero-sichinohe.png</code>（mock-c コピー済み）。
+  </p>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="#">七戸町営スキー場</a>
+      <nav class="site-nav" aria-label="メイン">
+        <a href="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/public/maps/map-preview.html">ゲレンデマップ</a>
+        <a href="#">今日の運営</a>
+        <a href="#">ライブカメラ</a>
+        <a href="#">アクセス</a>
+      </nav>
+      <span class="eyebrow" style="margin:0">JA</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- CinematicHero -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <img
+          src="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/docs/preview/hero-mock-c-warm-editorial.png"
+          alt=""
+        />
+        <div class="hero__grad"></div>
+      </div>
+      <div class="hero__content">
+        <p class="eyebrow">青森県七戸町</p>
+        <h1 class="display-mega">
+          <span style="display:block">七戸町営</span>
+          <span style="display:block">スキー場</span>
+        </h1>
+        <p class="hero__stat-label">営業</p>
+        <p class="hero__stat-value">準備中</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="#">今日の運営</a>
+          <span class="freshness">更新 運用準備中</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AsymmetricTransit -->
+    <section class="home-section">
+      <div class="home-inner">
+        <div class="transit-grid">
+          <div class="transit-img">
+            <img
+              src="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/docs/preview/hero-mock-a-blue.png"
+              alt="東北新幹線と雪山"
+            />
+          </div>
+          <div class="transit-card">
+            <p class="eyebrow">Transit Resort</p>
+            <h2 class="heading-lg" style="margin-top:1.25rem">新幹線から近い、町営の雪山</h2>
+            <p class="lead" style="margin-top:1.5rem;max-width:28rem">
+              東北新幹線七戸十和田駅からアクセスしやすい立地。パウダー志向の上級者からファミリー・初心者まで、目的に合わせて選べるゲレンデです。
+            </p>
+            <div style="margin-top:2.5rem;display:flex;flex-wrap:wrap;gap:1rem">
+              <a class="btn btn-primary" href="#">今日の運営・雪を見る</a>
+              <a class="btn btn-ghost" href="#">アクセスを確認</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ImmersiveLiveCam -->
+    <section class="home-section" style="background:#fff">
+      <div class="home-inner" style="margin-bottom:2.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem">
+        <div>
+          <p class="eyebrow">Live</p>
+          <h2 class="display-xl" style="margin-top:1rem">Now</h2>
+        </div>
+        <a class="btn btn-ghost" href="#">全カメラ</a>
+      </div>
+      <div class="live-full">
+        <div class="live-frame">ライブカメラ（配信準備中）</div>
+        <p class="lead-whisper" style="text-align:center;max-width:36rem;margin:1.5rem auto 0">
+          ゲレンデのライブ映像です。設置・配信準備が完了次第、リアルタイム映像を表示します。
+        </p>
+      </div>
+    </section>
+
+    <!-- PathMagnet -->
+    <section class="home-section">
+      <div class="home-inner">
+        <p class="eyebrow">Navigate</p>
+        <h2 class="heading-lg" style="margin-top:1rem">山へ向かう</h2>
+        <div class="path-grid" style="margin-top:3.5rem">
+          <a class="path-card path-card--tall path-wide" href="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/public/maps/map-preview.html">
+            <span class="eyebrow" style="color:var(--muted)">Today</span>
+            <span class="path-card__title" style="font-size:1.75rem">今日の運営</span>
+            <span class="path-card__arrow">→</span>
+          </a>
+          <a class="path-card path-card--narrow" href="#">
+            <span class="eyebrow" style="color:var(--muted)">Access</span>
+            <span class="path-card__title">アクセス</span>
+            <span class="path-card__arrow">→</span>
+          </a>
+          <a class="path-card path-card--tall path-wide" href="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/public/maps/map-preview.html">
+            <span class="eyebrow" style="color:var(--muted)">Terrain</span>
+            <span class="path-card__title" style="font-size:1.75rem">ゲレンデマップ</span>
+            <span class="path-card__arrow">→</span>
+          </a>
+          <a class="path-card path-card--narrow" href="#">
+            <span class="eyebrow" style="color:var(--muted)">Tickets</span>
+            <span class="path-card__title">料金</span>
+            <span class="path-card__arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AudienceDuet -->
+    <section class="home-section" style="overflow:hidden">
+      <div class="home-inner">
+        <p class="eyebrow">Your mountain</p>
+        <h2 class="heading-lg" style="margin-top:1rem">選ぶ冒険</h2>
+        <div class="audience-wrap">
+          <article class="audience-main">
+            <div class="audience-main-img">
+              <img
+                src="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/docs/preview/hero-mock-b-monochrome.png"
+                alt=""
+              />
+            </div>
+            <div style="margin-top:2rem;max-width:28rem">
+              <h3 class="heading-lg" style="font-size:1.75rem">Powder</h3>
+              <p class="lead" style="margin-top:1rem">非圧雪・上部エリア。競争の少ない雪質を求める方向け。</p>
+              <a class="btn btn-primary" href="#" style="margin-top:2rem">Explore</a>
+            </div>
+          </article>
+          <article class="audience-float">
+            <h3 style="font-size:1.25rem;font-weight:600;margin:0">Family</h3>
+            <p class="lead-whisper" style="margin-top:1rem">緩斜面・講習・ナイター。はじめてでも安心のエリア。</p>
+            <a class="btn btn-ghost" href="#" style="margin-top:1.5rem">Beginners guide</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NewsTeaser -->
+    <section class="home-section">
+      <div class="home-inner">
+        <div class="news-row">
+          <div>
+            <p class="eyebrow">News</p>
+            <p style="margin:0.75rem 0 0;font-size:1.125rem;font-weight:500">公式サイトを準備中です</p>
+          </div>
+          <a class="btn btn-ghost" href="#">すべて</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GuidesReveal -->
+    <section class="home-section" style="border-top:1px solid var(--surface-border)">
+      <div class="home-inner">
+        <p class="eyebrow">Guides</p>
+        <h2 class="heading-lg" style="margin-top:1rem">特集ページ</h2>
+        <div style="margin-top:3.5rem">
+          <details class="guide-item" open>
+            <summary>Transit Powder <span>＋</span></summary>
+            <p>駅近アクセスで狙う、七戸のパウダー体験。</p>
+          </details>
+          <details class="guide-item">
+            <summary>Transit Shinkansen <span>＋</span></summary>
+            <p>東北新幹線を軸にした、短時間の雪山トリップ。</p>
+          </details>
+          <details class="guide-item">
+            <summary>Beginners Hidden Gem <span>＋</span></summary>
+            <p>初めての方・ファミリー向けの緩やかな滑走案内。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="home-inner" style="padding:0">
+      <p style="margin:0">© 七戸町営スキー場</p>
+      <p style="margin:1rem 0 0"><a href="#" style="color:inherit">お知らせ</a> · <a href="#" style="color:inherit">FAQ</a></p>
+    </div>
+  </footer>
+</body>
+</html>

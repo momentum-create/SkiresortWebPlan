@@ -1,0 +1,45 @@
+{
+  "image": {
+    "width": 1920,
+    "height": 1080,
+    "src": "/maps/sichinohe-hero-earthstudio.png"
+  },
+  "baseline": "Google Earth Studio 書き出し（地理基準）",
+  "calibratedAt": "2026-06-05",
+  "camera": "data/map/camera.json",
+  "notes": "ペアは OSM+Earth投影を skimap 対角に目視補正。ポニーは skimap 東側（OSM未登録）。",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 779,
+      "py": 980,
+      "role": "ペア下駅（ゲレンデ基部・東側）"
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 657,
+      "py": 737,
+      "role": "ペア上駅（山頂西側）"
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 1080,
+      "py": 900,
+      "role": "ポニー下（skimap 東側初級）"
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 1020,
+      "py": 760,
+      "role": "ポニー上"
+    }
+  ]
+}

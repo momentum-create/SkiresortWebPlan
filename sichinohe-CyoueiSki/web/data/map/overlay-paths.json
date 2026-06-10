@@ -1,0 +1,106 @@
+{
+  "viewBox": "0 0 1536 1024",
+  "projection": "similarity-from-pair-lift",
+  "similarity": {
+    "originLng": 141.0997309,
+    "originLat": 40.69845,
+    "scale": 1.8651741477600223,
+    "cos": 0.6606280688261797,
+    "sin": 0.7507133638606631,
+    "tx": 820,
+    "ty": 790
+  },
+  "image": {
+    "width": 1536,
+    "height": 1024,
+    "src": "/maps/sichinohe-hero.png"
+  },
+  "controlPoints": {
+    "lift-pair-bottom": {
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "role": "ペア下駅（基部・ロッジ東）",
+      "pixel": [
+        820,
+        790
+      ],
+      "target": [
+        820,
+        790
+      ]
+    },
+    "lift-pair-top": {
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "role": "ペア上駅（山頂西）",
+      "pixel": [
+        480,
+        155
+      ],
+      "target": [
+        480,
+        155
+      ]
+    },
+    "lift-pony-bottom": {
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "role": "ポニー下（右側初級）",
+      "pixel": [
+        981.5,
+        599.5
+      ],
+      "target": [
+        1180,
+        720
+      ]
+    },
+    "lift-pony-top": {
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "role": "ポニー上",
+      "pixel": [
+        1036.6,
+        718.7
+      ],
+      "target": [
+        1110,
+        555
+      ]
+    }
+  },
+  "features": {
+    "lift-pair": {
+      "type": "lift",
+      "strokeWidth": 7,
+      "path": "M 820.0 790.0 L 806.5 764.5 L 768.4 694.2 L 712.2 589.3 L 681.7 531.5 L 648.5 470.5 L 603.7 384.4 L 568.7 323.0 L 529.9 244.7 L 493.2 178.0 L 480.0 155.0",
+      "markers": [
+        [
+          820,
+          790
+        ],
+        [
+          480,
+          155
+        ]
+      ],
+      "source": "OpenStreetMap way/631879096"
+    },
+    "lift-pony": {
+      "type": "lift",
+      "strokeWidth": 7,
+      "path": "M 981.5 599.5 L 1036.6 718.7",
+      "markers": [
+        [
+          981.5,
+          599.5
+        ],
+        [
+          1036.6,
+          718.7
+        ]
+      ],
+      "source": "国土地理院正射東側ベース + skimap照合（OSM未登録・要現地確認）"
+    }
+  }
+}

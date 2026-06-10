@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>マップ UI — LAAX 寄せモック</title>
+  <style>
+    :root {
+      --canvas: #f7f9fb;
+      --ink: #1c2434;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --page-bg: #f8f9fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+      background: var(--page-bg);
+      color: var(--ink);
+    }
+    .page-head {
+      padding: 1.75rem 1.5rem 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .page-head h1 { font-size: 1.2rem; margin: 0 0 0.4rem; font-weight: 600; }
+    .page-head p { margin: 0; font-size: 0.8125rem; color: var(--muted); max-width: 52rem; }
+    .compare {
+      display: grid;
+      gap: 1.25rem;
+      padding: 0 1.5rem 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    @media (min-width: 1000px) {
+      .compare { grid-template-columns: 1fr 1fr; }
+    }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .panel h2 {
+      margin: 0;
+      padding: 0.85rem 1rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .panel img.ref { width: 100%; display: block; }
+    .mock {
+      aspect-ratio: 16 / 10;
+      display: flex;
+      flex-direction: column;
+      background: var(--canvas);
+      min-height: 360px;
+    }
+    .topbar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+    .topbar a {
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #fff;
+    }
+    .topbar h3 { margin: 0; font-size: 12px; font-weight: 700; }
+    .body { flex: 1; min-height: 0; display: flex; position: relative; }
+    .stage {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      background: var(--canvas);
+    }
+    .stage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .filters {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .filters span {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--ink);
+    }
+    .filters span.on {
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+    .rail {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      bottom: 12px;
+      width: 38%;
+      max-width: 200px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 8px 32px rgb(20 26 38 / 12%);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .rail-title {
+      padding: 10px 12px 0;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .rail-updated {
+      padding: 2px 12px 8px;
+      font-size: 9px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .tabs {
+      display: flex;
+      gap: 12px;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tabs button {
+      border: 0;
+      background: none;
+      padding: 8px 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      cursor: default;
+    }
+    .tabs button.on {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+    .rail ul { list-style: none; margin: 0; padding: 6px; overflow: auto; flex: 1; }
+    .rail li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 8px;
+      border-radius: 10px;
+      font-size: 10px;
+    }
+    .rail li:hover { background: var(--canvas); }
+    .dot { width: 6px; height: 6px; border-radius: 999px; flex-shrink: 0; }
+    .badge {
+      margin-left: auto;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 999px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .note {
+      padding: 0.75rem 1rem 1rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-head">
+    <h1>マップ UI — LAAX 寄せ（七戸ターゲット）</h1>
+    <p>
+      左: LAAX 参考。右: 七戸 <code>sichinohe-hero-v5.png</code> + 白フロートレール（実装反映済みトークン）。
+      本番確認: <code>/ja/map</code> または
+      <code>file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/public/maps/map-preview.html</code>
+    </p>
+  </div>
+
+  <div class="compare">
+    <section class="panel">
+      <h2>参考 — LAAX</h2>
+      <img
+        class="ref"
+        src="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/docs/preview/laax-map-reference.png"
+        alt="LAAX マップ参考"
+      />
+      <p class="note">白パネル · リフト/コースタブ · ステータス右寄せ · 地形主役</p>
+    </section>
+
+    <section class="panel">
+      <h2>七戸ターゲット（LAAX 寄せ）</h2>
+      <div class="mock">
+        <div class="topbar">
+          <a href="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/sichinohe-CyoueiSki/web/public/preview/index.html">← トップへ</a>
+          <h3>七戸町営スキー場</h3>
+        </div>
+        <div class="body">
+          <div class="stage">
+            <img
+              src="file:///C:/Users/Takum/Desktop/Cloude/SkiresortWebPlan/docs/preview/sichinohe-hero-v5.png"
+              alt="七戸マップ"
+            />
+            <div class="filters">
+              <span class="on">リフト</span>
+              <span>コース</span>
+            </div>
+            <aside class="rail" aria-label="運行状況">
+              <div class="rail-title">運行状況</div>
+              <div class="rail-updated">最終更新 6/9 10:00</div>
+              <div class="tabs">
+                <button type="button" class="on">リフト</button>
+                <button type="button">コース</button>
+              </div>
+              <ul id="rail-list"></ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <p class="note"><strong>トークン:</strong> <code>--map-rail-bg</code> 白96% · <code>--map-rail-text</code> ink · 角丸フロート</p>
+    </section>
+  </div>
+
+  <script>
+    const ITEMS = [
+      { label: "ペアリフト", dot: "#1a1a1a", badge: "運転中", badgeBg: "#1a1a1a" },
+      { label: "ポニーリフト", dot: "#1a1a1a", badge: "停止", badgeBg: "#64748b" },
+    ];
+    document.getElementById("rail-list").innerHTML = ITEMS.map(
+      (it) =>
+        `<li><span class="dot" style="background:${it.dot}"></span><span>${it.label}</span><span class="badge" style="background:${it.badgeBg}">${it.badge}</span></li>`
+    ).join("");
+  </script>
+</body>
+</html>

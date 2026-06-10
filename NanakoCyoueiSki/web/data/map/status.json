@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "2026-06-01",
+  "resortId": "nanako-choei-ski",
+  "updatedAt": "2026-06-05T10:00:00+09:00",
+  "features": [
+    { "id": "lift-pair", "status": "operating" },
+    { "id": "lift-pony", "status": "operating" },
+    { "id": "trail-champion", "status": "open" },
+    { "id": "trail-upper", "status": "open" },
+    { "id": "trail-intermediate", "status": "open" },
+    { "id": "trail-pony", "status": "open" }
+  ]
+}

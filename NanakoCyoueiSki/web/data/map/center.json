@@ -1,0 +1,17 @@
+{
+  "resortId": "nanako-choei-ski",
+  "name": "七戸町営スキー場",
+  "center": {
+    "lat": 40.69839,
+    "lng": 141.099714
+  },
+  "elevationM": {
+    "base": 88,
+    "top": 210
+  },
+  "sources": [
+    "OpenSkiMap ski area point (ca7674926668ab7c585bc6c4fa4068bfbe934c15)",
+    "Skimap.org / SkiAreas/view/1345"
+  ],
+  "updatedAt": "2026-06-05"
+}

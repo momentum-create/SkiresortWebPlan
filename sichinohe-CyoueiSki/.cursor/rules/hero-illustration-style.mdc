@@ -1,0 +1,32 @@
+---
+description: ヒーローイラストはプロ品質描画のみ。図解SVG焼き込み禁止。
+globs:
+  - web/public/maps/**
+  - scripts/rasterize-hero-traced.mjs
+  - scripts/build-hero-illustrated.mjs
+  - web/data/map/**/*
+---
+
+# ヒーローイラスト規則
+
+## 依頼の意味
+
+「公式マップをトレースして書き直す」= **一枚目の絵の質感**で、**二枚目の位置関係**を反映したプロ品質イラスト。
+
+## 禁止（三枚目のような出力）
+
+- 太い緑/赤/黒のコース線をSVGで焼き込む
+- 番号付き丸マーカー・凡例バーをヒーローに含める
+- `sichinohe-hero-traced.svg` を `sichinohe-hero.png` にラスタライズして本番投入
+- フラットな図解地図スタイル
+
+## 正しいワークフロー
+
+1. **スタイル参照**: `reference/style-plate-v2.png`（プロ品質デジタルペイント）
+2. **レイアウト参照**: `reference/official-map-trace-source.png` + `official-map-layout.json`（位置関係のみ）
+3. **本番更新**: AI img2img または手描き → `node build-hero-illustrated.mjs <png>`
+4. **図解SVG**: `rasterize-hero-traced.mjs` は `reference/layout-preview-schematic.png` のみ（検証用）
+
+## Web上のコース
+
+コースは地形・林縁でイラスト内に表現。`HeroMapOverlay` の太線コース描画は使わない。

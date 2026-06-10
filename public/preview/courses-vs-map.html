@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA 統合方針 — 七戸マップ評価</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="static-preview.css" />
+  <link rel="stylesheet" href="evaluation.css" />
+</head>
+<body>
+  <p class="eval-banner">静的評価レポート — 2026-06-09 生成 | npm run preview:evaluation</p>
+  <div class="eval-page">
+    <nav class="eval-nav" aria-label="評価ドキュメント">
+      <a href="index.html">トップ</a>
+      <a href="../maps/map-preview.html">ゲレンデマップ（静的）</a>
+      <a href="courses-vs-map.html" aria-current="page">IA 統合方針</a>
+      <a href="qa-map-evaluation.html">QA 評価（層 A–C）</a>
+    </nav>
+    
+    <h1>LAAX 型 — マップ1画面に統合</h1>
+    <p class="eval-lead">
+      2026-06-09 ユーザー監査により、G5 の「コースガイド / ゲレンデマップ」<strong>2ページ分離は撤回</strong>しました。
+      LAAX と同様、運行・コース情報は <code>/map</code> のみです。
+    </p>
+
+    <div class="compare-grid">
+      <article class="compare-card">
+        <p class="role">正 · 1画面</p>
+        <h3>ゲレンデマップ <code>/map</code></h3>
+        <ul>
+          <li>全画面 <code>MapPageShell</code> + <code>LiftMapViewer</code></li>
+          <li>リスト選択 → <code>MapFeatureDetail</code>（距離・斜度は <code>meta</code>）</li>
+          <li>SSE / 検索 / 難易度フィルタ</li>
+        </ul>
+        <div class="links">
+          <a class="btn-link btn-link-primary" href="http://localhost:3000/map">本番 dev で開く</a>
+          <a class="btn-link" href="../maps/map-preview.html">静的マップ</a>
+        </div>
+      </article>
+      <article class="compare-card">
+        <p class="role">廃止</p>
+        <h3><code>/courses</code></h3>
+        <p>恒久リダイレクト → <code>/map</code>。静的 <code>courses.html</code> も同様。</p>
+        <p>G5 の PARTIAL/PASS 判定は<strong>採用しない</strong>（実 UI が要件を満たさなかったため）。</p>
+      </article>
+    </div>
+
+    <section class="eval-section">
+      <h2>IA 評価（§F 更新）</h2>
+      <table class="eval-table">
+        <thead><tr><th>時点</th><th>判定</th><th>メモ</th></tr></thead>
+        <tbody>
+          <tr><td>G5 2ページ IA</td><td><span class="badge badge-fail">FAIL · 撤回</span></td><td>LAAX と乖離。ユーザー全面否定</td></tr>
+          <tr><td>統合後</td><td><span class="badge badge-partial">再監査待ち</span></td><td>map-preview UI 刷新 + ナビ1本化</td></tr>
+        </tbody>
+      </table>
+      <p class="eval-lead" style="margin-top:1rem;font-size:0.8125rem">
+        詳細: <code>docs/qa_report_map.md</code> §F
+      </p>
+    </section>
+  
+  </div>
+</body>
+</html>

@@ -1,0 +1,502 @@
+/**
+ * Award Typography Design System
+ * Theme: Shichinohe Town Ski Resort (Alpine Editorial)
+ * Fonts: Syne (display EN) + Noto Sans JP (JP) + IBM Plex Mono (data)
+ */
+
+:root {
+  /* ── Color ── */
+  --award-color-bg: #f8f9fb;
+  --award-color-fg: #141a26;
+  --award-color-muted: #64748b;
+  --award-color-accent: #0b5f8c;
+  --award-color-accent-soft: #e8f4fa;
+  --award-color-surface: #ffffff;
+  --award-color-border: #e2e8f0;
+
+  /* ── Font stacks ── */
+  --award-font-display: var(--font-syne), "Helvetica Neue", sans-serif;
+  --award-font-body: var(--font-noto-sans), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --award-font-mono: var(--font-ibm-plex-mono), "SF Mono", monospace;
+
+  /* ── Type scale (relative units) ── */
+  --text-display-mega: clamp(2.75rem, 11vw, 6rem);
+  --text-display-xl: clamp(2.125rem, 7vw, 4rem);
+  --text-stat-mega: clamp(3.25rem, 16vw, 7.5rem);
+  --text-heading-md: clamp(1.25rem, 3.5vw, 1.75rem);
+  --text-body: 1rem;
+  --text-lead: clamp(0.9375rem, 2.5vw, 1.125rem);
+  --text-whisper: 0.8125rem;
+  --text-eyebrow: 0.625rem;
+
+  /* ── Tracking & leading ── */
+  --track-display: -0.045em;
+  --track-heading: -0.035em;
+  --track-stat: -0.05em;
+  --track-body: 0.02em;
+  --track-eyebrow: 0.2em;
+
+  --leading-display: 1;
+  --leading-heading: 1.08;
+  --leading-stat: 0.92;
+  --leading-body: 1.75;
+  --leading-lead: 1.85;
+  --leading-whisper: 1.65;
+
+  /* ── Spacing (negative space as design) ── */
+  --space-section: clamp(5rem, 14vw, 9rem);
+  --space-block: clamp(2rem, 6vw, 4rem);
+  --space-element: clamp(1rem, 3vw, 1.75rem);
+  --space-inline: clamp(1.25rem, 4vw, 3rem);
+
+  /* ── Motion ── */
+  --ease-award: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-rise: 0.9s;
+}
+
+/* ── Base typography layer ── */
+.award-root {
+  font-family: var(--award-font-body);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--track-body);
+  color: var(--award-color-fg);
+  background: var(--award-color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Display / Headings ── */
+.award-display-mega {
+  font-family: var(--award-font-body);
+  font-size: var(--text-display-mega);
+  font-weight: 600;
+  line-height: var(--leading-display);
+  letter-spacing: var(--track-display);
+  line-break: strict;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+
+.award-display-xl {
+  font-family: var(--award-font-body);
+  font-size: var(--text-display-xl);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  line-break: strict;
+  word-break: keep-all;
+}
+
+.award-eyebrow {
+  font-family: var(--award-font-display);
+  font-size: var(--text-eyebrow);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+  color: var(--award-color-accent);
+}
+
+.award-stat-mega {
+  font-family: var(--award-font-body);
+  font-size: var(--text-stat-mega);
+  font-weight: 500;
+  line-height: var(--leading-stat);
+  letter-spacing: var(--track-stat);
+  font-variant-numeric: tabular-nums;
+}
+
+.award-stat-mono {
+  font-family: var(--award-font-mono);
+  font-size: var(--text-stat-mega);
+  font-weight: 500;
+  line-height: var(--leading-stat);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.award-lead {
+  font-size: var(--text-lead);
+  line-height: var(--leading-lead);
+  letter-spacing: 0.01em;
+  color: var(--award-color-muted);
+}
+
+.award-whisper {
+  font-size: var(--text-whisper);
+  line-height: var(--leading-whisper);
+  letter-spacing: 0.03em;
+  color: var(--award-color-muted);
+}
+
+/* ── Layout: asymmetric canvas ── */
+.award-canvas {
+  overflow-x: clip;
+}
+
+.award-section {
+  padding-block: var(--space-section);
+}
+
+.award-inner {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: var(--space-inline);
+}
+
+/* Offset grid: image bleeds left, card overlaps right */
+.award-asymmetric {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 1024px) {
+  .award-asymmetric {
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+  }
+
+  .award-asymmetric__card {
+    margin-left: -4rem;
+    z-index: 2;
+  }
+}
+
+/* ── Scroll-driven hero typography (award micro-interaction) ── */
+@supports (animation-timeline: scroll()) {
+  .award-hero-scroll {
+    view-timeline-name: --award-hero;
+    view-timeline-axis: block;
+  }
+
+  .award-hero-scroll .award-hero-title {
+    animation: award-hero-type-shrink linear both;
+    animation-timeline: --award-hero;
+    animation-range: entry 0% cover 50%;
+  }
+
+  @keyframes award-hero-type-shrink {
+    from {
+      transform: scale(1);
+      letter-spacing: var(--track-display);
+    }
+    to {
+      transform: scale(0.94);
+      letter-spacing: calc(var(--track-display) + 0.01em);
+    }
+  }
+}
+
+/* ── Rise-in (entry) ── */
+@keyframes award-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.award-rise {
+  animation: award-rise var(--duration-rise) var(--ease-award) both;
+}
+
+.award-rise-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.award-rise-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.award-rise-delay-3 {
+  animation-delay: 0.36s;
+}
+
+/* ── Full-bleed cinematic strip ── */
+.award-bleed-x {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
+  transform: translateX(-50%);
+}
+
+/* ── Buttons (award typographic system) ── */
+.award-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-family: var(--award-font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.28s var(--ease-award),
+    border-color 0.28s var(--ease-award),
+    color 0.28s var(--ease-award),
+    transform 0.28s var(--ease-award),
+    box-shadow 0.28s var(--ease-award),
+    gap 0.28s var(--ease-award);
+}
+
+.award-btn:focus-visible {
+  outline: 2px solid var(--award-color-accent);
+  outline-offset: 3px;
+}
+
+.award-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.875rem 2rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background: var(--award-color-accent);
+  color: #fff;
+  font-family: var(--award-font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgb(11 95 140 / 18%);
+  transition:
+    background 0.28s var(--ease-award),
+    transform 0.28s var(--ease-award),
+    box-shadow 0.28s var(--ease-award);
+}
+
+.award-btn-primary:hover {
+  background: #094d73;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgb(11 95 140 / 22%);
+}
+
+.award-btn-primary:focus-visible {
+  outline: 2px solid var(--award-color-accent);
+  outline-offset: 3px;
+}
+
+.award-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.25rem;
+  padding: 0.875rem 2rem;
+  border: 1px solid var(--award-color-border);
+  border-radius: 9999px;
+  background: var(--award-color-surface);
+  color: var(--award-color-fg);
+  font-family: var(--award-font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.28s var(--ease-award),
+    border-color 0.28s var(--ease-award),
+    transform 0.28s var(--ease-award);
+}
+
+.award-btn-secondary:hover {
+  border-color: var(--award-color-accent);
+  background: var(--award-color-accent-soft);
+  transform: translateY(-1px);
+}
+
+.award-btn-secondary:focus-visible {
+  outline: 2px solid var(--award-color-accent);
+  outline-offset: 3px;
+}
+
+.award-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  color: var(--award-color-fg);
+  font-family: var(--award-font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.28s var(--ease-award), gap 0.28s var(--ease-award);
+}
+
+.award-btn-ghost:hover {
+  color: var(--award-color-accent);
+  gap: 0.75rem;
+}
+
+.award-btn-ghost .award-btn__arrow {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  transition: transform 0.28s var(--ease-award);
+}
+
+.award-btn-ghost:hover .award-btn__arrow {
+  transform: translateX(3px);
+}
+
+.award-btn-block {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .award-btn-primary:hover,
+  .award-btn-secondary:hover {
+    transform: none;
+  }
+
+  .award-btn-ghost:hover .award-btn__arrow {
+    transform: none;
+  }
+}
+
+/* Tile navigation (PathMagnet) */
+.award-tile-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--award-color-surface);
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: box-shadow 0.3s var(--ease-award);
+}
+
+.award-tile-link:hover {
+  box-shadow: 0 20px 48px rgb(20 26 38 / 8%);
+}
+
+.award-tile-link__label {
+  font-family: var(--award-font-display);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--award-color-muted);
+}
+
+.award-tile-link:hover .award-tile-link__label {
+  color: var(--award-color-accent);
+}
+
+.award-tile-link__title {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--award-color-fg);
+}
+
+.award-tile-link__arrow {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--award-color-border);
+  transition: color 0.28s var(--ease-award), transform 0.28s var(--ease-award);
+}
+
+.award-tile-link:hover .award-tile-link__arrow {
+  color: var(--award-color-accent);
+  transform: translateX(4px);
+}
+
+/* Collapsible fold */
+.award-fold {
+  border-top: 1px solid var(--award-color-border);
+}
+
+.award-fold:last-child {
+  border-bottom: 1px solid var(--award-color-border);
+}
+
+.award-fold__summary {
+  display: flex;
+  cursor: pointer;
+  list-style: none;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 1.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.award-fold__summary::-webkit-details-marker {
+  display: none;
+}
+
+.award-fold__marker {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--award-color-muted);
+}
+
+.award-fold__body {
+  padding-bottom: 2rem;
+}
+
+/* Data table (minimal) */
+.award-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.award-table th {
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--award-color-border);
+  font-family: var(--award-font-display);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--award-color-muted);
+}
+
+.award-table td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--award-color-border);
+  vertical-align: top;
+}
+
+.award-table tr:last-child td {
+  border-bottom: none;
+}
+
+.award-stat-inline {
+  font-family: var(--award-font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}

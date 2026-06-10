@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "siteName": "Shichinohe Town Ski Area",
+    "defaultDescription": "Municipal ski area in Shichinohe, Aomori. Live operations, snow, access, and course information."
+  },
+  "nav": {
+    "today": "Today",
+    "access": "Access",
+    "courses": "Courses",
+    "map": "Map",
+    "liveCams": "Live Cams",
+    "tickets": "Tickets",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "news": "News"
+  },
+  "home": {
+    "transitTitle": "A local ski hill close to the Shinkansen",
+    "transitBody": "Easy access from Shichinohe-Towada Station on the Tohoku Shinkansen. Choose your experience—from powder runs to family-friendly slopes.",
+    "todayLink": "View today's conditions",
+    "accessLink": "Check access",
+    "planTitle": "Featured guides",
+    "planBody": "Purpose-built pages for different visit styles."
+  },
+  "footer": {
+    "copyright": "© Shichinohe Town Ski Area"
+  },
+  "lang": {
+    "switch": "Language",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "liveCams": {
+    "title": "Live cameras",
+    "description": "Live views from the resort. Streams will appear here once camera systems are installed."
+  },
+  "faq": {
+    "title": "FAQ",
+    "description": "Common questions before your visit."
+  }
+}

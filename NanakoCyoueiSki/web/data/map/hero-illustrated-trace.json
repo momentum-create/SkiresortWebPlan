@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "2026-06-05",
+  "output": "/maps/nanako-hero.png",
+  "archive": "/maps/nanako-hero-v2.png",
+  "styleReference": "/maps/nanako-hero-illustrated.png",
+  "terrainReference": "/maps/nanako-hero-gsi.png",
+  "layoutReference": "data/map/reference/skimap-2012.jpg",
+  "method": "AI img2img with three references — illustrated style + GSI terrain + skimap layout",
+  "constraints": "No text labels; skimap pamphlet flat-color style; 1536x1024",
+  "generatedAt": "2026-06-05",
+  "nextSteps": [
+    "Figma で skimap 50% + GSI 50% 重ねて微調整（任意）",
+    "control-points-hero-ai.json で端点再調整",
+    "node align-hero-gsi.mjs"
+  ]
+}

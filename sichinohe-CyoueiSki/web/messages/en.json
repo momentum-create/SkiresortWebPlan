@@ -1,0 +1,334 @@
+{
+  "meta": {
+    "siteName": "Shichinohe Town Ski Area",
+    "defaultDescription": "Municipal ski area in Shichinohe, Aomori. Live operations, snow, access, and course information."
+  },
+  "nav": {
+    "home": "Home",
+    "today": "Today",
+    "access": "Access",
+    "courses": "Course guide",
+    "map": "Resort map",
+    "liveCams": "Live Cams",
+    "tickets": "Tickets",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "news": "News",
+    "ariaMain": "Main"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content"
+  },
+  "home": {
+    "transitTitle": "A local ski hill close to the Shinkansen",
+    "transitBody": "Easy access from Shichinohe-Towada Station on the Tohoku Shinkansen. Choose your experience—from powder runs to family-friendly slopes.",
+    "todayLink": "View today's conditions",
+    "accessLink": "Check access",
+    "planTitle": "Featured guides",
+    "planBody": "Purpose-built pages for different visit styles.",
+    "transitEyebrow": "Transit Resort",
+    "transitImageAlt": "Shinkansen and snowy mountains — transit resort imagery",
+    "hero": {
+      "todayCta": "Today's operations",
+      "revealLabel": "Operations & snow details",
+      "freshnessLabel": "Updated",
+      "staffVerified": "Staff verified"
+    },
+    "pathMagnet": {
+      "eyebrow": "Navigate",
+      "title": "Head for the mountain",
+      "faqLink": "FAQ & details",
+      "todayLabel": "Today",
+      "todayTitle": "Today's operations",
+      "accessLabel": "Access",
+      "accessTitle": "Getting here",
+      "mapLabel": "Terrain",
+      "mapTitle": "Resort map",
+      "ticketsLabel": "Tickets",
+      "ticketsTitle": "Lift tickets"
+    },
+    "liveCam": {
+      "eyebrow": "Live",
+      "title": "Now",
+      "allCams": "All cameras"
+    },
+    "audience": {
+      "eyebrow": "Your mountain",
+      "title": "Choose your adventure",
+      "powderTitle": "Powder",
+      "powderBody": "Un groomed upper mountain. For riders seeking quieter snow.",
+      "powderCta": "Explore",
+      "familyTitle": "Family",
+      "familyBody": "Gentle slopes, lessons, and night skiing. A welcoming area for first-timers.",
+      "familyCta": "Beginners guide"
+    },
+    "news": {
+      "eyebrow": "News",
+      "all": "View all"
+    },
+    "guides": {
+      "eyebrow": "Guides",
+      "read": "Read",
+      "transitPowderTitle": "Transit Powder",
+      "transitPowderSummary": "Powder days within easy reach of the station.",
+      "transitShinkansenTitle": "Transit Shinkansen",
+      "transitShinkansenSummary": "A short ski trip built around the Tohoku Shinkansen.",
+      "beginnersTitle": "Beginners Hidden Gem",
+      "beginnersSummary": "Gentle runs and tips for families and first-time visitors."
+    }
+  },
+  "footer": {
+    "copyright": "© Shichinohe Town Ski Area"
+  },
+  "lang": {
+    "switch": "Language",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "liveCams": {
+    "title": "Live cameras",
+    "description": "Live views from the resort. Streams will appear here once camera systems are installed.",
+    "eyebrow": "Live",
+    "previewTitle": "Live cameras",
+    "viewAll": "View all",
+    "iframeTitle": "live stream",
+    "altPreparing": "(stream preparing)",
+    "defaultPlaceholder": "Cameras are being installed. Video will appear once broadcasting starts.",
+    "status": {
+      "preparing": "Preparing",
+      "offline": "Offline",
+      "live": "Live"
+    }
+  },
+  "today": {
+    "title": "Today's operations & snow",
+    "description": "Latest snow depth, snowfall, and lift operations for Shichinohe Town Ski Area (updates after launch).",
+    "eyebrow": "Conditions",
+    "shellDescription": "Only resort-verified information is shown once operations begin. Times and figures may change.",
+    "heroLead": "Check today's snow and operations status first.",
+    "prepLastUpdated": "Preparing for operations"
+  },
+  "access": {
+    "title": "Access",
+    "description": "How to reach Shichinohe Town Ski Area from Shichinohe-Towada Station on the Tohoku Shinkansen (confirm fares and times officially).",
+    "eyebrow": "Transit",
+    "shellDescription": "Transit times and fares change by season and schedule. Always confirm with operators and official sources.",
+    "foldTitle": "Shinkansen & access overview"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contact details and how to reach the resort.",
+    "eyebrow": "Contact",
+    "shellDescription": "Phone and online contact options are being prepared. For urgent matters, check official resort channels.",
+    "generalTitle": "General inquiries",
+    "groupTitle": "Groups & media",
+    "phone": "Phone",
+    "hours": "Hours",
+    "email": "Email",
+    "form": "Form"
+  },
+  "news": {
+    "title": "News",
+    "description": "Latest updates from Shichinohe Town Ski Area.",
+    "eyebrow": "News",
+    "shellDescription": "Content is being prepared for the initial public launch."
+  },
+  "ticketsRental": {
+    "title": "Tickets & rental",
+    "description": "Lift tickets, rental gear, and payment methods will be posted as confirmed.",
+    "eyebrow": "Tickets",
+    "shellDescription": "Ticket types, rental scope, and payment options will be updated after official confirmation.",
+    "ticketsSection": "Lift tickets",
+    "rentalSection": "Rental",
+    "paymentSection": "Payment",
+    "cols": {
+      "ticketName": "Ticket",
+      "price": "Price",
+      "note": "Note",
+      "item": "Item",
+      "status": "Status",
+      "method": "Method",
+      "paymentStatus": "Availability"
+    },
+    "tableAria": {
+      "tickets": "Lift ticket prices",
+      "rentals": "Rental equipment",
+      "payments": "Payment methods"
+    }
+  },
+  "lessonsEvents": {
+    "title": "Lessons & events",
+    "description": "School programs and event schedules will be posted as confirmed.",
+    "eyebrow": "School",
+    "shellDescription": "Lessons, free night sessions, and events will be published after official confirmation.",
+    "time": "Time",
+    "target": "For"
+  },
+  "stayLocal": {
+    "title": "Around the resort",
+    "description": "Hot springs, dining, and stay ideas—posted after official verification.",
+    "eyebrow": "Local",
+    "shellDescription": "Nearby onsen, food, and sample itineraries will be added once hours and partnerships are confirmed."
+  },
+  "liftDeals": {
+    "title": "Lift deals & partners",
+    "description": "Partner offers for lift tickets and travel products (with required ad disclosures at launch).",
+    "eyebrow": "Deals",
+    "shellDescription": "Discount lift tickets and travel bundles will be listed with clear terms and promotional labeling."
+  },
+  "plan": {
+    "beginnersHiddenGem": {
+      "title": "Beginners Hidden Gem",
+      "titleLines": ["Beginners", "Hidden Gem"],
+      "metaDescription": "Preparation page for families and first-timers—gentle slopes, lessons, and local tips.",
+      "eyebrow": "Family",
+      "shellDescription": "Landing-page skeleton for newcomers: safe routes, lessons, and nearby experiences.",
+      "lead": "Draft page. At launch: gentle-slope map, lesson booking, and family tips will be added.",
+      "ctaLessons": "Lessons & events",
+      "ctaCourses": "Course list"
+    },
+    "transitShinkansen": {
+      "title": "Transit Shinkansen",
+      "titleLines": ["Transit", "Shinkansen"],
+      "metaDescription": "For Shinkansen travelers—short trips and stopover-style visits to the resort.",
+      "eyebrow": "Shinkansen",
+      "shellDescription": "LP skeleton for rail access, time-boxed visits, and links to live operations.",
+      "lead": "Draft page. At launch: timetables, travel time, and day-of checklist will be added.",
+      "ctaAccess": "Access",
+      "ctaToday": "Today's operations"
+    },
+    "transitPowder": {
+      "title": "Transit Powder",
+      "titleLines": ["Transit", "Powder"],
+      "metaDescription": "For riders seeking powder with minimal transfer friction from the station.",
+      "eyebrow": "Powder",
+      "shellDescription": "High-intent LP for powder days: shorter access, operations check, and run guidance.",
+      "lead": "Draft page. At launch: run picks, snow guide, and day-of flow will be added.",
+      "ctaToday": "Today's operations",
+      "ctaAccess": "Access"
+    }
+  },
+  "common": {
+    "loadingEyebrow": "Loading",
+    "loadingMessage": "Loading… First visit may take about 10 seconds."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "FAQ",
+    "description": "Common questions before your visit."
+  },
+  "coursesPage": {
+    "intro": "Use the map above for live lift and trail status. The list below has distance, grade, and surface details for each run.",
+    "sectionTitle": "Course list (distance & grade)",
+    "sectionDescription": "Per-run distance, grade, and surface details will be posted after official confirmation.",
+    "gsiMap": "Official topo map (GSI)"
+  },
+  "map": {
+    "page": {
+      "title": "Resort map",
+      "description": "Live lift and trail status on the terrain map. For distance and grade, see the course guide."
+    },
+    "resortFallback": "Shichinohe Town Ski Area",
+    "aria": {
+      "terrainMap": "Resort map",
+      "terrainMapLayer": "Resort map interaction layer",
+      "status": "Operations status",
+      "menu": "Map menu",
+      "quickNav": "Site navigation",
+      "statusColors": "Status colors",
+      "close": "Close",
+      "deselect": "Clear selection"
+    },
+    "chrome": {
+      "eyebrow": "Resort Map",
+      "fullTitle": "Resort map",
+      "lastUpdated": "Updated {time}",
+      "refresh": "Refresh",
+      "backHome": "Home",
+      "openFull": "Open full resort map",
+      "previewBadge": "Preview",
+      "coursesGuide": "Course guide (distance & grade)"
+    },
+    "filters": {
+      "lifts": "Lifts",
+      "trails": "Trails"
+    },
+    "status": {
+      "title": "Operations",
+      "operating": "Running",
+      "open": "Open",
+      "stopped": "Stopped",
+      "closed": "Closed",
+      "hold": "Checking",
+      "partial": "Partial",
+      "unknown": "Checking",
+      "legendOperating": "Running",
+      "legendStopped": "Stopped",
+      "legendHold": "Checking",
+      "fetchFailed": "Could not load operations status.",
+      "retrying": "Retrying…"
+    },
+    "legend": {
+      "title": "Legend",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "summary": "Running / Stopped / Checking",
+      "difficultyTitle": "Trail difficulty",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "lift": "Lift",
+      "stoppedHatch": "Stopped hatch pattern"
+    },
+    "groups": {
+      "lifts": "Lifts",
+      "trails": "Trails",
+      "lift": "Lift",
+      "trail": "Trail"
+    },
+    "fab": {
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "reset": "Fit to view"
+    },
+    "hero": {
+      "alt": "Shichinohe Town Ski Area bird's-eye map"
+    },
+    "errors": {
+      "mapLoadFailed": "Could not load map data.",
+      "statusFetchFailed": "Failed to fetch"
+    },
+    "detail": {
+      "updated": "Updated {time}"
+    },
+    "search": {
+      "label": "Search lifts and trails",
+      "placeholder": "Search by name…",
+      "noResults": "No matching lifts or trails",
+      "clear": "Clear search"
+    },
+    "stale": {
+      "banner": "Could not refresh operations status",
+      "retry": "Retry"
+    },
+    "live": {
+      "badge": "Live"
+    },
+    "difficulty": {
+      "label": "Filter by trail difficulty",
+      "all": "All",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "location": {
+      "title": "Your location",
+      "hint": "With GPS enabled outdoors, shows distance to the resort center (no dot on the illustrated map).",
+      "action": "Get distance",
+      "loading": "Locating…",
+      "distance": "About {km} km from resort center",
+      "denied": "Location access was denied",
+      "unsupported": "Geolocation is not available on this device"
+    }
+  }
+}

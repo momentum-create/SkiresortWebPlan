@@ -1,0 +1,145 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-champion",
+        "name": "チャンピオン（上級）",
+        "type": "trail",
+        "difficulty": "advanced",
+        "source": "AIヒーロー + skimap レイアウト逆算補正"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.0950277,
+            40.6989034
+          ],
+          [
+            141.096201,
+            40.6993754
+          ],
+          [
+            141.0973922,
+            40.6998046
+          ],
+          [
+            141.0984471,
+            40.6999645
+          ],
+          [
+            141.0994788,
+            40.6998825
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-upper",
+        "name": "上部エリア（中〜上級）",
+        "type": "trail",
+        "difficulty": "intermediate-advanced",
+        "source": "AIヒーロー + skimap レイアウト逆算補正"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.0954188,
+            40.6976745
+          ],
+          [
+            141.0967181,
+            40.6978461
+          ],
+          [
+            141.0980174,
+            40.6980178
+          ],
+          [
+            141.0992035,
+            40.6981621
+          ],
+          [
+            141.1000319,
+            40.6982674
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-intermediate",
+        "name": "中斜面コース（中級）",
+        "type": "trail",
+        "difficulty": "intermediate",
+        "source": "AIヒーロー + skimap レイアウト逆算補正"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.0951872,
+            40.6983748
+          ],
+          [
+            141.0963219,
+            40.6987902
+          ],
+          [
+            141.0972867,
+            40.6991647
+          ],
+          [
+            141.0982695,
+            40.6994963
+          ],
+          [
+            141.0992704,
+            40.699785
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-pony",
+        "name": "ポニーリフト周辺（初級）",
+        "type": "trail",
+        "difficulty": "beginner",
+        "source": "AIヒーロー + skimap レイアウト逆算補正"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            141.1024632,
+            40.6945534
+          ],
+          [
+            141.1023448,
+            40.6942413
+          ],
+          [
+            141.1020952,
+            40.6939448
+          ],
+          [
+            141.1017016,
+            40.6939916
+          ],
+          [
+            141.1017479,
+            40.6944754
+          ]
+        ]
+      }
+    }
+  ]
+}

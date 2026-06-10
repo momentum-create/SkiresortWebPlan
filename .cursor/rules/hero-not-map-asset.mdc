@@ -1,0 +1,18 @@
+# トップヒーロー ≠ ゲレンデマップ
+
+## 禁止
+
+- `sichinohe-hero.png`（コース線焼き込みイラスト）をトップヒーロー・Bento・任意の非 `/map` UI に使う
+- `hero-sichinohe.png` にマップイラストをコピーする
+- トップヒーローを `hero-slope.png` 等の旧素材に**勝手に戻す**（承認済みは `hero-sichinohe.png`）
+- **`public/images/` のユーザー承認済み画像を削除・上書き**（差し替えはユーザー指示または明示承認のみ）
+- `build-map-preview.mjs` が `sichinohe-hero.png` を `hero-sichinohe.png` にコピーする（マップ資産とトップヒーローの混同）
+
+## 正しい資産
+
+| ファイル | 用途 |
+|----------|------|
+| `public/images/hero-sichinohe.png` | トップヒーロー（`docs/asset_brief.md` 承認済み） |
+| `public/maps/sichinohe-hero.png` | `/map`・`map-preview`・キャリブ QA のみ |
+
+詳細: `docs/map_integration_spec.md` §5

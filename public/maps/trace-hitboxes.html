@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ヒットボックス トレース</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100dvh; display: flex; flex-direction: column; }
+    .bar { padding: 10px 12px; border-bottom: 1px solid #334155; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .bar h1 { font-size: 14px; width: 100%; }
+    .bar p { font-size: 11px; color: #94a3b8; width: 100%; line-height: 1.5; }
+    .bar button, .bar select { font-size: 12px; padding: 6px 10px; border-radius: 8px; border: 1px solid #475569; background: #1e293b; color: #f8fafc; }
+    .bar button { cursor: pointer; }
+    .bar button.primary { background: #166534; border-color: #16a34a; }
+    .main { flex: 1; display: grid; grid-template-columns: 1fr 320px; min-height: 0; }
+    .stage-wrap { overflow: auto; padding: 12px; }
+    .stage { position: relative; display: inline-block; max-width: 100%; cursor: crosshair; }
+    .stage img { display: block; width: 100%; height: auto; user-select: none; }
+    .stage svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .panel { border-left: 1px solid #334155; padding: 12px; overflow: auto; font-size: 12px; }
+    .panel h2 { font-size: 12px; margin-bottom: 8px; color: #94a3b8; text-transform: uppercase; letter-spacing: .1em; }
+    .panel pre { background: #020617; border: 1px solid #334155; border-radius: 8px; padding: 8px; white-space: pre-wrap; word-break: break-all; font-size: 10px; max-height: 240px; overflow: auto; }
+    .feat-list { list-style: none; margin: 0 0 12px; padding: 0; }
+    .feat-list li { padding: 6px 8px; border-radius: 6px; margin-bottom: 4px; cursor: pointer; border: 1px solid transparent; }
+    .feat-list li:hover { background: #1e293b; }
+    .feat-list li.sel { background: #1e3a5f; border-color: #38bdf8; }
+    .feat-list li.done { color: #86efac; }
+    @media (max-width: 900px) { .main { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <h1 id="pageTitle">ヒットボックス トレース</h1>
+    <p id="pageHint">
+      イラスト上のリフト・コース線に沿ってクリック →「パス確定」。7本すべて完了後 JSON を保存。
+    </p>
+    <p id="statusBanner" hidden style="font-size:11px;color:#fbbf24;width:100%;line-height:1.5;"></p>
+    <select id="featSelect"></select>
+    <button type="button" id="undoBtn">1点戻す</button>
+    <button type="button" id="clearBtn">クリア</button>
+    <button type="button" class="primary" id="commitBtn">パス確定</button>
+    <button type="button" id="copyBtn">JSONコピー</button>
+    <button type="button" id="downloadBtn">JSON保存</button>
+    <button type="button" id="loadBtn">既存読込</button>
+  </header>
+  <div class="main">
+    <div class="stage-wrap">
+      <div class="stage" id="stage">
+        <img id="hero" alt="" />
+        <svg id="overlay"></svg>
+      </div>
+    </div>
+    <aside class="panel">
+      <h2>対象一覧（7本）</h2>
+      <ul class="feat-list" id="featList"></ul>
+      <h2>いま描いている点</h2>
+      <pre id="draft">（クリックで点を追加）</pre>
+      <h2>出力 JSON</h2>
+      <pre id="out"></pre>
+    </aside>
+  </div>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const VERSION = params.get("version") || "v5";
+    const HERO_FILE = params.get("hero") || (VERSION === "v5" ? "sichinohe-hero-v5.png" : "sichinohe-hero.png");
+    let HERO_W = Number(params.get("w") || (VERSION === "v5" ? 1920 : 1024));
+    let HERO_H = Number(params.get("h") || (VERSION === "v5" ? 1920 : 790));
+    const OUT_FILE = `hitboxes-hero-${VERSION}.json`;
+    const SOURCE_TAG =
+      VERSION === "v5"
+        ? `illustrated-hero layout-v5 手トレース`
+        : `illustrated-hero layout-v4 手トレース`;
+
+    const FEATURES = [
+      { id: "lift-pair", type: "lift", label: "ペアリフト" },
+      { id: "lift-pony", type: "lift", label: "ポニーリフト" },
+      { id: "trail-intermediate", type: "trail", label: "中斜面（コース1）" },
+      { id: "trail-upper", type: "trail", label: "上部（コース2）" },
+      { id: "trail-champion", type: "trail", label: "チャンピオン（コース3）" },
+      { id: "trail-forest", type: "trail", label: "林間周回（コース4）" },
+      { id: "trail-pony", type: "trail", label: "ポニー周辺（コース5）" },
+    ];
+
+    document.getElementById("pageTitle").textContent =
+      `ヒットボックス トレース — ${HERO_FILE} ${HERO_W}×${HERO_H}`;
+    document.getElementById("pageHint").innerHTML =
+      `座標 = 画像ピクセルそのまま。出力 → <code>web/data/map/${OUT_FILE}</code> → ` +
+      `<code>node scripts/sync-hero-hitboxes.mjs</code>`;
+
+    const stage = document.getElementById("stage");
+    const hero = document.getElementById("hero");
+    const overlay = document.getElementById("overlay");
+    overlay.setAttribute("viewBox", `0 0 ${HERO_W} ${HERO_H}`);
+    hero.width = HERO_W;
+    hero.height = HERO_H;
+
+    const featSelect = document.getElementById("featSelect");
+    const featList = document.getElementById("featList");
+    const draftEl = document.getElementById("draft");
+    const outEl = document.getElementById("out");
+
+    let currentId = FEATURES[0].id;
+    let draftPoints = [];
+    const saved = Object.fromEntries(FEATURES.map((f) => [f.id, null]));
+
+    FEATURES.forEach((f) => {
+      const opt = document.createElement("option");
+      opt.value = f.id;
+      opt.textContent = f.label;
+      featSelect.appendChild(opt);
+      const li = document.createElement("li");
+      li.dataset.id = f.id;
+      li.textContent = f.label;
+      li.onclick = () => selectFeature(f.id);
+      featList.appendChild(li);
+    });
+
+    function selectFeature(id) {
+      currentId = id;
+      featSelect.value = id;
+      draftPoints = [];
+      featList.querySelectorAll("li").forEach((li) => li.classList.toggle("sel", li.dataset.id === id));
+      updateDraft();
+      redraw();
+    }
+
+    function toHeroCoords(clientX, clientY) {
+      const r = hero.getBoundingClientRect();
+      const x = ((clientX - r.left) / r.width) * HERO_W;
+      const y = ((clientY - r.top) / r.height) * HERO_H;
+      return [Math.round(x * 10) / 10, Math.round(y * 10) / 10];
+    }
+
+    function pathFromPoints(pts) {
+      if (!pts.length) return "";
+      return pts.map((p, i) => (i === 0 ? `M ${p[0]} ${p[1]}` : `L ${p[0]} ${p[1]}`)).join(" ");
+    }
+
+    function stationsFor(id, pts) {
+      if (id.startsWith("lift-") && pts.length >= 2) return [pts[0], pts[pts.length - 1]];
+      return [];
+    }
+
+    function updateDraft() {
+      draftEl.textContent = draftPoints.length
+        ? draftPoints.map((p) => `[${p[0]}, ${p[1]}]`).join("\n")
+        : "（クリックで点を追加）";
+    }
+
+    function buildOutput() {
+      const features = FEATURES.map((f) => saved[f.id]).filter(Boolean);
+      return {
+        schemaVersion: "2026-06-09",
+        coordinateAuthority: `${HERO_FILE} ${HERO_W}×${HERO_H} 直トレース（layout-${VERSION}）`,
+        hero: { width: HERO_W, height: HERO_H, viewBox: `0 0 ${HERO_W} ${HERO_H}` },
+        features,
+      };
+    }
+
+    function redraw() {
+      let html = "";
+      for (const f of FEATURES) {
+        const data = saved[f.id];
+        const pts = f.id === currentId ? draftPoints : null;
+        const path = data?.path || (pts?.length ? pathFromPoints(pts) : "");
+        if (!path) continue;
+        const color = f.type === "lift" ? "#22c55e" : "#38bdf8";
+        const active = f.id === currentId;
+        html += `<path d="${path}" fill="none" stroke="${color}" stroke-width="${active ? 4 : 2}" stroke-linecap="round" opacity="${active ? 1 : 0.55}"/>`;
+        const stations = data?.stations?.length ? data.stations : stationsFor(f.id, pts || []);
+        stations.forEach(([cx, cy]) => {
+          html += `<circle cx="${cx}" cy="${cy}" r="8" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+        });
+        (pts || []).forEach(([cx, cy], i) => {
+          html += `<circle cx="${cx}" cy="${cy}" r="5" fill="#fbbf24" stroke="#000" stroke-width="1"/>`;
+          html += `<text x="${cx + 6}" y="${cy - 6}" fill="#fbbf24" font-size="11">${i + 1}</text>`;
+        });
+      }
+      overlay.innerHTML = html;
+      outEl.textContent = JSON.stringify(buildOutput(), null, 2);
+      featList.querySelectorAll("li").forEach((li) => {
+        li.classList.toggle("done", !!saved[li.dataset.id]);
+      });
+    }
+
+    stage.addEventListener("click", (e) => {
+      if (e.target.closest("button")) return;
+      draftPoints.push(toHeroCoords(e.clientX, e.clientY));
+      updateDraft();
+      redraw();
+    });
+
+    document.getElementById("undoBtn").onclick = () => {
+      draftPoints.pop();
+      updateDraft();
+      redraw();
+    };
+    document.getElementById("clearBtn").onclick = () => {
+      draftPoints = [];
+      updateDraft();
+      redraw();
+    };
+    document.getElementById("commitBtn").onclick = () => {
+      if (draftPoints.length < 2) {
+        alert("リフト/コースは2点以上クリックしてください");
+        return;
+      }
+      const meta = FEATURES.find((f) => f.id === currentId);
+      saved[currentId] = {
+        id: currentId,
+        type: meta.type,
+        label: meta.label,
+        source: SOURCE_TAG,
+        path: pathFromPoints(draftPoints),
+        stations: stationsFor(currentId, draftPoints),
+      };
+      draftPoints = [];
+      updateDraft();
+      redraw();
+    };
+    document.getElementById("copyBtn").onclick = async () => {
+      await navigator.clipboard.writeText(outEl.textContent);
+      alert(`コピーしました → web/data/map/${OUT_FILE}`);
+    };
+    document.getElementById("downloadBtn").onclick = () => {
+      const blob = new Blob([outEl.textContent], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = OUT_FILE;
+      a.click();
+    };
+    function showBanner(msg) {
+      const el = document.getElementById("statusBanner");
+      el.hidden = false;
+      el.textContent = msg;
+    }
+
+    async function loadExisting() {
+      const paths = [
+        `/maps/${OUT_FILE}`,
+        `/data/map/${OUT_FILE}`,
+        `../../data/map/${OUT_FILE}`,
+      ];
+      for (const p of paths) {
+        try {
+          const res = await fetch(p);
+          if (!res.ok) continue;
+          const data = await res.json();
+          (data.features || []).forEach((f) => {
+            saved[f.id] = f;
+          });
+          redraw();
+          return;
+        } catch { /* next */ }
+      }
+    }
+    document.getElementById("loadBtn").onclick = loadExisting;
+
+    featSelect.onchange = () => selectFeature(featSelect.value);
+
+    const HERO_CANDIDATES =
+      VERSION === "v5"
+        ? [HERO_FILE, "sichinohe-hero-v5-template.png", "sichinohe-hero-v5-guide.png"]
+        : [HERO_FILE];
+    let heroCandidateIndex = 0;
+    let loadedHeroFile = HERO_CANDIDATES[0];
+
+    function heroUrl(file) {
+      return location.protocol === "file:" ? file : `/maps/${file}`;
+    }
+
+    function tryLoadHero() {
+      loadedHeroFile = HERO_CANDIDATES[heroCandidateIndex];
+      hero.src = heroUrl(loadedHeroFile);
+    }
+
+    hero.onerror = () => {
+      heroCandidateIndex += 1;
+      if (heroCandidateIndex < HERO_CANDIDATES.length) {
+        showBanner(
+          `${HERO_CANDIDATES[heroCandidateIndex - 1]} が無いため ${HERO_CANDIDATES[heroCandidateIndex]} を読み込みます`,
+        );
+        tryLoadHero();
+        return;
+      }
+      showBanner(
+        "ヒーロー画像を読み込めません。cd sichinohe-CyoueiSki/web && npm run dev で起動し、http://localhost:3000/maps/trace-hitboxes.html?version=v5 を開いてください。Gemini 画像がある場合は node scripts/promote-hero-v5.mjs <画像.png> を先に実行。",
+      );
+    };
+    hero.onload = () => {
+      if (!params.get("w") && hero.naturalWidth > 0) {
+        HERO_W = hero.naturalWidth;
+        HERO_H = hero.naturalHeight;
+        overlay.setAttribute("viewBox", `0 0 ${HERO_W} ${HERO_H}`);
+        hero.width = HERO_W;
+        hero.height = HERO_H;
+        document.getElementById("pageTitle").textContent =
+          `ヒットボックス トレース — ${loadedHeroFile} ${HERO_W}×${HERO_H}`;
+      }
+      if (loadedHeroFile !== HERO_FILE) {
+        showBanner(
+          `暫定: ${loadedHeroFile} を表示中。本番用は node scripts/promote-hero-v5.mjs <Gemini画像.png> で sichinohe-hero-v5.png を登録してください。`,
+        );
+      }
+      redraw();
+      loadExisting();
+    };
+    tryLoadHero();
+    selectFeature(currentId);
+  </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+# エージェントレジストリ — Cursor / オーケストレーション用
+# 更新時は AGENTS.md の早見表と同期すること。
+
+version: 1
+project:
+  name: sichinohe-CyoueiSki
+  locale: ja
+  app_root: web
+  stack: nextjs-app-router
+
+# ローカル環境の英語テンプレ（Get-WebPrompt.ps1 1〜9）との対応は REFERENCE_WEB_PROMPTS.md を参照。
+external_prompt_library:
+  path_windows: "..\\..\\Webプロンプト\\Get-WebPrompt.ps1"
+  mapping_doc: agents/REFERENCE_WEB_PROMPTS.md
+
+design_docs:
+  - path: agents/AWARD_TYPOGRAPHY_DESIGN_SYSTEM.md
+    note: アワード水準タイポ・デザインシステム（13優先）
+  - path: agents/AWARD_COMPLETION_PLAYBOOK.md
+    note: 完成までのプレイブック
+  - path: web/src/styles/award-design-system.css
+    note: デザイントークン実装
+  - path: agents/SITE_SKELETON_AND_IA.md
+    note: 七戸公式サイト IA
+  - path: agents/PLATFORM_VISION_JAPOWSEARCH.md
+    note: japowserch ハブ展望
+  - path: agents/DATA_MODEL_NORMALIZED_RESORT.md
+    note: 全国正規化モデル
+  - path: agents/ADMIN_CONSOLE_AND_LINE_UPDATES.md
+    note: 運営コンソール・LINE
+  - path: agents/MASTER_SUMMARY_AND_ROADMAP.md
+    note: 総まとめ・ロードマップ
+
+agents:
+  - id: "01"
+    slug: information-architecture
+    title_ja: 情報設計・UX（IA）
+    prompt_file: agents/01-information-architecture.prompt.md
+    invoke_when:
+      - サイトマップ・ナビ・ページテンプレを決める
+      - 長尾LPのセクション構成を決める
+    design_docs: [agents/SITE_SKELETON_AND_IA.md]
+
+  - id: "02"
+    slug: realtime-operations-data
+    title_ja: リアルタイム運用・データ設計
+    prompt_file: agents/02-realtime-operations-data.prompt.md
+    invoke_when:
+      - 今日・運行・雪の画面項目とCMSフィールドを決める
+      - DATA_MODEL と公開画面の整合を取る
+    design_docs: [agents/DATA_MODEL_NORMALIZED_RESORT.md]
+
+  - id: "03"
+    slug: content-copy-i18n
+    title_ja: コンテンツ・多言語
+    prompt_file: agents/03-content-copy-i18n.prompt.md
+    invoke_when:
+      - 日英コピー・FAQ・免責文言が必要
+
+  - id: "04"
+    slug: seo-performance-marketing
+    title_ja: SEO・計測・マーケ連動
+    prompt_file: agents/04-seo-performance-marketing.prompt.md
+    invoke_when:
+      - メタ・構造化データ・長尾LP・広告連動仕様
+
+  - id: "05"
+    slug: design-accessibility
+    title_ja: デザイン・アクセシビリティ
+    prompt_file: agents/05-design-accessibility.prompt.md
+    invoke_when:
+      - UIキット・写真方針・コンポーネント仕様
+
+  - id: "06"
+    slug: implementation-engineering
+    title_ja: 実装・エンジニアリング
+    prompt_file: agents/06-implementation-engineering.prompt.md
+    invoke_when:
+      - スタック選定・ディレクトリ・デプロイ・セキュリティ実装
+
+  - id: "07"
+    slug: stakeholder-compliance
+    title_ja: ステークホルダー・コンプライアンス
+    prompt_file: agents/07-stakeholder-compliance.prompt.md
+    invoke_when:
+      - 第三者表記・アフィリエイト表示・クレーム時文言
+
+  - id: "08"
+    slug: data-platform-ingestion-ranking
+    title_ja: データプラットフォーム・ランキング
+    prompt_file: agents/08-data-platform-ingestion-ranking.prompt.md
+    invoke_when:
+      - japowserch 収集パイプライン・API・ランキング定義
+
+  - id: "09"
+    slug: map-popup-embed
+    title_ja: マップ・ポップアップ・埋め込み
+    prompt_file: agents/09-map-popup-and-embed.prompt.md
+    invoke_when:
+      - 地図UI・ポップアップ優先度・ウィジェット契約
+
+  - id: "10"
+    slug: monetization-affiliate
+    title_ja: 収益モデル・アフィリエイト
+    prompt_file: agents/10-monetization-packaging-affiliate.prompt.md
+    invoke_when:
+      - 初期パッケージ・サブスクSLA・ASP連携
+
+  - id: "11"
+    slug: partner-onboarding
+    title_ja: パートナーオンボーディング
+    prompt_file: agents/11-partner-resort-onboarding.prompt.md
+    invoke_when:
+      - 新規ゲレンデのキックオフ・フェーズ・研修設計
+
+  - id: "12"
+    slug: admin-console-line
+    title_ja: 運営コンソール・LINE連携
+    prompt_file: agents/12-admin-console-line-integration.prompt.md
+    invoke_when:
+      - 低難易度更新画面・LINE Webhook・LIFF・権限
+    design_docs: [agents/ADMIN_CONSOLE_AND_LINE_UPDATES.md]
+
+  - id: "13"
+    slug: award-typography
+    title_ja: アワード水準タイポグラフィ監修
+    prompt_file: agents/13-award-typography-design-system.prompt.md
+    invoke_when:
+      - タイポ・余白・改行・視覚的階層の監修
+      - BBS型羅列の是正
+    design_docs:
+      - agents/AWARD_TYPOGRAPHY_DESIGN_SYSTEM.md
+      - web/src/styles/award-design-system.css
+
+  - id: "14"
+    slug: award-motion
+    title_ja: アワード水準モーション・マイクロインタラクション
+    prompt_file: agents/14-award-motion-microinteraction.prompt.md
+    invoke_when:
+      - スクロール演出・進入アニメ・驚き1つの追加
+    design_docs: [agents/AWARD_TYPOGRAPHY_DESIGN_SYSTEM.md]
+
+  - id: "15"
+    slug: award-rollout-qa
+    title_ja: アワードデザイン・ロールアウト・完成QA
+    prompt_file: agents/15-award-rollout-qa.prompt.md
+    invoke_when:
+      - 全ページへのデザインシステム適用
+      - 完成判定・進捗表
+    design_docs: [agents/AWARD_COMPLETION_PLAYBOOK.md]
+
+  - id: "16"
+    slug: map-ux-evaluator
+    title_ja: マップUX評価ゲート（L3・レイアウト）
+    layer: evaluation
+    prompt_file: agents/16-map-ux-evaluator.prompt.md
+    invoke_when:
+      - LiftMapViewer / MapStatusRail / map-preview.html を変更した
+      - 地図上にパネル・リスト・凡例を追加する前後
+    design_docs:
+      - .cursor/rules/map-ux-gate.mdc
+      - agents/09-map-popup-and-embed.prompt.md
+    blocks_ship_on_fail: true
+
+  - id: "17"
+    slug: map-interaction-spec
+    title_ja: マップインタラクション体験仕様（L1）
+    layer: experience
+    prompt_file: agents/17-map-interaction-spec.prompt.md
+    invoke_when:
+      - マップのクリック・選択・モーダル動作を決める前
+      - 新規 map UI を実装する前（19 の入力）
+    design_docs:
+      - agents/AGENT_LAYOUT.md
+      - agents/09-map-popup-and-embed.prompt.md
+    writes_code: false
+
+  - id: "18"
+    slug: map-interaction-evaluator
+    title_ja: マップインタラクション評価ゲート（L3）
+    layer: evaluation
+    prompt_file: agents/18-map-interaction-evaluator.prompt.md
+    invoke_when:
+      - リスト選択・FAB・sheet・dialog 変更後
+      - 16 PASS 後（両方必須）
+    design_docs:
+      - agents/17-map-interaction-spec.prompt.md
+      - .cursor/rules/map-interaction-gate.mdc
+    blocks_ship_on_fail: true
+    writes_code: false
+
+  - id: "19"
+    slug: map-ui-implementer
+    title_ja: マップUI実装（L2）
+    layer: implementation
+    prompt_file: agents/19-map-ui-implementer.prompt.md
+    invoke_when:
+      - 17 の spec 承認後にマップ UI を実装
+    requires:
+      - "17"
+    design_docs:
+      - agents/AGENT_LAYOUT.md
+      - .cursor/rules/map-interaction-gate.mdc
+
+orchestration:
+  playbook_file: agents/ORCHESTRATION.md
+  agent_layout: agents/AGENT_LAYOUT.md
+  optional_templates:
+    - agents/REFERENCE_WEB_PROMPTS.md
+
+map_ui_pipeline:
+  order: ["17", "19", "16", "18"]
+  note: "17 spec → 19 実装 → 16∥18 評価。両評価 PASS で出荷"

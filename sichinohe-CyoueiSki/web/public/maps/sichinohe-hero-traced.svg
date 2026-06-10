@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024">
+  <defs>
+    <pattern id="snowHatch" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <line x1="0" y1="0" x2="0" y2="28" stroke="#b8bcc4" stroke-width="1.2" opacity="0.45"/>
+    </pattern>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="1536" height="1024" fill="#f8fafc"/>
+
+  <!-- forest left -->
+  <path fill="#4a7373" d="M0,0 L0,880 Q40,860 55,820 Q80,760 95,700 Q110,620 130,540 Q155,460 175,400 Q200,340 230,290 Q260,240 300,200 Q340,160 380,130 Q420,100 460,80 Q500,60 520,50 L520,0 Z"/>
+  <path fill="#4a7373" d="M0,880 Q60,900 120,910 Q200,930 280,940 Q360,950 420,960 Q480,970 520,975 L520,1024 L0,1024 Z"/>
+
+  <!-- forest right -->
+  <path fill="#4a7373" d="M1536,0 L1536,1024 L1180,1024 Q1200,980 1220,920 Q1240,860 1260,800 Q1280,720 1300,640 Q1320,560 1340,480 Q1360,400 1380,320 Q1400,240 1420,160 Q1440,80 1460,30 L1536,0 Z"/>
+  <path fill="#4a7373" d="M1180,1024 Q1150,960 1120,900 Q1090,840 1060,780 Q1030,720 1000,660 Q970,600 940,560 Q910,520 880,500 Q850,480 820,470 L820,1024 Z"/>
+
+  <!-- forest ridge -->
+  <path fill="#4a7373" d="M520,0 Q580,40 640,70 Q700,95 760,115 Q820,130 880,140 Q940,148 1000,150 Q1060,148 1120,135 Q1180,115 1240,85 Q1300,50 1360,15 L1460,30 Q1420,80 1380,140 Q1340,200 1300,260 Q1260,320 1220,380 Q1180,440 1140,500 Q1100,560 1060,620 Q1020,680 980,740 Q940,800 900,860 Q860,920 820,975 L520,975 Q500,900 480,820 Q460,740 440,660 Q420,580 400,500 Q380,420 360,340 Q340,260 320,180 Q300,100 280,40 Q260,20 240,10 Q220,5 520,0 Z"/>
+
+  <!-- ski slope -->
+  <path fill="#ffffff" d="M520,975 L820,1024 L1180,1024 Q1150,960 1100,880 Q1050,800 1000,720 Q950,640 900,560 Q850,480 800,400 Q750,320 700,250 Q650,180 600,130 Q560,90 520,50 L520,975 Z M520,50 Q560,90 600,130 Q650,180 700,250 Q750,320 800,400 Q850,480 900,560 Q950,640 1000,720 Q1050,800 1100,880 Q1120,900 1140,920 Q1120,850 1080,760 Q1040,670 1000,580 Q960,490 920,400 Q880,310 840,230 Q800,150 760,90 Q720,40 680,20 Q640,8 600,5 Q560,3 520,50 Z"/>
+
+  <!-- powder hatch -->
+  <path fill="url(#snowHatch)" d="M540,120 L1120,120 L1180,900 L540,900 Z" opacity="0.6"/>
+
+  <!-- course 4 beginner forest trail -->
+  <path id="trail-4" fill="none" stroke="#2fa84a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"
+    d="M620,140 C560,180 500,240 460,310 C420,380 400,450 390,520 C380,590 400,660 450,720 C500,780 560,820 620,850"/>
+  <circle cx="620" cy="140" r="22" fill="#2fa84a" stroke="#fff" stroke-width="3"/>
+  <text x="620" y="148" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="bold">4</text>
+
+  <!-- course 2 intermediate -->
+  <path id="trail-2" fill="none" stroke="#d62839" stroke-width="14" stroke-linecap="round"
+    d="M700,200 L680,350 L660,500 L640,650 L630,780"/>
+  <circle cx="700" cy="200" r="22" fill="#d62839" stroke="#fff" stroke-width="3"/>
+  <text x="700" y="208" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="bold">2</text>
+
+  <!-- course 1 beginner main -->
+  <path id="trail-1" fill="none" stroke="#2fa84a" stroke-width="14" stroke-linecap="round"
+    d="M820,220 L840,380 L855,540 L865,700 L870,820"/>
+  <circle cx="820" cy="220" r="22" fill="#2fa84a" stroke="#fff" stroke-width="3"/>
+  <text x="820" y="228" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="bold">1</text>
+
+  <!-- course 3 advanced -->
+  <path id="trail-3" fill="none" stroke="#1e1e1e" stroke-width="14" stroke-linecap="round"
+    d="M950,180 L980,280 L1000,360"/>
+  <circle cx="950" cy="180" r="22" fill="#1e1e1e" stroke="#fff" stroke-width="3"/>
+  <text x="950" y="188" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="bold">3</text>
+  <text x="1010" y="320" fill="#64748b" font-family="Arial,sans-serif" font-size="14" font-style="italic">???</text>
+
+  <!-- course 5 beginner right -->
+  <path id="trail-5" fill="none" stroke="#2fa84a" stroke-width="14" stroke-linecap="round"
+    d="M1180,620 L1200,720 L1210,800"/>
+  <circle cx="1180" cy="620" r="22" fill="#2fa84a" stroke="#fff" stroke-width="3"/>
+  <text x="1180" y="628" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="bold">5</text>
+
+  <!-- pair lift -->
+  <g id="lift-pair" filter="url(#softShadow)">
+    <path fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"
+      d="M900,720 L860,620 L820,520 L780,420 L740,320 L700,240 L660,200"/>
+    <line x1="900" y1="720" x2="900" y2="700" stroke="#1a1a1a" stroke-width="4"/>
+    <line x1="820" y1="520" x2="820" y2="500" stroke="#1a1a1a" stroke-width="4"/>
+    <line x1="740" y1="320" x2="740" y2="300" stroke="#1a1a1a" stroke-width="4"/>
+    <line x1="660" y1="200" x2="660" y2="180" stroke="#1a1a1a" stroke-width="4"/>
+    <rect x="893" y="708" width="14" height="8" fill="#1a1a1a" rx="1"/>
+    <rect x="813" y="508" width="14" height="8" fill="#1a1a1a" rx="1"/>
+    <rect x="733" y="308" width="14" height="8" fill="#1a1a1a" rx="1"/>
+    <circle id="lift-pair-bottom" cx="900" cy="720" r="8" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
+    <circle id="lift-pair-top" cx="660" cy="200" r="8" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
+  </g>
+
+  <!-- pony lift -->
+  <g id="lift-pony">
+    <path fill="none" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"
+      d="M1280,680 L1260,600 L1245,540"/>
+    <line x1="1280" y1="680" x2="1280" y2="665" stroke="#1a1a1a" stroke-width="3"/>
+    <line x1="1245" y1="540" x2="1245" y2="525" stroke="#1a1a1a" stroke-width="3"/>
+    <circle id="lift-pony-bottom" cx="1280" cy="680" r="7" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
+    <circle id="lift-pony-top" cx="1245" cy="540" r="7" fill="#1a1a1a" stroke="#fff" stroke-width="2"/>
+  </g>
+
+  <!-- base facilities -->
+  <g id="facilities" fill="#e8eaed" stroke="#64748b" stroke-width="2">
+    <rect x="920" y="860" width="120" height="55" rx="2"/>
+    <rect x="1050" y="875" width="90" height="40" rx="2"/>
+    <rect x="880" y="890" width="35" height="25" rx="2"/>
+    <line x1="860" y1="920" x2="1200" y2="920" stroke="#64748b" stroke-width="3"/>
+  </g>
+
+  <!-- legend -->
+  <rect x="0" y="968" width="1536" height="56" fill="#0f0f0f"/>
+  <line x1="40" y1="996" x2="120" y2="996" stroke="#2fa84a" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="130" cy="996" r="4" fill="#2fa84a"/>
+  <text x="145" y="1002" fill="#fff" font-family="Arial,sans-serif" font-size="16">?????</text>
+  <line x1="280" y1="996" x2="360" y2="996" stroke="#d62839" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="370" cy="996" r="4" fill="#d62839"/>
+  <text x="385" y="1002" fill="#fff" font-family="Arial,sans-serif" font-size="16">?????</text>
+  <line x1="520" y1="996" x2="600" y2="996" stroke="#1e1e1e" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="610" cy="996" r="4" fill="#1e1e1e"/>
+  <text x="625" y="1002" fill="#fff" font-family="Arial,sans-serif" font-size="16">?????</text>
+  <text x="1200" y="1002" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Non-compacted snow ???</text>
+</svg>

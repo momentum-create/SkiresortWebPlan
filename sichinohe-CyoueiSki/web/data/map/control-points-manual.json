@@ -1,0 +1,78 @@
+{
+  "image": {
+    "width": 1920,
+    "height": 1080,
+    "src": "/maps/sichinohe-hero-earthstudio.png"
+  },
+  "camera": {
+    "position": [
+      141.1073872446019,
+      40.6990810811416
+    ],
+    "altitudeM": 292.06717126978504,
+    "groundElevationM": 280,
+    "headingDeg": 268.02066132841924,
+    "tiltDeg": 78.41026408687615,
+    "rollDeg": 0,
+    "fovDeg": 40,
+    "fovAxis": "horizontal"
+  },
+  "generatedBy": "project-camera.mjs",
+  "generatedAt": "2026-06-05T13:04:07.836Z",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 779,
+      "py": 1131.3,
+      "role": "OSM way/631879096 下駅側",
+      "visible": true
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 657.2,
+      "py": 736.8,
+      "role": "OSM way/631879096 上駅側",
+      "visible": true
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 302.4,
+      "py": 1094.2,
+      "role": "ポニーリフト下",
+      "visible": true
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 306.3,
+      "py": 1206.6,
+      "role": "ポニーリフト上",
+      "visible": false
+    },
+    {
+      "id": "base-lodge",
+      "lng": 141.0999,
+      "lat": 40.6981,
+      "px": 623.5,
+      "py": 1152.4,
+      "role": "町営ヒュッテ付近（skimap）",
+      "visible": true
+    },
+    {
+      "id": "parking",
+      "lng": 141.1001,
+      "lat": 40.6975,
+      "px": 350.9,
+      "py": 1177.1,
+      "role": "駐車場（skimap P マーク）",
+      "visible": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+---
+description: 七戸スキー／japowserch プロジェクトのエージェント割当とレジストリ参照
+alwaysApply: true
+---
+
+# エージェント管理
+
+- ユーザーが「エージェント」「REGISTRY」「ID 01〜12」と言ったら、まずプロジェクトルートの **`AGENTS.md`** と **`agents/REGISTRY.yaml`** を参照してから作業する。
+- 役割別の詳細プロンプトは **`agents/NN-*.prompt.md`** のシステムプロンプトブロックを使う。
+- 並列タスクや推奨順序は **`agents/ORCHESTRATION.md`** に従う。
+- 設計の単一サマリーは **`agents/MASTER_SUMMARY_AND_ROADMAP.md`**。
+- ローカルの **`../../Webプロンプト/Get-WebPrompt.ps1`** を使う場合は **`agents/REFERENCE_WEB_PROMPTS.md`** で番号1〜9とエージェント01〜12を対応づける。
+- エージェント追加・改名時は **`REGISTRY.yaml`** と **`AGENTS.md`** を両方更新する。

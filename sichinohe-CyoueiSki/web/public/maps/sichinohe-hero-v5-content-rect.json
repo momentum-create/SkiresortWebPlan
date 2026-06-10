@@ -1,0 +1,11 @@
+{
+  "master": 1920,
+  "contentRect": {
+    "x": 448,
+    "y": 448,
+    "width": 1024,
+    "height": 1024
+  },
+  "source": "gemini-v5-source.png",
+  "note": "白マスク領域のみアウトペイント可。黒（contentRect）内は 1px も変更禁止。"
+}

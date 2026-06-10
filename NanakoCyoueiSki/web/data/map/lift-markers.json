@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "2026-06-05",
+  "coordinateAuthority": "Google Earth Studio + control-points-earth.json",
+  "projection": "earth-studio-similarity-to-illustrated-hero",
+  "hero": {
+    "src": "/maps/nanako-hero.png",
+    "width": 1536,
+    "height": 1024,
+    "viewBox": "0 0 1536 1024"
+  },
+  "earthReference": {
+    "src": "/maps/nanako-hero-earthstudio.png",
+    "width": 1920,
+    "height": 1080,
+    "viewBox": "0 0 1920 1080",
+    "internalOnly": true
+  },
+  "alignment": {
+    "pairLift": {
+      "method": "earth-camera-similarity",
+      "endpoints": [
+        "lift-pair-bottom",
+        "lift-pair-top"
+      ]
+    },
+    "ponyLift": {
+      "method": "manual-skimap-east",
+      "endpoints": [
+        "lift-pony-bottom",
+        "lift-pony-top"
+      ]
+    },
+    "controlPoints": {
+      "lift-pair-bottom": {
+        "lng": 141.0997309,
+        "lat": 40.69845,
+        "heroPixel": [
+          820,
+          790
+        ],
+        "earthPixelRaw": [
+          779,
+          1131.3
+        ],
+        "earthPixel": [
+          779,
+          980
+        ],
+        "role": "ペア下駅（基部・ロッジ東）"
+      },
+      "lift-pair-top": {
+        "lng": 141.0952757,
+        "lat": 40.6976589,
+        "heroPixel": [
+          480,
+          155
+        ],
+        "earthPixelRaw": [
+          657.2,
+          736.8
+        ],
+        "earthPixel": [
+          657,
+          737
+        ],
+        "role": "ペア上駅（山頂西）"
+      },
+      "lift-pony-bottom": {
+        "lng": 141.0995,
+        "lat": 40.69726,
+        "heroPixel": [
+          1180,
+          720
+        ],
+        "earthPixelRaw": [
+          302.4,
+          1094.2
+        ],
+        "earthPixel": [
+          1080,
+          900
+        ],
+        "role": "ポニー下（右側初級）"
+      },
+      "lift-pony-top": {
+        "lng": 141.1003,
+        "lat": 40.69744,
+        "heroPixel": [
+          1110,
+          555
+        ],
+        "earthPixelRaw": [
+          306.3,
+          1206.6
+        ],
+        "earthPixel": [
+          1020,
+          760
+        ],
+        "role": "ポニー上"
+      }
+    }
+  },
+  "lifts": [
+    {
+      "id": "lift-pair",
+      "label": "ペアリフト",
+      "source": "OpenStreetMap way/631879096",
+      "path": "M 820 790 L 799 751.9 L 748.1 653.5 L 679.5 526.1 L 645.4 464.3 L 614 403.1 L 569.7 326.8 L 546.9 274.5 L 509.2 218 L 486.5 170.9 L 480 155",
+      "stations": [
+        [
+          820,
+          790
+        ],
+        [
+          480,
+          155
+        ]
+      ]
+    },
+    {
+      "id": "lift-pony",
+      "label": "ポニーリフト",
+      "source": "国土地理院正射東側ベース + skimap照合（OSM未登録・要現地確認）",
+      "path": "M 1180 720 L 1110 555",
+      "stations": [
+        [
+          1180,
+          720
+        ],
+        [
+          1110,
+          555
+        ]
+      ]
+    }
+  ]
+}

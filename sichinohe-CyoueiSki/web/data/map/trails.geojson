@@ -1,0 +1,190 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "coordinateSystem": "hero-pixel",
+    "heroViewBox": "0 0 1024 790",
+    "coordinateAuthority": "sichinohe-hero.png 1024×790 直トレース（layout-v4）",
+    "note": "geometry coordinates are hero image pixels [x,y], not WGS84. Use properties.heroPath for SVG overlay."
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-intermediate",
+        "name": "中斜面コース（中級）",
+        "type": "trail",
+        "difficulty": "intermediate",
+        "source": "illustrated-hero layout-v4 手トレース",
+        "heroPath": "M 945 574.3 L 443 111.3",
+        "heroViewBox": "0 0 1024 790",
+        "coordinateSystem": "hero-pixel",
+        "officialCourse": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            945,
+            574.3
+          ],
+          [
+            443,
+            111.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-upper",
+        "name": "上部エリア（中〜上級）",
+        "type": "trail",
+        "difficulty": "intermediate-advanced",
+        "source": "illustrated-hero layout-v4 手トレース",
+        "heroPath": "M 394 95.3 L 327 196.3 L 492 343.3 L 589 363.3 L 824 548.3",
+        "heroViewBox": "0 0 1024 790",
+        "coordinateSystem": "hero-pixel",
+        "officialCourse": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            394,
+            95.3
+          ],
+          [
+            327,
+            196.3
+          ],
+          [
+            492,
+            343.3
+          ],
+          [
+            589,
+            363.3
+          ],
+          [
+            824,
+            548.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-champion",
+        "name": "チャンピオン（上級）",
+        "type": "trail",
+        "difficulty": "advanced",
+        "source": "illustrated-hero layout-v4 手トレース",
+        "heroPath": "M 458 73.3 L 576 96.3 L 686 243.3",
+        "heroViewBox": "0 0 1024 790",
+        "coordinateSystem": "hero-pixel",
+        "officialCourse": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            458,
+            73.3
+          ],
+          [
+            576,
+            96.3
+          ],
+          [
+            686,
+            243.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-forest",
+        "name": "林間周回（初級・コース4）",
+        "type": "trail",
+        "difficulty": "beginner",
+        "source": "illustrated-hero layout-v4 手トレース",
+        "heroPath": "M 328 88.3 L 156 168.3 L 4 392.3 L 7 421.3 L 234 521.3 L 303 530.3 L 561 475.3 L 619 473.3 L 691 529.3",
+        "heroViewBox": "0 0 1024 790",
+        "coordinateSystem": "hero-pixel",
+        "officialCourse": "official-map-layout コース4"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            328,
+            88.3
+          ],
+          [
+            156,
+            168.3
+          ],
+          [
+            4,
+            392.3
+          ],
+          [
+            7,
+            421.3
+          ],
+          [
+            234,
+            521.3
+          ],
+          [
+            303,
+            530.3
+          ],
+          [
+            561,
+            475.3
+          ],
+          [
+            619,
+            473.3
+          ],
+          [
+            691,
+            529.3
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "trail-pony",
+        "name": "ポニーリフト周辺（初級）",
+        "type": "trail",
+        "difficulty": "beginner",
+        "source": "illustrated-hero layout-v4 手トレース",
+        "heroPath": "M 826 260.3 L 1002 400.3",
+        "heroViewBox": "0 0 1024 790",
+        "coordinateSystem": "hero-pixel",
+        "officialCourse": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            826,
+            260.3
+          ],
+          [
+            1002,
+            400.3
+          ]
+        ]
+      }
+    }
+  ]
+}

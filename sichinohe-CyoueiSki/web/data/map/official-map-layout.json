@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "2026-06-05",
+  "purpose": "公式パンフレット地図の位置関係のみ。本番ヒーローへのベクター焼き込み禁止。",
+  "styleReference": "/maps/reference/style-plate-v2.png",
+  "layoutReference": "/maps/reference/official-map-trace-source.png",
+  "canvas": { "width": 1536, "height": 1024 },
+  "courses": [
+    {
+      "id": 1,
+      "name": "コース1",
+      "difficulty": "beginner",
+      "description": "ペアリフト上駅付近からメイン斜面中央右を直線的に下山。林縁ではなく開けた圧雪面として描く。色付きオーバーレイ線は禁止。",
+      "pathHint": "upper-center-right → base-center-right"
+    },
+    {
+      "id": 2,
+      "name": "コース2",
+      "difficulty": "intermediate",
+      "description": "山頂より左寄りからメイン斜面左中央へ。リフト線の西側をなだらかに下降。",
+      "pathHint": "upper-left-center → mid-left slope"
+    },
+    {
+      "id": 3,
+      "name": "コース3",
+      "difficulty": "advanced",
+      "description": "山頂中央の短い急斜面。非圧雪（モーグル）質感で表現。細い黒線オーバーレイ禁止。",
+      "pathHint": "summit-center short steep"
+    },
+    {
+      "id": 4,
+      "name": "コース4",
+      "difficulty": "beginner",
+      "description": "左上から左周回の林間コース。大きな森の塊を左側で一周して基部へ合流。",
+      "pathHint": "top-left perimeter loop around west forest"
+    },
+    {
+      "id": 5,
+      "name": "コース5",
+      "difficulty": "beginner",
+      "description": "画面右端の独立した小斜面。メイン斜面とは別の東側ベンチ。",
+      "pathHint": "far-right isolated bench"
+    }
+  ],
+  "lifts": [
+    {
+      "id": "lift-pair",
+      "type": "chair_lift",
+      "description": "基部右下から山頂やや右寄りまで対角線。タワーと椅子を地形に沿って描画。",
+      "stations": { "bottom": [820, 790], "top": [480, 155] }
+    },
+    {
+      "id": "lift-pony",
+      "type": "surface_lift",
+      "description": "右側初級斜面（コース5付近）を短く登るポニーリフト。オレンジキャップの支柱。",
+      "stations": { "bottom": [1180, 720], "top": [1110, 555] }
+    }
+  ],
+  "facilities": {
+    "lodge": "ペアリフト下駅の南東、茶色木造2階建て",
+    "parking": "基部手前、T字＋ロータリー型アスファルト駐車場"
+  },
+  "forbidden": [
+    "太い色付きコース線のSVGオーバーレイ",
+    "番号付き丸マーカーのデジタル焼き込み",
+    "フラットな図解地図スタイル",
+    "凡例バーの焼き込み"
+  ]
+}

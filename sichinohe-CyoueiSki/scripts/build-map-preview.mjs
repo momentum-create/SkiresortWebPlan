@@ -1,0 +1,842 @@
+/**
+ * サーバー不要の静的マッププレビュー HTML を生成
+ * 出力: web/public/maps/map-preview.html（データ埋め込み・file:// で開ける）
+ *
+ * 用法: node build-map-preview.mjs
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const MAP_DIR = path.join(__dirname, "..", "web", "data", "map");
+const WEB_MAPS = path.join(__dirname, "..", "web", "public", "maps");
+const ROOT_PUBLIC_MAPS = path.join(__dirname, "..", "..", "public", "maps");
+const OUT_PATHS = [
+  path.join(WEB_MAPS, "map-preview.html"),
+  path.join(ROOT_PUBLIC_MAPS, "map-preview.html"),
+];
+function readJson(p) {
+  return JSON.parse(fs.readFileSync(p, "utf-8"));
+}
+
+const liftMarkers = readJson(path.join(MAP_DIR, "lift-markers.json"));
+const status = readJson(path.join(MAP_DIR, "status.json"));
+const manifest = readJson(path.join(MAP_DIR, "features.manifest.json"));
+
+let resortCenter = null;
+try {
+  const resortData = readJson(
+    path.join(__dirname, "..", "web", "data", "resort-data.json"),
+  );
+  resortCenter = resortData.resort?.coordinates ?? null;
+} catch {
+  /* optional */
+}
+
+const heroBase = manifest.heroImage ?? liftMarkers.hero;
+const heroFile = (heroBase.src ?? "/maps/sichinohe-hero.png")
+  .replace(/^\/maps\//, "")
+  .replace(/\?.*$/, "");
+// file:// では ?v= 付きパスが実ファイル名扱いで失敗するためクエリなし
+const hero = {
+  ...heroBase,
+  src: heroFile,
+  /** http(s) では clean URL (/maps/map-preview) でも壊れない絶対パス */
+  srcHttp: `/maps/${heroFile}`,
+};
+
+const HERO_SRC = path.join(WEB_MAPS, heroFile);
+
+const statusMap = Object.fromEntries(
+  (status.features ?? []).map((f) => [f.id, f.status]),
+);
+const labels = Object.fromEntries(
+  (manifest.features ?? []).map((f) => [f.id, f.label]),
+);
+
+const FEATURE_COLORS = {
+  "lift-pair": "#1a1a1a",
+  "lift-pony": "#1a1a1a",
+  "trail-intermediate": "#2fa84a",
+  "trail-upper": "#d62839",
+  "trail-champion": "#6d28d9",
+  "trail-forest": "#2fa84a",
+  "trail-pony": "#2fa84a",
+};
+
+const bundle = {
+  generatedAt: new Date().toISOString(),
+  resortName: manifest.name,
+  disclaimer: manifest.disclaimer,
+  hero,
+  heroVersion: heroBase.attribution ?? "hero",
+  lifts: (liftMarkers.lifts ?? []).map((l) => ({
+    id: l.id,
+    label: l.label,
+    source: l.source,
+    path: l.path,
+    stations: l.stations,
+    type: "lift",
+  })),
+  trails: (liftMarkers.trails ?? []).map((t) => ({
+    id: t.id,
+    label: t.label,
+    source: t.source,
+    path: t.path,
+    stations: t.stations ?? [],
+    type: "trail",
+  })),
+  hitboxes: [
+    ...(liftMarkers.lifts ?? []).map((l) => ({
+      id: l.id,
+      label: l.label,
+      source: l.source,
+      path: l.path,
+      stations: l.stations,
+      type: "lift",
+    })),
+    ...(liftMarkers.trails ?? []).map((t) => ({
+      id: t.id,
+      label: t.label,
+      source: t.source,
+      path: t.path,
+      stations: t.stations ?? [],
+      type: "trail",
+    })),
+  ],
+  features: (manifest.features ?? []).map((f) => ({
+    id: f.id,
+    type: f.type,
+    label: f.label,
+    shortLabel: f.shortLabel ?? null,
+    difficulty: f.difficulty ?? null,
+    source: f.type === "lift" ? "リフト" : "コース",
+    color: FEATURE_COLORS[f.id] ?? (f.type === "lift" ? "#1a1a1a" : "#2fa84a"),
+    meta: f.meta ?? null,
+  })),
+  featureColors: FEATURE_COLORS,
+  status: statusMap,
+  labels,
+  updatedAt: status.updatedAt,
+  resortCenter,
+};
+
+const html = `<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${bundle.resortName} — ゲレンデマップ</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    :root {
+      --canvas: #f7f9fb;
+      --ink: #1c2434;
+      --slate: #5a6578;
+      --alpine: #2d6b7a;
+      --alpine-dark: #1a4d42;
+      --border: #dce8ee;
+    }
+    body {
+      font-family: "Noto Sans JP", system-ui, sans-serif;
+      background: var(--canvas);
+      color: var(--ink);
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .topbar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 16px;
+      background: rgba(255,255,255,.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .topbar-title { display: flex; align-items: center; gap: 8px; min-width: 0; flex: 1; }
+    .topbar h1 { font-size: 14px; font-weight: 700; letter-spacing: .02em; margin: 0; }
+    .live-badge { display: none; flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: #2d5a4a; color: #fff; }
+    .live-badge.on { display: inline-block; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .quicknav {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(12px);
+    }
+    .quicknav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 44px;
+      padding: 8px 4px;
+      border-right: 1px solid var(--border);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      text-align: center;
+    }
+    .quicknav a:last-child { border-right: 0; }
+    .quicknav a:hover { background: var(--canvas); }
+    .quicknav a:focus-visible { outline: 2px solid var(--alpine); outline-offset: -2px; }
+    .main { flex: 1; min-height: 0; display: flex; flex-direction: row; }
+    .map-col { flex: 1; min-width: 0; min-height: 0; position: relative; }
+    .stage { position: absolute; inset: 0; overflow: hidden; cursor: grab; background: var(--canvas); }
+    .stage:active { cursor: grabbing; }
+    .inner { position: absolute; inset: 0; transform-origin: center center; will-change: transform; }
+    .frame { position: absolute; inset: 0; overflow: hidden; }
+    .frame img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; user-select: none; -webkit-user-drag: none; }
+    .load-error { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center; font-size: 13px; color: #b91c1c; background: rgba(255,255,255,.92); }
+    .load-error[hidden] { display: none !important; }
+    .frame svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .frame svg path.hit { pointer-events: stroke; cursor: pointer; }
+    .rail { flex-shrink: 0; width: 320px; display: flex; flex-direction: column; border-left: 1px solid var(--border); background: rgba(255,255,255,.96); overflow: hidden; }
+    .rail-head { flex-shrink: 0; padding: 12px 16px 0; border-bottom: 1px solid var(--border); }
+    .rail-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+    .rail-title-row h2 { font-size: 13px; font-weight: 700; color: var(--ink); margin: 0; }
+    .rail-updated { font-size: 10px; color: var(--slate); font-variant-numeric: tabular-nums; }
+    .rail-tabs { display: flex; gap: 16px; }
+    .rail-tabs button {
+      margin: 0;
+      padding: 0 0 8px;
+      border: 0;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate);
+      cursor: pointer;
+    }
+    .rail-tabs button.active { color: var(--ink); border-bottom-color: var(--ink); }
+    .rail-tabs button:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .rail-search { margin-top: 12px; padding-bottom: 12px; }
+    .rail-search input { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; background: var(--canvas); color: var(--ink); }
+    .rail-search input::placeholder { color: var(--slate); }
+    .rail-search input:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .rail-difficulty { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 12px; }
+    .rail-difficulty[hidden] { display: none !important; }
+    .rail-difficulty button { margin: 0; padding: 4px 10px; border: 0; border-radius: 999px; background: transparent; font-size: 11px; font-weight: 600; color: var(--slate); cursor: pointer; }
+    .rail-difficulty button.on { background: var(--canvas); color: var(--ink); box-shadow: 0 0 0 1px var(--border); }
+    .rail-difficulty button:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .rail-empty { padding: 24px 16px; text-align: center; font-size: 13px; color: var(--slate); }
+    .rail-location { flex-shrink: 0; border-top: 1px solid var(--border); padding: 12px 16px; }
+    .rail-location h3 { font-size: 12px; font-weight: 700; margin: 0; color: var(--ink); }
+    .rail-location p { margin-top: 6px; font-size: 11px; line-height: 1.5; color: var(--slate); }
+    .rail-location button { margin-top: 8px; padding: 0; border: 0; background: transparent; font-size: 11px; font-weight: 600; color: var(--ink); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+    .rail-location button:disabled { opacity: .6; cursor: wait; }
+    .rail-location button:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .rail-body { flex: 1; min-height: 0; overflow-y: auto; padding: 8px; }
+    .rail ul { margin: 0; padding: 0; }
+    .rail li { list-style: none; }
+    .rail button { width: 100%; display: flex; align-items: center; gap: 8px; padding: 9px 10px 9px 8px; border: 0; border-radius: 0; background: transparent; color: var(--ink); text-align: left; font-size: 13px; cursor: pointer; border-left: 3px solid transparent; }
+    .rail button:hover, .rail button.sel { background: var(--canvas); }
+    .rail button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .badge { margin-left: auto; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; color: #fff; }
+    .rail-detail { flex-shrink: 0; border-top: 1px solid var(--border); border-left: 3px solid transparent; background: var(--canvas); padding: 12px 14px; }
+    .rail-detail[hidden] { display: none; }
+    .rail-detail-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .rail-detail-type { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--slate); }
+    .rail-detail-title { margin-top: 4px; font-size: 14px; font-weight: 600; color: var(--ink); }
+    .rail-detail-badge { flex-shrink: 0; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 999px; color: #fff; }
+    .rail-detail-meta { margin-top: 8px; font-size: 11px; color: var(--slate); }
+    .rail-detail-meta dl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 0; }
+    .rail-detail-meta dt { color: var(--slate); font-size: 10px; }
+    .rail-detail-meta dd { margin: 0; font-weight: 600; color: var(--ink); }
+    .fab { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 15; }
+    .fab button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border); background: rgba(255,255,255,.92); color: var(--ink); font-size: 18px; cursor: pointer; box-shadow: 0 4px 16px rgb(20 26 38 / 8%); }
+    .fab button:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .frame svg path.hit:focus-visible { outline: 2px solid var(--alpine); outline-offset: 2px; }
+    .status-fab { display: none; position: absolute; left: 12px; bottom: 12px; z-index: 6; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.96); color: var(--ink); padding: 10px 16px; font-size: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 16px rgb(20 26 38 / 16%); }
+    .status-fab:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .rail-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 19; }
+    .rail-backdrop.open { display: block; }
+    @media (max-width: 767px) {
+      .main { flex-direction: column; }
+      .map-col { flex: 1; min-height: 0; }
+      .stage { position: relative; flex: 1; min-height: 0; }
+      .status-fab { display: block; }
+      .fab { right: 12px; }
+      .rail { display: none; position: fixed; left: 0; right: 0; bottom: 0; width: 100%; max-height: min(70dvh, 520px); border-left: 0; border-top: 1px solid var(--border); z-index: 20; box-shadow: none; }
+      .rail.open { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">
+      <h1>ゲレンデマップ</h1>
+      <span class="live-badge" id="liveBadge">ライブ</span>
+    </div>
+  </header>
+  <nav class="quicknav" aria-label="サイト内ナビ">
+    <a href="/" id="navHome">ホーム</a>
+    <a href="/live-cams" id="navCams">ライブカメラ</a>
+    <a href="/access" id="navAccess">アクセス</a>
+    <a href="/today" id="navToday">今日の運営</a>
+  </nav>
+
+  <div class="main">
+    <div class="map-col">
+      <div class="stage" id="stage">
+        <div class="inner" id="inner">
+          <div class="frame" id="frame"></div>
+        </div>
+      </div>
+      <div class="fab">
+        <button type="button" id="zoomIn" aria-label="拡大">+</button>
+        <button type="button" id="zoomOut" aria-label="縮小">−</button>
+        <button type="button" id="resetBtn" aria-label="全体表示">⊡</button>
+      </div>
+      <button type="button" class="status-fab" id="statusFab">運行状況</button>
+    </div>
+    <nav class="rail" id="rail" aria-label="運行状況">
+      <div class="rail-head">
+        <div class="rail-title-row">
+          <h2>運行状況</h2>
+          <span class="rail-updated" id="railUpdated"></span>
+        </div>
+        <div class="rail-tabs" role="tablist" aria-label="運行状況">
+          <button type="button" role="tab" data-filter="trail" class="active" aria-selected="true">コース</button>
+          <button type="button" role="tab" data-filter="lift" aria-selected="false">リフト</button>
+        </div>
+        <label class="rail-search">
+          <span class="sr-only">リフト・コースを検索</span>
+          <input type="search" id="railSearch" placeholder="名前で検索…" aria-label="リフト・コースを検索" autocomplete="off" />
+        </label>
+        <div class="rail-difficulty" id="railDifficulty" role="group" aria-label="コース難易度で絞り込み">
+          <button type="button" data-bucket="all" class="on" aria-pressed="true">すべて</button>
+          <button type="button" data-bucket="beginner" aria-pressed="false">初級</button>
+          <button type="button" data-bucket="intermediate" aria-pressed="false">中級</button>
+          <button type="button" data-bucket="advanced" aria-pressed="false">上級</button>
+        </div>
+      </div>
+      <div class="rail-body"></div>
+      <div class="rail-location" id="railLocation" hidden></div>
+      <div class="rail-detail" id="railDetail" hidden aria-live="polite">
+        <div class="rail-detail-head">
+          <div>
+            <p class="rail-detail-type" id="detailType"></p>
+            <p class="rail-detail-title" id="detailTitle"></p>
+          </div>
+          <span class="rail-detail-badge" id="detailBadge"></span>
+        </div>
+        <p class="rail-detail-meta" id="detailMeta"></p>
+      </div>
+    </nav>
+    <div class="rail-backdrop" id="railBackdrop" hidden></div>
+  </div>
+
+  <script id="map-data" type="application/json">${JSON.stringify(bundle)}</script>
+  <script>
+    const fileNav = {
+      navHome: "../preview/index.html",
+      navCams: "../preview/index.html",
+      navAccess: "../preview/index.html",
+      navToday: "../preview/index.html",
+    };
+    if (location.protocol === "file:") {
+      Object.entries(fileNav).forEach(([id, href]) => {
+        const el = document.getElementById(id);
+        if (el) el.href = href;
+      });
+    }
+
+    const DATA = JSON.parse(document.getElementById("map-data").textContent);
+    const STATUS_COLORS = { operating: "#16a34a", open: "#16a34a", stopped: "#64748b", closed: "#64748b", hold: "#f59e0b", unknown: "#94a3b8" };
+    const LABELS = { operating: "運転中", open: "滑走可", stopped: "停止", closed: "閉鎖", hold: "確認中", unknown: "確認中" };
+    const FEATURE_COLORS = DATA.featureColors || {};
+
+    function featureAccent(id, type) {
+      return FEATURE_COLORS[id] || (type === "lift" ? "#1a1a1a" : "#2fa84a");
+    }
+
+    function listBadgeColor(id, type, status) {
+      if (status === "stopped" || status === "closed" || status === "hold" || status === "unknown") {
+        return STATUS_COLORS[status] || STATUS_COLORS.unknown;
+      }
+      return featureAccent(id, type);
+    }
+
+    function isStoppedLift(id) {
+      const st = DATA.status[id];
+      return st === "stopped" || st === "closed";
+    }
+
+    function isDimmed(type) {
+      return typeFilter !== "all" && type !== typeFilter;
+    }
+
+    let searchQuery = "";
+    let difficultyFilter = "all";
+
+    function featureMatchesSearch(feat, query) {
+      const q = query.trim().toLowerCase();
+      if (!q) return true;
+      const hay = [feat.label, feat.shortLabel, feat.id].filter(Boolean).join(" ").toLowerCase();
+      return hay.includes(q);
+    }
+
+    function featureMatchesDifficulty(feat, bucket) {
+      if (bucket === "all") return true;
+      if (feat.type === "lift") return true;
+      const d = feat.difficulty || "";
+      if (bucket === "beginner") return d === "beginner";
+      if (bucket === "intermediate") return d === "intermediate" || d === "intermediate-advanced";
+      if (bucket === "advanced") return d === "advanced" || d === "intermediate-advanced";
+      return true;
+    }
+
+    function featureMeta(feat) {
+      return (DATA.features || []).find((f) => f.id === feat.id) || feat;
+    }
+
+    function isDifficultyDimmed(feat) {
+      const meta = featureMeta(feat);
+      if (meta.type !== "trail" || difficultyFilter === "all") return false;
+      return !featureMatchesDifficulty(meta, difficultyFilter);
+    }
+
+    function mapHighlightStyle(feat, isSelected) {
+      const accent = featureAccent(feat.id, feat.type);
+      const st = DATA.status[feat.id] || "unknown";
+      if ((isDimmed(feat.type) || isDifficultyDimmed(feat)) && !isSelected) {
+        return { show: true, stroke: accent, width: 2, opacity: 0.35, dash: null };
+      }
+      if (feat.type === "lift") {
+        if (isStoppedLift(feat.id)) {
+          return { show: true, stroke: STATUS_COLORS.stopped, width: isSelected ? 3 : 2, opacity: isSelected ? 0.95 : 0.72, dash: "6 4" };
+        }
+        if (st === "hold" || st === "unknown") {
+          return { show: true, stroke: STATUS_COLORS[st] || STATUS_COLORS.unknown, width: isSelected ? 3 : 2, opacity: isSelected ? 0.95 : 0.72, dash: "4 3" };
+        }
+        return { show: isSelected, stroke: accent, width: 3, opacity: 1, dash: null };
+      }
+      if (st === "closed") {
+        return { show: true, stroke: STATUS_COLORS.closed, width: isSelected ? 3 : 2, opacity: isSelected ? 0.9 : 0.5, dash: "5 4" };
+      }
+      return { show: isSelected, stroke: accent, width: 3, opacity: 1, dash: null };
+    }
+
+    const stage = document.getElementById("stage");
+    const inner = document.getElementById("inner");
+    const frame = document.getElementById("frame");
+    const rail = document.getElementById("rail");
+    const railBody = rail.querySelector(".rail-body");
+    const railDetail = document.getElementById("railDetail");
+    const detailType = document.getElementById("detailType");
+    const detailTitle = document.getElementById("detailTitle");
+    const detailBadge = document.getElementById("detailBadge");
+    const detailMeta = document.getElementById("detailMeta");
+
+    const FIT_SCALE = 1.12;
+    let scale = FIT_SCALE, tx = 0, ty = 0, dragging = false, px = 0, py = 0, selected = null;
+    let typeFilter = "trail";
+
+    function defaultView() {
+      const sw = stage.clientWidth;
+      return {
+        scale: FIT_SCALE,
+        tx: 0,
+        ty: -Math.min(24, sw * 0.012),
+      };
+    }
+
+    function clampPan() {
+      const base = defaultView();
+      if (scale <= base.scale + 0.001) {
+        tx = base.tx;
+        ty = base.ty;
+        return;
+      }
+      const sw = stage.clientWidth;
+      const sh = stage.clientHeight;
+      const fw = frame.offsetWidth;
+      const fh = frame.offsetHeight;
+      const maxX = Math.max(0, (fw * scale - sw) / 2);
+      const maxY = Math.max(0, (fh * scale - sh) / 2);
+      tx = Math.min(base.tx + maxX, Math.max(base.tx - maxX, tx));
+      ty = Math.min(base.ty + maxY, Math.max(base.ty - maxY, ty));
+    }
+
+    function applyTransform() {
+      clampPan();
+      inner.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + scale + ")";
+    }
+
+    function fit() {
+      const base = defaultView();
+      scale = base.scale;
+      tx = base.tx;
+      ty = base.ty;
+      applyTransform();
+    }
+
+    function heroImageUrl() {
+      if (location.protocol === "file:") return DATA.hero.src;
+      return DATA.hero.srcHttp || "/maps/sichinohe-hero.png";
+    }
+
+    const heroImg = document.createElement("img");
+    heroImg.alt = DATA.resortName;
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", DATA.hero.viewBox);
+    svg.setAttribute("preserveAspectRatio", "xMidYMid slice");
+
+    function applyHighlight(line, circles, feat, isSelected) {
+      const hl = mapHighlightStyle(feat, isSelected);
+      line.setAttribute("stroke", hl.stroke);
+      line.setAttribute("stroke-width", hl.show ? String(hl.width) : "0");
+      line.setAttribute("stroke-opacity", String(hl.opacity));
+      line.setAttribute("stroke-linecap", "round");
+      if (hl.dash) line.setAttribute("stroke-dasharray", hl.dash);
+      else line.removeAttribute("stroke-dasharray");
+      circles.forEach((c) => {
+        c.setAttribute("r", isSelected && feat.type === "lift" ? "7" : "0");
+        c.setAttribute("fill", hl.stroke);
+      });
+    }
+
+    function renderOverlay() {
+      svg.innerHTML = "";
+      (DATA.hitboxes || DATA.lifts).forEach((feat) => {
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.dataset.id = feat.id;
+
+        const hit = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        hit.setAttribute("d", feat.path);
+        hit.setAttribute("fill", "none");
+        hit.setAttribute("stroke", "transparent");
+        hit.setAttribute("stroke-width", "18");
+        hit.classList.add("hit");
+        hit.addEventListener("click", () => selectFeature(feat.id));
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        line.setAttribute("d", feat.path);
+        line.setAttribute("fill", "none");
+        line.dataset.role = "highlight";
+
+        const circles = (feat.stations || []).map(([cx, cy]) => {
+          const c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+          c.setAttribute("cx", cx);
+          c.setAttribute("cy", cy);
+          c.setAttribute("stroke", "#fff");
+          c.setAttribute("stroke-width", "1.5");
+          g.appendChild(c);
+          return c;
+        });
+
+        applyHighlight(line, circles, feat, selected === feat.id);
+
+        g.appendChild(hit);
+        g.appendChild(line);
+        svg.appendChild(g);
+      });
+    }
+
+    function refreshHighlights() {
+      svg.querySelectorAll("g[data-id]").forEach((g) => {
+        const id = g.dataset.id;
+        const feat = (DATA.hitboxes || []).find((h) => h.id === id);
+        if (!feat) return;
+        const line = g.querySelector('path[data-role="highlight"]');
+        const circles = [...g.querySelectorAll("circle")];
+        if (line) applyHighlight(line, circles, feat, selected === id);
+      });
+    }
+
+    renderOverlay();
+
+    frame.appendChild(heroImg);
+    frame.appendChild(svg);
+
+    const railUpdated = document.getElementById("railUpdated");
+    if (railUpdated && DATA.updatedAt) {
+      const d = new Date(DATA.updatedAt);
+      railUpdated.textContent = (d.getMonth() + 1) + "/" + d.getDate() + " " + String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+    }
+
+    function visibleFeatures() {
+      return (DATA.features || []).filter((f) => {
+        if (typeFilter !== "all" && f.type !== typeFilter) return false;
+        if (!featureMatchesSearch(f, searchQuery)) return false;
+        if (!featureMatchesDifficulty(f, difficultyFilter)) return false;
+        return true;
+      });
+    }
+
+    function updateDifficultyVisibility() {
+      const panel = document.getElementById("railDifficulty");
+      if (panel) panel.hidden = typeFilter === "lift";
+    }
+
+    function renderRailList() {
+      railBody.innerHTML = "";
+      const feats = visibleFeatures();
+      if (!feats.length) {
+        const empty = document.createElement("p");
+        empty.className = "rail-empty";
+        empty.textContent = "該当するリフト・コースがありません";
+        railBody.appendChild(empty);
+        return;
+      }
+      const ul = document.createElement("ul");
+      feats.forEach((feat) => {
+        const st = DATA.status[feat.id] || "unknown";
+        const accent = featureAccent(feat.id, feat.type);
+        const badge = listBadgeColor(feat.id, feat.type, st);
+        const li = document.createElement("li");
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.dataset.id = feat.id;
+        btn.classList.toggle("sel", selected === feat.id);
+        btn.style.borderLeftColor = selected === feat.id ? accent : "transparent";
+        btn.innerHTML = '<span class="dot" style="background:' + accent + '"></span><span>' + (DATA.labels[feat.id] || feat.label) + '</span><span class="badge" style="background:' + badge + '">' + (LABELS[st]||st) + '</span>';
+        btn.addEventListener("click", () => selectFeature(feat.id));
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+      railBody.appendChild(ul);
+    }
+
+    renderRailList();
+    updateDifficultyVisibility();
+
+    const railSearch = document.getElementById("railSearch");
+    if (railSearch) {
+      railSearch.addEventListener("input", () => {
+        searchQuery = railSearch.value;
+        renderRailList();
+      });
+    }
+
+    document.querySelectorAll("#railDifficulty [data-bucket]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        difficultyFilter = btn.dataset.bucket;
+        document.querySelectorAll("#railDifficulty [data-bucket]").forEach((b) => {
+          const active = b.dataset.bucket === difficultyFilter;
+          b.classList.toggle("on", active);
+          b.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        renderRailList();
+        refreshHighlights();
+      });
+    });
+
+    rail.querySelectorAll("[data-filter]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        typeFilter = tab.dataset.filter;
+        rail.querySelectorAll("[data-filter]").forEach((t) => {
+          const active = t.dataset.filter === typeFilter;
+          t.classList.toggle("active", active);
+          t.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        updateDifficultyVisibility();
+        renderRailList();
+        refreshHighlights();
+      });
+    });
+
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLng = ((lng2 - lng1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) ** 2 +
+        Math.cos((lat1 * Math.PI) / 180) *
+          Math.cos((lat2 * Math.PI) / 180) *
+          Math.sin(dLng / 2) ** 2;
+      return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function initLocationPanel() {
+      const el = document.getElementById("railLocation");
+      const center = DATA.resortCenter;
+      if (!el || !center) return;
+      el.hidden = false;
+      el.innerHTML =
+        '<h3>現在地</h3>' +
+        '<p>屋外で GPS を許可すると、ゲレンデ中心からの距離を表示します（地図上には点を描画しません）。</p>' +
+        '<button type="button" id="locateBtn">距離を取得</button>' +
+        '<p id="locateResult" style="margin-top:8px;font-size:11px;color:var(--slate)"></p>';
+      const btn = document.getElementById("locateBtn");
+      const result = document.getElementById("locateResult");
+      if (!btn || !result) return;
+      btn.addEventListener("click", () => {
+        if (!navigator.geolocation) {
+          result.textContent = "この端末では位置情報を利用できません";
+          return;
+        }
+        btn.disabled = true;
+        result.textContent = "取得中…";
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const km = Math.round(
+              haversineKm(
+                pos.coords.latitude,
+                pos.coords.longitude,
+                center.lat,
+                center.lng,
+              ) * 10,
+            ) / 10;
+            result.textContent = "ゲレンデ中心から約 " + km + " km";
+            btn.disabled = false;
+          },
+          () => {
+            result.textContent = "位置情報の利用が許可されていません";
+            btn.disabled = false;
+          },
+          { enableHighAccuracy: true, timeout: 15000, maximumAge: 60000 },
+        );
+      });
+    }
+
+    function initLiveBadge() {
+      const badge = document.getElementById("liveBadge");
+      if (!badge || location.protocol === "file:") return;
+      const streamUrl = "/api/public/map-status/stream";
+      try {
+        const es = new EventSource(streamUrl);
+        es.onopen = () => badge.classList.add("on");
+        es.onerror = () => {
+          es.close();
+          badge.classList.remove("on");
+        };
+      } catch {
+        /* static host without SSE */
+      }
+    }
+
+    initLocationPanel();
+    initLiveBadge();
+
+    function selectFeature(id) {
+      selected = id;
+      railBody.querySelectorAll("button[data-id]").forEach((b) => {
+        b.classList.toggle("sel", b.dataset.id === id);
+        b.style.borderLeftColor = b.dataset.id === id ? featureAccent(b.dataset.id, (DATA.features || []).find((f) => f.id === b.dataset.id)?.type || "trail") : "transparent";
+      });
+      const hit = (DATA.hitboxes || DATA.lifts).find((h) => h.id === id);
+      const feat = (DATA.features || []).find((f) => f.id === id) || hit;
+      const st = DATA.status[id] || "unknown";
+      detailType.textContent = feat?.type === "trail" ? "コース" : "リフト";
+      detailTitle.textContent = DATA.labels[id] || feat?.label || id;
+      detailBadge.textContent = LABELS[st] || st;
+      detailBadge.style.background = listBadgeColor(id, feat?.type || "trail", st);
+      railDetail.style.borderLeftColor = featureAccent(id, feat?.type || (id.startsWith("lift-") ? "lift" : "trail"));
+      if (feat?.meta && Object.keys(feat.meta).length) {
+        detailMeta.innerHTML = "<dl>" + Object.entries(feat.meta).map(function (e) {
+          return "<div><dt>" + e[0] + "</dt><dd>" + e[1] + "</dd></div>";
+        }).join("") + "</dl>";
+      } else {
+        detailMeta.textContent = hit?.source || feat?.source || "";
+      }
+      railDetail.hidden = false;
+      refreshHighlights();
+    }
+
+    document.getElementById("resetBtn").onclick = fit;
+    document.getElementById("zoomIn").onclick = () => { scale = Math.min(scale * 1.25, 5); applyTransform(); };
+    document.getElementById("zoomOut").onclick = () => { scale = Math.max(scale / 1.25, FIT_SCALE); applyTransform(); };
+
+    stage.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const f = e.deltaY > 0 ? 0.9 : 1.1;
+      scale = Math.min(Math.max(scale * f, FIT_SCALE), 5);
+      applyTransform();
+    }, { passive: false });
+
+    const statusFab = document.getElementById("statusFab");
+    const railBackdrop = document.getElementById("railBackdrop");
+    function setRailOpen(open) {
+      rail.classList.toggle("open", open);
+      if (railBackdrop) {
+        railBackdrop.hidden = !open;
+        railBackdrop.classList.toggle("open", open);
+      }
+    }
+    if (statusFab) {
+      statusFab.onclick = () => setRailOpen(!rail.classList.contains("open"));
+    }
+    if (railBackdrop) {
+      railBackdrop.onclick = () => setRailOpen(false);
+    }
+
+    stage.addEventListener("pointerdown", (e) => {
+      if (scale <= FIT_SCALE + 0.001) return;
+      dragging = true;
+      px = e.clientX;
+      py = e.clientY;
+      stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener("pointermove", (e) => {
+      if (!dragging || scale <= FIT_SCALE + 0.001) return;
+      tx += e.clientX - px;
+      ty += e.clientY - py;
+      px = e.clientX;
+      py = e.clientY;
+      applyTransform();
+    });
+    stage.addEventListener("pointerup", () => { dragging = false; });
+
+    const loadErr = document.createElement("div");
+    loadErr.className = "load-error";
+    loadErr.hidden = true;
+    loadErr.textContent = "イラストを読み込めませんでした。map-preview.html と sichinohe-hero.png が同じ maps フォルダにあるか確認してください。";
+    frame.appendChild(loadErr);
+
+    function onHeroReady() {
+      loadErr.hidden = true;
+      fit();
+    }
+    function onHeroFail() {
+      loadErr.hidden = false;
+      loadErr.textContent =
+        "イラストを読み込めませんでした（" +
+        heroImageUrl() +
+        "）。npm run preview:static 後に http://localhost:5500/maps/map-preview.html を開いてください。";
+      fit();
+    }
+    heroImg.addEventListener("load", onHeroReady);
+    heroImg.addEventListener("error", onHeroFail);
+    window.addEventListener("resize", fit);
+    heroImg.src = heroImageUrl();
+    fit();
+
+  </script>
+</body>
+</html>
+`;
+
+for (const out of OUT_PATHS) {
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html, "utf-8");
+  console.log("wrote", out);
+}
+
+if (fs.existsSync(HERO_SRC)) {
+  for (const mapsDir of [WEB_MAPS, ROOT_PUBLIC_MAPS]) {
+    fs.mkdirSync(mapsDir, { recursive: true });
+    const dest = path.join(mapsDir, heroFile);
+    fs.copyFileSync(HERO_SRC, dest);
+    console.log("copied hero →", dest);
+  }
+} else {
+  console.warn("warn: sichinohe-hero.png not found at", HERO_SRC);
+}
+
+console.log("");
+console.log("開き方（推奨）:");
+console.log("  1) ルート public: file:///.../public/maps/map-preview.html");
+console.log("  2) トップから: public/preview/index.html → ゲレンデマップ");
+console.log("  3) dev: cd sichinohe-CyoueiSki/web && npm run dev → http://localhost:3000/maps/map-preview.html");

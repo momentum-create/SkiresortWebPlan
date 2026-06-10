@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="8:����4 ���Ǥ��">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8ecae6"/>
+      <stop offset="55%" stop-color="#e8f4f8"/>
+      <stop offset="100%" stop-color="#f7f9fb"/>
+    </linearGradient>
+    <linearGradient id="slope" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f8fa"/>
+      <stop offset="40%" stop-color="#dce8ee"/>
+      <stop offset="100%" stop-color="#b8cdd8"/>
+    </linearGradient>
+    <linearGradient id="forest" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1a4d42"/>
+      <stop offset="100%" stop-color="#2d6b7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <path d="M0 620 L480 380 L960 520 L1440 300 L1920 480 L1920 1080 L0 1080 Z" fill="url(#slope)"/>
+  <path d="M0 760 L320 580 L640 680 L1100 420 L1520 560 L1920 500 L1920 1080 L0 1080 Z" fill="#e2edf2" opacity="0.85"/>
+  <path d="M0 900 L260 720 L520 800 L900 620 L1280 740 L1920 680 L1920 1080 L0 1080 Z" fill="url(#forest)" opacity="0.35"/>
+  <g opacity="0.5" fill="#2d5a4a">
+    <ellipse cx="280" cy="540" rx="90" ry="120"/>
+    <ellipse cx="420" cy="500" rx="70" ry="100"/>
+    <ellipse cx="1580" cy="460" rx="110" ry="130"/>
+    <ellipse cx="1720" cy="500" rx="80" ry="110"/>
+  </g>
+  <path d="M1180 340 L1220 260 L1260 340 Z" fill="#f7f9fb"/>
+  <path d="M1320 300 L1360 210 L1400 300 Z" fill="#eef4f7"/>
+  <path d="M1480 360 L1510 290 L1540 360 Z" fill="#f7f9fb"/>
+</svg>

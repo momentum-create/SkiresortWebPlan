@@ -1,0 +1,29 @@
+# ルートテンプレ ビジュアルゲート
+
+## 原則
+
+**a11y PASS ≠ アワード級。** ルート UI の出荷には `resort-qa-a11y` と `resort-visual-evaluator` の **両方 PASS** が必要。
+
+## 適用 globs
+
+`src/components/**/*`, `src/app/globals.css`, `src/app/**/page.tsx`（ルートテンプレのみ）
+
+## 禁止（V5 / 品質）
+
+1. 絵文字をナビ・フィルタ・ステータスのアイコン代わりに使う
+2. 全セクション同一カード比率の BBS 型羅列（編集デザインなし）
+3. 本番ヒーローを Unsplash 汎用雪山のまま出荷
+4. トークン（`--alpine`, `--canvas` 等）を無視したインライン色の乱立
+
+## エージェント行動
+
+- 上記 globs を変更したら **必ず** `agents/resort-visual-evaluator.prompt.md` に従い評価
+- **V1 または V5 FAIL** → マージ・出荷不可
+- a11y は `resort-qa-a11y` に委譲（重複修正は implementer が一括で）
+
+## パイプライン
+
+```
+resort-ux-designer → resort-design-director → resort-spec-handoff
+  → resort-template-implementer → resort-qa-a11y + resort-visual-evaluator
+```

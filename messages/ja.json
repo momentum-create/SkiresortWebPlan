@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "siteName": "七戸町営スキー場",
+    "tagline": "青森・七戸町営スキー場",
+    "description": "八甲田麓の林間コース。家族にやさしい中斜面と、上質なパウダー。",
+    "copyright": "© 2026 七戸町営スキー場. All rights reserved."
+  },
+  "nav": {
+    "home": "ホーム",
+    "map": "マップ",
+    "ticket": "チケット",
+    "today": "本日",
+    "access": "アクセス",
+    "courses": "コース",
+    "tickets": "チケット",
+    "todayStatus": "本日の運行",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "stay": "宿泊",
+    "main": "メイン"
+  },
+  "lang": {
+    "switch": "言語切替",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "a11y": {
+    "openMenu": "メニューを開く",
+    "menu": "メニュー",
+    "mobileMenu": "モバイルメニュー",
+    "bottomNav": "ボトムナビゲーション",
+    "todayStatus": "本日の状況",
+    "skipToContent": "メインコンテンツへ移動"
+  },
+  "hero": {
+    "imageAlt": "七戸町営スキー場 — 八甲田の林間ゲレンデと雪山のパノラマ",
+    "overlayLine1": "八甲田の麓、",
+    "overlayLine2": "林の中のゲレンデ。",
+    "descriptionLine1": "八甲田麓の林間コース。",
+    "descriptionLine2": "家族にやさしい中斜面と、",
+    "descriptionLine3": "上質なパウダー。"
+  },
+  "liveStatus": {
+    "liveLabel": "ライブ",
+    "snow": "積雪",
+    "weather": "天気",
+    "lifts": "リフト",
+    "operating": "運行中",
+    "updated": "更新",
+    "weatherValues": {
+      "sunny": "晴れ"
+    }
+  },
+  "cta": {
+    "buyTickets": "チケット購入",
+    "todayStatus": "本日の運行"
+  },
+  "explore": {
+    "eyebrow": "Explore",
+    "title": "ゲレンデをもっと楽しむ",
+    "description": "コース、レッスン、宿泊、イベント。目的別にすぐアクセス。",
+    "items": {
+      "courses": {
+        "title": "ゲレンデマップ",
+        "description": "リフト・コースの運行と距離・斜度を地図で確認",
+        "badge": "ライブ"
+      },
+      "lessons": {
+        "title": "レッスン・スクール",
+        "description": "キッズから大人まで少人数制"
+      },
+      "stay": {
+        "title": "宿泊プラン",
+        "description": "ゲレンデ直結の温泉宿",
+        "badge": "温泉付き"
+      },
+      "events": {
+        "title": "イベント",
+        "description": "ナイター・花火・キッズデー"
+      }
+    }
+  },
+  "tickets": {
+    "eyebrow": "Tickets",
+    "title": "料金・チケット",
+    "description": "Web早割がお得。当日券もゲート横で購入できます。",
+    "buy": "購入する",
+    "unit": "大人",
+    "badges": {
+      "popular": "人気 No.1"
+    },
+    "plans": {
+      "day": {
+        "name": "1日券",
+        "description": "当日購入もOK。リフト全線乗り放題。",
+        "features": ["全リフト乗り放題", "当日購入可", "小学生以下は割引あり"]
+      },
+      "early": {
+        "name": "早割1日券",
+        "description": "前日17時までのWeb購入でお得。",
+        "features": ["Web限定", "前日17時まで", "全リフト乗り放題"]
+      },
+      "season": {
+        "name": "シーズン券",
+        "description": "シーズン中いつでも滑り放題。",
+        "features": ["シーズン通し", "友達紹介割引", "レンタル10%OFF"]
+      }
+    }
+  },
+  "news": {
+    "eyebrow": "News",
+    "title": "お知らせ",
+    "viewAll": "一覧を見る",
+    "categories": {
+      "notice": "お知らせ",
+      "event": "イベント",
+      "snow": "雪質"
+    },
+    "items": {
+      "1": {
+        "title": "ナイター営業を開始しました"
+      },
+      "2": {
+        "title": "キッズスキー教室 受付開始"
+      },
+      "3": {
+        "title": "積雪128cm — 今シーズン最高のコンディション"
+      }
+    }
+  },
+  "courses": {
+    "eyebrow": "Terrain",
+    "title": "コースガイド",
+    "description": "ゲレンデマップと公開コースの概要。距離・斜度の詳細は公式確認後に掲載します。",
+    "notice": "マップはオフラインプレビューです。本番のライブ運行状況は七戸サイトの /map をご利用ください。",
+    "mapAria": "ゲレンデマップ",
+    "mapHint": "タップ・リストでリフト・コースの運行状況を確認できます。",
+    "openMap": "マップを全画面で",
+    "items": {
+      "champion": {
+        "name": "チャンピオン（上級）",
+        "level": "上級",
+        "summary": "上部の急斜面・非圧雪エリア。"
+      },
+      "upper": {
+        "name": "上部エリア（中〜上級）",
+        "level": "中〜上級",
+        "summary": "ペアリフト上部からのロングラン。"
+      },
+      "intermediate": {
+        "name": "中斜面コース（中級）",
+        "level": "中級",
+        "summary": "カービング向けの整地斜面。"
+      },
+      "forest": {
+        "name": "林間周回（初級・コース4）",
+        "level": "初級",
+        "summary": "森を周回する緩やかなコース。"
+      },
+      "pony": {
+        "name": "ポニーリフト周辺（初級）",
+        "level": "初級",
+        "summary": "ファミリー向けのワイドな緩斜面。"
+      }
+    }
+  },
+  "access": {
+    "eyebrow": "Access",
+    "title": "アクセス・営業時間",
+    "transit": "東京駅から新幹線2時間 → 無料シャトルバス30分",
+    "addressLabel": "所在地",
+    "address": "〒000-0000 サンプル県サンプル市雪山町1-1",
+    "hoursLabel": "営業時間",
+    "hours": "リフト営業 8:30–16:30（ナイター 18:00–21:00）",
+    "mapButton": "Googleマップで見る",
+    "mapPreview": "地図プレビュー（本番では各リゾートの地図画像または埋め込みに差し替え）"
+  }
+}

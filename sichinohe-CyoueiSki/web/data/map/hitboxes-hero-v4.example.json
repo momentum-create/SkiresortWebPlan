@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "2026-06-08",
+  "coordinateAuthority": "sichinohe-hero.png 1024×790 直トレース（layout-v4）",
+  "hero": {
+    "width": 1024,
+    "height": 790,
+    "viewBox": "0 0 1024 790"
+  },
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "label": "ペアリフト",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 540 600 L 500 500 L 460 400 L 420 300 L 380 200 L 340 140",
+      "stations": [[540, 600], [340, 140]]
+    },
+    {
+      "id": "lift-pony",
+      "type": "lift",
+      "label": "ポニーリフト",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 780 550 L 760 480 L 745 420",
+      "stations": [[780, 550], [745, 420]]
+    },
+    {
+      "id": "trail-intermediate",
+      "type": "trail",
+      "label": "中斜面コース（中級）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 200 500 L 350 450 L 500 380",
+      "stations": []
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "2026-06-05",
+  "output": "/maps/sichinohe-hero.png",
+  "archive": "/maps/sichinohe-hero-v2.png",
+  "styleReference": "/maps/sichinohe-hero-illustrated.png",
+  "terrainReference": "/maps/sichinohe-hero-gsi.png",
+  "layoutReference": "data/map/official-map-layout.json",
+  "method": "Gemini generated — official-map-layout courses 1–5 with baked trail/lift lines",
+  "generatedAt": "2026-06-07"
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "2026-06-08",
+  "coordinateAuthority": "sichinohe-hero.png 1024×790 直トレース（layout-v4）",
+  "hero": {
+    "width": 1024,
+    "height": 790,
+    "viewBox": "0 0 1024 790"
+  },
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "label": "ペアリフト",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 359 145.3 L 573 422.3 L 882 632.9",
+      "stations": [
+        [359, 145.3],
+        [882, 632.9]
+      ]
+    },
+    {
+      "id": "lift-pony",
+      "type": "lift",
+      "label": "ポニーリフト",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 773 276.3 L 992 457.3",
+      "stations": [
+        [773, 276.3],
+        [992, 457.3]
+      ]
+    },
+    {
+      "id": "trail-intermediate",
+      "type": "trail",
+      "label": "中斜面（コース1）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 945 574.3 L 443 111.3",
+      "stations": []
+    },
+    {
+      "id": "trail-upper",
+      "type": "trail",
+      "label": "上部（コース2）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 394 95.3 L 327 196.3 L 492 343.3 L 589 363.3 L 824 548.3",
+      "stations": []
+    },
+    {
+      "id": "trail-champion",
+      "type": "trail",
+      "label": "チャンピオン（コース3）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 458 73.3 L 576 96.3 L 686 243.3",
+      "stations": []
+    },
+    {
+      "id": "trail-forest",
+      "type": "trail",
+      "label": "林間周回（コース4）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 328 88.3 L 156 168.3 L 4 392.3 L 7 421.3 L 234 521.3 L 303 530.3 L 561 475.3 L 619 473.3 L 691 529.3",
+      "stations": []
+    },
+    {
+      "id": "trail-pony",
+      "type": "trail",
+      "label": "ポニー周辺（コース5）",
+      "source": "illustrated-hero layout-v4 手トレース",
+      "path": "M 826 260.3 L 1002 400.3",
+      "stations": []
+    }
+  ]
+}

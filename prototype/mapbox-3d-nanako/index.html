@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>七戸町営スキー場 — 3D Terrain Map</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      :root {
+        --glass: rgba(255, 255, 255, 0.78);
+        --glass-border: rgba(255, 255, 255, 0.35);
+        --pill: rgba(15, 23, 42, 0.82);
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { height: 100%; font-family: "Segoe UI", system-ui, sans-serif; }
+      #map { position: absolute; inset: 0; }
+
+      .overlay { position: absolute; inset: 0; pointer-events: none; z-index: 2; display: flex; flex-direction: column; }
+      .top-bar {
+        pointer-events: auto;
+        margin: 12px 14px 0;
+        padding: 12px 16px;
+        border-radius: 16px;
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(14px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+      }
+      .top-bar h1 { font-size: 15px; font-weight: 700; color: #0f172a; }
+      .top-bar p { font-size: 11px; color: #64748b; }
+      .logo { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #64748b; }
+
+      .filter-pill {
+        pointer-events: auto;
+        align-self: center;
+        margin-top: 10px;
+        display: flex; gap: 4px; padding: 6px 8px;
+        border-radius: 999px;
+        background: var(--pill);
+        border: 1px solid rgba(255,255,255,0.15);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        max-width: calc(100% - 24px);
+        overflow-x: auto;
+      }
+      .filter-pill button, .filter-pill a {
+        pointer-events: auto;
+        border: none; background: transparent;
+        color: #e2e8f0; font-size: 11px; font-weight: 600;
+        padding: 8px 14px; border-radius: 999px;
+        white-space: nowrap; cursor: pointer; text-decoration: none;
+        display: flex; align-items: center; gap: 6px;
+      }
+      .filter-pill button.active, .filter-pill a:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+      .footer-note {
+        margin-top: auto; padding: 0 16px 12px;
+        font-size: 10px; color: rgba(255,255,255,0.85);
+        text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      }
+
+      .token-warning {
+        position: absolute; inset: 0; z-index: 99;
+        display: flex; align-items: center; justify-content: center;
+        background: #0f172a; color: #f8fafc; padding: 24px; text-align: center;
+      }
+      .token-warning code { background: #1e293b; padding: 2px 6px; border-radius: 4px; }
+    </style>
+  </head>
+  <body>
+    <div id="token-warning" class="token-warning" hidden>
+      <div>
+        <h2 style="margin-bottom:12px">Mapbox トークンを設定してください</h2>
+        <p style="font-size:14px;line-height:1.6;color:#94a3b8">
+          本ファイル内の <code>MAPBOX_ACCESS_TOKEN</code> を<br />
+          <code>YOUR_API_KEY</code> から実際のトークンに置き換えてください。
+        </p>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div class="overlay">
+      <header class="top-bar">
+        <div style="flex:1;min-width:180px">
+          <div class="logo">Nanako Choei Ski</div>
+          <h1>七戸町営スキー場</h1>
+          <p>標高 88〜210m · 衛星 + 3D Terrain（DEM）</p>
+        </div>
+        <button type="button" id="btn-reset" style="border:1px solid #e2e8f0;background:#fff;border-radius:999px;padding:8px 14px;font-size:11px;font-weight:600;cursor:pointer">
+          全体表示
+        </button>
+      </header>
+
+      <nav class="filter-pill" aria-label="マップメニュー">
+        <button type="button" class="active" data-layer="all">🚡 リフト</button>
+        <button type="button" data-layer="trails">⛷ コース</button>
+        <a href="#">📹 ライブカメラ</a>
+        <a href="#">🚃 アクセス</a>
+        <a href="#">❄ 今日の運営</a>
+      </nav>
+
+      <p class="footer-note">
+        © Mapbox © OpenStreetMap · リフト: OSM way/631879096 · 国土地理院標高タイルは将来差し替え用に準備
+      </p>
+    </div>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+    <script>
+      /** @type {string} Mapbox アクセストークン */
+      const MAPBOX_ACCESS_TOKEN = "YOUR_API_KEY";
+
+      /** 国土地理院 標高タイル URL（参考。Mapbox DEM と形式が異なるため terrain には未使用） */
+      const GSI_ELEV_TILE_URL = "https://tiles.gsj.jp/tiles/elev/{z}/{x}/{y}.png";
+
+      const RESORT = {
+        center: [141.0975, 40.69805],
+        zoom: 14.8,
+        pitch: 60,
+        bearing: 25,
+      };
+
+      const STATUS_COLORS = {
+        operating: "#22c55e",
+        open: "#38bdf8",
+        stopped: "#64748b",
+        hold: "#f59e0b",
+        unknown: "#94a3b8",
+      };
+
+      const LIFTS = {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            properties: { id: "lift-pair", name: "ペアリフト", type: "lift", status: "operating" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.0997309, 40.69845], [141.0995525, 40.6984175], [141.0990576, 40.698332],
+                [141.0983214, 40.6982009], [141.0979177, 40.6981277], [141.0974872, 40.6980535],
+                [141.0968891, 40.6979416], [141.0964492, 40.6978725], [141.0959128, 40.6977637],
+                [141.0954407, 40.6976844], [141.0952757, 40.6976589],
+              ],
+            },
+          },
+          {
+            type: "Feature",
+            properties: { id: "lift-pony", name: "ポニーリフト", type: "lift", status: "operating" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.09925, 40.69822], [141.09955, 40.69828], [141.09995, 40.69836], [141.10028, 40.6984],
+              ],
+            },
+          },
+        ],
+      };
+
+      const TRAILS = {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            properties: { id: "trail-champion", name: "チャンピオン（上級）", type: "trail", status: "open" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.09535, 40.69768], [141.09585, 40.69782], [141.09655, 40.69802],
+                [141.09745, 40.69818], [141.09835, 40.69832], [141.09915, 40.6984],
+              ],
+            },
+          },
+          {
+            type: "Feature",
+            properties: { id: "trail-upper", name: "上部エリア", type: "trail", status: "open" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.0955, 40.69775], [141.0962, 40.69788], [141.0971, 40.69802],
+                [141.0980, 40.69815], [141.09885, 40.69828],
+              ],
+            },
+          },
+          {
+            type: "Feature",
+            properties: { id: "trail-intermediate", name: "中斜面コース", type: "trail", status: "open" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.09565, 40.6977], [141.09635, 40.69778], [141.0972, 40.6979],
+                [141.0981, 40.69805], [141.0990, 40.6982], [141.09955, 40.69832],
+              ],
+            },
+          },
+          {
+            type: "Feature",
+            properties: { id: "trail-pony", name: "ポニー周辺（初級）", type: "trail", status: "open" },
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [141.09935, 40.69838], [141.09975, 40.69842], [141.10005, 40.69838],
+                [141.09985, 40.69828], [141.0994, 40.69824], [141.0992, 40.6983],
+              ],
+            },
+          },
+        ],
+      };
+
+      function paintStatus(geojson) {
+        return {
+          ...geojson,
+          features: geojson.features.map((f) => ({
+            ...f,
+            properties: {
+              ...f.properties,
+              lineColor: STATUS_COLORS[f.properties.status] || STATUS_COLORS.unknown,
+            },
+          })),
+        };
+      }
+
+      function liftMarkers(lifts) {
+        return {
+          type: "FeatureCollection",
+          features: lifts.features.map((f) => {
+            const c = f.geometry.coordinates;
+            const mid = c[Math.floor(c.length / 2)];
+            return {
+              type: "Feature",
+              properties: {
+                id: f.properties.id,
+                lineColor: STATUS_COLORS[f.properties.status] || STATUS_COLORS.unknown,
+              },
+              geometry: { type: "Point", coordinates: mid },
+            };
+          }),
+        };
+      }
+
+      function enableTerrain(map) {
+        map.addSource("mapbox-dem", {
+          type: "raster-dem",
+          url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+          tileSize: 512,
+          maxzoom: 14,
+        });
+        map.setTerrain({ source: "mapbox-dem", exaggeration: 1.85 });
+
+        map.addLayer({
+          id: "sky",
+          type: "sky",
+          paint: {
+            "sky-type": "atmosphere",
+            "sky-atmosphere-sun": [0.0, 90.0],
+            "sky-atmosphere-sun-intensity": 12,
+          },
+        });
+
+        /* 国土地理院標高タイル — 将来のカスタム DEM パイプライン用（現状は非表示） */
+        map.addSource("gsi-elev", {
+          type: "raster",
+          tiles: [GSI_ELEV_TILE_URL],
+          tileSize: 256,
+          maxzoom: 18,
+          attribution: "© 国土地理院",
+        });
+        map.addLayer({
+          id: "gsi-elev",
+          type: "raster",
+          source: "gsi-elev",
+          layout: { visibility: "none" },
+          paint: { "raster-opacity": 0 },
+        });
+      }
+
+      function addGeoLayers(map) {
+        const lifts = paintStatus(LIFTS);
+        const trails = paintStatus(TRAILS);
+        const markers = liftMarkers(LIFTS);
+
+        map.addSource("lifts", { type: "geojson", data: lifts, lineMetrics: true });
+        map.addSource("trails", { type: "geojson", data: trails, lineMetrics: true });
+        map.addSource("lift-markers", { type: "geojson", data: markers });
+
+        map.addLayer({
+          id: "trails-line",
+          type: "line",
+          source: "trails",
+          layout: { "line-cap": "round", "line-join": "round" },
+          paint: {
+            "line-color": ["get", "lineColor"],
+            "line-width": ["interpolate", ["linear"], ["zoom"], 13, 4, 16, 10],
+            "line-opacity": 0.92,
+            "line-emissive-strength": 0.35,
+          },
+        });
+
+        map.addLayer({
+          id: "lifts-line",
+          type: "line",
+          source: "lifts",
+          layout: { "line-cap": "round", "line-join": "round" },
+          paint: {
+            "line-color": ["get", "lineColor"],
+            "line-width": ["interpolate", ["linear"], ["zoom"], 13, 5, 16, 12],
+            "line-emissive-strength": 0.5,
+          },
+        });
+
+        map.addLayer({
+          id: "lifts-markers",
+          type: "circle",
+          source: "lift-markers",
+          paint: {
+            "circle-radius": ["interpolate", ["linear"], ["zoom"], 13, 6, 16, 11],
+            "circle-color": ["get", "lineColor"],
+            "circle-stroke-width": 2.5,
+            "circle-stroke-color": "#ffffff",
+            "circle-emissive-strength": 0.65,
+          },
+        });
+
+        map.addLayer({
+          id: "lifts-label",
+          type: "symbol",
+          source: "lifts",
+          layout: {
+            "text-field": ["get", "name"],
+            "text-size": 12,
+            "symbol-placement": "line-center",
+            "text-offset": [0, 1],
+          },
+          paint: {
+            "text-color": "#ffffff",
+            "text-halo-color": "#0f172a",
+            "text-halo-width": 1.5,
+          },
+        });
+      }
+
+      if (!MAPBOX_ACCESS_TOKEN || MAPBOX_ACCESS_TOKEN === "YOUR_API_KEY") {
+        document.getElementById("token-warning").hidden = false;
+      } else {
+        mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+
+        const map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/satellite-streets-v12",
+          center: RESORT.center,
+          zoom: RESORT.zoom,
+          pitch: RESORT.pitch,
+          bearing: RESORT.bearing,
+          antialias: true,
+          maxPitch: 75,
+        });
+
+        map.addControl(new mapboxgl.NavigationControl({ visualizePitch: true }), "bottom-right");
+        map.addControl(new mapboxgl.ScaleControl({ unit: "metric" }), "bottom-left");
+
+        map.on("load", () => {
+          enableTerrain(map);
+          addGeoLayers(map);
+        });
+
+        document.getElementById("btn-reset").addEventListener("click", () => {
+          map.flyTo({
+            center: RESORT.center,
+            zoom: RESORT.zoom,
+            pitch: RESORT.pitch,
+            bearing: RESORT.bearing,
+            duration: 1400,
+          });
+        });
+
+        document.querySelectorAll(".filter-pill button[data-layer]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            document.querySelectorAll(".filter-pill button").forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const layer = btn.dataset.layer;
+            const showLifts = layer === "all" || layer === "lifts";
+            const showTrails = layer === "all" || layer === "trails";
+            map.setLayoutProperty("lifts-line", "visibility", showLifts ? "visible" : "none");
+            map.setLayoutProperty("lifts-markers", "visibility", showLifts ? "visible" : "none");
+            map.setLayoutProperty("lifts-label", "visibility", showLifts ? "visible" : "none");
+            map.setLayoutProperty("trails-line", "visibility", showTrails ? "visible" : "none");
+          });
+        });
+
+        map.on("click", (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["lifts-line", "trails-line", "lifts-markers"],
+          });
+          const hit = features.find((f) => f.properties?.id);
+          if (hit) alert(`${hit.properties.name}\n状態: ${hit.properties.status || "—"}`);
+        });
+      }
+    </script>
+  </body>
+</html>

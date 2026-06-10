@@ -1,0 +1,78 @@
+{
+  "image": {
+    "width": 3840,
+    "height": 2560,
+    "src": "/maps/nanako-hero-earthstudio.png"
+  },
+  "camera": {
+    "position": [
+      141.1073872446019,
+      40.6990810811416
+    ],
+    "altitudeM": 292.06717126978504,
+    "groundElevationM": 280,
+    "headingDeg": 268.02066132841924,
+    "tiltDeg": 78.41026408687615,
+    "rollDeg": 0,
+    "fovDeg": 40,
+    "fovAxis": "horizontal"
+  },
+  "generatedBy": "project-camera.mjs",
+  "generatedAt": "2026-06-05T06:11:30.491Z",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 1558,
+      "py": 2462.7,
+      "role": "OSM way/631879096 下駅側",
+      "visible": true
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 1314.4,
+      "py": 1673.6,
+      "role": "OSM way/631879096 上駅側",
+      "visible": true
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 604.8,
+      "py": 2388.3,
+      "role": "ポニーリフト下",
+      "visible": true
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 612.6,
+      "py": 2613.2,
+      "role": "ポニーリフト上",
+      "visible": true
+    },
+    {
+      "id": "base-lodge",
+      "lng": 141.0999,
+      "lat": 40.6981,
+      "px": 1247,
+      "py": 2504.8,
+      "role": "町営ヒュッテ付近（skimap）",
+      "visible": true
+    },
+    {
+      "id": "parking",
+      "lng": 141.1001,
+      "lat": 40.6975,
+      "px": 701.8,
+      "py": 2554.1,
+      "role": "駐車場（skimap P マーク）",
+      "visible": true
+    }
+  ]
+}

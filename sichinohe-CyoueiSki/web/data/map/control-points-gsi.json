@@ -1,0 +1,44 @@
+{
+  "image": {
+    "width": 1920,
+    "height": 1280,
+    "src": "/maps/sichinohe-hero-gsi.png"
+  },
+  "baseline": "sichinohe-hero-gsi.png（国土地理院正射）",
+  "calibratedAt": "2026-06-05",
+  "notes": "正射画像上の可視リフト塔に合わせた手動端点。OSM座標は similarity で補間。",
+  "points": [
+    {
+      "id": "lift-pair-bottom",
+      "lng": 141.0997309,
+      "lat": 40.69845,
+      "px": 615,
+      "py": 748,
+      "role": "ペアリフト下駅（正射上のリフト塔列・基部）"
+    },
+    {
+      "id": "lift-pair-top",
+      "lng": 141.0952757,
+      "lat": 40.6976589,
+      "px": 518,
+      "py": 268,
+      "role": "ペアリフト上駅（正射上の山頂付近）"
+    },
+    {
+      "id": "lift-pony-bottom",
+      "lng": 141.0995,
+      "lat": 40.69726,
+      "px": 1368,
+      "py": 892,
+      "role": "ポニーリフト下（東側バーン基部）"
+    },
+    {
+      "id": "lift-pony-top",
+      "lng": 141.1003,
+      "lat": 40.69744,
+      "px": 1278,
+      "py": 708,
+      "role": "ポニーリフト上"
+    }
+  ]
+}

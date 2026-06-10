@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>七戸マップ キャリブレーション QA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body { font-family: system-ui, sans-serif; background: #111; color: #eee; padding: 16px; }
+    h1 { font-size: 16px; margin-bottom: 12px; }
+    .wrap { position: relative; max-width: 100%; overflow: auto; border: 1px solid #333; }
+    img, svg { display: block; max-width: 100%; height: auto; }
+    svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .controls { margin: 12px 0; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    label { font-size: 13px; }
+    a { color: #7dd3fc; }
+  </style>
+</head>
+<body>
+  <h1>キャリブレーション QA — GSI 正射 + OSM オーバーレイ</h1>
+  <div class="controls">
+    <label><input type="range" id="opacity" min="0" max="100" value="85" /> OSM オーバーレイ</label>
+    <label><input type="range" id="skimapOpacity" min="0" max="100" value="50" /> skimap 2012</label>
+    <label><input type="checkbox" id="skimap" checked /> skimap 参照を表示</label>
+    <a href="/map">← 本番マップへ</a>
+  </div>
+  <div class="wrap" id="stage">
+    <img id="hero" src="/maps/nanako-hero.png" alt="AI hero" />
+    <img id="ref" src="" alt="" style="display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45" />
+    <svg id="overlay" viewBox="0 0 1920 1280" preserveAspectRatio="none"></svg>
+  </div>
+  <p style="margin-top:12px;font-size:12px;color:#999">
+    ペアリフト端点（OSM）が緑線の丸に重なることを確認。skimap は
+    <code>data/map/reference/skimap-2012.jpg</code> を手動配置後にチェック。
+  </p>
+  <script>
+    const opacity = document.getElementById("opacity");
+    const skimapOpacity = document.getElementById("skimapOpacity");
+    const skimap = document.getElementById("skimap");
+    const overlay = document.getElementById("overlay");
+    const ref = document.getElementById("ref");
+
+    overlay.style.opacity = opacity.value / 100;
+    opacity.oninput = () => { overlay.style.opacity = opacity.value / 100; };
+
+    ref.src = "/api/public/map-reference/skimap";
+    ref.style.opacity = skimapOpacity.value / 100;
+    ref.style.display = skimap.checked ? "block" : "none";
+
+    skimapOpacity.oninput = () => { ref.style.opacity = skimapOpacity.value / 100; };
+    skimap.onchange = () => { ref.style.display = skimap.checked ? "block" : "none"; };
+
+    fetch("/api/public/map").then((r) => r.json()).then((data) => {
+      const feats = data.overlay?.features ?? {};
+      const colors = { lift: "#22c55e", trail: "#38bdf8" };
+      let html = "";
+      for (const [id, f] of Object.entries(feats)) {
+        const c = colors[f.type] ?? "#fff";
+        html += `<path d="${f.path}" fill="none" stroke="${c}" stroke-width="${f.strokeWidth}" stroke-linecap="round"/>`;
+        (f.markers ?? []).forEach(([cx, cy]) => {
+          html += `<circle cx="${cx}" cy="${cy}" r="10" fill="${c}" stroke="#fff" stroke-width="2"/>`;
+        });
+      }
+      if (data.controlPoints) {
+        for (const cp of Object.values(data.controlPoints)) {
+          if (!cp.pixel) continue;
+          html += `<circle cx="${cp.pixel[0]}" cy="${cp.pixel[1]}" r="14" fill="none" stroke="#fbbf24" stroke-width="3"/>`;
+        }
+      }
+      overlay.innerHTML = html;
+    });
+  </script>
+</body>
+</html>

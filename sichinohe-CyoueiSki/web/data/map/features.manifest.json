@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "2026-06-01",
+  "resortId": "sichinohe-choei-ski",
+  "name": "七戸町営スキー場",
+  "mapAsset": "/maps/sichinohe-hero-v5.png",
+  "heroImage": {
+    "src": "/maps/sichinohe-hero-v5.png?v=20260609",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024",
+    "projection": "official-map-layout-illustrated-v5",
+    "attribution": "layout-v5 Gemini 正方形 + 手トレースヒットボックス",
+    "credit": "Gemini 生成イラスト + trace-hitboxes 直トレース"
+  },
+  "disclaimer": "コース・リフトはイラスト内に描画済み。地図タップまたはリストで運行状況を確認できます。",
+  "sources": [
+    "Skimap.org SkiAreas/view/1345（参考イラスト）",
+    "OpenStreetMap way/631879096（ペアリフト概略）"
+  ],
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "label": "ペアリフト",
+      "shortLabel": "ペア",
+      "liftKind": "pair",
+      "meta": {
+        "所要": "約4分",
+        "区分": "メインリフト"
+      }
+    },
+    {
+      "id": "lift-pony",
+      "type": "lift",
+      "label": "ポニーリフト",
+      "shortLabel": "ポニー",
+      "liftKind": "surface",
+      "meta": {
+        "区分": "初級エリア",
+        "券種": "ペアリフト券と共通"
+      }
+    },
+    {
+      "id": "trail-champion",
+      "type": "trail",
+      "label": "チャンピオン（上級）",
+      "shortLabel": "チャンピオン",
+      "difficulty": "advanced",
+      "meta": {
+        "距離": "約400m",
+        "雪面": "非圧雪（上部）",
+        "最大斜度": "35度（要確認）"
+      }
+    },
+    {
+      "id": "trail-upper",
+      "type": "trail",
+      "label": "上部エリア（中〜上級）",
+      "shortLabel": "上部",
+      "difficulty": "intermediate-advanced",
+      "meta": {
+        "雪面": "圧雪 / 非圧雪（要確認）"
+      }
+    },
+    {
+      "id": "trail-intermediate",
+      "type": "trail",
+      "label": "中斜面コース（中級）",
+      "shortLabel": "中斜面",
+      "difficulty": "intermediate",
+      "meta": {
+        "特徴": "カービング向け整地（要確認）"
+      }
+    },
+    {
+      "id": "trail-forest",
+      "type": "trail",
+      "label": "林間周回（初級・コース4）",
+      "shortLabel": "林間",
+      "difficulty": "beginner",
+      "meta": {
+        "特徴": "左側の森を周回する林間コース",
+        "公式": "official-map-layout コース4"
+      }
+    },
+    {
+      "id": "trail-pony",
+      "type": "trail",
+      "label": "ポニーリフト周辺（初級）",
+      "shortLabel": "初級",
+      "difficulty": "beginner",
+      "meta": {
+        "雪面": "圧雪",
+        "特徴": "ワイドな緩斜面"
+      }
+    }
+  ]
+}

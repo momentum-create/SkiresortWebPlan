@@ -1,0 +1,245 @@
+{
+  "updatedAt": "2026-05-07T20:55:00+09:00",
+  "resort": {
+    "id": "sichinohe-choei-ski",
+    "slug": "sichinohe-choei-ski",
+    "name": "Shichinohe Town Ski Area",
+    "displayLines": ["Shichinohe Town", "Ski Area"],
+    "area": "Shichinohe, Aomori",
+    "coordinates": {
+      "lat": 40.69839,
+      "lng": 141.099714
+    }
+  },
+  "today": {
+    "notice": "Figures shown are placeholders until confirmed by the resort. Items still being verified appear as “TBC”.",
+    "lastUpdated": "Preparing for operations",
+    "snapshot": [
+      {
+        "key": "operations_summary.open_status",
+        "title": "Operations",
+        "value": "Preparing",
+        "note": "Opening and closing times will appear here once confirmed.",
+        "wide": false
+      },
+      {
+        "key": "snow_conditions.reported_depth_cm",
+        "title": "Snow depth & snowfall",
+        "value": "— cm (TBC)",
+        "note": "Base depth and 24-hour snowfall will follow official measurements.",
+        "wide": false
+      },
+      {
+        "key": "operations_summary.lift_summary",
+        "title": "Lifts & trails",
+        "value": "Preparing",
+        "note": "Per-lift status will be listed here when available.",
+        "wide": true
+      }
+    ]
+  },
+  "access": {
+    "cards": [
+      { "k": "Nearest station", "v": "Shichinohe-Towada (approx.)" },
+      { "k": "From station", "v": "Taxi (TBC)" },
+      { "k": "Note", "v": "Times & fares vary" }
+    ],
+    "bullets": [
+      "Nearest Shinkansen stop (approx.): Tohoku Shinkansen “Shichinohe-Towada Station”. Confirm details with station and town guides.",
+      "From the station to the resort: taxi is typical. Travel time and fare depend on conditions.",
+      "If using JR East rail passes, check eligible sections and terms on the official JR site."
+    ]
+  },
+  "courses": {
+    "notice": "Distance and grade figures will be updated after official publication.",
+    "items": [
+      {
+        "name": "Champion (advanced)",
+        "distance": "approx. 400 m",
+        "maxSlope": "TBC",
+        "snowType": "Ungroomed (TBC)",
+        "status": "Preparing for publication"
+      },
+      {
+        "name": "Upper area (intermediate–advanced)",
+        "distance": "TBC",
+        "maxSlope": "TBC",
+        "snowType": "Groomed / ungroomed (TBC)",
+        "status": "Preparing for publication"
+      },
+      {
+        "name": "Pony lift area (beginner)",
+        "distance": "TBC",
+        "maxSlope": "TBC",
+        "snowType": "Groomed",
+        "status": "Preparing for publication"
+      }
+    ]
+  },
+  "ticketsRental": {
+    "notice": "Prices and availability shown are samples. Update with official information before launch.",
+    "tickets": [
+      { "name": "Day ticket (adult)", "price": "TBC", "note": "Sold at ticket window / update after confirmation" },
+      { "name": "Day ticket (child)", "price": "TBC", "note": "Sold at ticket window / update after confirmation" },
+      { "name": "Time ticket", "price": "TBC", "note": "Availability being confirmed" }
+    ],
+    "rentals": [
+      { "item": "Ski set", "status": "Preparing", "note": "Skis, boots, poles — scope being confirmed" },
+      { "item": "Snowboard set", "status": "Preparing", "note": "Board and boots — scope being confirmed" },
+      { "item": "Outerwear", "status": "Preparing", "note": "Jacket/pants and sizing policy being confirmed" }
+    ],
+    "payments": [
+      { "method": "Cash", "status": "Expected" },
+      { "method": "Credit card", "status": "TBC" },
+      { "method": "QR / mobile pay", "status": "TBC" }
+    ]
+  },
+  "lessonsEvents": {
+    "notice": "Registration times, age limits, and fees will be posted after confirmation.",
+    "items": [
+      {
+        "name": "Free night lesson (Thursdays)",
+        "time": "19:00–20:00 (TBC)",
+        "target": "Beginner–intermediate",
+        "status": "Preparing",
+        "note": "Registration expected until 5 minutes before start. Details after official confirmation."
+      },
+      {
+        "name": "General lessons",
+        "time": "Daytime (TBC)",
+        "target": "Beginner–advanced",
+        "status": "Preparing",
+        "note": "Age groups, class levels, and booking method being confirmed."
+      }
+    ]
+  },
+  "stayLocal": {
+    "notice": "Third-party facilities may change hours and prices. Always check official sources.",
+    "spots": [
+      { "category": "Hot spring", "name": "Higashi-Hakkoda Onsen (planned)", "summary": "Hours and fees after official confirmation" },
+      { "category": "Hot spring", "name": "Tsuta Onsen Ryokan (planned)", "summary": "Private bath and day-use TBC" },
+      { "category": "Dining", "name": "Slope-side & local restaurants", "summary": "Hours and closed days updated as confirmed" }
+    ]
+  },
+  "news": {
+    "items": [
+      {
+        "id": "news-001",
+        "date": "2026-05-07",
+        "title": "Official site framework published",
+        "category": "Site update",
+        "body": "Early release of home, today's operations, access, tickets, courses, and related pages."
+      },
+      {
+        "id": "news-002",
+        "date": "2026-05-07",
+        "title": "Operations page is being prepared",
+        "category": "Operations",
+        "body": "Confirmed snow depth, lift status, and hours will be posted after official verification."
+      }
+    ]
+  },
+  "contact": {
+    "general": {
+      "description": "General inquiries on hours, tickets, and access (preparing)",
+      "phone": "TBC",
+      "hours": "TBC"
+    },
+    "group": {
+      "description": "Groups, filming, and media — please contact in advance (desk being set up).",
+      "email": "Preparing",
+      "form": "Preparing"
+    }
+  },
+  "liftDeals": {
+    "notice": "Listings are being prepared. Always verify price, availability, and terms on each partner site.",
+    "sections": [
+      {
+        "title": "Lift ticket deals (preparing)",
+        "body": "Season passes, early bird, and weekday offers will be listed with partners."
+      },
+      {
+        "title": "Stay & transport (preparing)",
+        "body": "Lodging and transport bundles will be shown with clear terms and disclaimers."
+      }
+    ]
+  },
+  "liveCams": {
+    "notice": "Live cameras are being installed. Streams will appear here once broadcasting starts.",
+    "items": [
+      {
+        "id": "cam-base",
+        "name": "Base area",
+        "slug": "base",
+        "status": "preparing",
+        "streamUrl": null,
+        "thumbnailUrl": "/images/hero-slope.png",
+        "description": "Wide view of the base area (planned)",
+        "placeholderMessage": "Camera and streaming systems are being prepared."
+      },
+      {
+        "id": "cam-summit",
+        "name": "Near summit",
+        "slug": "summit",
+        "status": "preparing",
+        "streamUrl": null,
+        "thumbnailUrl": "/images/hero-groomed-monochrome.png",
+        "description": "Upper mountain area (planned)",
+        "placeholderMessage": "Broadcast will start after site and connectivity are finalized."
+      }
+    ]
+  },
+  "faq": {
+    "notice": "Content may change. Also check “Today's operations & snow” for the latest status.",
+    "categories": [
+      {
+        "id": "access",
+        "title": "Access",
+        "items": [
+          {
+            "id": "faq-access-1",
+            "question": "What is the nearest station?",
+            "answer": "Tohoku Shinkansen Shichinohe-Towada Station is the nearest stop (approx.). Taxis are typical from the station to the resort. Confirm travel time and fare with operators on the day."
+          },
+          {
+            "id": "faq-access-2",
+            "question": "Is there parking?",
+            "answer": "Parking availability, capacity, and fees will be posted after official confirmation. Winter road conditions can affect access."
+          }
+        ]
+      },
+      {
+        "id": "tickets",
+        "title": "Tickets & pricing",
+        "items": [
+          {
+            "id": "faq-tickets-1",
+            "question": "Where can I buy lift tickets?",
+            "answer": "Ticket window sales are planned. Confirmed types and prices will be on the Tickets & rental page. Online sales will be announced separately if offered."
+          },
+          {
+            "id": "faq-tickets-2",
+            "question": "What payment methods are accepted?",
+            "answer": "Cash plus credit card and QR payment availability will be updated after confirmation with the resort."
+          }
+        ]
+      },
+      {
+        "id": "operations",
+        "title": "Operations & safety",
+        "items": [
+          {
+            "id": "faq-ops-1",
+            "question": "When is operations information updated?",
+            "answer": "We post what the resort has verified before opening and during the day. Last updated time appears on the Today's operations page."
+          },
+          {
+            "id": "faq-ops-2",
+            "question": "Can the resort close for bad weather?",
+            "answer": "High wind, poor visibility, or snow conditions may cause lift stoppages or trail closures. Check operations before you travel."
+          }
+        ]
+      }
+    ]
+  }
+}

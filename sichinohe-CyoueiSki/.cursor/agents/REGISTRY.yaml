@@ -1,0 +1,45 @@
+# Map fleet subagents — sichinohe-CyoueiSki/.cursor/agents/
+# Detailed prompts: sichinohe-CyoueiSki/agents/17-19,16,18 *.prompt.md
+
+version: 1
+fleet: sichinohe-map
+app_root: web
+stack: nextjs-app-router
+
+pipeline:
+  required:
+    - map-interaction-spec
+    - map-ui-implementer
+    - map-ux-evaluator
+    - map-interaction-evaluator
+  note: Both evaluators must PASS. Coordinates also need code-reviewer.
+
+agents:
+  - name: map-interaction-spec
+    layer: L1
+    id: "17"
+    file: .cursor/agents/map-interaction-spec.md
+    prompt_source: agents/17-map-interaction-spec.prompt.md
+    code: false
+
+  - name: map-ui-implementer
+    layer: L2
+    id: "19"
+    file: .cursor/agents/map-ui-implementer.md
+    prompt_source: agents/19-map-ui-implementer.prompt.md
+    requires: [map-interaction-spec]
+    code: true
+
+  - name: map-ux-evaluator
+    layer: L3
+    id: "16"
+    file: .cursor/agents/map-ux-evaluator.md
+    prompt_source: agents/16-map-ux-evaluator.prompt.md
+    code: false
+
+  - name: map-interaction-evaluator
+    layer: L3
+    id: "18"
+    file: .cursor/agents/map-interaction-evaluator.md
+    prompt_source: agents/18-map-interaction-evaluator.prompt.md
+    code: false
