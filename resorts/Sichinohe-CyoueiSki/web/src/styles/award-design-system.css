@@ -574,6 +574,15 @@
   font-weight: 500;
 }
 
+/* コンテンツページのステータス行（/today 等 — ヒーロー用 award-stat-mono と分離） */
+.award-stat-row {
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--award-color-fg);
+}
+
 /* /access — ヒーロー：カード左・サインは地図座標に追従（全幅） */
 .access-map-hero {
   --access-card-share: 45%;
