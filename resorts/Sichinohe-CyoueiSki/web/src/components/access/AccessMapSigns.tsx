@@ -13,38 +13,43 @@ type Props = {
   en?: boolean;
 };
 
-function landmarkShortLabel(landmark: AccessLandmark, en: boolean): string {
-  if (en) return landmark.shortLabelEn ?? landmark.labelEn;
-  return landmark.shortLabel ?? landmark.label;
-}
-
-function projectSignX(lng: number, bounds: AccessMapData["bounds"]): number {
-  const geoX = (lng - bounds.minLng) / (bounds.maxLng - bounds.minLng);
-  return 14 + geoX * 72;
-}
-
 type SignSlot = {
   x: number;
   y: number;
   labelBelow: boolean;
 };
 
-function signSlotForRole(
+function landmarkShortLabel(landmark: AccessLandmark, en: boolean): string {
+  if (en) return landmark.shortLabelEn ?? landmark.labelEn;
+  return landmark.shortLabel ?? landmark.label;
+}
+
+/** OSM bbox 埋め込みと同じ Web メルカトル投影（%） */
+function mercatorY(lat: number): number {
+  const rad = (lat * Math.PI) / 180;
+  return Math.log(Math.tan(Math.PI / 4 + rad / 2));
+}
+
+function projectSign(
   lat: number,
   lng: number,
   bounds: AccessMapData["bounds"],
-  role: AccessLandmark["role"],
 ): SignSlot {
-  const geoY = 1 - (lat - bounds.minLat) / (bounds.maxLat - bounds.minLat);
-  const x = projectSignX(lng, bounds);
+  const { minLat, maxLat, minLng, maxLng } = bounds;
+  const x = ((lng - minLng) / (maxLng - minLng)) * 100;
 
-  if (role === "destination") {
-    const band = { min: 16, max: 28 };
-    return { x, y: band.min + geoY * (band.max - band.min), labelBelow: true };
-  }
+  const yMin = mercatorY(minLat);
+  const yMax = mercatorY(maxLat);
+  const y = ((yMax - mercatorY(lat)) / (yMax - yMin)) * 100;
 
-  const band = { min: 72, max: 84 };
-  return { x, y: band.min + geoY * (band.max - band.min), labelBelow: false };
+  const xClamped = Math.max(4, Math.min(96, x));
+  const yClamped = Math.max(6, Math.min(94, y));
+
+  return {
+    x: xClamped,
+    y: yClamped,
+    labelBelow: yClamped < 50,
+  };
 }
 
 function SignMarker({
@@ -84,105 +89,50 @@ function SignMarker({
 function SignLinkAnchor({
   link,
   en,
-  className,
-  style,
-  centerX = true,
+  slot,
 }: {
   link: SignLink;
   en: boolean;
-  className: string;
-  style?: CSSProperties;
-  centerX?: boolean;
+  slot: SignSlot;
 }) {
   const isDestination = link.landmark.role === "destination";
-  const labelBelow = isDestination;
 
   return (
     <a
       href={link.href}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="nofollow noopener noreferrer"
       aria-label={link.ariaLabel}
-      className={`group map-focus-ring pointer-events-auto flex min-h-11 min-w-11 items-center justify-center ${centerX ? "-translate-x-1/2" : ""} ${className}`}
-      style={style}
+      className={`group map-focus-ring pointer-events-auto absolute flex min-h-11 min-w-11 -translate-x-1/2 items-center justify-center ${
+        slot.labelBelow ? "" : "-translate-y-full"
+      }`}
+      style={{ left: `${slot.x}%`, top: `${slot.y}%` }}
     >
       <SignMarker
         label={landmarkShortLabel(link.landmark, en)}
         isDestination={isDestination}
-        labelBelow={labelBelow}
+        labelBelow={slot.labelBelow}
       />
     </a>
   );
 }
 
-/** 地図上のフローティングサイン（タップで Google マップの地点表示） */
+/** 地図上のフローティングサイン（bbox 座標に合わせて配置） */
 export function AccessMapSigns({ bounds, signLinks, en = false }: Props) {
-  const destination = signLinks.find((l) => l.landmark.role === "destination");
-  const transit = signLinks.find((l) => l.landmark.role === "transit");
-
   return (
-    <>
-      <div
-        className="absolute inset-y-0 z-[5] hidden md:block md:left-[var(--access-sign-zone-left,45%)] md:right-0"
-        role="group"
-        aria-label={en ? "Locations on map" : "地図上の地点"}
-      >
-        {destination ? (() => {
-          const slot = signSlotForRole(
-            destination.landmark.lat,
-            destination.landmark.lng,
-            bounds,
-            "destination",
-          );
-          return (
-            <SignLinkAnchor
-              link={destination}
-              en={en}
-              className="absolute"
-              style={{ left: `${slot.x}%`, top: `${slot.y}%` }}
-            />
-          );
-        })() : null}
-        {transit ? (() => {
-          const slot = signSlotForRole(
-            transit.landmark.lat,
-            transit.landmark.lng,
-            bounds,
-            "transit",
-          );
-          return (
-            <SignLinkAnchor
-              link={transit}
-              en={en}
-              className="absolute -translate-y-full"
-              style={{ left: `${slot.x}%`, top: `${slot.y}%` }}
-            />
-          );
-        })() : null}
-      </div>
-
-      <div
-        className="absolute inset-0 z-[5] md:hidden"
-        role="group"
-        aria-label={en ? "Locations on map" : "地図上の地点"}
-      >
-        {destination ? (
-          <SignLinkAnchor
-            link={destination}
-            en={en}
-            centerX={false}
-            className="absolute right-4 top-[var(--access-sign-inset-y,12%)]"
-          />
-        ) : null}
-        {transit ? (
-          <SignLinkAnchor
-            link={transit}
-            en={en}
-            centerX={false}
-            className="absolute bottom-[var(--access-sign-inset-y,12%)] right-4"
-          />
-        ) : null}
-      </div>
-    </>
+    <div
+      className="pointer-events-none absolute inset-0 z-[5]"
+      role="group"
+      aria-label={en ? "Locations on map" : "地図上の地点"}
+    >
+      {signLinks.map((link) => (
+        <SignLinkAnchor
+          key={link.landmark.id}
+          link={link}
+          en={en}
+          slot={projectSign(link.landmark.lat, link.landmark.lng, bounds)}
+        />
+      ))}
+    </div>
   );
 }

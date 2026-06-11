@@ -574,11 +574,9 @@
   font-weight: 500;
 }
 
-/* /access — ヒーロー：カード左・サイン右 */
+/* /access — ヒーロー：カード左・サインは地図座標に追従（全幅） */
 .access-map-hero {
   --access-card-share: 45%;
-  --access-sign-zone-left: 45%;
-  --access-sign-inset-y: 12%;
 }
 
 /* /access — モノクローム地図背景（ルート・ピンなし） */
