@@ -12,10 +12,8 @@ export function AwardFold({
   return (
     <details className="award-fold group" open={defaultOpen}>
       <summary className="award-fold__summary">
-        <span>{title}</span>
-        <span className="award-fold__marker" aria-hidden="true">
-          +
-        </span>
+        <span className="award-fold__title">{title}</span>
+        <span className="award-fold__marker" aria-hidden="true" />
       </summary>
       <div className="award-fold__body">{children}</div>
     </details>

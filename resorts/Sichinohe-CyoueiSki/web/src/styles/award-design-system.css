@@ -518,6 +518,29 @@
   transform: translateX(4px);
 }
 
+/* Static content section (pricing tables, etc.) */
+.award-content-section {
+  border-top: 1px solid var(--award-color-border);
+  padding-top: 2rem;
+}
+
+.award-content-section:last-child {
+  border-bottom: 1px solid var(--award-color-border);
+}
+
+.award-content-section__title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--award-color-fg);
+}
+
+.award-content-section__body {
+  margin-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+
 /* Collapsible fold */
 .award-fold {
   border-top: 1px solid var(--award-color-border);
@@ -531,23 +554,66 @@
   display: flex;
   cursor: pointer;
   list-style: none;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-block: 1.75rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  min-height: 3.25rem;
+  padding-block: 1rem;
+  padding-inline: 0.25rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s var(--ease-award);
+}
+
+.award-fold__summary:hover {
+  background: var(--award-color-accent-soft);
+}
+
+.award-fold__summary:focus-visible {
+  outline: 2px solid var(--award-color-accent);
+  outline-offset: 2px;
 }
 
 .award-fold__summary::-webkit-details-marker {
   display: none;
 }
 
+.award-fold__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .award-fold__marker {
-  font-size: 1.25rem;
-  font-weight: 300;
-  color: var(--award-color-muted);
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--award-color-border);
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--award-color-accent);
+  background: var(--award-color-surface);
+  transition:
+    background-color 0.2s var(--ease-award),
+    border-color 0.2s var(--ease-award),
+    color 0.2s var(--ease-award);
+}
+
+.award-fold__marker::before {
+  content: "+";
+}
+
+.award-fold[open] .award-fold__marker {
+  border-color: var(--award-color-accent);
+  background: var(--award-color-accent-soft);
+}
+
+.award-fold[open] .award-fold__marker::before {
+  content: "−";
 }
 
 .award-fold__body {
