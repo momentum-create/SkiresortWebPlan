@@ -593,3 +593,9 @@
 .access-map-osm {
   filter: grayscale(1) contrast(0.92) brightness(1.04);
 }
+
+.access-map-bg .mapboxgl-ctrl-attrib {
+  opacity: 0.55;
+  font-size: 9px;
+  max-width: min(12rem, 40vw);
+}

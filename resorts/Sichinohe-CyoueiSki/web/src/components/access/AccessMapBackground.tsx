@@ -14,14 +14,27 @@ function OsmMapFallback({ bounds }: { bounds: AccessMapData["bounds"] }) {
   const src = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik`;
 
   return (
-    <div className="access-map-osm absolute inset-0 h-full w-full overflow-hidden" aria-hidden>
+    <div className="access-map-osm absolute inset-0 h-full w-full overflow-hidden">
       <iframe
-        title=""
+        title="アクセス概略地図"
         src={src}
         className="pointer-events-none h-[120%] w-full border-0"
         loading="lazy"
         tabIndex={-1}
+        aria-hidden={true}
       />
+      <p className="pointer-events-auto absolute bottom-1.5 right-1.5 z-10 rounded bg-white/85 px-1.5 py-0.5 text-[0.625rem] leading-tight text-[color:var(--award-color-muted)] shadow-sm">
+        ©{" "}
+        <a
+          href="https://www.openstreetmap.org/copyright"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2"
+        >
+          OpenStreetMap
+        </a>{" "}
+        contributors
+      </p>
     </div>
   );
 }
@@ -88,9 +101,9 @@ export function AccessMapBackground({ bounds }: Props) {
         center: [(bounds.minLng + bounds.maxLng) / 2, (bounds.minLat + bounds.maxLat) / 2],
         zoom: 9,
         interactive: false,
-        attributionControl: false,
         fadeDuration: 0,
       });
+      mapboxMap.addControl(new mapboxgl.AttributionControl({ compact: true }), "bottom-right");
 
       mapboxMap.on("load", () => {
         mapboxMap?.fitBounds(
