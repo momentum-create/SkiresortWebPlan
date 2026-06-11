@@ -115,6 +115,8 @@ export function LiftMapViewer({ variant = "full" }: Props) {
     onFilterChange: setStatusFilter,
   };
 
+  const splitRail = hasStatusRail && !isEmbed;
+
   const mapStage = (
     <div className="relative h-full min-h-0 min-w-0 flex-1">
       <HeroMapCanvas
@@ -125,7 +127,7 @@ export function LiftMapViewer({ variant = "full" }: Props) {
         onSelect={setSelectedId}
         onDeselect={() => setSelectedId(null)}
         statusFilter={statusFilter}
-        railOverlay={hasStatusRail && !isEmbed}
+        railOverlay={!splitRail && hasStatusRail}
       />
 
       {isEmbed ? (
@@ -143,15 +145,15 @@ export function LiftMapViewer({ variant = "full" }: Props) {
         <button
           type="button"
           onClick={() => setMobileStatusOpen(true)}
-          className={`map-type-body pointer-events-auto absolute bottom-3 left-3 z-20 rounded-lg border border-[color:var(--map-rail-border)] bg-white/96 px-3.5 py-2.5 text-[0.6875rem] font-semibold text-[color:var(--map-rail-text)] shadow-md md:hidden ${mapFocusRing}`}
+          className={`map-type-body pointer-events-auto absolute bottom-4 left-4 z-20 border border-[color:var(--map-rail-border)] bg-[color:var(--map-rail-bg)] px-4 py-2.5 text-xs font-semibold text-[color:var(--map-rail-text)] shadow-sm md:hidden ${mapFocusRing}`}
         >
           {t("status.title")}
         </button>
       ) : null}
 
-      {hasStatusRail && !isEmbed ? (
-        <aside className="map-float-rail pointer-events-auto hidden md:flex">
-          <MapStatusRail {...railProps} className="h-full min-h-0" />
+      {hasStatusRail && !splitRail ? (
+        <aside className="pointer-events-auto absolute inset-y-0 right-0 z-20 hidden w-72 flex-col border-l border-[color:var(--map-rail-border)] bg-[color:var(--map-rail-bg)] md:flex">
+          <MapStatusRail {...railProps} className="h-full" />
         </aside>
       ) : null}
     </div>
@@ -173,8 +175,19 @@ export function LiftMapViewer({ variant = "full" }: Props) {
             onRefresh={() => void refresh()}
           />
         ) : null}
-        <div className="relative min-h-0 flex-1 w-full">
+        <div
+          className={
+            splitRail
+              ? "flex min-h-0 flex-1 w-full"
+              : "relative min-h-0 flex-1 w-full"
+          }
+        >
           {mapStage}
+          {splitRail ? (
+            <aside className="hidden w-80 shrink-0 flex-col border-l border-[color:var(--map-rail-border)] bg-[color:var(--map-rail-bg)] md:flex">
+              <MapStatusRail {...railProps} className="h-full min-h-0" />
+            </aside>
+          ) : null}
         </div>
       </div>
 
