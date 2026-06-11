@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>料金・レンタル | 七戸町営スキー場（プレビュー）</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Noto+Sans+JP:wght@400;600&family=Syne:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --award-color-bg: #f8f9fb;
+        --award-color-fg: #141a26;
+        --award-color-muted: #64748b;
+        --award-color-accent: #0b5f8c;
+        --award-color-accent-soft: #e8f4fa;
+        --award-color-surface: #ffffff;
+        --award-color-border: #e2e8f0;
+        --award-font-display: "Syne", "Helvetica Neue", sans-serif;
+        --award-font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
+        --award-font-mono: "IBM Plex Mono", "SF Mono", monospace;
+        --space-section: clamp(5rem, 14vw, 9rem);
+        --space-inline: clamp(1.25rem, 4vw, 3rem);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--award-color-bg);
+        color: var(--award-color-fg);
+        font-family: var(--award-font-body);
+        line-height: 1.75;
+      }
+
+      .preview-banner {
+        background: #141a26;
+        color: #e2e8f0;
+        font-size: 0.75rem;
+        padding: 0.5rem var(--space-inline);
+        text-align: center;
+      }
+
+      .preview-banner a {
+        color: #7ec8e3;
+      }
+
+      .award-section {
+        padding-block: var(--space-section);
+      }
+
+      .award-inner {
+        margin-inline: auto;
+        width: 100%;
+        max-width: 80rem;
+        padding-inline: var(--space-inline);
+      }
+
+      .award-eyebrow {
+        font-family: var(--award-font-display);
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--award-color-accent);
+        margin: 0;
+      }
+
+      .heading-lg {
+        font-size: clamp(1.75rem, 5vw, 3rem);
+        font-weight: 600;
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+        margin: 1rem 0 0;
+      }
+
+      .lead {
+        font-size: clamp(0.9375rem, 2.5vw, 1.125rem);
+        line-height: 1.85;
+        color: var(--award-color-muted);
+        margin: 1.5rem 0 0;
+        max-width: 42rem;
+      }
+
+      .notice-banner {
+        border-radius: 0.75rem;
+        border: 1px solid #f5e6c8;
+        background: #fffbf3;
+        padding: 1rem 1.25rem;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        color: #7a5a12;
+        margin-top: 3rem;
+      }
+
+      .notice-banner a {
+        color: var(--award-color-accent);
+        text-underline-offset: 2px;
+      }
+
+      .award-content-section {
+        border-top: 1px solid var(--award-color-border);
+        padding-top: 2rem;
+      }
+
+      .award-content-section:last-child {
+        border-bottom: 1px solid var(--award-color-border);
+      }
+
+      .award-content-section__title {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .award-content-section__body {
+        margin-top: 1.25rem;
+        padding-bottom: 2rem;
+      }
+
+      .award-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9375rem;
+      }
+
+      .award-table th {
+        padding: 0.875rem 0;
+        border-bottom: 1px solid var(--award-color-border);
+        font-family: var(--award-font-display);
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-align: left;
+        text-transform: uppercase;
+        color: var(--award-color-muted);
+      }
+
+      .award-table td {
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--award-color-border);
+        vertical-align: top;
+      }
+
+      .award-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .font-semibold {
+        font-weight: 600;
+      }
+
+      .muted {
+        color: var(--award-color-muted);
+      }
+
+      .note-sm {
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: var(--award-color-muted);
+      }
+
+      .award-stat-inline {
+        font-family: var(--award-font-mono);
+        font-variant-numeric: tabular-nums;
+        font-weight: 500;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="preview-banner">
+      静的プレビュー — 本番は
+      <a href="/tickets-rental">/tickets-rental</a>
+      （2026-06-11 時点のデータ）
+    </p>
+
+    <main class="award-section">
+      <div class="award-inner">
+        <header>
+          <p class="award-eyebrow">Tickets</p>
+          <h1 class="heading-lg">料金・レンタル</h1>
+          <p class="lead">
+            券種、レンタル内容、支払い方法は公式確認後に更新します。
+          </p>
+        </header>
+
+        <p role="note" class="notice-banner">
+          料金は<a href="https://www.shichinohe-kankou.jp/ski/lift.html" target="_blank" rel="noopener noreferrer">たびくら リフト料金</a>（2026-06-08 確認）に基づきます。変更がある場合は窓口表示が優先です。
+        </p>
+
+        <div style="margin-top: 2.5rem">
+          <section class="award-content-section" aria-labelledby="sec-tickets">
+            <h2 id="sec-tickets" class="award-content-section__title">リフト券</h2>
+            <div class="award-content-section__body table-wrap">
+              <table class="award-table" aria-label="リフト券料金">
+                <thead>
+                  <tr>
+                    <th scope="col">券種</th>
+                    <th scope="col">料金</th>
+                    <th scope="col">メモ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">1日券（大人）</td>
+                    <td class="award-stat-inline">2,500円</td>
+                    <td class="muted">ペア・ポニー共通券</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">1日券（小・中学生）</td>
+                    <td class="award-stat-inline">1,500円</td>
+                    <td class="muted">ペア・ポニー共通券</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">ファミリー割（大人1＋子1）</td>
+                    <td class="award-stat-inline">3,500円</td>
+                    <td class="muted">2名分の価格</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">2時間券（大人）</td>
+                    <td class="award-stat-inline">1,300円</td>
+                    <td class="muted">—</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">2時間券（小・中学生）</td>
+                    <td class="award-stat-inline">700円</td>
+                    <td class="muted">—</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">ナイター券（大人）</td>
+                    <td class="award-stat-inline">1,500円</td>
+                    <td class="muted">日曜ナイター休業</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">ナイター券（小・中学生）</td>
+                    <td class="award-stat-inline">1,000円</td>
+                    <td class="muted">—</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">シーズン券（大人）</td>
+                    <td class="award-stat-inline">20,000円</td>
+                    <td class="muted">随時受付</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">シーズン券（小・中学生）</td>
+                    <td class="award-stat-inline">12,000円</td>
+                    <td class="muted">随時受付</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="award-content-section" aria-labelledby="sec-rental">
+            <h2 id="sec-rental" class="award-content-section__title">レンタル</h2>
+            <div class="award-content-section__body table-wrap">
+              <table class="award-table" aria-label="レンタル">
+                <thead>
+                  <tr>
+                    <th scope="col">項目</th>
+                    <th scope="col">状況</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <p class="font-semibold">スキーセット</p>
+                      <p class="note-sm">
+                        レンタル詳細は<a href="https://www.shichinohe-kankou.jp/ski/rental.html" target="_blank" rel="noopener noreferrer">たびくら レンタル</a>を参照
+                      </p>
+                    </td>
+                    <td>要確認</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="font-semibold">スノーボードセット</p>
+                      <p class="note-sm muted">同上</p>
+                    </td>
+                    <td>要確認</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="font-semibold">ウェア</p>
+                      <p class="note-sm muted">同上</p>
+                    </td>
+                    <td>要確認</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="award-content-section" aria-labelledby="sec-payment">
+            <h2 id="sec-payment" class="award-content-section__title">支払い方法</h2>
+            <div class="award-content-section__body table-wrap">
+              <table class="award-table" aria-label="支払い方法">
+                <thead>
+                  <tr>
+                    <th scope="col">方法</th>
+                    <th scope="col">対応状況</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="font-semibold">現金</td>
+                    <td>対応</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">クレジットカード</td>
+                    <td>要確認</td>
+                  </tr>
+                  <tr>
+                    <td class="font-semibold">QR / 電子決済</td>
+                    <td>要確認</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
