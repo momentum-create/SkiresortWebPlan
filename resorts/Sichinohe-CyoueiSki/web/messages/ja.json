@@ -126,6 +126,8 @@
       "taxiEyebrow": "タクシー",
       "taxiPhoneLabel": "TEL",
       "taxiAddressLabel": "所在地",
+      "rentacarLink": "レンタカー",
+      "rentacarNote": "スカイチケット（外部サイト）",
       "signOpenMaps": "Google マップで{place}を表示"
     }
   },

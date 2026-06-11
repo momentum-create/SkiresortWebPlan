@@ -43,11 +43,14 @@ export default async function AccessPage() {
                 {data.access.taxi && index === fromStationIndex ? (
                   <AccessTaxiBlock
                     taxi={data.access.taxi}
+                    rentacar={data.access.rentacar}
                     en={en}
                     labels={{
                       eyebrow: tMap("taxiEyebrow"),
                       phoneLabel: tMap("taxiPhoneLabel"),
                       addressLabel: tMap("taxiAddressLabel"),
+                      rentacarLink: tMap("rentacarLink"),
+                      rentacarNote: tMap("rentacarNote"),
                     }}
                   />
                 ) : null}

@@ -127,6 +127,8 @@
       "taxiEyebrow": "TAXI",
       "taxiPhoneLabel": "Tel",
       "taxiAddressLabel": "Address",
+      "rentacarLink": "Rental car",
+      "rentacarNote": "Skyticket — Japanese booking site (external)",
       "signOpenMaps": "Open {place} in Google Maps"
     }
   },

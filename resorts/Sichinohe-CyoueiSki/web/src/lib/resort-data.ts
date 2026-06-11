@@ -55,6 +55,12 @@ export type AccessTaxiInfo = {
   addressEn: string;
 };
 
+/** ValueCommerce 等のアフィリエイトリンク（計測ピクセル URL 必須の場合あり） */
+export type AccessRentacarAffiliate = {
+  href: string;
+  trackingPixel: string;
+};
+
 export type AccessMapData = {
   source: string;
   driveMinutes: number;
@@ -101,6 +107,7 @@ export type ResortData = {
     cards: Array<{ k: string; v: string }>;
     bullets: string[];
     taxi?: AccessTaxiInfo;
+    rentacar?: AccessRentacarAffiliate;
     map?: AccessMapData;
   };
   courses: {
@@ -305,6 +312,7 @@ export async function updateResortData(
           cards: patch.access.cards ?? current.access.cards,
           bullets: patch.access.bullets ?? current.access.bullets,
           taxi: patch.access.taxi ?? current.access.taxi,
+          rentacar: patch.access.rentacar ?? current.access.rentacar,
           map: patch.access.map ?? current.access.map,
         }
       : current.access,
