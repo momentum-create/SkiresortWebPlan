@@ -53,6 +53,7 @@
     "map": {
       "source": "https://www.shichinohe-kankou.jp/ski/",
       "driveMinutes": 11,
+      "taxiMinutes": 10,
       "driveFrom": "七戸十和田駅・道の駅しちのへ",
       "driveFromEn": "Shichinohe-Towada Sta. / Michi-no-Eki Shichinohe",
       "parking": "無料（約300台）",

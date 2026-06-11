@@ -114,14 +114,16 @@
     "shellDescription": "公共交通機関の時刻・運賃は季節やダイヤで変わります。必ず交通機関・タクシーの公式情報でご確認ください。",
     "foldTitle": "新幹線・アクセスの骨子",
     "map": {
-      "eyebrow": "Access map",
-      "caption": "東北新幹線七戸十和田駅・道の駅しちのへからゲレンデまでの概略です（たびくら：車約11分）。",
-      "driveTime": "車 約{minutes}分",
-      "north": "北",
+      "heroEyebrow": "Tohoku Shinkansen",
+      "heroHeadline": "東北新幹線 七戸十和田駅からタクシーで{minutes}分",
+      "heroSub": "道の駅しちのへ方面からゲレンデまで。ボタンでスマホの地図アプリが開きます。",
+      "navFromHere": "現在地からナビを起動",
+      "navApple": "Apple Maps",
+      "openGoTaxi": "GO でタクシー配車",
+      "stationRoute": "七戸十和田駅からのルートを見る",
+      "goTaxiNote": "GO は公式アプリのストア／サイトへ移動します。乗車地は駅付近を指定してください。",
       "parking": "駐車場",
-      "openMaps": "Google マップで経路を見る",
-      "sourceNote": "出典：七戸町観光「たびくら」施設概要。道路状況により所要時間は変わります。",
-      "ariaLabel": "{from}からスキー場まで車で約{minutes}分の概略図"
+      "sourceNote": "出典：七戸町観光「たびくら」施設概要。所要時間は道路状況により変わります。"
     }
   },
   "contact": {

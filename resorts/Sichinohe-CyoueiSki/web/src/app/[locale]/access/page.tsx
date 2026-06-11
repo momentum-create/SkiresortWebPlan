@@ -23,21 +23,20 @@ export default async function AccessPage() {
       title={t("title")}
       description={t("shellDescription")}
     >
-      <div className="grid gap-8 md:grid-cols-2 md:gap-10">
-        {data.access.map ? <AccessTransitMap map={data.access.map} /> : null}
-        <div className="space-y-0 border-t border-[color:var(--award-color-border)]">
-          {data.access.cards.map((item) => (
-            <div
-              key={item.k}
-              className="border-b border-[color:var(--award-color-border)] py-7"
-            >
-              <p className="award-eyebrow text-[color:var(--award-color-muted)]">
-                {item.k}
-              </p>
-              <p className="mt-3 text-xl font-semibold tracking-tight">{item.v}</p>
-            </div>
-          ))}
-        </div>
+      {data.access.map ? <AccessTransitMap map={data.access.map} /> : null}
+
+      <div className="grid gap-0 border-t border-[color:var(--award-color-border)] md:grid-cols-3">
+        {data.access.cards.map((item) => (
+          <div
+            key={item.k}
+            className="border-b border-[color:var(--award-color-border)] py-7 md:border-b-0 md:border-r md:px-8 md:py-10 md:last:border-r-0"
+          >
+            <p className="award-eyebrow text-[color:var(--award-color-muted)]">
+              {item.k}
+            </p>
+            <p className="mt-3 text-xl font-semibold tracking-tight">{item.v}</p>
+          </div>
+        ))}
       </div>
 
       <AwardFold title={t("foldTitle")}>

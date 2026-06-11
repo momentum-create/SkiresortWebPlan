@@ -48,6 +48,8 @@ export type AccessMapData = {
   illustrationSrc?: string;
   source: string;
   driveMinutes: number;
+  /** ヒーローカード用のタクシー所要（分）。未指定時は driveMinutes */
+  taxiMinutes?: number;
   driveFrom: string;
   driveFromEn: string;
   parking: string;

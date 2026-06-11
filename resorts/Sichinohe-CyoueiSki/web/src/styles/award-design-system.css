@@ -573,3 +573,12 @@
   font-variant-numeric: tabular-nums;
   font-weight: 500;
 }
+
+/* /access — モノクローム地図背景（ルート・ピンなし） */
+.access-map-bg .mapboxgl-canvas {
+  filter: grayscale(1) contrast(0.92) brightness(1.04);
+}
+
+.access-map-bg > div:first-child {
+  filter: grayscale(1) contrast(0.92) brightness(1.04);
+}
