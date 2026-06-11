@@ -58,7 +58,7 @@
       "driveFromEn": "Shichinohe-Towada Sta. / Michi-no-Eki Shichinohe",
       "parking": "無料（約300台）",
       "parkingEn": "Free (approx. 300 spaces)",
-      "mapUrl": "https://www.google.com/maps/dir/?api=1&origin=40.4253,141.094&destination=40.69839,141.099714&travelmode=driving",
+      "mapUrl": "https://www.google.com/maps/dir/?api=1&destination=40.69839,141.099714&travelmode=driving&dir_action=navigate",
       "bounds": {
         "minLat": 40.41,
         "maxLat": 40.71,
@@ -70,6 +70,8 @@
           "id": "transit-hub",
           "label": "七戸十和田駅・道の駅しちのへ",
           "labelEn": "Shichinohe-Towada Sta. / Michi-no-Eki",
+          "shortLabel": "七戸十和田駅",
+          "shortLabelEn": "Shichinohe-Towada Sta.",
           "lat": 40.4253,
           "lng": 141.094,
           "role": "transit"
@@ -78,6 +80,8 @@
           "id": "resort",
           "label": "七戸町営スキー場",
           "labelEn": "Shichinohe Town Ski Area",
+          "shortLabel": "七戸町営スキー場",
+          "shortLabelEn": "Ski area",
           "lat": 40.69839,
           "lng": 141.099714,
           "role": "destination"

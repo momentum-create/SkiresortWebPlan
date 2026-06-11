@@ -3,6 +3,7 @@
 import type { AccessMapData } from "@/lib/resort-data";
 import { AccessMapActions } from "./AccessMapActions";
 import { AccessMapBackground } from "./AccessMapBackground";
+import { AccessMapSigns } from "./AccessMapSigns";
 
 type Labels = {
   heroEyebrow: string;
@@ -11,7 +12,6 @@ type Labels = {
   navFromHere: string;
   navApple: string;
   openGoTaxi: string;
-  stationRoute: string;
   goTaxiNote: string;
   parking: string;
   parkingValue: string;
@@ -21,9 +21,10 @@ type Labels = {
 type Props = {
   map: AccessMapData;
   labels: Labels;
+  en?: boolean;
 };
 
-export function AccessMapHeroShell({ map, labels }: Props) {
+export function AccessMapHeroShell({ map, labels, en = false }: Props) {
   return (
     <section
       className="access-map-hero relative left-1/2 w-screen max-w-none -translate-x-1/2 overflow-hidden"
@@ -33,16 +34,18 @@ export function AccessMapHeroShell({ map, labels }: Props) {
         <AccessMapBackground bounds={map.bounds} />
 
         <div
-          className="pointer-events-none absolute inset-0 bg-[color:var(--award-color-bg)]/25"
-          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[1] bg-[color:var(--award-color-bg)]/25"
+          aria-hidden={true}
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[color:var(--award-color-bg)]/80 via-transparent to-[color:var(--award-color-bg)]/30"
-          aria-hidden
+          className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[color:var(--award-color-bg)]/80 via-transparent to-[color:var(--award-color-bg)]/30"
+          aria-hidden={true}
         />
 
-        <div className="relative flex h-full min-h-[inherit] items-center px-4 py-10 sm:px-8 md:px-12 lg:px-16">
-          <div className="w-full max-w-md rounded-2xl border border-[color:var(--award-color-border)] bg-white/96 p-6 shadow-[0_24px_64px_rgb(20_26_38_/12%)] backdrop-blur-md sm:p-8 md:max-w-lg">
+        <AccessMapSigns bounds={map.bounds} landmarks={map.landmarks} en={en} />
+
+        <div className="relative z-10 flex h-full min-h-[inherit] items-center px-4 py-10 sm:px-8 md:px-12 lg:px-16">
+          <div className="w-full max-w-md rounded-2xl border border-[color:var(--award-color-border)] bg-white/96 p-6 shadow-[0_24px_64px_rgb(20_26_38_/12%)] backdrop-blur-md sm:p-8 md:max-w-none md:w-[var(--access-card-share,45%)] md:shrink-0">
             <p className="award-eyebrow text-[color:var(--award-color-muted)]">
               {labels.heroEyebrow}
             </p>

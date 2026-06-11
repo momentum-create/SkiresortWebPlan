@@ -38,6 +38,9 @@ export type AccessLandmark = {
   id: string;
   label: string;
   labelEn: string;
+  /** 地図サイン用の短い表示名 */
+  shortLabel?: string;
+  shortLabelEn?: string;
   lat: number;
   lng: number;
   role: "transit" | "destination";

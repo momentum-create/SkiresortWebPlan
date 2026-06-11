@@ -9,16 +9,34 @@ type Props = {
   bounds: AccessMapData["bounds"];
 };
 
-/** 装飾用のモノクローム地図背景（ルート・ピンなし）— Google Map ID 優先、なければ Mapbox */
+function OsmMapFallback({ bounds }: { bounds: AccessMapData["bounds"] }) {
+  const bbox = `${bounds.minLng},${bounds.minLat},${bounds.maxLng},${bounds.maxLat}`;
+  const src = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&layer=mapnik`;
+
+  return (
+    <div className="access-map-osm absolute inset-0 h-full w-full overflow-hidden" aria-hidden>
+      <iframe
+        title=""
+        src={src}
+        className="pointer-events-none h-[120%] w-full border-0"
+        loading="lazy"
+        tabIndex={-1}
+      />
+    </div>
+  );
+}
+
+/** 装飾用のモノクローム地図背景（ルート・ピンなし）— Google Map ID → Mapbox → OSM */
 export function AccessMapBackground({ bounds }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const googleKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
   const googleMapId = process.env.NEXT_PUBLIC_GOOGLE_MAP_ID;
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+  const hasJsMapProvider = Boolean((googleKey && googleMapId) || mapboxToken);
 
   useEffect(() => {
     const el = containerRef.current;
-    if (!el) return;
+    if (!el || !hasJsMapProvider) return;
 
     let disposed = false;
     let mapboxMap: mapboxgl.Map | null = null;
@@ -95,17 +113,10 @@ export function AccessMapBackground({ bounds }: Props) {
         googleMap = null;
       }
     };
-  }, [bounds, googleKey, googleMapId, mapboxToken]);
+  }, [bounds, googleKey, googleMapId, mapboxToken, hasJsMapProvider]);
 
-  const hasMapProvider = Boolean((googleKey && googleMapId) || mapboxToken);
-
-  if (!hasMapProvider) {
-    return (
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-[color:var(--award-color-accent-soft)] via-[#eef2f6] to-[color:var(--award-color-bg)]"
-        aria-hidden
-      />
-    );
+  if (!hasJsMapProvider) {
+    return <OsmMapFallback bounds={bounds} />;
   }
 
   return (

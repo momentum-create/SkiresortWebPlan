@@ -8,14 +8,12 @@ import {
   detectMobilePlatform,
   goTaxiAppUrl,
   googleMapsNavigateUrl,
-  googleMapsRouteUrl,
 } from "@/lib/access-deep-links";
 
 type Labels = {
   navFromHere: string;
   navApple: string;
   openGoTaxi: string;
-  stationRoute: string;
   goTaxiNote: string;
 };
 
@@ -26,8 +24,6 @@ type Props = {
 
 export function AccessMapActions({ map, labels }: Props) {
   const resort = map.landmarks.find((l) => l.role === "destination");
-  const transit = map.landmarks.find((l) => l.role === "transit");
-
   const platform = useMemo(() => detectMobilePlatform(), []);
 
   if (!resort) return null;
@@ -42,8 +38,6 @@ export function AccessMapActions({ map, labels }: Props) {
   const googleNav = googleMapsNavigateUrl(dest);
   const appleNav = appleMapsNavigateUrl(dest);
   const goTaxi = goTaxiAppUrl(platform);
-  const stationRoute =
-    transit != null ? googleMapsRouteUrl(transit, dest) : map.mapUrl;
 
   return (
     <div className="mt-6 space-y-3">
@@ -88,17 +82,6 @@ export function AccessMapActions({ map, labels }: Props) {
           {labels.openGoTaxi}
         </AwardButton>
       </div>
-
-      <p className="text-center">
-        <a
-          href={stationRoute}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs font-medium text-[color:var(--award-color-accent)] underline-offset-2 hover:underline"
-        >
-          {labels.stationRoute}
-        </a>
-      </p>
 
       <p className="text-[0.625rem] leading-relaxed text-[color:var(--award-color-muted)]">
         {labels.goTaxiNote}

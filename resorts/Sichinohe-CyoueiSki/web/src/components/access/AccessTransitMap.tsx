@@ -16,6 +16,7 @@ export async function AccessTransitMap({ map }: Props) {
   return (
     <AccessMapHeroShell
       map={map}
+      en={en}
       labels={{
         heroEyebrow: t("heroEyebrow"),
         heroHeadline: t("heroHeadline", { minutes }),
@@ -23,7 +24,6 @@ export async function AccessTransitMap({ map }: Props) {
         navFromHere: t("navFromHere"),
         navApple: t("navApple"),
         openGoTaxi: t("openGoTaxi"),
-        stationRoute: t("stationRoute"),
         goTaxiNote: t("goTaxiNote"),
         parking: t("parking"),
         parkingValue: en ? map.parkingEn : map.parking,
