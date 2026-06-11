@@ -40,7 +40,7 @@ export function GuidesReveal({ sectionTitle }: GuidesRevealProps) {
   return (
     <section className="home-section border-t border-[color:var(--surface-border)]">
       <div className="home-inner">
-        <p className="eyebrow">{t("eyebrow")}</p>
+        <p className="award-eyebrow">{t("eyebrow")}</p>
         <h2 className="heading-lg mt-4">{sectionTitle}</h2>
 
         <ul className="mt-14 space-y-0">
@@ -57,7 +57,7 @@ export function GuidesReveal({ sectionTitle }: GuidesRevealProps) {
                   aria-expanded={isOpen}
                   onClick={() => setActive(isOpen ? null : guide.slug)}
                 >
-                  <span className="text-xl font-semibold tracking-tight sm:text-2xl">
+                  <span className="text-xl font-semibold tracking-tight">
                     {guide.title}
                   </span>
                   <span

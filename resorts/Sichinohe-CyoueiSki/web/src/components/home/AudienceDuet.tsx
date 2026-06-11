@@ -8,7 +8,7 @@ export async function AudienceDuet() {
   return (
     <section className="home-section overflow-hidden">
       <div className="home-inner">
-        <p className="eyebrow">{t("eyebrow")}</p>
+        <p className="award-eyebrow">{t("eyebrow")}</p>
         <h2 className="heading-lg mt-4">{t("title")}</h2>
 
         <div className="relative mt-16 lg:mt-20">
@@ -23,7 +23,7 @@ export async function AudienceDuet() {
               />
             </div>
             <div className="mt-8 max-w-md">
-              <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h3 className="text-xl font-semibold tracking-tight">
                 {t("powderTitle")}
               </h3>
               <p className="lead mt-4">{t("powderBody")}</p>

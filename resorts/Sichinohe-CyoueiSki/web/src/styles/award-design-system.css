@@ -463,6 +463,12 @@
   transition: box-shadow 0.3s var(--ease-award);
 }
 
+@media (min-width: 640px) {
+  .award-tile-link {
+    padding: 2rem;
+  }
+}
+
 .award-tile-link:hover {
   box-shadow: 0 20px 48px rgb(20 26 38 / 8%);
 }
@@ -482,8 +488,10 @@
 
 .award-tile-link__title {
   display: block;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: 1.25;
   letter-spacing: -0.03em;
   color: var(--award-color-fg);
 }
@@ -492,10 +500,17 @@
   position: absolute;
   right: 1.5rem;
   bottom: 1.5rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 300;
-  color: var(--award-color-border);
+  color: var(--award-color-muted);
   transition: color 0.28s var(--ease-award), transform 0.28s var(--ease-award);
+}
+
+@media (min-width: 640px) {
+  .award-tile-link__arrow {
+    right: 2rem;
+    bottom: 2rem;
+  }
 }
 
 .award-tile-link:hover .award-tile-link__arrow {

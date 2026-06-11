@@ -34,7 +34,7 @@ export async function AsymmetricTransit({
           </div>
 
           <div className="relative z-10 -mt-16 ml-[12%] w-[88%] bg-white p-8 shadow-[0_24px_64px_rgb(20_26_38_/8%)] sm:p-10 lg:col-span-6 lg:col-start-7 lg:-mt-0 lg:ml-0 lg:-translate-y-12 lg:p-12">
-            <p className="eyebrow">{t("transitEyebrow")}</p>
+            <p className="award-eyebrow">{t("transitEyebrow")}</p>
             <EditorialTitle text={title} as="h2" className="heading-lg mt-5" />
             <p className="lead mt-6 max-w-md">{body}</p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">

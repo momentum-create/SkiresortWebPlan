@@ -18,7 +18,7 @@ function OsmMapFallback({ bounds }: { bounds: AccessMapData["bounds"] }) {
       <iframe
         title="アクセス概略地図"
         src={src}
-        className="pointer-events-none h-[120%] w-full border-0"
+        className="pointer-events-none h-full w-full border-0"
         loading="lazy"
         tabIndex={-1}
         aria-hidden={true}

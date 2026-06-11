@@ -22,7 +22,7 @@ export async function ImmersiveLiveCam({ liveCams }: ImmersiveLiveCamProps) {
     <section className="home-section bg-white">
       <div className="home-inner mb-10 flex items-end justify-between gap-6">
         <div>
-          <p className="eyebrow">{t("eyebrow")}</p>
+          <p className="award-eyebrow">{t("eyebrow")}</p>
           <h2 className="display-xl mt-4">{t("title")}</h2>
         </div>
         <AwardButton href="/live-cams" variant="ghost" className="shrink-0 pb-1">

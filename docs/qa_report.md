@@ -274,3 +274,94 @@ resort-qa-a11y PASS（/access）+ resort-visual-evaluator PASS → サイト UI 
 | L136 再発防止 | 「検索・フィルタはレール state のみ」 | 検索・フィルタ自体が存在しない |
 
 → `map-ux-evaluator` / `map-interaction-evaluator` の `qa_report_map.md` と合わせて本ファイルを改訂すること。
+
+---
+
+## `/access` 差分再評価 — 2026-06-11（L2 直後クイック）
+
+> **Agent**: `resort-qa-a11y`（L3）  
+> **Trigger**: `AwardPageShell` 撤去・ヒーロー header 直下・サイン `googleMapsPlaceUrl`・`AccessTaxiBlock`（駅から）・`h1` 化
+
+### 変更確認
+
+| 要件 | 判定 | 根拠 |
+|------|------|------|
+| `AwardPageShell` トップ帯撤去、ヒーロー header 直下 | PASS | `access/page.tsx` は `AccessTransitMap` を先頭に直置き。`main` の `pt-16` のみ |
+| サインリンク → `googleMapsPlaceUrl`（地点ピン） | PASS | `AccessTransitMap` が `googleMapsPlaceUrl` を生成。CTA は引き続き `googleMapsNavigateUrl` |
+| 駅からカード下に `縦貫タクシー` | PASS | `fromStationIndex` + `AccessTaxiBlock`。`resort-data*.json` `access.taxi` |
+| ヒーローカード内 `h1` | PASS | `AccessMapHeroShell` `<h1 id="access-map-heading">`。ページ内 h1 は 1 つ |
+
+### ルーブリック（差分）
+
+| Rubric | 結果 | 備考 |
+|--------|------|------|
+| **Q1** | PASS | サイン `min-h-11 min-w-11`。CTA 52px / 44px。`overflow-x: clip` |
+| **Q2** | PASS | サイン `map-focus-ring` + `aria-label` + `role="group"`。`h1` + `aria-labelledby`。`motion-safe:` on hover |
+| **Q3** | PASS | Primary ナビ 1 タップ。サインは地点表示（ルート誤誘導なし） |
+| **Q4** | PASS | `access.map.*` + locale 別 `resort-data`。タクシー `companyEn` / `addressEn` |
+| **Q5** | PASS | 地図背景 lazy / 非インタラクティブ。ループアニメなし |
+| **Q6** | PASS | タクシー・座標は JSON。URL は `access-deep-links.ts` |
+
+### ブロッカー
+
+**なし**
+
+### 非ブロッカー（P2）
+
+- タクシー TEL インラインリンクは 44px 未満の可能性（電話番号テキストのみ）
+- `access.map.stationRoute` dead key（継続）
+- `fromStationIndex` がカード `k` 文字列依存（`id` 化は将来整理）
+
+### 総合判定: **PASS**
+
+```
+resort-qa-a11y PASS（/access 差分 2026-06-11）+ resort-visual-evaluator PASS → /access 出荷可
+```
+
+**注**: 上記「`/access` 再評価 — 2026-06-11」セクションのサイン `pointer-events-none` / `h2` / `AwardPageShell` 記述は本差分で **obsolete**。
+
+---
+
+## `/today` 差分再評価 — 2026-06-11（L2 直後クイック）
+
+> **Agent**: `resort-qa-a11y`（L3）  
+> **Target**: `resorts/Sichinohe-CyoueiSki/web/src/app/[locale]/today/page.tsx`  
+> **L2 変更**: スナップショット値 `text-xl font-semibold`、注 `text-sm`、`/access` 同型 `md:grid-cols-3` グリッド、`award-stat-mono` 削除
+
+### 変更確認
+
+| 要件 | 判定 | 根拠 |
+|------|------|------|
+| 値 `text-xl font-semibold` | PASS | L50 — `/access` L42 と同型 |
+| 注 `text-sm leading-relaxed` | PASS | L53 |
+| 3 列グリッド（access パターン） | PASS | L39–45 — `md:grid-cols-3` + `md:px-8 md:py-10` + 罫線 |
+| `award-stat-mono` 削除 | PASS | 当該ページに未使用（ヒーロー `CinematicHero` のみ残存） |
+| `wide` 行フル幅 | PASS | `md:col-span-3`（リフト運行等） |
+
+### ルーブリック（差分）
+
+| Rubric | 結果 | 備考 |
+|--------|------|------|
+| **Q1** Mobile-first | PASS | 静的リスト。375px で縦スタック → md 3 列。横スクロールなし |
+| **Q2** Accessibility | PASS | `<dl>` / `<dt>` / `<dd>`。notice `role="note"`。`FreshnessBadge` `<time>` |
+| **Q3** Conversion | PASS | トップヒーロー CTA → `/today` 1 タップ（ページ共通導線） |
+| **Q4** i18n | PASS | `today.*` + `getResortData()` locale 別 snapshot |
+| **Q5** Performance | PASS | ヒーロー画像なし。ループアニメなし |
+| **Q6** Data separation | PASS | `resort-data.json` / `resort-data.en.json` `today.snapshot` |
+
+### ブロッカー
+
+**なし**
+
+### 非ブロッカー（P2）
+
+- `FreshnessBadge` の `dateTime` が人間可読文字列の場合 ISO 厳密性は弱い（全站共通・継続）
+- `AwardPageShell` 子 `space-y-10` は notice→グリッド間がやや広い（ビジュアル側の任意調整）
+
+### 総合判定: **PASS**
+
+```
+resort-qa-a11y PASS（/today 差分 2026-06-11）+ resort-visual-evaluator PASS（/today 再評価後）→ /today 出荷可
+```
+
+**注**: a11y PASS のみでは出荷不可。タイポ修正は `qa_report_visual_today.md` の V1/V2/V5 ブロッカー解消を意図 — **ビジュアル再評価は別途必須**。
