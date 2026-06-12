@@ -1,15 +1,16 @@
 import { getTranslations } from "next-intl/server";
-import { getResortData } from "@/lib/resort-data";
+import { getResortData, resolveLpFeatured } from "@/lib/resort-data";
 import { CinematicHero } from "@/components/home/CinematicHero";
 import { AsymmetricTransit } from "@/components/home/AsymmetricTransit";
 import { ImmersiveLiveCam } from "@/components/home/ImmersiveLiveCam";
 import { PathMagnet } from "@/components/home/PathMagnet";
-import { AudienceDuet } from "@/components/home/AudienceDuet";
+import { LpHighlightDuet } from "@/components/home/LpHighlightDuet";
 import { NewsTeaser } from "@/components/home/NewsTeaser";
 import { GuidesReveal } from "@/components/home/GuidesReveal";
 
 export default async function Home() {
   const data = await getResortData();
+  const lpFeatured = resolveLpFeatured(data);
   const t = await getTranslations("home");
 
   return (
@@ -32,7 +33,7 @@ export default async function Home() {
 
       <PathMagnet />
 
-      <AudienceDuet />
+      {lpFeatured.length >= 2 ? <LpHighlightDuet highlights={lpFeatured} /> : null}
 
       <NewsTeaser news={data.news} />
 

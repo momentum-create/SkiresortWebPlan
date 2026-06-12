@@ -171,9 +171,16 @@
   },
   "stayLocal": {
     "notice": "Third-party facilities may change hours and prices. Always check official sources.",
+    "featuredSpot": {
+      "id": "tsuta-onsen",
+      "officialUrl": "https://tsutaonsen.com/",
+      "dayUseUrl": "https://tsutaonsen.com/hotspring/",
+      "officialSource": "Tsuta Onsen Ryokan official website",
+      "image": "/images/hero-slope.png",
+      "phone": "0176-74-2311"
+    },
     "spots": [
       { "category": "Hot spring", "name": "Higashi-Hakkoda Onsen", "summary": "Local onsen in Shichinohe (see each facility's site)" },
-      { "category": "Hot spring", "name": "Tsuta Onsen Ryokan", "summary": "Day-use availability TBC" },
       { "category": "Dining", "name": "Town hut & local restaurants", "summary": "Hours on official listings" }
     ]
   },
@@ -295,6 +302,43 @@
             "answer": "High wind, poor visibility, or snow conditions may cause lift stoppages or trail closures. Check operations before you travel."
           }
         ]
+      }
+    ]
+  },
+  "lpHighlights": {
+    "featured": ["transit-station", "tsuta-onsen"],
+    "catalog": [
+      {
+        "id": "transit-station",
+        "theme": "transit",
+        "source": "MASTER_SUMMARY A1; access.map driveMinutes=11; SITE_SKELETON core-2",
+        "image": "/images/hero-train.png",
+        "href": "/access",
+        "layout": "primary"
+      },
+      {
+        "id": "tsuta-onsen",
+        "theme": "stay",
+        "source": "SITE_SKELETON A6; stayLocal.spots Tsuta Onsen",
+        "image": "/images/hero-slope.png",
+        "href": "/stay-local#tsuta-onsen",
+        "layout": "secondary"
+      },
+      {
+        "id": "powder-upper",
+        "theme": "terrain",
+        "source": "MASTER_SUMMARY A2/A3; ungroomed upper mountain",
+        "image": "/images/hero-groomed-monochrome.png",
+        "href": "/map",
+        "layout": "primary"
+      },
+      {
+        "id": "family-gentle",
+        "theme": "family",
+        "source": "MASTER_SUMMARY A3; pony lift / groomed wide runs",
+        "image": "/images/hero-boarder-run-01.png",
+        "href": "/lessons-events",
+        "layout": "secondary"
       }
     ]
   }

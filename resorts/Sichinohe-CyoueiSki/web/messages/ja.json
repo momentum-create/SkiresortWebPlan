@@ -10,7 +10,7 @@
     "map": "ゲレンデマップ",
     "liveCams": "ライブカメラ",
     "tickets": "料金",
-    "faq": "FAQ",
+    "faq": "よくある質問",
     "contact": "問い合わせ",
     "news": "お知らせ",
     "ariaMain": "メイン"
@@ -25,7 +25,7 @@
     "accessLink": "アクセスを確認",
     "planTitle": "特集ページ",
     "planBody": "来場目的に合わせた案内ページです。",
-    "transitEyebrow": "Transit Resort",
+    "transitEyebrow": "新幹線アクセス",
     "transitImageAlt": "東北新幹線と雪山を結ぶトランジットのイメージ",
     "hero": {
       "todayCta": "今日の運営",
@@ -34,45 +34,61 @@
       "staffVerified": "スタッフ確認"
     },
     "pathMagnet": {
-      "eyebrow": "Navigate",
+      "eyebrow": "案内",
       "title": "山へ向かう",
-      "faqLink": "FAQ・詳細仕様",
-      "todayLabel": "Today",
+      "faqLink": "よくある質問",
+      "todayLabel": "今日",
       "todayTitle": "今日の運営",
-      "accessLabel": "Access",
+      "accessLabel": "アクセス",
       "accessTitle": "アクセス",
-      "mapLabel": "Terrain",
+      "mapLabel": "ゲレンデ",
       "mapTitle": "ゲレンデマップ",
-      "ticketsLabel": "Tickets",
-      "ticketsTitle": "料金"
+      "ticketsLabel": "料金",
+      "ticketsTitle": "料金・レンタル"
     },
     "liveCam": {
-      "eyebrow": "Live",
-      "title": "Now",
-      "allCams": "全カメラ"
+      "eyebrow": "ライブ",
+      "title": "いまの様子",
+      "allCams": "すべてのカメラ"
     },
-    "audience": {
-      "eyebrow": "Your mountain",
-      "title": "選ぶ冒険",
-      "powderTitle": "Powder",
-      "powderBody": "非圧雪・上部エリア。競争の少ない雪質を求める方向け。",
-      "powderCta": "Explore",
-      "familyTitle": "Family",
-      "familyBody": "緩斜面・講習・ナイター。はじめてでも安心のエリア。",
-      "familyCta": "Beginners guide"
+    "lpHighlights": {
+      "eyebrow": "七戸の魅力",
+      "title": "ここが違う",
+      "items": {
+        "transit-station": {
+          "title": "新幹線駅から約11分",
+          "body": "東北新幹線「七戸十和田駅」からタクシーで約10〜11分。旅の途中でも立ち寄りやすい、町営スキー場です。",
+          "cta": "アクセスを見る"
+        },
+        "tsuta-onsen": {
+          "title": "千年の秘湯・蔦温泉へ",
+          "body": "奥入瀬渓流入口近くに佇む、文献に残る千年の秘湯。滑走のあと、源泉湧き流しの湯で森の時間を過ごせます（営業・料金は公式でご確認ください）。",
+          "cta": "蔦温泉のご案内"
+        },
+        "powder-upper": {
+          "title": "非圧雪・上部エリア",
+          "body": "競争の少ない雪質を求める方向け。コース詳細はゲレンデマップで確認できます。",
+          "cta": "ゲレンデマップ"
+        },
+        "family-gentle": {
+          "title": "ファミリー・初心者向け",
+          "body": "緩斜面・講習・ナイター。はじめてでも安心して楽しめるエリアです。",
+          "cta": "スクール・イベント"
+        }
+      }
     },
     "news": {
-      "eyebrow": "News",
-      "all": "すべて"
+      "eyebrow": "お知らせ",
+      "all": "一覧を見る"
     },
     "guides": {
-      "eyebrow": "Guides",
+      "eyebrow": "特集",
       "read": "読む",
-      "transitPowderTitle": "Transit Powder",
+      "transitPowderTitle": "駅から狙うパウダー",
       "transitPowderSummary": "駅近アクセスで狙う、七戸のパウダー体験。",
-      "transitShinkansenTitle": "Transit Shinkansen",
+      "transitShinkansenTitle": "新幹線で行く",
       "transitShinkansenSummary": "東北新幹線を軸にした、短時間の雪山トリップ。",
-      "beginnersTitle": "Beginners Hidden Gem",
+      "beginnersTitle": "初心者・ファミリー向け",
       "beginnersSummary": "初めての方・ファミリー向けの緩やかな滑走案内。"
     }
   },
@@ -87,7 +103,7 @@
   "liveCams": {
     "title": "ライブカメラ",
     "description": "ゲレンデのライブ映像です。設置・配信準備が完了次第、リアルタイム映像を表示します。",
-    "eyebrow": "Live",
+    "eyebrow": "ライブ",
     "previewTitle": "ライブカメラ",
     "viewAll": "すべて見る",
     "iframeTitle": "ライブ映像",
@@ -182,9 +198,37 @@
   },
   "stayLocal": {
     "title": "周辺情報",
-    "description": "温泉・食・滞在情報を公式確認のうえ順次掲載します。",
+    "description": "滑走後に立ち寄れる温泉・食・滞在のヒント。外部施設の情報は各公式サイトに準拠した概要です。",
     "eyebrow": "Local",
-    "shellDescription": "周辺温泉・食事・滞在モデルコースは、提携表現や営業時間を確認してから掲載します。"
+    "shellDescription": "ゲレンデ周辺の温泉や食事スポットを、公式情報をもとにご案内します。料金・営業時間は必ず各施設でご確認ください。",
+    "otherSpotsTitle": "その他の周辺スポット",
+    "featured": {
+      "tsuta-onsen": {
+        "eyebrow": "千年の秘湯",
+        "title": "蔦温泉旅館",
+        "lead": "青森県十和田市・奥入瀬渓流入口近くの一軒宿。日本でも珍しい足元から湧き出す源泉湧き流しの湯と、ブナ林に囲まれた静けさが魅力です。滑走のあと、森の時間をゆっくり味わう立ち寄り先としてご紹介します。",
+        "history": "久安三年（1147年）には、この地に湯治小屋があったことが文献に残されています（出典：蔦温泉旅館公式サイト）。多くの文人に愛され続けた「千年の秘湯」として知られます。",
+        "highlights": {
+          "spring": "浴槽の底板から源泉が湧き出す、希少な源泉湧き流し",
+          "baths": "「久安の湯」と「泉響の湯」——森に囲まれた2つの湯処",
+          "nature": "蔦七沼や奥入瀬渓流など、南八甲田の自然とあわせて楽しめる立地"
+        },
+        "facts": {
+          "location": "所在地",
+          "locationValue": "青森県十和田市奥瀬字蔦野湯1",
+          "dayUse": "日帰り入浴",
+          "dayUseValue": "実施しています（料金・受付時間・冬季休業などは公式でご確認ください）",
+          "access": "アクセス",
+          "accessValue": "七戸十和田駅から無料送迎あり（要予約）。お車での来場も可能です。",
+          "phone": "お問い合わせ",
+          "phoneValue": "0176-74-2311"
+        },
+        "disclaimer": "本ページは蔦温泉旅館との提携・公式代理ではありません。日帰り入浴の可否、料金、受付時間、休業日、送迎の予約方法など最新情報は、必ず蔦温泉旅館の公式サイトでご確認ください。",
+        "ctaOfficial": "蔦温泉旅館 公式サイト",
+        "ctaDayUse": "日帰り入浴のご案内（公式）",
+        "sourceNote": "掲載内容の出典：{source}（2026年6月時点の公式掲載情報に基づく概要）"
+      }
+    }
   },
   "liftDeals": {
     "title": "リフト割引・提携情報",

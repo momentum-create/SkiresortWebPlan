@@ -79,6 +79,43 @@ export type AccessMapData = {
   landmarks: AccessLandmark[];
 };
 
+/** LP 二分割カード用 — リサーチ catalog から featured で最大2件選ぶ */
+export type LpHighlightLayout = "primary" | "secondary";
+
+export type LpHighlightCatalogItem = {
+  id: string;
+  /** リサーチテーマ（テンプレ分類用） */
+  theme: "transit" | "stay" | "terrain" | "family" | "culture";
+  /** 根拠（MASTER_SUMMARY 等の参照メモ。本番表示しない） */
+  source: string;
+  image: string;
+  href:
+    | "/access"
+    | "/stay-local"
+    | "/stay-local#tsuta-onsen"
+    | "/map"
+    | "/lessons-events"
+    | "/today"
+    | "/tickets-rental";
+  layout: LpHighlightLayout;
+};
+
+export type LpHighlightsConfig = {
+  /** ホーム LP に載せる catalog ID（順序どおり、最大2件） */
+  featured: string[];
+  /** リサーチで拾った売り候補プール */
+  catalog: LpHighlightCatalogItem[];
+};
+
+export type StayLocalFeaturedSpot = {
+  id: string;
+  officialUrl: string;
+  dayUseUrl?: string;
+  officialSource: string;
+  image: string;
+  phone: string;
+};
+
 export type ResortData = {
   updatedAt: string;
   resort: {
@@ -138,6 +175,7 @@ export type ResortData = {
   };
   stayLocal: {
     notice: string;
+    featuredSpot?: StayLocalFeaturedSpot;
     spots: Array<{ category: string; name: string; summary: string }>;
   };
   news: {
@@ -162,7 +200,20 @@ export type ResortData = {
     notice: string;
     categories: FaqCategory[];
   };
+  lpHighlights?: LpHighlightsConfig;
 };
+
+const LP_FEATURED_MAX = 2;
+
+/** featured ID 順に catalog を解決（テンプレ: 常に2件想定） */
+export function resolveLpFeatured(data: ResortData): LpHighlightCatalogItem[] {
+  const config = data.lpHighlights;
+  if (!config?.featured?.length || !config.catalog?.length) return [];
+  return config.featured
+    .map((id) => config.catalog.find((item) => item.id === id))
+    .filter((item): item is LpHighlightCatalogItem => Boolean(item))
+    .slice(0, LP_FEATURED_MAX);
+}
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const DATA_FILE_PATH = path.join(DATA_DIR, "resort-data.json");

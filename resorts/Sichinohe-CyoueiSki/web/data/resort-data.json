@@ -170,10 +170,17 @@
     ]
   },
   "stayLocal": {
-    "notice": "外部施設の料金・営業時間は変更される可能性があります。必ず公式情報を確認してください。",
+    "notice": "外部施設の料金・営業時間は変更される可能性があります。必ず各施設の公式情報を確認してください。",
+    "featuredSpot": {
+      "id": "tsuta-onsen",
+      "officialUrl": "https://tsutaonsen.com/",
+      "dayUseUrl": "https://tsutaonsen.com/hotspring/",
+      "officialSource": "蔦温泉旅館公式サイト",
+      "image": "/images/hero-slope.png",
+      "phone": "0176-74-2311"
+    },
     "spots": [
       { "category": "温泉", "name": "東八甲田温泉", "summary": "七戸町内の温泉施設（詳細は各自公式サイト）" },
-      { "category": "温泉", "name": "蔦温泉旅館", "summary": "日帰り入浴の可否などは要確認" },
       { "category": "食", "name": "町営ヒュッテ・地域飲食店", "summary": "営業時間・定休日は公式で確認" }
     ]
   },
@@ -295,6 +302,43 @@
             "answer": "強風・視界不良・積雪状況などにより、リフト運休やコース閉鎖が発生する場合があります。来場前に運行情報をご確認ください。"
           }
         ]
+      }
+    ]
+  },
+  "lpHighlights": {
+    "featured": ["transit-station", "tsuta-onsen"],
+    "catalog": [
+      {
+        "id": "transit-station",
+        "theme": "transit",
+        "source": "MASTER_SUMMARY A1; access.map driveMinutes=11; SITE_SKELETON §コア2",
+        "image": "/images/hero-train.png",
+        "href": "/access",
+        "layout": "primary"
+      },
+      {
+        "id": "tsuta-onsen",
+        "theme": "stay",
+        "source": "SITE_SKELETON A6; stayLocal.spots 蔦温泉旅館",
+        "image": "/images/hero-slope.png",
+        "href": "/stay-local#tsuta-onsen",
+        "layout": "secondary"
+      },
+      {
+        "id": "powder-upper",
+        "theme": "terrain",
+        "source": "MASTER_SUMMARY A2/A3; 非圧雪・上部",
+        "image": "/images/hero-groomed-monochrome.png",
+        "href": "/map",
+        "layout": "primary"
+      },
+      {
+        "id": "family-gentle",
+        "theme": "family",
+        "source": "MASTER_SUMMARY A3; ポニー・圧雪ワイド",
+        "image": "/images/hero-boarder-run-01.png",
+        "href": "/lessons-events",
+        "layout": "secondary"
       }
     ]
   }

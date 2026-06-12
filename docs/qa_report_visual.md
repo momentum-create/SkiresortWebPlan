@@ -104,7 +104,8 @@ resort-qa-a11y PASS + resort-visual-evaluator PASS → ルートテンプレ UI 
 ### Phase 2 推奨（ヒーローのみ）
 
 1. ~~reduced-motion CSS~~ ✅ 2026-06-08
-2. ~~`asset_brief.md` で **1920×1080+**~~ ✅ 2026-06-08（Lanczos upscale）。Gemini 現地品質は任意
+2. ~~`asset_brief.md` で **1920×1080+**~~ ✅ 2026-06-08（Lanczos upscale）
+3. **関係者提供写真への差し替え**（2026-06-12 合意）— 出荷ブロック外。`hero-sichinohe.png` 上書き + §5.3 再監査 + V3 再評価のみ。手順: [`home-hero-spec.md`](../resorts/Sichinohe-CyoueiSki/docs/home-hero-spec.md) §6
 
 ### 再発防止
 

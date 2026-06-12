@@ -26,7 +26,7 @@
     "accessLink": "Check access",
     "planTitle": "Featured guides",
     "planBody": "Purpose-built pages for different visit styles.",
-    "transitEyebrow": "Transit Resort",
+    "transitEyebrow": "Shinkansen access",
     "transitImageAlt": "Shinkansen and snowy mountains — transit resort imagery",
     "hero": {
       "todayCta": "Today's operations",
@@ -37,43 +37,59 @@
     "pathMagnet": {
       "eyebrow": "Navigate",
       "title": "Head for the mountain",
-      "faqLink": "FAQ & details",
+      "faqLink": "FAQ",
       "todayLabel": "Today",
       "todayTitle": "Today's operations",
       "accessLabel": "Access",
       "accessTitle": "Getting here",
-      "mapLabel": "Terrain",
+      "mapLabel": "Resort",
       "mapTitle": "Resort map",
       "ticketsLabel": "Tickets",
-      "ticketsTitle": "Lift tickets"
+      "ticketsTitle": "Tickets & rental"
     },
     "liveCam": {
       "eyebrow": "Live",
-      "title": "Now",
+      "title": "On the mountain now",
       "allCams": "All cameras"
     },
-    "audience": {
-      "eyebrow": "Your mountain",
-      "title": "Choose your adventure",
-      "powderTitle": "Powder",
-      "powderBody": "Un groomed upper mountain. For riders seeking quieter snow.",
-      "powderCta": "Explore",
-      "familyTitle": "Family",
-      "familyBody": "Gentle slopes, lessons, and night skiing. A welcoming area for first-timers.",
-      "familyCta": "Beginners guide"
+    "lpHighlights": {
+      "eyebrow": "Why Shichinohe",
+      "title": "What sets us apart",
+      "items": {
+        "transit-station": {
+          "title": "About 11 minutes from the Shinkansen",
+          "body": "Roughly 10–11 minutes by taxi from Shichinohe-Towada Station on the Tohoku Shinkansen—easy to fit into a wider trip.",
+          "cta": "Getting here"
+        },
+        "tsuta-onsen": {
+          "title": "Tsuta Onsen — a thousand-year secret spring",
+          "body": "Near the Oirase stream gateway, a historic inn famed as a “thousand-year” hot spring. After skiing, soak in rare spring-fed baths (hours and fees on the official site).",
+          "cta": "About Tsuta Onsen"
+        },
+        "powder-upper": {
+          "title": "Ungroomed upper terrain",
+          "body": "For riders who want quieter snow. See course details on the resort map.",
+          "cta": "Resort map"
+        },
+        "family-gentle": {
+          "title": "Families & first-timers",
+          "body": "Gentle slopes, lessons, and night skiing in a welcoming area.",
+          "cta": "Lessons & events"
+        }
+      }
     },
     "news": {
       "eyebrow": "News",
       "all": "View all"
     },
     "guides": {
-      "eyebrow": "Guides",
-      "read": "Read",
-      "transitPowderTitle": "Transit Powder",
+      "eyebrow": "Features",
+      "read": "Read more",
+      "transitPowderTitle": "Powder by transit",
       "transitPowderSummary": "Powder days within easy reach of the station.",
-      "transitShinkansenTitle": "Transit Shinkansen",
+      "transitShinkansenTitle": "Shinkansen day trip",
       "transitShinkansenSummary": "A short ski trip built around the Tohoku Shinkansen.",
-      "beginnersTitle": "Beginners Hidden Gem",
+      "beginnersTitle": "Families & first-timers",
       "beginnersSummary": "Gentle runs and tips for families and first-time visitors."
     }
   },
@@ -183,9 +199,37 @@
   },
   "stayLocal": {
     "title": "Around the resort",
-    "description": "Hot springs, dining, and stay ideas—posted after official verification.",
+    "description": "Hot springs, dining, and stay ideas near the slopes—summaries aligned with each facility’s official information.",
     "eyebrow": "Local",
-    "shellDescription": "Nearby onsen, food, and sample itineraries will be added once hours and partnerships are confirmed."
+    "shellDescription": "Nearby onsen and dining spots, based on official sources. Always confirm hours, prices, and closures on each facility’s website.",
+    "otherSpotsTitle": "More nearby spots",
+    "featured": {
+      "tsuta-onsen": {
+        "eyebrow": "Thousand-year secret spring",
+        "title": "Tsuta Onsen Ryokan",
+        "lead": "A single inn near the Oirase stream gateway in Towada, Aomori. Rare spring water wells up through the bath floor, surrounded by beech forest—a calm stop after a day on snow.",
+        "history": "Records note a healing hut on this site as early as 1147 (Kyuan 3), per the ryokan’s official site. Long cherished by writers as a “thousand-year” secret spring.",
+        "highlights": {
+          "spring": "True spring-fed flow—water rises directly through the bath floor",
+          "baths": "Kyuan-no-yu and Izumi-kyo-no-yu, two forest-framed bathing areas",
+          "nature": "Close to Tsuta’s ponds and the Oirase valley in southern Hakkoda"
+        },
+        "facts": {
+          "location": "Address",
+          "locationValue": "1 Tsutanoyu, Okuse, Towada, Aomori",
+          "dayUse": "Day-use bathing",
+          "dayUseValue": "Available—confirm fees, hours, and seasonal closures on the official site",
+          "access": "Getting there",
+          "accessValue": "Free shuttle from Shichinohe-Towada Station (reservation required). Driving is also possible.",
+          "phone": "Contact",
+          "phoneValue": "0176-74-2311"
+        },
+        "disclaimer": "This page is not affiliated with Tsuta Onsen Ryokan. For day-use availability, prices, hours, closures, and shuttle reservations, always check the official website.",
+        "ctaOfficial": "Official website",
+        "ctaDayUse": "Day-use bathing (official)",
+        "sourceNote": "Source: {source} (summary based on official listings as of June 2026)"
+      }
+    }
   },
   "liftDeals": {
     "title": "Lift deals & partners",

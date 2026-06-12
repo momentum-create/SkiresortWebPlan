@@ -213,7 +213,21 @@ section.award-hero-scroll (min-h-[92svh])
 | **案 B 選択時: 白文字 UI 改修** | ☑ 不要（B 不採用） |
 | **承認者** | ユーザー |
 | **承認日** | 2026-06-08 |
-| **メモ** | クールブルー・寒色アルパイン。現行 `CinematicHero` ダーク文字 UI のまま（§5.2）。高解像度再生成は [`asset_brief.md`](../../docs/asset_brief.md) で別途可。 |
+| **完成確定** | 2026-06-12 — **現行 `hero-sichinohe.png`（1920×1080）で七戸本番出荷可** |
+| **差し替え予定** | **スキー場関係者要望により後日差し替え**（出荷ブロック外・Phase 2） |
+| **メモ** | クールブルー・寒色アルパイン。現行 `CinematicHero` ダーク文字 UI のまま（§5.2）。差し替え時は §5.3 再監査 + `resort-visual-evaluator` V3 のみ再実行。手順は [`asset_brief.md`](../../docs/asset_brief.md)。 |
+
+### 差し替え時チェックリスト（関係者提供画像）
+
+関係者から写真が届いたら、**パスは変えず** `public/images/hero-sichinohe.png` を上書き（または WebP 化後も同一 URL）。
+
+- [ ] §5.3 共通 8 項（地図線・文字・セーフゾーン・コントラスト・v5 非流用・解像度・reduced-motion）
+- [ ] 商用掲載 OK（権利・ロゴ使用許諾）
+- [ ] `CinematicHero.tsx` の `object-position` が被写体と合うか目視
+- [ ] visual evaluator V3 再 PASS
+- [ ] デプロイ後 `build-info` で commit 確認
+
+**テンプレ教訓**: ヒーローは **B 層（設定）**。コード変更なしで差し替え可能な設計を維持する。
 
 ---
 
