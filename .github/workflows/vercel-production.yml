@@ -1,0 +1,40 @@
+name: Deploy Sichinohe to Vercel Production
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "resorts/Sichinohe-CyoueiSki/web/**"
+      - ".github/workflows/vercel-production.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: resorts/Sichinohe-CyoueiSki/web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: resorts/Sichinohe-CyoueiSki/web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Vercel Production
+        run: npx vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

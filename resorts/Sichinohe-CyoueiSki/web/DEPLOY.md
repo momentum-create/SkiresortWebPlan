@@ -8,9 +8,26 @@
 | **Framework** | Next.js（自動検出） |
 | **Production URL** | https://sichinohe-choei.vercel.app |
 
-Git 連携で自動デプロイされない場合はリポジトリルートから:
+### 本番デプロイ（推奨: GitHub Actions）
+
+`main` へ push すると `.github/workflows/vercel-production.yml` が Vercel 本番へデプロイします。
+
+GitHub Repository Secrets（必須）:
+
+| Secret | 内容 |
+|--------|------|
+| `VERCEL_TOKEN` | Vercel Account → Tokens |
+| `VERCEL_ORG_ID` | `resorts/Sichinohe-CyoueiSki/web/.vercel/project.json` の `orgId` |
+| `VERCEL_PROJECT_ID` | 同上の `projectId` |
+
+確認: GitHub → **Actions** → **Deploy Sichinohe to Vercel Production**
+
+### 手動デプロイ（フォールバック）
+
+Vercel Git 連携が使えない場合の CLI:
 
 ```bash
+cd resorts/Sichinohe-CyoueiSki/web
 npx vercel --prod --yes
 ```
 
