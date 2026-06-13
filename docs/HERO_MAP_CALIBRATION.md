@@ -47,14 +47,12 @@
 
 
 ```bash
-
 cd resorts/Sichinohe-CyoueiSki/scripts
-
-npm install
-
+npm ci
 node run-map-pipeline.mjs
-
 ```
+
+パッケージの追加・更新時のみ `npm install <pkg>` を使う。
 
 
 

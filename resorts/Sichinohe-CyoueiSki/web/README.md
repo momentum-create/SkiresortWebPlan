@@ -3,9 +3,11 @@
 ## 開発
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+パッケージの追加・更新時のみ `npm install <pkg>` を使い、`package-lock.json` をコミットする。
 
 ### リフトマップ（`/map`）
 

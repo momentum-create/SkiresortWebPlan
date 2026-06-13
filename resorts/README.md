@@ -19,7 +19,7 @@
 
 ```bash
 cd resorts/Sichinohe-CyoueiSki/web
-npm install
+npm ci
 npm run dev
 ```
 
