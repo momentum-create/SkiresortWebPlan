@@ -5,6 +5,7 @@
  */
 import {
   cpSync,
+  existsSync,
   mkdirSync,
   readFileSync,
   readdirSync,
@@ -178,6 +179,18 @@ function buildRegistry(registry) {
 }
 
 function main() {
+  if (!existsSync(MOCK_ROOT)) {
+    const hub = join(OUT, "index.html");
+    const registry = join(OUT, "registry.json");
+    if (existsSync(hub) && existsSync(registry)) {
+      console.log("⚠ docs/mock-assets missing; using existing guides/public");
+      return;
+    }
+    throw new Error(
+      "docs/mock-assets missing and guides/public is not ready — run sync from repo root or connect Git deploy",
+    );
+  }
+
   const resortGuides = loadResortGuides();
   const registryRaw = JSON.parse(readFileSync(join(MOCK_ROOT, "registry.json"), "utf8"));
   validateResortGuides(registryRaw, resortGuides);
