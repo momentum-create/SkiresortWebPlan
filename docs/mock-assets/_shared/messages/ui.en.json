@@ -1,0 +1,38 @@
+{
+  "lang": {
+    "switch": "Language",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "common": {
+    "explore": "Explore",
+    "read": "Read",
+    "googleMap": "Open in Google Maps",
+    "call": "Call",
+    "location": "Location",
+    "guidesTitle": "Featured guides",
+    "pathsTitle": "Start here",
+    "accessEyebrow": "Access",
+    "footerMap": "Google Map",
+    "guidesEyebrow": "Guides",
+    "updated": "Updated",
+    "mainNav": "Main",
+    "firstView": "Hero"
+  },
+  "nav": {
+    "access": "Access",
+    "highlights": "Highlights",
+    "paths": "Paths",
+    "guides": "Guides",
+    "live": "Today",
+    "onsen": "Onsen",
+    "pass": "Pass",
+    "tour": "Area tour",
+    "rental": "Rentals",
+    "trip": "Day trip",
+    "camp": "English Adventure",
+    "schedule": "Schedule",
+    "pillars": "Two pillars",
+    "map": "Resort map"
+  }
+}

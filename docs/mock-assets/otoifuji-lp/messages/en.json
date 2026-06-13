@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "Otoifuji Ski Area — LP Mock (Hidden Japow · Station Walk · Dual Pricing Strategy)",
+    "description": "Japan's lightest dry powder, 84% advanced skiers. A hidden Japow gem in Otoineppu—Hokkaido's smallest village (535 residents). 15-minute walk from JR Otoineppu Station. LP mock based on Otoifuji Visitor Pass, ¥40,000 CAT tour, FIS/SAJ certified XC, and Tomte lodging hub strategy."
+  },
+  "banner": {
+    "hubLink": "← Index",
+    "strong": "Otoifuji LP mock",
+    "text": "Hidden Japow · station walk · Otoifuji Visitor Pass · CAT tour strategy | AI-generated mock images"
+  },
+  "logo": "Otoifuji Ski Area",
+  "nav": {
+    "cat": "CAT tour",
+    "xc": "Cross-country",
+    "ecosystem": "Food & onsen"
+  },
+  "hero": {
+    "eyebrow": "Otoineppu, Hokkaido · Smallest village, 535 people",
+    "title": "Otoifuji<br />Ski Area",
+    "tagline": "Japan's lightest dry Japow—84% advanced skiers, a hidden gem you can reach on foot from the station.",
+    "badgeLocal": "Villager AM ¥1,300",
+    "badgeVisitor": "Visitor Pass ¥3,500+",
+    "badgeAdvanced": "84% advanced",
+    "badgeTransit": "15-min station walk",
+    "ctaPass": "Otoifuji Visitor Pass",
+    "ctaLive": "Today's conditions"
+  },
+  "live": {
+    "ariaLabel": "Today's operations dashboard",
+    "subtitle": "Transparent operations info",
+    "updatedAt": "Updated Jun 13, 9:00",
+    "lift": { "label": "Lift", "value": "Operating", "note": "1 pair lift · 182 m vertical" },
+    "courses": { "label": "Courses", "value": "3 courses", "note": "84% advanced · uncrowded" },
+    "snow": { "label": "Snow", "value": "Lightest Japow", "note": "Dry powder · check conditions" },
+    "night": { "label": "Night skiing", "value": "17:00–20:00", "note": "Wed, Fri & Sat" }
+  },
+  "transit": {
+    "eyebrow": "Station Walk",
+    "title": "15 minutes from the station<br />to the snow.",
+    "lead": "About a 15-minute walk from JR Otoineppu Station—a rare train-accessible ski area in Hokkaido. Along National Route 40, it is a micro-tourism base where advanced Japow is within reach without a rental car. Dry powder without the crowds, in the quiet of a village of 535.",
+    "specs": ["15-min walk from Otoineppu Stn.", "Along Route 40", "84% advanced skiers"],
+    "ctaPass": "View Visitor Pass",
+    "ctaLive": "Today's operations",
+    "imgAlt": "A 15-minute walk from Otoineppu Station toward the snow—a rare train-accessible ski hill"
+  },
+  "paths": {
+    "today": { "label": "Today", "title": "Lifts, snow & night skiing" },
+    "pass": { "label": "Pass", "title": "Otoifuji Visitor Pass" },
+    "cat": { "label": "CAT", "title": "¥40,000 tour" },
+    "xc": { "label": "XC", "title": "FIS/SAJ certified courses" },
+    "ecosystem": { "label": "Food & onsen", "title": "Black station soba · Tengengawa" },
+    "access": { "label": "Access", "title": "15-min station walk" }
+  },
+  "highlights": {
+    "eyebrow": "Why Otoifuji",
+    "title": "What sets us apart",
+    "primary": {
+      "title": "Lightest dry Japow · 84% advanced",
+      "lead": "One pair lift, three courses, 182 m vertical—compact in scale, yet Japan's lightest dry powder and an 84% advanced-skier ratio signal the real thing. A hidden gem in Otoineppu Village, off the mega-resort circuit.",
+      "cta": "View courses & snow quality",
+      "imgAlt": "Uncrowded dry powder burn—an advanced-skier hidden Japow hill"
+    },
+    "secondary": {
+      "title": "Calm of Hokkaido's smallest village",
+      "lead": "535 residents—Hokkaido's smallest municipality. A remote local sanctuary with virtually no lift lines and a private-slope feel, plus the rare asset of a 15-minute station walk.",
+      "cta": "Explore the village ecosystem"
+    }
+  },
+  "pass": {
+    "eyebrow": "Dual Pricing",
+    "title": "Villager AM ¥1,300,<br />Visitor ¥3,500+.",
+    "lead": "Keep the villager morning ticket at ¥1,300 while offering inbound and distant visitors the Otoifuji Visitor Pass (¥3,500–4,500)—a dual-pricing model that protects everyday local use and lifts Japow-experience ARPU (LP concept).",
+    "localPrice": "Villager morning ticket ¥1,300",
+    "visitorPrice": "Visitor Pass ¥3,500–4,500",
+    "specs": ["Pair lift all day", "3 courses · 182 m", "Wed/Fri/Sat night skiing (proposed)"],
+    "noticeTitle": "Strategy note:",
+    "noticeBody": "Protect \"villagers' morning\" pricing and uncrowded snow quality for 84% advanced skiers, while doubling guest spend through the Visitor Pass and CAT tour—a revenue pivot for a smallest-village ski hill.",
+    "cta": "Visitor Pass details",
+    "imgAlt": "A quiet Otoineppu slope—dual pricing that serves both locals and visitors"
+  },
+  "cat": {
+    "eyebrow": "Flagship Product",
+    "title": "CAT tour,<br />¥40,000.",
+    "lead": "Snowcat access to untouched dry Japow—Otoifuji's flagship product. Package backcountry-grade advanced terrain as a guided, safe CAT tour. A high-value line combined with the Visitor Pass and Tomte stays (LP strategy).",
+    "price": "CAT tour ¥40,000",
+    "specs": ["Guided", "Untouched zones", "Advanced terrain"],
+    "whisper": "A flagship built on 84% advanced skiers—beyond a single pair lift, the core of differentiation and guest spend.",
+    "cta": "Book the CAT tour",
+    "imgAlt": "Snowcat into untouched powder—¥40,000 flagship CAT tour"
+  },
+  "xc": {
+    "eyebrow": "FIS / SAJ Certified",
+    "title": "Certified XC,<br />5 · 7.5 · 10 km.",
+    "lead": "FIS/SAJ certified cross-country courses at 5 km, 7.5 km, and 10 km. A non-lift winter-sports axis that extends advanced guests' stay length and village spend beyond alpine runs.",
+    "specs": ["5 km course", "7.5 km course", "10 km course", "FIS/SAJ certified"],
+    "cta": "XC course guide",
+    "imgAlt": "FIS/SAJ certified cross-country course—Nordic skiing across open snow"
+  },
+  "tomte": {
+    "eyebrow": "Tomte Lodge",
+    "title": "Tomte,<br />80-bed hub.",
+    "lead": "Tomte lodging—80-guest capacity with a wax room. A camp hub tying together CAT tours, XC, and night skiing, concentrating stay demand in the smallest village (LP concept).",
+    "specs": ["80-guest capacity", "Wax room", "Camp hub"],
+    "noticeTitle": "Multi-night model:",
+    "noticeBody": "Visitor Pass + Tomte + CAT tour bundle—a 1-night/2-day advanced Japow stay designed to lift lodging and dining ARPU in a village of 535.",
+    "cta": "Tomte lodging & facilities",
+    "imgAlt": "Tomte lodge—80-bed ski camp base with wax room"
+  },
+  "ecosystem": {
+    "eyebrow": "Village Ecosystem",
+    "title": "Black station soba,<br />Tengengawa onsen.",
+    "lead": "About 15 minutes on foot toward the station from the hill—famous black station soba for lunch. After runs, warm up with a Tengengawa onsen package—integrating the smallest village's food-and-onsen ecosystem into the Visitor Pass.",
+    "sobaTitle": "Black station soba",
+    "sobaLead": "A local specialty near Otoineppu Station—chewy black station soba. A station-walk lunch that gives train travelers one more reason to stay.",
+    "onsenTitle": "Tengengawa onsen",
+    "onsenLead": "Tengengawa onsen package partnership—warm cold bodies and complete the recovery phase of a multi-night stay.",
+    "ctaSoba": "Black station soba & station area",
+    "ctaOnsen": "Tengengawa onsen package",
+    "imgAlt": "Black station soba—a famous lunch within walking distance of Otoineppu Station"
+  },
+  "journey": {
+    "eyebrow": "Transit Japow",
+    "title": "Arrive by train,<br />snow in 15 minutes.",
+    "lead": "Take JR from Sapporo or Asahikawa to Otoineppu—an advanced Japow journey without a rental car. A half-day to 2-night model linking station walk, black station soba, Tengengawa onsen, and Tomte stays.",
+    "badge": "STATION WALK · HIDDEN JAPOW",
+    "steps": {
+      "01": { "title": "JR Otoineppu Station", "body": "Arrive by train. 15-minute walk to the hill" },
+      "02": { "title": "Visitor Pass laps", "body": "3 courses · 182 m · lightest dry Japow" },
+      "03": { "title": "Black station soba", "body": "Famous lunch within station walking distance" },
+      "04": { "title": "Tengengawa onsen", "body": "Package warm-up and recovery" },
+      "05": { "title": "Tomte overnight", "body": "80 beds with wax room. CAT tour the next day" }
+    }
+  },
+  "guides": {
+    "japow": {
+      "title": "Complete guide to hidden Japow—lightest dry powder",
+      "body": "84% advanced skiers, one pair lift, three courses over 182 m—small in scale, yet rated for Japan's lightest dry powder. One step off the crowded mega-resort circuit, Japow with a private-slope feel in Hokkaido's smallest village of 535."
+    },
+    "catGuide": {
+      "title": "¥40,000 CAT tour—flagship product guide",
+      "body": "Snowcat into untouched zones—safety design, advanced routes, and bundling with the Visitor Pass and Tomte stays. A high-value line that goes beyond a single pair lift (LP strategy note)."
+    },
+    "transit": {
+      "title": "15-minute station walk × village ecosystem model course",
+      "body": "Rare 15-minute walk from JR Otoineppu Station, FIS/SAJ certified XC (5/7.5/10 km), black station soba, Tengengawa onsen, Wed/Fri/Sat night skiing (17:00–20:00)—a half-day to 2-night loop tying eat, ski, and stay in a village of 535.",
+      "hashtags": ["#OtoifujiJapow", "#StationWalkSki", "#HiddenHokkaido535"]
+    }
+  },
+  "access": {
+    "postal": "〒098-2501",
+    "line": "北海道中川郡音威子府村字音威子府200-6",
+    "note": "About 15 minutes on foot from JR Otoineppu Station · along National Route 40",
+    "phone": "TEL 01656-5-3305 (ski area · in season)",
+    "phoneOffSeason": "TEL 01656-5-3313 (off-season)"
+  },
+  "footer": {
+    "copyright": "© Otoifuji Ski Area — LP mock",
+    "credit": "Otoineppu Village · Evaluation mock based on hidden Japow, station-walk, and dual-pricing strategy report | AI-generated images",
+    "location": "〒098-2501 北海道中川郡音威子府村字音威子府200-6"
+  }
+}

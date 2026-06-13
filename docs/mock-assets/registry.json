@@ -1,0 +1,237 @@
+{
+  "locales": [
+    "ja",
+    "en"
+  ],
+  "defaultLocale": "ja",
+  "resorts": [
+    {
+      "id": "sichinohe",
+      "slug": "sichinohe-lp",
+      "name": {
+        "ja": "七戸町営スキー場",
+        "en": "Sichinohe Town Ski Area"
+      },
+      "region": {
+        "ja": "青森県",
+        "en": "Aomori"
+      },
+      "strategy": {
+        "ja": "新幹線10分・温泉",
+        "en": "Shinkansen 10 min · Onsen"
+      },
+      "guidePath": "/sichinohe/",
+      "guideUrl": "https://guides.japowserch.com/sichinohe/",
+      "japowResortId": 98,
+      "guideTier": "mock"
+    },
+    {
+      "id": "biei",
+      "slug": "biei-lp",
+      "name": {
+        "ja": "美瑛町民スキー場",
+        "en": "Biei Town Ski Area"
+      },
+      "region": {
+        "ja": "北海道",
+        "en": "Hokkaido"
+      },
+      "strategy": {
+        "ja": "スノーウェルネス",
+        "en": "Snow Wellness"
+      },
+      "guidePath": "/biei/",
+      "japowResortId": 50,
+      "guideUrl": "https://guides.japowserch.com/biei/",
+      "guideTier": "mock"
+    },
+    {
+      "id": "unabetsu",
+      "slug": "unabetsu-lp",
+      "name": {
+        "ja": "ウナベツスキー場",
+        "en": "Unabetsu Ski Area"
+      },
+      "region": {
+        "ja": "北海道斜里町",
+        "en": "Shari, Hokkaido"
+      },
+      "strategy": {
+        "ja": "流氷没入・手ぶら2時間",
+        "en": "Drift Ice · Hands-free 2h"
+      },
+      "guidePath": "/unabetsu/",
+      "guideUrl": "https://guides.japowserch.com/unabetsu/",
+      "japowResortId": 60,
+      "guideTier": "mock"
+    },
+    {
+      "id": "kiyosato",
+      "slug": "kiyosato-lp",
+      "name": {
+        "ja": "清里町営緑スキー場",
+        "en": "Kiyosato Midori Ski Area"
+      },
+      "region": {
+        "ja": "北海道清里町",
+        "en": "Kiyosato, Hokkaido"
+      },
+      "strategy": {
+        "ja": "緑駅徒歩5分・NAP",
+        "en": "5 min from Midori Stn · NAP"
+      },
+      "guidePath": "/kiyosato/",
+      "guideUrl": "https://guides.japowserch.com/kiyosato/",
+      "japowResortId": 65,
+      "guideTier": "mock"
+    },
+    {
+      "id": "gokazan",
+      "slug": "gokazan-lp",
+      "name": {
+        "ja": "五鹿山スキー場",
+        "en": "Gokazan Ski Area"
+      },
+      "region": {
+        "ja": "北海道湧別町",
+        "en": "Yubetsu, Hokkaido"
+      },
+      "strategy": {
+        "ja": "流氷×サロマ湖・Resort Pass",
+        "en": "Drift Ice × Lake Saroma · Pass"
+      },
+      "guidePath": "/gokazan/",
+      "guideUrl": "https://guides.japowserch.com/gokazan/",
+      "japowResortId": 66,
+      "guideTier": "mock",
+      "guideNote": "id 72 湧別町五鹿山ではなく 66"
+    },
+    {
+      "id": "tsunan",
+      "slug": "tsunan-lp",
+      "name": {
+        "ja": "マウンテンパーク津南",
+        "en": "Mountain Park Tsunan"
+      },
+      "region": {
+        "ja": "新潟県津南町",
+        "en": "Tsunan, Niigata"
+      },
+      "strategy": {
+        "ja": "機能転換・English Adventure",
+        "en": "Pivot · English Adventure"
+      },
+      "guidePath": "/tsunan/",
+      "guideUrl": "https://guides.japowserch.com/tsunan/",
+      "japowResortId": 326,
+      "guideTier": "mock"
+    },
+    {
+      "id": "minami-furano",
+      "slug": "minami-furano-lp",
+      "name": {
+        "ja": "国設南ふらのスキー場",
+        "en": "Kokusetsu Minami-Furano Ski Area"
+      },
+      "region": {
+        "ja": "北海道南富良野町",
+        "en": "Minami-Furano, Hokkaido"
+      },
+      "strategy": {
+        "ja": "Secret Powder Pass",
+        "en": "Secret Powder Pass"
+      },
+      "guidePath": "/minami-furano/",
+      "guideUrl": "https://guides.japowserch.com/minami-furano/",
+      "japowResortId": 40,
+      "guideTier": "mock"
+    },
+    {
+      "id": "asahigaoka",
+      "slug": "asahigaoka-lp",
+      "name": {
+        "ja": "倶知安町旭ヶ丘スキー場",
+        "en": "Kutchan Asahigaoka Ski Area"
+      },
+      "region": {
+        "ja": "北海道倶知安町",
+        "en": "Kutchan, Hokkaido"
+      },
+      "strategy": {
+        "ja": "ニセコ隣・二重料金",
+        "en": "Niseko Local · Dual Pricing"
+      },
+      "guidePath": "/asahigaoka/",
+      "guideUrl": "https://guides.japowserch.com/asahigaoka/",
+      "japowResortId": 8,
+      "guideTier": "mock"
+    },
+    {
+      "id": "otoifuji",
+      "slug": "otoifuji-lp",
+      "name": {
+        "ja": "音威富士スキー場",
+        "en": "Otoifuji Ski Area"
+      },
+      "region": {
+        "ja": "北海道音威子府村",
+        "en": "Otoineppu, Hokkaido"
+      },
+      "strategy": {
+        "ja": "隠れJapow・CAT・駅徒歩",
+        "en": "Hidden Japow · CAT · Station Walk"
+      },
+      "guidePath": "/otoifuji/",
+      "guideUrl": "https://guides.japowserch.com/otoifuji/",
+      "japowResortId": 35,
+      "guideTier": "mock"
+    },
+    {
+      "id": "shimukappu",
+      "slug": "shimukappu-lp",
+      "name": {
+        "ja": "国設占冠中央スキー場",
+        "en": "Shimukappu Central Ski Area"
+      },
+      "region": {
+        "ja": "北海道占冠村",
+        "en": "Shimukappu, Hokkaido"
+      },
+      "strategy": {
+        "ja": "ゼロ収益・エコシステム",
+        "en": "Zero Revenue · Ecosystem"
+      },
+      "guidePath": "/shimukappu/",
+      "guideUrl": "https://guides.japowserch.com/shimukappu/",
+      "japowResortId": 39,
+      "guideTier": "mock"
+    },
+    {
+      "id": "abashiri-lv",
+      "slug": "abashiri-lv-lp",
+      "name": {
+        "ja": "網走レークビュースキー場",
+        "en": "Abashiri Lake View Ski Area"
+      },
+      "region": {
+        "ja": "北海道網走市",
+        "en": "Abashiri, Hokkaido"
+      },
+      "strategy": {
+        "ja": "流氷絶景・観光ハブ",
+        "en": "Drift Ice View · Tourism Hub"
+      },
+      "guidePath": "/abashiri-lv/",
+      "guideUrl": "https://guides.japowserch.com/abashiri-lv/",
+      "japowResortId": 58,
+      "guideTier": "mock"
+    }
+  ],
+  "guides": {
+    "host": "https://guides.japowserch.com",
+    "pathPattern": "/{id}/",
+    "localeEn": "?lang=en",
+    "buildScript": "guides/scripts/sync.mjs",
+    "japowMapping": "data/resort-guides.json"
+  }
+}

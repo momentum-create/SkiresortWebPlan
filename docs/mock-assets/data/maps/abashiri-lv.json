@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "abashiri-lv",
+  "name": {
+    "ja": "網走レークビュースキー場",
+    "en": "Abashiri Lake View Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "網走市公式",
+    "日専連オホーツク網走",
+    "LP戦略レポート"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/abashiri-lv-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "pair",
+      "label": {
+        "ja": "ペアリフト",
+        "en": "Pair lift"
+      },
+      "shortLabel": {
+        "ja": "ペア",
+        "en": "Pair"
+      },
+      "meta": {
+        "ja": {
+          "長さ": "900m",
+          "定員": "1,200人/時"
+        },
+        "en": {
+          "Length": "900 m",
+          "Capacity": "1,200/h"
+        }
+      }
+    },
+    {
+      "id": "trail-1",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "beginner",
+      "label": {
+        "ja": "第1コース",
+        "en": "Course 1"
+      },
+      "shortLabel": {
+        "ja": "1",
+        "en": "1"
+      },
+      "meta": {
+        "ja": {
+          "レベル": "初級"
+        },
+        "en": {
+          "Level": "Beginner"
+        }
+      }
+    },
+    {
+      "id": "trail-2",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "第2コース",
+        "en": "Course 2"
+      },
+      "shortLabel": {
+        "ja": "2",
+        "en": "2"
+      },
+      "meta": {}
+    },
+    {
+      "id": "trail-3",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "第3コース",
+        "en": "Course 3"
+      },
+      "shortLabel": {
+        "ja": "3",
+        "en": "3"
+      },
+      "meta": {}
+    },
+    {
+      "id": "trail-4",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "第4コース",
+        "en": "Course 4"
+      },
+      "shortLabel": {
+        "ja": "4",
+        "en": "4"
+      },
+      "meta": {}
+    },
+    {
+      "id": "trail-5",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "第5コース",
+        "en": "Course 5"
+      },
+      "shortLabel": {
+        "ja": "5",
+        "en": "5"
+      },
+      "meta": {}
+    },
+    {
+      "id": "trail-6",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "sled",
+      "label": {
+        "ja": "第6コース（そり・練習）",
+        "en": "Course 6 (sled/practice)"
+      },
+      "shortLabel": {
+        "ja": "6·そり",
+        "en": "6·Sled"
+      },
+      "meta": {
+        "ja": {
+          "リフト": "なし",
+          "備考": "練習・そり"
+        },
+        "en": {
+          "Lift": "None",
+          "Note": "Practice/sled"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "title": "Abashiri Lake View Ski Area — LP Mock (Okhotsk Panorama · Drift Ice · Dual Pricing Strategy)",
+    "description": "360° views of drift ice, Lake Abashiri, and the Sea of Okhotsk from Mt. Tento. Six courses, 900 m pair lift, night skiing until 21:00. Local day ticket ¥2,940 and 2-hour ¥1,200 held steady; Winter Iron Activity Pass ¥8,000–10,000; Night Snow Lounge ¥3,000; Okhotsk seafood bowls and year-round Panorama Cafe. Operated by Nissenren Okhotsk Abashiri · 428 free parking spaces. Evaluation mock based on strategy report."
+  },
+  "banner": {
+    "hubLink": "← Index",
+    "strong": "Abashiri Lake View LP mock",
+    "text": "Drift-ice panorama · Winter Iron Pass · Night Snow Lounge · local pricing protected | AI-generated mock images"
+  },
+  "logo": "Abashiri Lake View Ski Area",
+  "nav": {
+    "package": "Activity pass",
+    "lounge": "Night lounge",
+    "ecosystem": "Okhotsk circuit"
+  },
+  "hero": {
+    "eyebrow": "Abashiri, Hokkaido · Mt. Tento · Okhotsk",
+    "title": "Abashiri Lake View<br />Ski Area",
+    "tagline": "Drift ice, Lake Abashiri, and the Sea of Okhotsk—a northern panorama from six courses and 900 m of lift.",
+    "badgeLocal": "Local ¥2,940/day",
+    "badgeVisitor": "Visitor passes separate",
+    "badgeCourses": "6 courses",
+    "badgeLift": "900 m pair lift",
+    "badgeNight": "Night skiing to 21:00",
+    "badgePanorama": "Mt. Tento panorama",
+    "ctaPass": "Pricing & passes",
+    "ctaLive": "Today's conditions"
+  },
+  "live": {
+    "ariaLabel": "Today's operations dashboard",
+    "subtitle": "Transparent operations info",
+    "updatedAt": "Updated Jun 13, 9:00",
+    "lift": { "label": "Lift", "value": "Operating", "note": "900 m pair lift · Mt. Tento" },
+    "courses": { "label": "Courses", "value": "6 courses", "note": "Beginner–intermediate · board-friendly" },
+    "snow": { "label": "Snow", "value": "Okhotsk powder", "note": "Drift-ice season views · check conditions" },
+    "night": { "label": "Night skiing", "value": "Until 21:00", "note": "Linked to Night Snow Lounge" },
+    "parking": { "label": "Parking", "value": "428 free spaces", "note": "Operated by Nissenren Okhotsk Abashiri" }
+  },
+  "transit": {
+    "eyebrow": "Okhotsk Panorama",
+    "title": "Drift ice on the lake,<br />the sea from Mt. Tento.",
+    "lead": "Lake Abashiri and the Sea of Okhotsk—drift ice up close in winter—from a 360° vantage on Mt. Tento. Six courses, a 900 m pair lift, and night skiing until 21:00. Reachable by bus or rental car from Abashiri Station and Memanbetsu Airport—a base for Okhotsk stays tied to drift-ice sightseeing, the museum Big Three, and Tsuruga lakeside resort.",
+    "specs": ["6 courses · 900 m pair lift", "Night skiing to 21:00", "428 free parking spaces"],
+    "ctaPackage": "Winter Iron Pass",
+    "ctaLive": "Today's operations",
+    "imgAlt": "Drift ice, Lake Abashiri, and the Sea of Okhotsk from Mt. Tento—a 360° panorama ski hill"
+  },
+  "paths": {
+    "today": { "label": "Today", "title": "Lifts, snow & night skiing" },
+    "pass": { "label": "Pricing", "title": "Local rates protected" },
+    "package": { "label": "Pass", "title": "Winter Iron Activity Pass" },
+    "dining": { "label": "Dining", "title": "Okhotsk seafood · Panorama Cafe" },
+    "lounge": { "label": "Lounge", "title": "Night Snow Lounge" },
+    "board": { "label": "Board", "title": "Debut rental" },
+    "ecosystem": { "label": "Circuit", "title": "Museum Big Three · Tsuruga" },
+    "access": { "label": "Access", "title": "Abashiri · Memanbetsu" }
+  },
+  "highlights": {
+    "eyebrow": "Why Lake View",
+    "title": "What sets us apart",
+    "primary": {
+      "title": "Drift ice · Lake Abashiri · Okhotsk Sea panorama",
+      "lead": "Six courses over 900 m from Mt. Tento—winter views of drift ice on Lake Abashiri and the Sea of Okhotsk. A 900 m pair lift and night skiing until 21:00. A local hill for Okhotsk culture and wide-open vistas, not a mega-resort circuit.",
+      "cta": "View courses & panorama",
+      "imgAlt": "Drift ice and Lake Abashiri from near Mt. Tento summit—a 360° Okhotsk panorama"
+    },
+    "secondary": {
+      "title": "A snowboard debut destination",
+      "lead": "Gentle pitches and uncrowded six-course layout—ideal for a first snowboard day. Rental ¥1,000/hour, with hands-free bundles folded into the Winter Iron Pass. A \"first snow in the north\" base for families and couples (LP concept).",
+      "cta": "View board rental"
+    }
+  },
+  "pass": {
+    "eyebrow": "Local Pricing Protected",
+    "title": "Local ¥2,940/day,<br />¥1,200 for 2 hours—unchanged.",
+    "lead": "Keep the local full-day ticket at ¥2,940 and the 2-hour ticket at ¥1,200 for Abashiri residents and neighbors—protecting everyday local use comes first. Revenue from distant and inbound visitors extends through packages such as the Winter Iron Activity Pass and Night Snow Lounge—a dual-pricing model (LP strategy).",
+    "localDay": "Local full day ¥2,940",
+    "localTwoHour": "Local 2 hours ¥1,200",
+    "visitorNote": "Visitor revenue designed through package products",
+    "specs": ["Local rates held steady", "6 courses · 900 m pair lift", "Night skiing to 21:00", "428 free parking spaces"],
+    "noticeTitle": "Strategy note:",
+    "noticeBody": "Do not raise local prices—capture visitor ARPU through the Winter Iron Pass (¥8,000–10,000) and Night Snow Lounge (¥3,000) bundled with drift ice, wakasagi fishing, and the museum Big Three—a revenue pivot for an Okhotsk panorama ski hill.",
+    "cta": "View visitor packages",
+    "imgAlt": "Abashiri Lake View with local pricing protected—visitors deepen the experience through packages"
+  },
+  "package": {
+    "eyebrow": "Flagship Product",
+    "title": "Winter Iron Activity Pass,<br />¥8,000–10,000.",
+    "lead": "Morning wakasagi ice fishing on Lake Abashiri + 2 hours of skiing + hands-free rental—three Okhotsk winter staples on one pass. Safely bundles a drift-ice-season classic with the hill, extending stay length for beginner–intermediate and snowboard-debut guests (LP strategy).",
+    "price": "Winter Iron Activity Pass ¥8,000–10,000",
+    "specs": ["AM wakasagi ice fishing", "2-hour lift ticket", "Hands-free rental included", "Best in drift-ice season"],
+    "whisper": "Leave local pricing untouched—productize the visitor's \"Okhotsk day.\" Wakasagi × ski is the differentiation core.",
+    "noticeTitle": "Package design:",
+    "noticeBody": "Wakasagi fishing is a Lake Abashiri staple—finish in the morning, then non-stop through 2 hours on snow and rental return. The backbone of a half-day to full-day model for families and inbound guests.",
+    "cta": "Book Winter Iron Pass",
+    "imgAlt": "Wakasagi ice fishing on Lake Abashiri plus 2 hours on the hill—Winter Iron Activity Pass"
+  },
+  "dining": {
+    "eyebrow": "Restaurant Reform",
+    "title": "Okhotsk seafood bowls,<br />beyond 11:00–14:00.",
+    "lead": "Hill restaurant reform—Okhotsk seafood rice bowls at ¥1,500–2,500 as the anchor, extending beyond the traditional short lunch window. A night food-truck café tied to night skiing and the year-round Okhotsk Panorama Cafe (hana-tento flower-garden asset) to grow reasons to stay beyond runs (LP concept).",
+    "bowlTitle": "Okhotsk seafood bowls",
+    "bowlLead": "Hairy crab, scallops, salmon roe—the Okhotsk sea in a bowl. ¥1,500–2,500 as the lunch core and an après-ski staple.",
+    "hoursTitle": "Extended hours",
+    "hoursLead": "Expand from an 11:00–14:00 core into pre- and post–night-skiing service and weekend afternoons—serving both Night Snow Lounge guests and locals.",
+    "foodTruckTitle": "Night food-truck café",
+    "foodTruckLead": "Linked to 21:00 night skiing—hot drinks and light bites at the foot of the hill. An après zone where non-skiing companions are welcome.",
+    "panoramaTitle": "Okhotsk Panorama Cafe",
+    "panoramaLead": "Year-round café using the hana-tento flower-garden asset—sell the Mt. Tento panorama off-season too. An Abashiri stay base when drift ice is gone.",
+    "specs": ["Seafood bowls ¥1,500–2,500", "Extended hours", "Night food-truck café", "Year-round Panorama Cafe"],
+    "noticeTitle": "Revenue note:",
+    "noticeBody": "Lift tickets alone are not enough—dining, café, and night food lift visitor ARPU while local pricing stays unchanged.",
+    "ctaRestaurant": "Restaurant & seafood bowls",
+    "ctaPanorama": "Year-round Panorama Cafe",
+    "imgAlt": "Okhotsk seafood bowl—the flagship menu of hill restaurant reform"
+  },
+  "lounge": {
+    "eyebrow": "Night Snow Lounge",
+    "title": "Toast at the summit,<br />¥3,000.",
+    "lead": "Night Snow Lounge—¥3,000 with Tsuruga resort shuttle. Non-skiing partners welcome: ride the lift to the summit for drinks above the snow. A night product linked to night skiing until 21:00—enjoyable even if you do not ski (LP strategy).",
+    "price": "Night Snow Lounge ¥3,000",
+    "specs": ["Tsuruga resort shuttle", "Non-skiers welcome", "Summit lift access", "Linked to night skiing to 21:00"],
+    "whisper": "Solves \"one skis, one doesn't\" for couples and families—the summit lounge is the night differentiator and lodging link.",
+    "noticeTitle": "Operations note:",
+    "noticeBody": "Shuttle for Tsuruga lakeside resort guests—also open to hill-only visitors, productizing Okhotsk nights.",
+    "cta": "Book Night Snow Lounge",
+    "imgAlt": "Night Snow Lounge at the summit—Okhotsk night views and drinks under the lights"
+  },
+  "board": {
+    "eyebrow": "Snowboard Debut",
+    "title": "First board day,<br />¥1,000/hour.",
+    "lead": "Gentle six-course layout and low crowds—position Abashiri Lake View as a first-snowboard destination. Board rental ¥1,000/hour, with hands-free sets bundled in the Winter Iron Pass. An acquisition axis for families, couples, and inbound beginners (LP concept).",
+    "price": "Board rental ¥1,000/hour",
+    "specs": ["6 courses · beginner-friendly", "Uncrowded", "Hands-free package link", "Instructor partners (proposed)"],
+    "noticeTitle": "Positioning:",
+    "noticeBody": "Not advanced-only—\"debut plus panorama.\" Pair drift-ice views with a first Okhotsk snow experience.",
+    "cta": "Book board rental",
+    "imgAlt": "First turns on gentle pitches—six debut-friendly courses at Abashiri Lake View"
+  },
+  "ecosystem": {
+    "eyebrow": "Okhotsk Ecosystem",
+    "title": "Museum Big Three,<br />the lake and Tsuruga.",
+    "lead": "Stays are not born on the hill alone—bundle Abashiri's cultural and natural assets with the Winter Iron Pass into a 1-night/2-day Okhotsk circuit (LP strategy).",
+    "prisonTitle": "Museum Abashiri Prison",
+    "prisonLead": "National Important Cultural Property—experience a Meiji-era penal facility. An Abashiri winter staple and popular inbound history content.",
+    "driftTitle": "Okhotsk Drift Ice Museum",
+    "driftLead": "Science and hands-on drift-ice exhibits—the core of the Big Three, giving context to what you see from Mt. Tento.",
+    "peoplesTitle": "Northern Peoples Museum",
+    "peoplesLead": "Ainu and Okhotsk cultures—life and art of northern peoples. Three museums together deepen an Abashiri stay.",
+    "wakasagiTitle": "Lake Abashiri wakasagi",
+    "wakasagiLead": "Classic winter ice fishing—the morning slot on the Winter Iron Pass. Fry your catch at nearby shops.",
+    "tsurugaTitle": "Tsuruga lakeside resort, Abashiri",
+    "tsurugaLead": "Hot-spring resort on Lake Abashiri—Night Snow Lounge shuttle hub; lodging + pass + museums.",
+    "ctaPrison": "Museum Abashiri Prison",
+    "ctaDrift": "Okhotsk Drift Ice Museum",
+    "ctaPeoples": "Northern Peoples Museum",
+    "ctaWakasagi": "Lake Abashiri wakasagi experience",
+    "ctaTsuruga": "Tsuruga lakeside resort, Abashiri",
+    "imgAlt": "Okhotsk Drift Ice Museum—the cultural axis of the Big Three and Winter Iron Pass"
+  },
+  "journey": {
+    "eyebrow": "Okhotsk Winter Day",
+    "title": "From wakasagi<br />to the night lounge.",
+    "lead": "Morning wakasagi on Lake Abashiri, 2 hours on the Winter Iron Pass, museum Big Three in the afternoon, Night Snow Lounge from Tsuruga—a one-day Okhotsk model at ¥8,000–15,000 per visitor while local pricing stays protected (LP concept).",
+    "badge": "DRIFT ICE · LAKE ABASHIRI · OKHOTSK PANORAMA",
+    "revenueNote": "Visitor one-day model ¥8,000–15,000/person (LP concept)",
+    "steps": {
+      "01": { "title": "AM Lake Abashiri wakasagi", "body": "Ice fishing experience—Winter Iron Pass morning slot" },
+      "02": { "title": "Afternoon 2-hour laps", "body": "6 courses · 900 m · hands-free rental · pass for non-locals" },
+      "03": { "title": "Okhotsk seafood bowl", "body": "¥1,500–2,500 · extended-hours lunch" },
+      "04": { "title": "Museum Big Three", "body": "Prison · drift ice · northern peoples—cultural afternoon" },
+      "05": { "title": "Tsuruga resort", "body": "Lakeside onsen · await Night Snow Lounge shuttle" },
+      "06": { "title": "Night Snow Lounge", "body": "Summit drinks · night skiing to 21:00 · ¥3,000" }
+    }
+  },
+  "guides": {
+    "panorama": {
+      "title": "Complete Mt. Tento panorama guide—drift ice, lake, and sea",
+      "body": "Six courses, 900 m pair lift, night skiing to 21:00—360° views of drift ice, Lake Abashiri, and the Sea of Okhotsk from Mt. Tento. A local hill distinct from mega-resorts; 428 free parking spaces; operated by Nissenren Okhotsk Abashiri."
+    },
+    "ironPass": {
+      "title": "Winter Iron Activity Pass—flagship product guide",
+      "body": "Morning wakasagi ice fishing + 2 hours of skiing + hands-free rental at ¥8,000–10,000—local tickets stay at ¥2,940/¥1,200; the visitor staple package. A half-day to full-day drift-ice-season model, also suited to snowboard debut guests (LP strategy)."
+    },
+    "ecosystem": {
+      "title": "Museum Big Three × Tsuruga × night lounge circuit",
+      "body": "Museum Abashiri Prison, Okhotsk Drift Ice Museum, Northern Peoples Museum, Lake Abashiri wakasagi, Tsuruga lakeside resort, Night Snow Lounge ¥3,000, year-round Okhotsk Panorama Cafe—design a 1-night/2-day Okhotsk stay around the Winter Iron Pass.",
+      "hashtags": ["#AbashiriLakeView", "#WinterIronPass", "#OkhotskDriftIce"]
+    }
+  },
+  "access": {
+    "postal": "〒099-2421",
+    "line": "北海道網走市字呼人28-3",
+    "note": "Bus or taxi from Abashiri Station · about 40 km from Memanbetsu Airport · 428 free parking spaces",
+    "phone": "TEL 0152-48-2550 (ski area · in season)",
+    "phoneOffSeason": "TEL 0152-45-5655 (off-season · management office)",
+    "operator": "Operator: Nissenren Okhotsk Abashiri",
+    "parking": "428 parking spaces · free"
+  },
+  "footer": {
+    "copyright": "© Abashiri Lake View Ski Area — LP mock",
+    "credit": "Abashiri City · Evaluation mock based on Okhotsk panorama, drift ice, and dual-pricing strategy report | AI-generated images",
+    "location": "〒099-2421 北海道網走市字呼人28-3"
+  }
+}

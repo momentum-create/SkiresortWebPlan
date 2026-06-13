@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "shimukappu",
+  "name": {
+    "ja": "国設占冠中央スキー場",
+    "en": "Shimukappu Central Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "占冠村観光協会",
+    "Snoway",
+    "LP戦略レポート"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/shimukappu-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "tow-1",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "surface",
+      "label": {
+        "ja": "ロープトゥ第1",
+        "en": "Rope tow 1"
+      },
+      "shortLabel": {
+        "ja": "牽引1",
+        "en": "Tow 1"
+      },
+      "meta": {
+        "ja": {
+          "料金": "無料"
+        },
+        "en": {
+          "Price": "Free"
+        }
+      }
+    },
+    {
+      "id": "tow-2",
+      "type": "lift",
+      "status": "hold",
+      "liftKind": "surface",
+      "label": {
+        "ja": "ロープトゥ第2",
+        "en": "Rope tow 2"
+      },
+      "shortLabel": {
+        "ja": "牽引2",
+        "en": "Tow 2"
+      },
+      "meta": {
+        "ja": {
+          "備考": "当面第1のみの場合あり"
+        },
+        "en": {
+          "Note": "Sometimes tow 1 only"
+        }
+      }
+    },
+    {
+      "id": "trail-gs",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "大回転コース（GS）",
+        "en": "GS course"
+      },
+      "shortLabel": {
+        "ja": "GS",
+        "en": "GS"
+      },
+      "meta": {
+        "ja": {
+          "全長": "620m",
+          "最大斜度": "25°"
+        },
+        "en": {
+          "Length": "620 m",
+          "Max slope": "25°"
+        }
+      }
+    },
+    {
+      "id": "trail-sl",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "回転コース（SL）",
+        "en": "SL course"
+      },
+      "shortLabel": {
+        "ja": "SL",
+        "en": "SL"
+      },
+      "meta": {
+        "ja": {
+          "全長": "420m"
+        },
+        "en": {
+          "Length": "420 m"
+        }
+      }
+    },
+    {
+      "id": "trail-sled",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "sled",
+      "label": {
+        "ja": "第6コース（そり・練習）",
+        "en": "Course 6 (sled/practice)"
+      },
+      "shortLabel": {
+        "ja": "そり",
+        "en": "Sled"
+      },
+      "meta": {
+        "ja": {
+          "リフト": "なし"
+        },
+        "en": {
+          "Lift": "None"
+        }
+      }
+    }
+  ]
+}

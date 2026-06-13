@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "title": "網走レークビュースキー場 — LP案モック（オホーツク全景×流氷×二重料金戦略）",
+    "description": "天都山から望む流氷・網走湖・オホーツク海の360°パノラマ。6コース・ペアリフト900m・ナイター21:00まで。地元料金¥2,940/¥1,200維持、Winter Iron Activity Pass¥8,000〜10,000、Night Snow Lounge¥3,000、オホーツク海鮮丼・年間Panorama Cafe。日専連オホーツク網走運営・無料428台。LP戦略レポートに基づく評価用モック。"
+  },
+  "banner": {
+    "hubLink": "← 索引",
+    "strong": "網走レークビュー LP案モック",
+    "text": "流氷パノラマ · Winter Iron Pass · Night Snow Lounge · 地元料金維持 | AI生成モック画像"
+  },
+  "logo": "網走レークビュースキー場",
+  "nav": {
+    "package": "アクティビティパス",
+    "lounge": "ナイトラウンジ",
+    "ecosystem": "オホーツク周遊"
+  },
+  "hero": {
+    "eyebrow": "北海道網走市 · 天都山 · オホーツク",
+    "title": "網走レークビュー<br />スキー場",
+    "tagline": "流氷と網走湖、オホーツク海——天都山6コース900mから望む、北の全景スキー。",
+    "badgeLocal": "地元 ¥2,940/日",
+    "badgeVisitor": "Visitor Pass 別途",
+    "badgeCourses": "6コース",
+    "badgeLift": "ペア900m",
+    "badgeNight": "ナイター〜21:00",
+    "badgePanorama": "天都山パノラマ",
+    "ctaPass": "料金・パスを見る",
+    "ctaLive": "本日のコンディション"
+  },
+  "live": {
+    "ariaLabel": "本日の運営ダッシュボード",
+    "subtitle": "透明性のある運営情報",
+    "updatedAt": "更新 6/13 9:00",
+    "lift": { "label": "リフト", "value": "運行中", "note": "ペアリフト900m · 天都山" },
+    "courses": { "label": "コース", "value": "6コース", "note": "初級〜中級 · ボードデビュー向け" },
+    "snow": { "label": "雪質", "value": "オホーツク粉雪", "note": "流氷期パノラマ · 要確認" },
+    "night": { "label": "ナイター", "value": "〜21:00", "note": "Night Snow Lounge連動" },
+    "parking": { "label": "駐車", "value": "428台無料", "note": "日専連オホーツク網走運営" }
+  },
+  "transit": {
+    "eyebrow": "Okhotsk Panorama",
+    "title": "流氷の湖と海、<br />天都山から一望。",
+    "lead": "網走湖とオホーツク海、冬は流氷が近い——天都山のゲレンデから360°の北の全景。ペアリフト900m・6コース、ナイターは21:00まで。網走駅・女満別空港からバス・レンタカーでアクセスし、流氷観光・博物館ビッグ3・鶴雅リゾートと束ねたオホーツク滞在の拠点。",
+    "specs": ["6コース · ペア900m", "ナイター〜21:00", "駐車428台無料"],
+    "ctaPackage": "Winter Iron Pass",
+    "ctaLive": "本日の運営",
+    "imgAlt": "天都山から望む流氷・網走湖・オホーツク海——360°パノラマのゲレンデ"
+  },
+  "paths": {
+    "today": { "label": "今日", "title": "リフト・雪質・ナイター" },
+    "pass": { "label": "料金", "title": "地元料金維持" },
+    "package": { "label": "パス", "title": "Winter Iron Activity Pass" },
+    "dining": { "label": "食", "title": "オホーツク海鮮・Panorama Cafe" },
+    "lounge": { "label": "ラウンジ", "title": "Night Snow Lounge" },
+    "board": { "label": "ボード", "title": "デビュー向けレンタル" },
+    "ecosystem": { "label": "周遊", "title": "博物館ビッグ3・鶴雅" },
+    "access": { "label": "アクセス", "title": "網走・女満別" }
+  },
+  "highlights": {
+    "eyebrow": "レークビューの魅力",
+    "title": "ここが違う",
+    "primary": {
+      "title": "流氷 × 網走湖 × オホーツク海パノラマ",
+      "lead": "天都山から6コース900m——冬は流氷が近い網走湖とオホーツク海を一望。ペアリフト900m、ナイター21:00まで。巨大リゾートとは異なる、オホーツク文化と全景を味わうローカルゲレンデ。",
+      "cta": "コース・パノラマを見る",
+      "imgAlt": "天都山頂付近から望む流氷と網走湖——オホーツク360°パノラマ"
+    },
+    "secondary": {
+      "title": "ボードデビューの聖地",
+      "lead": "緩斜面と非混雑の6コース——スノーボード初挑戦に最適。レンタル¥1,000/時間、手ぶらパッケージもWinter Iron Passに統合。家族・カップルの「はじめての北の雪」拠点（LP案）。",
+      "cta": "ボードレンタルを見る"
+    }
+  },
+  "pass": {
+    "eyebrow": "Local Pricing Protected",
+    "title": "地元 ¥2,940/日、<br />2時間 ¥1,200——据え置き。",
+    "lead": "網走市民・近隣向け1日券¥2,940、2時間券¥1,200を維持——地元の日常利用を守ることが最優先。遠方・インバウンド向けの収益はWinter Iron Activity PassやNight Snow Loungeなど来場者パッケージで延伸する二重料金モデル（LP戦略案）。",
+    "localDay": "地元1日 ¥2,940",
+    "localTwoHour": "地元2時間 ¥1,200",
+    "visitorNote": "来場者向けはパッケージ商品で設計",
+    "specs": ["地元料金据え置き", "6コース · ペア900m", "ナイター〜21:00", "駐車428台無料"],
+    "noticeTitle": "戦略メモ：",
+    "noticeBody": "地元価格を上げず、流氷・ワカサギ・博物館ビッグ3と束ねた来場者ARPUをWinter Iron Pass（¥8,000〜10,000）とNight Snow Lounge（¥3,000）で確保——オホーツク全景ゲレンデの収益構造転換案。",
+    "cta": "来場者パッケージを見る",
+    "imgAlt": "地元料金を維持する網走レークビュー——来場者はパッケージで体験を深める"
+  },
+  "package": {
+    "eyebrow": "Flagship Product",
+    "title": "Winter Iron Activity Pass、<br />¥8,000〜10,000。",
+    "lead": "朝の網走湖ワカサギ釣り（氷上）＋2時間スキー＋手ぶらレンタル——オホーツク冬の鉄板3点を1枚に。流氷期の定番体験とゲレンデを安全に束ね、初級〜中級・ボードデビュー層の滞在日数を延伸する看板商品（LP戦略案）。",
+    "price": "Winter Iron Activity Pass ¥8,000〜10,000",
+    "specs": ["AM ワカサギ氷上釣り", "2時間リフト券", "手ぶらレンタル込み", "流氷期推奨"],
+    "whisper": "地元料金は触らず、来場者の「オホーツク1日」を商品化——ワカサギ×スキーの鉄板パスが差別化の核。",
+    "noticeTitle": "パッケージ設計：",
+    "noticeBody": "ワカサギ釣りはLake Abashiri定番体験——午前完了後、午後2時間滑走＋レンタル返却までノンストップ。家族・インバウンド向け半日〜1日モデルの基軸。",
+    "cta": "Winter Iron Pass を予約",
+    "imgAlt": "網走湖ワカサギ氷上釣りとゲレンデ2時間——Winter Iron Activity Pass"
+  },
+  "dining": {
+    "eyebrow": "Restaurant Reform",
+    "title": "オホーツク海鮮丼、<br />11–14時を超えて。",
+    "lead": "ゲレンデレストラン改革——オホーツク海鮮丼¥1,500〜2,500を軸に、従来の短いランチ時間帯を延伸。ナイター連動のフードトラックカフェ、年間営業のOkhotsk Panorama Cafe（花天都資産）で、滑走以外の滞在理由を増やす（LP案）。",
+    "bowlTitle": "オホーツク海鮮丼",
+    "bowlLead": "毛ガニ・ホタテ・鮭イクラ——オホーツクの海を丼に。¥1,500〜2,500でランチの核、 après-ski の定番メニュー。",
+    "hoursTitle": "営業時間延伸",
+    "hoursLead": "11–14時中心から、ナイター前後・週末午後まで営業を拡張——Night Snow Lounge来場者と地元利用者の両方に対応。",
+    "foodTruckTitle": "ナイトフードトラック",
+    "foodTruckLead": "21:00ナイター連動——雪山の麓でホットドリンクと軽食。滑らない同伴者も歓迎の après ゾーン。",
+    "panoramaTitle": "Okhotsk Panorama Cafe",
+    "panoramaLead": "花天都（hana-tento）花園資産を活用した年間カフェ——非シーズンも天都山パノラマを売る。流氷 off-season の網走滞在拠点。",
+    "specs": ["海鮮丼 ¥1,500〜2,500", "営業時間延伸", "ナイトフードトラック", "年間Panorama Cafe"],
+    "noticeTitle": "収益メモ：",
+    "noticeBody": "リフト単体ではなく、食事・カフェ・ナイトフードで来場者ARPUを底上げ——地元料金据え置きと両立する周辺収益ライン。",
+    "ctaRestaurant": "レストラン・海鮮丼",
+    "ctaPanorama": "Panorama Cafe 年間案内",
+    "imgAlt": "オホーツク海鮮丼——ゲレンデレストラン改革の看板メニュー"
+  },
+  "lounge": {
+    "eyebrow": "Night Snow Lounge",
+    "title": "頂上で乾杯、<br />¥3,000。",
+    "lead": "Night Snow Lounge——鶴雅リゾート送迎シャトル付き¥3,000。非スキーパートナーも歓迎、リフトで頂上へ上がり雪山の上でドリンク。21:00までのナイターと連動した、滑らない人も楽しめる夜の体験商品（LP戦略案）。",
+    "price": "Night Snow Lounge ¥3,000",
+    "specs": ["鶴雅リゾート送迎", "非スキー歓迎", "リフト頂上アクセス", "ナイター〜21:00連動"],
+    "whisper": "カップル・家族の「片方だけ滑る」を解消——頂上ラウンジが夜の差別化と宿泊連携の接点。",
+    "noticeTitle": "運用メモ：",
+    "noticeBody": "Tsuruga lakeside resort 宿泊者向けシャトル——ゲレンデ単体来場者にも開放し、オホーツクの夜体験を商品化。",
+    "cta": "Night Snow Lounge 予約",
+    "imgAlt": "ナイター頂上のNight Snow Lounge——オホーツクの夜景とドリンク"
+  },
+  "board": {
+    "eyebrow": "Snowboard Debut",
+    "title": "ボードデビュー、<br />¥1,000/時間。",
+    "lead": "6コースの緩斜面と非混雑——網走レークビューを「はじめてのスノーボード」目的地に。ボードレンタル¥1,000/時間、Winter Iron Passには手ぶらセットを同梱。家族・カップル・インバウンド初級者の獲得軸（LP案）。",
+    "price": "ボードレンタル ¥1,000/時間",
+    "specs": ["6コース · 初級向け", "非混雑", "手ぶらパッケージ連動", "インストラクター提携（案）"],
+    "noticeTitle": "ポジショニング：",
+    "noticeBody": "上級者特化ではなく「デビューと全景」——流氷パノラマとセットで、オホーツク初雪体験の入口に。",
+    "cta": "ボードレンタル予約",
+    "imgAlt": "緩斜面で初ボード——網走レークビューのデビュー向け6コース"
+  },
+  "ecosystem": {
+    "eyebrow": "Okhotsk Ecosystem",
+    "title": "博物館ビッグ3、<br />湖と鶴雅。",
+    "lead": "ゲレンデ単体では生まれない滞在——網走市の文化・自然資産とWinter Iron Passを束ね、1泊2日のオホーツク周遊モデルを設計（LP戦略案）。",
+    "prisonTitle": "博物館網走監獄",
+    "prisonLead": "国指定重要文化財——明治期の実刑施設を体感。冬の網走定番、インバウンドにも人気の歴史コンテンツ。",
+    "driftTitle": "オホーツク流氷館",
+    "driftLead": "流氷の科学と体験——天都山ゲレンデから見た流氷の「背景」を学ぶ、ビッグ3の核。",
+    "peoplesTitle": "北方民族博物館",
+    "peoplesLead": "アイヌ・オホーツク文化——北の peoples の生活と芸術。3館セットで網走の深さを延伸。",
+    "wakasagiTitle": "網走湖ワカサギ",
+    "wakasagiLead": "冬の定番氷上釣り——Winter Iron Passの午前枠。湖の上で釣ったワカサギは近隣店で天ぷらも。",
+    "tsurugaTitle": "鶴雅リゾート 網走",
+    "tsurugaLead": "網走湖畔の温泉リゾート——Night Snow Lounge送迎、宿泊＋パス＋博物館のハブ。",
+    "ctaPrison": "博物館網走監獄",
+    "ctaDrift": "オホーツク流氷館",
+    "ctaPeoples": "北方民族博物館",
+    "ctaWakasagi": "網走湖ワカサギ体験",
+    "ctaTsuruga": "鶴雅リゾート 網走",
+    "imgAlt": "オホーツク流氷館——博物館ビッグ3とWinter Iron Passの文化軸"
+  },
+  "journey": {
+    "eyebrow": "Okhotsk Winter Day",
+    "title": "ワカサギから<br />ナイトラウンジまで。",
+    "lead": "網走湖ワカサギの朝、Winter Iron Passで2時間滑走、博物館ビッグ3の午後、鶴雅からNight Snow Lounge——地元料金を守りつつ来場者の1日を¥8,000〜15,000で設計するオホーツクモデル（LP案）。",
+    "badge": "DRIFT ICE · LAKE ABASHIRI · OKHOTSK PANORAMA",
+    "revenueNote": "来場者1日モデル ¥8,000〜15,000/人（LP案）",
+    "steps": {
+      "01": { "title": "AM 網走湖ワカサギ", "body": "氷上釣り体験——Winter Iron Pass午前枠" },
+      "02": { "title": "午後 2時間滑走", "body": "6コース900m · 手ぶらレンタル · 地元以外はパス" },
+      "03": { "title": "オホーツク海鮮丼", "body": "¥1,500〜2,500 · 営業時間延伸ランチ" },
+      "04": { "title": "博物館ビッグ3", "body": "監獄 · 流氷館 · 北方民族——文化午後" },
+      "05": { "title": "鶴雅リゾート", "body": "湖畔温泉 · Night Snow Lounge送迎待ち" },
+      "06": { "title": "Night Snow Lounge", "body": "頂上ドリンク · ナイター21:00 · ¥3,000" }
+    }
+  },
+  "guides": {
+    "panorama": {
+      "title": "天都山パノラマ完全ガイド——流氷・湖・海",
+      "body": "6コース・ペアリフト900m・ナイター21:00——天都山から望む流氷、網走湖、オホーツク海の360°ビュー。巨大リゾートとは異なるローカルゲレンデの位置づけ、駐車428台無料、日専連オホーツク網走運営。"
+    },
+    "ironPass": {
+      "title": "Winter Iron Activity Pass——看板商品ガイド",
+      "body": "朝ワカサギ氷上釣り＋2時間スキー＋手ぶらレンタル¥8,000〜10,000——地元料金¥2,940/¥1,200は据え置き、来場者向け鉄板パッケージ。流氷期の半日〜1日モデル、ボードデビュー層にも対応（LP戦略案）。"
+    },
+    "ecosystem": {
+      "title": "博物館ビッグ3×鶴雅×ナイトラウンジ周遊",
+      "body": "博物館網走監獄、オホーツク流氷館、北方民族博物館、網走湖ワカサギ、鶴雅リゾート、Night Snow Lounge¥3,000、Okhotsk Panorama Cafe年間営業——Winter Iron Passを軸に1泊2日のオホーツク滞在を設計。",
+      "hashtags": ["#AbashiriLakeView", "#WinterIronPass", "#OkhotskDriftIce"]
+    }
+  },
+  "access": {
+    "postal": "〒099-2421",
+    "line": "北海道網走市字呼人28-3",
+    "note": "網走駅からバス・タクシー · 女満別空港から約40km · 駐車428台無料",
+    "phone": "TEL 0152-48-2550（スキー場 · シーズン中）",
+    "phoneOffSeason": "TEL 0152-45-5655（オフシーズン · 管理事務所）",
+    "operator": "運営：日専連オホーツク網走",
+    "parking": "駐車場428台 · 無料"
+  },
+  "footer": {
+    "copyright": "© 網走レークビュースキー場 — LP案モック",
+    "credit": "網走市 · オホーツク全景×流氷×二重料金戦略レポートに基づく評価用 | AI生成モック画像",
+    "location": "〒099-2421 北海道網走市字呼人28-3"
+  }
+}

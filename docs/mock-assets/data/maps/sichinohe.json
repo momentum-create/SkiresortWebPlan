@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "sichinohe",
+  "name": {
+    "ja": "七戸町営スキー場",
+    "en": "Sichinohe Town Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。地図タップまたはリストで運行状況を確認できます。",
+    "en": "Trails and lifts are drawn in the illustration. Tap the map or use the list for live status."
+  },
+  "sources": [
+    "sichinohe-hero-v5.png（layout-v5 Gemini イラスト）",
+    "hitboxes-hero-v5.json 手トレース",
+    "features.manifest.json"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/sichinohe-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "status": "operating",
+      "label": { "ja": "ペアリフト", "en": "Pair lift" },
+      "shortLabel": { "ja": "ペア", "en": "Pair" },
+      "path": "M 429 379.3 L 454 401.3 L 486 435.3 L 512 474.3 L 544 513.3 L 580 534.3 L 661 595.3 L 709 632.3",
+      "stations": [[429, 379.3], [709, 632.3]],
+      "meta": {
+        "ja": { "所要": "約4分", "区分": "メインリフト" },
+        "en": { "Duration": "~4 min", "Zone": "Main lift" }
+      }
+    },
+    {
+      "id": "lift-pony",
+      "type": "lift",
+      "status": "operating",
+      "label": { "ja": "ポニーリフト", "en": "Pony lift" },
+      "shortLabel": { "ja": "ポニー", "en": "Pony" },
+      "path": "M 644 447.3 L 775 545.3",
+      "stations": [[644, 447.3], [775, 545.3]],
+      "meta": {
+        "ja": { "区分": "初級エリア" },
+        "en": { "Zone": "Beginner area" }
+      }
+    },
+    {
+      "id": "trail-champion",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": { "ja": "チャンピオン（上級）", "en": "Champion (advanced)" },
+      "shortLabel": { "ja": "チャンピオン", "en": "Champion" },
+      "path": "M 539 349.3 L 551 360.3 L 621 414.3 L 619 431.3 L 630 455.3 L 676 492.3 L 725 535.3 L 764 552.3",
+      "meta": {
+        "ja": { "距離": "約400m", "雪面": "非圧雪", "最大斜度": "35°（要確認）" },
+        "en": { "Distance": "~400 m", "Surface": "Ungroomed", "Max slope": "35° (verify)" }
+      }
+    },
+    {
+      "id": "trail-upper",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate-advanced",
+      "label": { "ja": "上部エリア（中〜上級）", "en": "Upper (inter–advanced)" },
+      "shortLabel": { "ja": "上部", "en": "Upper" },
+      "path": "M 446 356.3 L 411 405.3 L 491 480.3 L 509 487.3 L 541 492.3 L 560 500.3 L 681 596.3",
+      "meta": {
+        "ja": { "雪面": "圧雪/非圧雪" },
+        "en": { "Surface": "Groomed / ungroomed" }
+      }
+    },
+    {
+      "id": "trail-intermediate",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": { "ja": "中斜面コース（中級）", "en": "Intermediate slope" },
+      "shortLabel": { "ja": "中斜面", "en": "Intermediate" },
+      "path": "M 474 359.3 L 738 608.3",
+      "meta": {
+        "ja": { "特徴": "カービング向け" },
+        "en": { "Feature": "Carving" }
+      }
+    },
+    {
+      "id": "trail-forest",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "beginner",
+      "label": { "ja": "林間周回（初級・コース4）", "en": "Forest loop (beginner)" },
+      "shortLabel": { "ja": "林間", "en": "Forest" },
+      "path": "M 412 349.3 L 331 386.3 L 314 397.3 L 302 412.3 L 240 509.3 L 239 525.3 L 357 574.3 L 391 585.3 L 436 577.3 L 542 554.3 L 564 554.3 L 606 579.3",
+      "meta": {
+        "ja": { "特徴": "森を周回" },
+        "en": { "Feature": "Forest perimeter" }
+      }
+    },
+    {
+      "id": "trail-pony",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "beginner",
+      "label": { "ja": "ポニー周辺（初級）", "en": "Pony area (beginner)" },
+      "shortLabel": { "ja": "初級", "en": "Beginner" },
+      "path": "M 679 440.3 L 775 522.3",
+      "meta": {
+        "ja": { "雪面": "圧雪" },
+        "en": { "Surface": "Groomed" }
+      }
+    }
+  ]
+}

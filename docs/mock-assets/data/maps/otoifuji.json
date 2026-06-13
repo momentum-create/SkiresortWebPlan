@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "otoifuji",
+  "name": {
+    "ja": "音威富士スキー場",
+    "en": "Otoifuji Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "音威子府村公式",
+    "LP戦略レポート"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/otoifuji-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "pair",
+      "label": {
+        "ja": "ペアリフト",
+        "en": "Pair lift"
+      },
+      "shortLabel": {
+        "ja": "ペア",
+        "en": "Pair"
+      },
+      "meta": {
+        "ja": {
+          "落差": "182m"
+        },
+        "en": {
+          "Vertical": "182 m"
+        }
+      }
+    },
+    {
+      "id": "trail-main",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "メインコース",
+        "en": "Main course"
+      },
+      "shortLabel": {
+        "ja": "メイン",
+        "en": "Main"
+      },
+      "meta": {
+        "ja": {
+          "上級者": "84%",
+          "コース": "3本"
+        },
+        "en": {
+          "Advanced": "84%",
+          "Courses": "3"
+        }
+      }
+    },
+    {
+      "id": "trail-forest",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate-advanced",
+      "label": {
+        "ja": "林間コース",
+        "en": "Forest course"
+      },
+      "shortLabel": {
+        "ja": "林間",
+        "en": "Forest"
+      },
+      "meta": {
+        "ja": {
+          "特徴": "林間"
+        },
+        "en": {
+          "Feature": "Tree run"
+        }
+      }
+    },
+    {
+      "id": "trail-sub",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "サブコース",
+        "en": "Sub course"
+      },
+      "shortLabel": {
+        "ja": "サブ",
+        "en": "Sub"
+      },
+      "meta": {}
+    }
+  ]
+}

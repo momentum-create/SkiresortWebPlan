@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "LP Mock Index — 11 Resort Previews",
+    "description": "Bilingual index of eleven ski resort LP mocks for template evaluation."
+  },
+  "banner": {
+    "strong": "LP Mock Index",
+    "text": "11 resorts · Bilingual · Template evaluation"
+  },
+  "hero": {
+    "eyebrow": "SkiresortWebPlan",
+    "title": "LP Mock<br />11-Resort Hub",
+    "lead": "Landing page concepts from growth and pivot strategy reports. Click a resort to preview."
+  },
+  "table": {
+    "name": "Resort",
+    "region": "Region",
+    "strategy": "Strategy",
+    "preview": "Preview",
+    "map": "Map"
+  },
+  "note": "Static HTML · AI mock images · Not production sites",
+  "back": "Back to index",
+  "lang": { "switch": "Language" }
+}

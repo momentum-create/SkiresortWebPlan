@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "node scripts/sync.mjs",
+  "outputDirectory": "public",
+  "trailingSlash": true,
+  "cleanUrls": false,
+  "rewrites": [
+    { "source": "/:resort", "destination": "/:resort/index.html" },
+    { "source": "/:resort/", "destination": "/:resort/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/registry.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=300" }
+      ]
+    },
+    {
+      "source": "/resort-guides.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "public, max-age=300" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" }
+      ]
+    }
+  ]
+}

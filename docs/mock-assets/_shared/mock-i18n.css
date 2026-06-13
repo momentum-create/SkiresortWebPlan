@@ -1,0 +1,33 @@
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--border, #d4dce8);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.lang-switch [data-lang-switch] {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.65rem;
+  border: none;
+  background: var(--surface, #fff);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted, #5a6478);
+  cursor: pointer;
+}
+
+.lang-switch [data-lang-switch] + [data-lang-switch] {
+  border-left: 1px solid var(--border, #d4dce8);
+}
+
+.lang-switch [data-lang-switch].is-active,
+.lang-switch [data-lang-switch][aria-current="true"] {
+  background: var(--fg, #1a2332);
+  color: #fff;
+}
+
+.lang-switch [data-lang-switch]:focus-visible {
+  outline: 2px solid var(--accent, #3d5a80);
+  outline-offset: 2px;
+}

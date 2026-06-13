@@ -1,0 +1,38 @@
+{
+  "lang": {
+    "switch": "言語切替",
+    "ja": "JA",
+    "en": "EN"
+  },
+  "common": {
+    "explore": "Explore",
+    "read": "読む",
+    "googleMap": "Google Mapで開く",
+    "call": "電話する",
+    "location": "所在地",
+    "guidesTitle": "特集ページ",
+    "pathsTitle": "まずここから",
+    "accessEyebrow": "Access",
+    "footerMap": "Google Map",
+    "guidesEyebrow": "特集",
+    "updated": "更新",
+    "mainNav": "メイン",
+    "firstView": "ファーストビュー"
+  },
+  "nav": {
+    "access": "アクセス",
+    "highlights": "魅力",
+    "paths": "導線",
+    "guides": "特集",
+    "live": "本日",
+    "onsen": "温泉",
+    "pass": "パス",
+    "tour": "周遊",
+    "rental": "手ぶら",
+    "trip": "日帰り",
+    "camp": "English Adventure",
+    "schedule": "スケジュール",
+    "pillars": "2つの柱",
+    "map": "ゲレンデマップ"
+  }
+}

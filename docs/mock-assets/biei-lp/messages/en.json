@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "title": "Biei Town Ski Area — LP Mock (Snow Wellness Template Preview)",
+    "description": "Landing page concept for Biei Town Ski Area based on the Biei brand and snow wellness fusion strategy. Static preview with mock imagery."
+  },
+  "banner": {
+    "hubLink": "← Index",
+    "strong": "Biei LP mock",
+    "text": "Template implementation preview | Snow wellness strategy | AI-generated mock images"
+  },
+  "logo": "Biei Town Ski Area",
+  "nav": {
+    "journey": "Itinerary",
+    "recovery": "Recovery"
+  },
+  "hero": {
+    "eyebrow": "Biei, Hokkaido",
+    "title": "Biei Town<br />Ski Area",
+    "tagline": "A snow wellness hub for people who don't ski",
+    "badgeFree": "Free lift",
+    "ctaToday": "Today's operations",
+    "updatedAt": "Feb 7, 9:00"
+  },
+  "transit": {
+    "eyebrow": "Walk",
+    "title": "From the station,<br />walk into snow.",
+    "lead": "About a 15-minute walk from JR Biei Station. Even without a rental car, independent FIT travelers can touch snow directly—a micro-tourism base you won't find at suburban resorts.",
+    "ctaAccess": "Access & walking route",
+    "ctaRental": "Cold-weather rental info",
+    "imgAlt": "Traveler walking white hills—the stroll route from Biei Station to the ski area"
+  },
+  "paths": {
+    "today": { "label": "Today", "title": "Today's operations" },
+    "access": { "label": "Access", "title": "Walking from the station" },
+    "wellness": { "label": "Snow play", "title": "Snow wellness area" },
+    "pricing": { "label": "Pricing", "title": "Free lift & rentals" }
+  },
+  "highlights": {
+    "eyebrow": "Why Biei",
+    "title": "What sets us apart",
+    "primary": {
+      "title": "Snow wellness hub",
+      "lead": "A space to touch, feel, and restore body and mind—not centered on downhill skiing. Snowshoe meditation walks, snowmen, sledding—a cocooning wellness sanctuary without mega-resort noise.",
+      "cta": "View snow play experiences",
+      "imgAlt": "Snowshoeing an empty snowfield—a snow wellness experience"
+    },
+    "secondary": {
+      "title": "Into a welcoming space",
+      "lead": "Trespassing on farmland is strictly forbidden. Here, you can dive into deep white snow, lie down, and play freely—from \"no entry\" to \"welcome.\" A outlet for dispersing overtourism.",
+      "cta": "Responsible travel"
+    }
+  },
+  "recovery": {
+    "eyebrow": "Warmth & recovery",
+    "title": "After the snow,<br />warm the body",
+    "lead": "Consommé and pot-au-feu simmered for hours with Biei vegetables—local food therapy for chilled bodies. Pair with nearby baths like Shirogane Onsen to complete a holistic wellness cycle.",
+    "whisper": "From Okiraku-tei to steaming drinks at station cafés—taste local warmth between strolls.",
+    "cta": "Nearby food & onsen guide",
+    "imgAlt": "Biei vegetable pot-au-feu—a warming post-ski menu"
+  },
+  "journey": {
+    "eyebrow": "Micro Tourism",
+    "title": "A full day<br />starting at the station",
+    "lead": "A customer journey where FIT travelers explore snow play, culture, and views independently after arriving at Biei Station.",
+    "steps": {
+      "01": { "title": "Arrival & intro", "body": "Biei Station. Cold-weather rentals, coffee to-go at ARBOLITO and more" },
+      "02": { "title": "Immersion", "body": "15-minute walk. Snowshoes, sleds, snow play plaza" },
+      "03": { "title": "Restore & nourish", "body": "Pot-au-feu at Okiraku-tei, warming lunch" },
+      "04": { "title": "Culture & reflection", "body": "Art walks at Takuma-kan and Birch Tree Corridor" },
+      "05": { "title": "Views & finale", "body": "Blue Pond and Shirahige Falls light-up" }
+    }
+  },
+  "guides": {
+    "wellness": {
+      "title": "Snow wellness experiences",
+      "body": "Kanjiki meditation walks with local farm guides, play wellness on designated snowfields. A hub where non-skiing visitors from Asia can safely enjoy snow—the opposite of Niseko: silence, introspection, cocooning."
+    },
+    "walk": {
+      "title": "Micro-tourism on foot from the station",
+      "body": "Turn the 15 minutes from station to ski area into a \"promenade to read Biei winter.\" GPS audio guides, hands-free rentals, café hopping—an FIT loop without a rental car."
+    },
+    "responsible": {
+      "title": "The landscape is someone's livelihood",
+      "body": "The landscape is someone's livelihood. No entry to farmland or private property. How to shoot minimalist photos in welcoming spaces. Enjoying Biei as a responsible traveler.",
+      "hashtags": ["#BieiWinterAesthetic", "#SnowGlobeVillage", "#WinterWellnessHokkaido"]
+    }
+  },
+  "access": {
+    "postal": "〒071-0218",
+    "line": "北海道上川郡美瑛町字大村村山",
+    "note": "About a 15-minute walk (approx. 1.5 km) from JR Furano Line Biei Station",
+    "phone": "TEL 0166-92-5808 (Biei Town)"
+  },
+  "footer": {
+    "copyright": "© Biei Town Ski Area — LP mock",
+    "credit": "Images: AI-generated mocks (production will use real photos and official assets)",
+    "location": "〒071-0218 北海道上川郡美瑛町字大村村山"
+  }
+}

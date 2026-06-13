@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "title": "音威富士スキー場 — LP案モック（隠れJapow×駅徒歩×二重料金戦略）",
+    "description": "日本最軽量級のドライパウダー、上級者84%。北海道最小村・音威子府（535人）の隠れJapow。JR音威子府駅徒歩15分、Otoifuji Visitor Pass・CATツアー¥40,000・FIS/SAJ認定クロカン・Tomte宿泊拠点戦略に基づくLP案モック。"
+  },
+  "banner": {
+    "hubLink": "← 索引",
+    "strong": "音威富士 LP案モック",
+    "text": "隠れJapow×駅徒歩 · Otoifuji Visitor Pass · CATツアー戦略 | AI生成モック画像"
+  },
+  "logo": "音威富士スキー場",
+  "nav": {
+    "cat": "CATツアー",
+    "xc": "クロカン",
+    "ecosystem": "食・温泉"
+  },
+  "hero": {
+    "eyebrow": "北海道音威子府村 · 最小村535人",
+    "title": "音威富士<br />スキー場",
+    "tagline": "日本最軽量級のドライJapow——上級者84%が選ぶ、駅から歩ける秘境。",
+    "badgeLocal": "村民朝券 ¥1,300",
+    "badgeVisitor": "Visitor Pass ¥3,500〜",
+    "badgeAdvanced": "上級者84%",
+    "badgeTransit": "駅徒歩15分",
+    "ctaPass": "Otoifuji Visitor Pass",
+    "ctaLive": "本日のコンディション"
+  },
+  "live": {
+    "ariaLabel": "本日の運営ダッシュボード",
+    "subtitle": "透明性のある運営情報",
+    "updatedAt": "更新 6/13 9:00",
+    "lift": { "label": "リフト", "value": "運行中", "note": "ペアリフト1基 · 182m落差" },
+    "courses": { "label": "コース", "value": "3コース", "note": "上級者84% · 非混雑" },
+    "snow": { "label": "雪質", "value": "最軽量Japow", "note": "ドライパウダー · 要確認" },
+    "night": { "label": "ナイター", "value": "17:00〜20:00", "note": "水・金・土" }
+  },
+  "transit": {
+    "eyebrow": "Station Walk",
+    "title": "駅から15分、<br />雪へ歩く。",
+    "lead": "JR音威子府駅から徒歩約15分——北海道でも稀有な「電車で行けるスキー場」。国道40号線沿い、レンタカーなしでも上級者Japowに直結するマイクロツーリズムの拠点。最小村535人の静けさの中で、混雑のないドライパウダーを。",
+    "specs": ["音威子府駅徒歩15分", "国道40号線沿い", "上級者84%"],
+    "ctaPass": "Visitor Pass を見る",
+    "ctaLive": "本日の運営",
+    "imgAlt": "音威子府駅から雪原へ向かう15分の散策——電車で行ける稀有なスキー場"
+  },
+  "paths": {
+    "today": { "label": "今日", "title": "リフト・雪質・ナイター" },
+    "pass": { "label": "パス", "title": "Otoifuji Visitor Pass" },
+    "cat": { "label": "CAT", "title": "¥40,000ツアー" },
+    "xc": { "label": "クロカン", "title": "FIS/SAJ認定コース" },
+    "ecosystem": { "label": "食・温泉", "title": "黒い駅そば・天塩川" },
+    "access": { "label": "アクセス", "title": "駅徒歩15分" }
+  },
+  "highlights": {
+    "eyebrow": "音威富士の魅力",
+    "title": "ここが違う",
+    "primary": {
+      "title": "最軽量級ドライJapow × 上級者84%",
+      "lead": "ペアリフト1基・3コース・182m落差——規模はコンパクトでも、日本最軽量級のドライパウダーと上級者比率84%が示す「本物のJapow」。巨大リゾートの喧騒から外れた、音威子府村の隠れ宝石。",
+      "cta": "コース・雪質を見る",
+      "imgAlt": "非混雃のドライパウダーバーン——上級者84%の隠れJapowゲレンデ"
+    },
+    "secondary": {
+      "title": "北海道最小村の静けさ",
+      "lead": "人口535人——北海道で最も小さな村に位置する、人里離れたローカル・サンクチュアリ。待ち時間なし、貸切感のある滑走と、駅徒歩15分という稀有なアクセスを両立。",
+      "cta": "村のエコシステムを見る"
+    }
+  },
+  "pass": {
+    "eyebrow": "Dual Pricing",
+    "title": "村民朝 ¥1,300、<br />Visitor ¥3,500〜。",
+    "lead": "村民・地元向け朝券¥1,300を維持しつつ、インバウンド・遠方来場者向けにOtoifuji Visitor Pass（¥3,500〜4,500）を設定——最小村の日常利用を守りながら、Japow体験のARPUを引き上げる二重料金モデル（LP案）。",
+    "localPrice": "村民朝券 ¥1,300",
+    "visitorPrice": "Visitor Pass ¥3,500〜4,500",
+    "specs": ["ペアリフト1日", "3コース · 182m", "水金土ナイター（案）"],
+    "noticeTitle": "戦略メモ：",
+    "noticeBody": "上級者84%・非混雑の雪質を「村民の朝」として守り、Visitor PassとCATツアーで客単価を倍増——最小村スキー場の収益構造転換案。",
+    "cta": "Visitor Pass 詳細",
+    "imgAlt": "音威子府村の静かなゲレンデ——二重料金で地元と来場者を両立"
+  },
+  "cat": {
+    "eyebrow": "Flagship Product",
+    "title": "CATツアー、<br />¥40,000。",
+    "lead": "未踏のドライJapowへ雪上車でアクセス——音威富士の看板商品。上級者向けバックカントリー相当の体験を、安全なガイド付きCATツアーとしてパッケージ化。Visitor Pass・Tomte宿泊と組み合わせた高付加価値ライン（LP戦略案）。",
+    "price": "CATツアー ¥40,000",
+    "specs": ["ガイド付き", "未圧雪ゾーン", "上級者向け"],
+    "whisper": "84%上級者比率を活かしたフラッグシップ——リフト1基の限界を超え、客単価と差別化の核に。",
+    "cta": "CATツアーを予約",
+    "imgAlt": "雪上車で未踏パウダーゾーンへ——¥40,000の看板CATツアー"
+  },
+  "xc": {
+    "eyebrow": "FIS / SAJ Certified",
+    "title": "認定クロカン、<br />5 · 7.5 · 10km。",
+    "lead": "FIS/SAJ認定のクロスカントリーコース——5km、7.5km、10kmの3距離。アルペンとは別軸の非動力型ウィンタースポーツ拠点として、上級者の滞在日数と村の消費を延伸。",
+    "specs": ["5kmコース", "7.5kmコース", "10kmコース", "FIS/SAJ認定"],
+    "cta": "クロカンコース案内",
+    "imgAlt": "FIS/SAJ認定クロスカントリーコース——雪原を走るNordic体験"
+  },
+  "tomte": {
+    "eyebrow": "Tomte Lodge",
+    "title": "Tomte、<br />80床の拠点。",
+    "lead": "Tomte宿泊施設——定員80名、ワックスルーム完備。CATツアー・クロカン・ナイターを束ねるキャンプハブとして、最小村に宿泊需要を集中させるインフラ（LP案）。",
+    "specs": ["定員80名", "ワックスルーム", "キャンプハブ"],
+    "noticeTitle": "連泊モデル：",
+    "noticeBody": "Visitor Pass＋Tomte＋CATツアーの3点セット——1泊2日の上級者Japow滞在を設計し、535人の村の宿泊・飲食ARPUを底上げ。",
+    "cta": "Tomte宿泊・施設案内",
+    "imgAlt": "Tomteロッジ——ワックスルーム付き80床のスキーキャンプ拠点"
+  },
+  "ecosystem": {
+    "eyebrow": "Village Ecosystem",
+    "title": "黒い駅そば、<br />天塩川温泉。",
+    "lead": "ゲレンデから駅方向へ徒歩15分——「黒い駅そば」の名物ランチ。滑走後は天塩川温泉パッケージで温活——最小村の食・温泉エコシステムをVisitor Passに統合。",
+    "sobaTitle": "黒い駅そば",
+    "sobaLead": "音威子府駅近くの名物——コシのある黒い駅そば。駅徒歩圏の食体験が、電車来場者の滞在理由を増やす。",
+    "onsenTitle": "天塩川温泉",
+    "onsenLead": "天塩川温泉との連携パッケージ——冷え切った身体を温め、連泊滞在の回復フェーズを完成させる。",
+    "ctaSoba": "黒い駅そば・駅周辺",
+    "ctaOnsen": "天塩川温泉パッケージ",
+    "imgAlt": "黒い駅そば——音威子府駅徒歩圏の名物ランチ"
+  },
+  "journey": {
+    "eyebrow": "Transit Japow",
+    "title": "電車で来て、<br />15分で雪へ。",
+    "lead": "札幌・旭川方面からJRで音威子府へ——レンタカーなしの上級者Japowジャーニー。駅徒歩・黒い駅そば・天塩川温泉・Tomte連泊を一本化した半日〜2泊モデル。",
+    "badge": "STATION WALK · HIDDEN JAPOW",
+    "steps": {
+      "01": { "title": "JR音威子府駅", "body": "電車で到着。徒歩15分でゲレンデへ" },
+      "02": { "title": "Visitor Pass滑走", "body": "3コース182m · 最軽量ドライJapow" },
+      "03": { "title": "黒い駅そば", "body": "駅徒歩圏で名物ランチ" },
+      "04": { "title": "天塩川温泉", "body": "パッケージで温活・回復" },
+      "05": { "title": "Tomte連泊", "body": "ワックスルーム付き80床。CATツアー翌日へ" }
+    }
+  },
+  "guides": {
+    "japow": {
+      "title": "隠れJapow完全ガイド——最軽量ドライパウダー",
+      "body": "上級者84%・ペアリフト1基・3コース182m——規模は小さくとも、日本最軽量級のドライパウダーが評価される理由。巨大リゾート圏内の混雑から一歩外れ、535人の最小村で貸切感のJapowを味わう位置づけ。"
+    },
+    "catGuide": {
+      "title": "CATツアー¥40,000——看板商品ガイド",
+      "body": "雪上車で未踏ゾーンへ——ガイド付きCATツアーの安全設計、上級者向けルート、Visitor Pass・Tomte連泊との組み合わせ。リフト1基の限界を超える高付加価値ラインの解説（LP戦略案）。"
+    },
+    "transit": {
+      "title": "駅徒歩15分×村エコシステムモデルコース",
+      "body": "JR音威子府駅から徒歩15分の稀有なアクセス、FIS/SAJ認定クロカン（5/7.5/10km）、黒い駅そば、天塩川温泉、水金土ナイター（17:00〜20:00）——最小村535人の食・滑・泊を束ねた半日〜2泊周遊。",
+      "hashtags": ["#OtoifujiJapow", "#StationWalkSki", "#HiddenHokkaido535"]
+    }
+  },
+  "access": {
+    "postal": "〒098-2501",
+    "line": "北海道中川郡音威子府村字音威子府200-6",
+    "note": "JR音威子府駅徒歩約15分 · 国道40号線沿い",
+    "phone": "TEL 01656-5-3305（スキー場 · シーズン中）",
+    "phoneOffSeason": "TEL 01656-5-3313（オフシーズン）"
+  },
+  "footer": {
+    "copyright": "© 音威富士スキー場 — LP案モック",
+    "credit": "音威子府村 · 隠れJapow×駅徒歩×二重料金戦略レポートに基づく評価用 | AI生成モック画像",
+    "location": "〒098-2501 北海道中川郡音威子府村字音威子府200-6"
+  }
+}

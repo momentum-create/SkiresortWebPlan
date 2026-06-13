@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "gokazan",
+  "name": {
+    "ja": "五鹿山スキー場",
+    "en": "Gokazan Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "湧別町・沢口産業",
+    "LP戦略レポート"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/gokazan-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-single",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "pair",
+      "label": {
+        "ja": "シングルリフト",
+        "en": "Single lift"
+      },
+      "shortLabel": {
+        "ja": "シングル",
+        "en": "Single"
+      },
+      "meta": {
+        "ja": {
+          "ナイター": "可"
+        },
+        "en": {
+          "Night skiing": "Yes"
+        }
+      }
+    },
+    {
+      "id": "trail-okhotsk",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "オホーツクコース",
+        "en": "Okhotsk course"
+      },
+      "shortLabel": {
+        "ja": "オホーツク",
+        "en": "Okhotsk"
+      },
+      "meta": {
+        "ja": {
+          "最大斜度": "31°",
+          "特徴": "上級者79%"
+        },
+        "en": {
+          "Max slope": "31°",
+          "Feature": "79% advanced"
+        }
+      }
+    },
+    {
+      "id": "trail-a",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "コースA",
+        "en": "Course A"
+      },
+      "shortLabel": {
+        "ja": "A",
+        "en": "A"
+      },
+      "meta": {
+        "ja": {
+          "備考": "4コース構成"
+        },
+        "en": {
+          "Note": "1 of 4 courses"
+        }
+      }
+    },
+    {
+      "id": "trail-b",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "コースB",
+        "en": "Course B"
+      },
+      "shortLabel": {
+        "ja": "B",
+        "en": "B"
+      },
+      "meta": {}
+    },
+    {
+      "id": "trail-c",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "beginner",
+      "label": {
+        "ja": "コースC",
+        "en": "Course C"
+      },
+      "shortLabel": {
+        "ja": "C",
+        "en": "C"
+      },
+      "meta": {}
+    }
+  ]
+}

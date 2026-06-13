@@ -1,0 +1,8 @@
+{
+  "name": "japowserch-guides",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve public -p 3456",
+    "validate": "node ../docs/mock-assets/scripts/validate-mock-i18n.mjs"
+  }
+}

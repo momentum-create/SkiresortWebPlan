@@ -1,0 +1,129 @@
+/* LP mock hub index */
+
+:root {
+  --bg: #f4f6f9;
+  --fg: #1a2332;
+  --muted: #5a6478;
+  --accent: #3d5a80;
+  --border: #d4dce8;
+  --surface: #fff;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  line-height: 1.7;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+.inner {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.mock-banner {
+  padding: 0.5rem 1rem;
+  background: var(--fg);
+  color: #b8c5d8;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.mock-banner strong { color: #8eb4d8; }
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+  gap: 1rem;
+}
+
+.eyebrow {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero-title {
+  margin: 0.75rem 0 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.lead {
+  margin-top: 1rem;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.lang-switch button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: none;
+  background: var(--surface);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-switch button + button { border-left: 1px solid var(--border); }
+.lang-switch button.is-active { background: var(--fg); color: #fff; }
+
+.hub-table-wrap {
+  margin: 3rem 0;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+th, td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: #f8fafc;
+}
+
+tr:last-child td { border-bottom: none; }
+
+.hub-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.note {
+  padding: 2rem 0 4rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}

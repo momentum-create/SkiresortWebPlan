@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "unabetsu",
+  "name": {
+    "ja": "ウナベツスキー場",
+    "en": "Unabetsu Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "斜里町公式",
+    "知床斜里町観光協会ブログ"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/unabetsu-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-pair",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "pair",
+      "label": {
+        "ja": "ペアリフト",
+        "en": "Pair lift"
+      },
+      "shortLabel": {
+        "ja": "ペア",
+        "en": "Pair"
+      },
+      "meta": {
+        "ja": {
+          "ナイター": "カラマツ・センター"
+        },
+        "en": {
+          "Night skiing": "Karamatsu · Center"
+        }
+      }
+    },
+    {
+      "id": "trail-salmon",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "サーモンコース",
+        "en": "Salmon course"
+      },
+      "shortLabel": {
+        "ja": "サーモン",
+        "en": "Salmon"
+      },
+      "meta": {
+        "ja": {
+          "最大斜度": "31°",
+          "ナイター": "不可"
+        },
+        "en": {
+          "Max slope": "31°",
+          "Night skiing": "No"
+        }
+      }
+    },
+    {
+      "id": "trail-center",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate-advanced",
+      "label": {
+        "ja": "センターコース",
+        "en": "Center course"
+      },
+      "shortLabel": {
+        "ja": "センター",
+        "en": "Center"
+      },
+      "meta": {
+        "ja": {
+          "最大斜度": "29°",
+          "ナイター": "可"
+        },
+        "en": {
+          "Max slope": "29°",
+          "Night skiing": "Yes"
+        }
+      }
+    },
+    {
+      "id": "trail-karamatsu",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "カラマツコース",
+        "en": "Karamatsu course"
+      },
+      "shortLabel": {
+        "ja": "カラマツ",
+        "en": "Karamatsu"
+      },
+      "meta": {
+        "ja": {
+          "最大斜度": "25°",
+          "ナイター": "可"
+        },
+        "en": {
+          "Max slope": "25°",
+          "Night skiing": "Yes"
+        }
+      }
+    }
+  ]
+}

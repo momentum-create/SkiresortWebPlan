@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "tsunan",
+  "name": {
+    "ja": "マウンテンパーク津南",
+    "en": "Mountain Park Tsunan"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "津南町・パノラマ合同会社",
+    "機能転換戦略レポート"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/tsunan-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "trail-xc-main",
+      "type": "trail",
+      "status": "hold",
+      "difficulty": "nordic",
+      "label": {
+        "ja": "クロスカントリーコース",
+        "en": "Cross-country course"
+      },
+      "shortLabel": {
+        "ja": "XC",
+        "en": "XC"
+      },
+      "meta": {
+        "ja": {
+          "備考": "一般アルペン滑走休止",
+          "利用": "事前申込"
+        },
+        "en": {
+          "Note": "No alpine skiing",
+          "Use": "Reservation required"
+        }
+      }
+    },
+    {
+      "id": "trail-roller",
+      "type": "trail",
+      "status": "closed",
+      "difficulty": "nordic",
+      "label": {
+        "ja": "ローラースキーコース（夏季）",
+        "en": "Roller ski course (summer)"
+      },
+      "shortLabel": {
+        "ja": "ローラー",
+        "en": "Roller"
+      },
+      "meta": {
+        "ja": {
+          "季節": "夏"
+        },
+        "en": {
+          "Season": "Summer"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "2026-06-13",
+  "id": "minami-furano",
+  "name": {
+    "ja": "国設南ふらのスキー場",
+    "en": "Kokusetsu Minami-Furano Ski Area"
+  },
+  "disclaimer": {
+    "ja": "コース・リフトはイラスト内に描画済み。リストで運行状況を確認できます（概略図・現地表示優先）。",
+    "en": "Trails and lifts are drawn in the illustration. Use the list for status (schematic; on-site signage prevails)."
+  },
+  "sources": [
+    "南富良野町公式",
+    "振興公社"
+  ],
+  "updatedAt": "2026-06-13T12:00:00+09:00",
+  "viewBox": "0 0 1024 1024",
+  "hero": {
+    "src": "images/maps/minami-furano-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "viewBox": "0 0 1024 1024"
+  },
+  "bakedLines": true,
+  "features": [
+    {
+      "id": "lift-ropeway",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "surface",
+      "label": {
+        "ja": "ロープウェイ",
+        "en": "Ropeway"
+      },
+      "shortLabel": {
+        "ja": "ロープウェイ",
+        "en": "Ropeway"
+      },
+      "meta": {
+        "ja": {
+          "状態": "運行中"
+        },
+        "en": {
+          "Status": "Operating"
+        }
+      }
+    },
+    {
+      "id": "lift-1",
+      "type": "lift",
+      "status": "operating",
+      "liftKind": "pair",
+      "label": {
+        "ja": "第1リフト",
+        "en": "Lift 1"
+      },
+      "shortLabel": {
+        "ja": "第1",
+        "en": "L1"
+      },
+      "meta": {
+        "ja": {
+          "状態": "運行中"
+        },
+        "en": {
+          "Status": "Operating"
+        }
+      }
+    },
+    {
+      "id": "lift-2",
+      "type": "lift",
+      "status": "stopped",
+      "liftKind": "pair",
+      "label": {
+        "ja": "第2リフト",
+        "en": "Lift 2"
+      },
+      "shortLabel": {
+        "ja": "第2",
+        "en": "L2"
+      },
+      "meta": {
+        "ja": {
+          "状態": "2026シーズン運休",
+          "標高差": "215mまで"
+        },
+        "en": {
+          "Status": "Closed 2026 season",
+          "Vertical": "To 215 m"
+        }
+      }
+    },
+    {
+      "id": "trail-main",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "intermediate",
+      "label": {
+        "ja": "メインコース群（5コース）",
+        "en": "Main courses (5)"
+      },
+      "shortLabel": {
+        "ja": "メイン",
+        "en": "Main"
+      },
+      "meta": {
+        "ja": {
+          "最長": "800m（第2まで）",
+          "最大斜度": "35°"
+        },
+        "en": {
+          "Longest": "800 m (to L2)",
+          "Max slope": "35°"
+        }
+      }
+    },
+    {
+      "id": "trail-hike",
+      "type": "trail",
+      "status": "hold",
+      "difficulty": "advanced",
+      "label": {
+        "ja": "ハイクアップ・パウダーゾーン（案）",
+        "en": "Hike-up powder zone (plan)"
+      },
+      "shortLabel": {
+        "ja": "ハイク",
+        "en": "Hike"
+      },
+      "meta": {
+        "ja": {
+          "備考": "第2リフト沿線・未圧雪"
+        },
+        "en": {
+          "Note": "Along lift 2 · ungroomed"
+        }
+      }
+    },
+    {
+      "id": "trail-xc",
+      "type": "trail",
+      "status": "open",
+      "difficulty": "nordic",
+      "label": {
+        "ja": "クロスカントリーコース",
+        "en": "XC course"
+      },
+      "shortLabel": {
+        "ja": "XC",
+        "en": "XC"
+      },
+      "meta": {
+        "ja": {
+          "料金": "無料開放"
+        },
+        "en": {
+          "Price": "Free"
+        }
+      }
+    }
+  ]
+}
