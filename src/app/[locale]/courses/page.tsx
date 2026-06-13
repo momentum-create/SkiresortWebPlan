@@ -1,6 +1,8 @@
+import { getLocale } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 
 /** LAAX 型: コース・マップは /map に統合 */
-export default function CoursesPage() {
-  redirect("/map");
+export default async function CoursesPage() {
+  const locale = await getLocale();
+  redirect({ href: "/map", locale });
 }
