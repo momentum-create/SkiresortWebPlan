@@ -26,26 +26,61 @@
     "ariaLabel": "Today's operations dashboard",
     "subtitle": "Transparent operations info",
     "updatedAt": "Updated Jun 13, 9:00",
-    "lift": { "label": "Lift", "value": "Operating", "note": "1 pair lift · virtually no wait" },
-    "courses": { "label": "Courses", "value": "2 courses", "note": "560 m total · max 30°" },
-    "night": { "label": "Night skiing", "value": "Until 21:00", "note": "Tue & Thu, from 9:00" },
-    "yotei": { "label": "View", "value": "Mt. Yotei", "note": "Visible across the hill" }
+    "lift": {
+      "label": "Lift",
+      "value": "Operating",
+      "note": "1 pair lift · virtually no wait"
+    },
+    "courses": {
+      "label": "Courses",
+      "value": "2 courses",
+      "note": "560 m total · max 30°"
+    },
+    "night": {
+      "label": "Night skiing",
+      "value": "Until 21:00",
+      "note": "Tue & Thu, from 9:00"
+    },
+    "yotei": {
+      "label": "View",
+      "value": "Mt. Yotei",
+      "note": "Visible across the hill"
+    }
   },
   "transit": {
     "eyebrow": "Niseko Gap",
     "title": "A quiet hill<br />right beside the mega-resorts.",
     "lead": "One step away from Hirafu and Annupuri crowds and prices—about 3 minutes by car from Kutchan Station and downtown. One pair lift, two courses over 560 m—a local sanctuary for visitors who \"came to Niseko but couldn't ski\" and for resident families alike.",
-    "specs": ["~3 min from Kutchan", "No lift lines", "~100 parking spaces"],
+    "specs": [
+      "~3 min from Kutchan",
+      "No lift lines",
+      "~100 parking spaces"
+    ],
     "ctaPass": "View Visitor Pass",
     "ctaLive": "Today's operations",
     "imgAlt": "A quiet local slope with Mt. Yotei in the background—just outside Niseko's bustle"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Lifts, night skiing & snow" },
-    "pass": { "label": "Pass", "title": "Kutchan Visitor Pass" },
-    "family": { "label": "Family", "title": "Sled zone & schools" },
-    "rental": { "label": "Rental", "title": "Delivery pack" },
-    "access": { "label": "Access", "title": "~3 min from Kutchan" }
+    "today": {
+      "label": "Today",
+      "title": "Lifts, night skiing & snow"
+    },
+    "pass": {
+      "label": "Pass",
+      "title": "Kutchan Visitor Pass"
+    },
+    "family": {
+      "label": "Family",
+      "title": "Sled zone & schools"
+    },
+    "rental": {
+      "label": "Rental",
+      "title": "Delivery pack"
+    },
+    "access": {
+      "label": "Access",
+      "title": "~3 min from Kutchan"
+    }
   },
   "highlights": {
     "eyebrow": "Why Asahigaoka",
@@ -68,7 +103,11 @@
     "lead": "Keep the resident day ticket at ¥1,500 while offering inbound and resort guests the Kutchan Visitor Pass at ¥4,500—a strategic dual-pricing model against Niseko-area rates (LP concept).",
     "localPrice": "Local day ticket ¥1,500",
     "visitorPrice": "Visitor Pass ¥4,500",
-    "specs": ["Pair lift all day", "2 courses · 560 m", "Tue/Thu night skiing incl. (proposed)"],
+    "specs": [
+      "Pair lift all day",
+      "2 courses · 560 m",
+      "Tue/Thu night skiing incl. (proposed)"
+    ],
     "noticeTitle": "Strategy note:",
     "noticeBody": "Protect \"everyday local pricing\" against rising resort costs nearby, and lift ARPU through the Visitor Pass—a revenue-model pivot for a local hill.",
     "cta": "Visitor Pass details",
@@ -85,7 +124,7 @@
   "yukinko": {
     "eyebrow": "Yukinko Hall",
     "title": "Yukinko Hall,<br />night snow bar.",
-    "lead": "Food, drinks, and rest at Yukinko Hall (雪ん子館) at the base. A night snow bar aligned with Tue/Thu night skiing until 21:00—secondary spend and longer stays after runs.",
+    "lead": "Food, drinks, and rest at <ruby>Yukinko Hall<rt>雪ん子館</rt></ruby> at the base. A night snow bar aligned with Tue/Thu night skiing until 21:00—secondary spend and longer stays after runs.",
     "whisper": "Winter TEL 0136-23-2743 (Yukinko Hall). From lodge meals to \"Asahigaoka nights\"—an F&B hub that feels local.",
     "cta": "Yukinko menu & hours",
     "imgAlt": "Warm lodge space at Yukinko Hall—a night snow bar concept"
@@ -94,7 +133,11 @@
     "eyebrow": "Family First",
     "title": "Niseko's most<br />family-friendly local hill.",
     "lead": "Dedicated sled zone, two compact courses, no lift lines—a low-stress full day with small children. The everyday hill for local families, open to inbound family travelers too.",
-    "specs": ["Dedicated sled area", "1 pair lift", "~100 parking spaces"],
+    "specs": [
+      "Dedicated sled area",
+      "1 pair lift",
+      "~100 parking spaces"
+    ],
     "noticeTitle": "Schools (concession model):",
     "noticeBody": "Licensed schools limited to 2–3 concessionaires—avoid oversupply, maintain quality and safety standards for family lessons (strategy proposal).",
     "cta": "Family & school guide",
@@ -106,11 +149,26 @@
     "lead": "About 3 minutes by car from Kutchan coworking spaces and lodging—a short-time pass journey for workation guests who want both desk time and runs.",
     "badge": "SHORT-TIME PASS · LOCAL HILL",
     "steps": {
-      "01": { "title": "Kutchan base", "body": "Remote work AM at downtown lodging or coworking" },
-      "02": { "title": "Delivery rental", "body": "Boom Sports ships gear to your accommodation in advance" },
-      "03": { "title": "Asahigaoka short pass", "body": "3-hour ticket for efficient laps on two compact courses" },
-      "04": { "title": "Yukinko Hall", "body": "F&B break. Tue/Thu you can extend into night skiing" },
-      "05": { "title": "Back to town", "body": "~3 min to central Kutchan—dinner and onsen" }
+      "01": {
+        "title": "Kutchan base",
+        "body": "Remote work AM at downtown lodging or coworking"
+      },
+      "02": {
+        "title": "Delivery rental",
+        "body": "Boom Sports ships gear to your accommodation in advance"
+      },
+      "03": {
+        "title": "Asahigaoka short pass",
+        "body": "3-hour ticket for efficient laps on two compact courses"
+      },
+      "04": {
+        "title": "Yukinko Hall",
+        "body": "F&B break. Tue/Thu you can extend into night skiing"
+      },
+      "05": {
+        "title": "Back to town",
+        "body": "~3 min to central Kutchan—dinner and onsen"
+      }
     }
   },
   "guides": {
@@ -125,18 +183,22 @@
     "summer": {
       "title": "Asahigaoka in summer—shibazakura & camping",
       "body": "Off-season monetization via shibazakura viewing and campground operations, referenced in guide features only. Seasonal diversification beyond the ski hill—Kutchan as a year-round outdoor base (LP strategy note).",
-      "hashtags": ["#AsahigaokaLocal", "#YoteiView", "#KutchanHiddenHill"]
+      "hashtags": [
+        "#AsahigaokaLocal",
+        "#YoteiView",
+        "#KutchanHiddenHill"
+      ]
     }
   },
   "access": {
-    "postal": "〒044-0083",
-    "line": "北海道虻田郡倶知安町字旭37番地1",
+    "postal": "044-0083, Japan",
+    "line": "<ruby>Asahi 37-1<rt>字旭37番地1</rt></ruby>, <ruby>Kutchan<rt>倶知安町</rt></ruby>, <ruby>Abuta District<rt>虻田郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "About 3 minutes by car from Kutchan Station and downtown · ~100 parking spaces",
-    "phone": "TEL 0136-23-2743（雪ん子館・冬期）"
+    "phone": "TEL 0136-23-2743 (<ruby>Yukinko Hall<rt>雪ん子館</rt></ruby>, winter season)"
   },
   "footer": {
     "copyright": "© Kutchan Asahigaoka Ski Area — LP mock",
     "credit": "Kutchan Town · Evaluation mock based on local-hill dual-pricing strategy report | AI-generated images",
-    "location": "〒044-0083 北海道虻田郡倶知安町字旭37番地1"
+    "location": "044-0083 · <ruby>Asahi 37-1<rt>字旭37番地1</rt></ruby>, <ruby>Kutchan<rt>倶知安町</rt></ruby>, <ruby>Abuta District<rt>虻田郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

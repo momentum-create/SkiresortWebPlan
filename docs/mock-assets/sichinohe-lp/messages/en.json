@@ -26,10 +26,22 @@
     "imgAlt": "Travel image of snowy scenery seen from a Tohoku Shinkansen car"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Today's operations" },
-    "access": { "label": "Access", "title": "Access" },
-    "map": { "label": "Slopes", "title": "Trail map" },
-    "pricing": { "label": "Pricing", "title": "Tickets & rentals" }
+    "today": {
+      "label": "Today",
+      "title": "Today's operations"
+    },
+    "access": {
+      "label": "Access",
+      "title": "Access"
+    },
+    "map": {
+      "label": "Slopes",
+      "title": "Trail map"
+    },
+    "pricing": {
+      "label": "Pricing",
+      "title": "Tickets & rentals"
+    }
   },
   "highlights": {
     "eyebrow": "Why Sichinohe",
@@ -69,14 +81,14 @@
     }
   },
   "access": {
-    "postal": "〒039-2568",
-    "line": "青森県上北郡七戸町字左組106-5",
+    "postal": "039-2568, Japan",
+    "line": "<ruby>Hidarikumi 106-5<rt>字左組106-5</rt></ruby>, <ruby>Sichinohe<rt>七戸町</rt></ruby>, <ruby>Kamikita District<rt>上北郡</rt></ruby>, <ruby>Aomori Prefecture<rt>青森県</rt></ruby>",
     "note": "About 10 minutes by taxi from Tohoku Shinkansen Sichinohe-Towada Station (approx.)",
     "phone": "TEL 0176-62-5612"
   },
   "footer": {
     "copyright": "© Sichinohe Town Ski Area — LP mock",
     "credit": "Images: AI-generated mocks (production will use real photos and official assets)",
-    "location": "〒039-2568 青森県上北郡七戸町字左組106-5"
+    "location": "039-2568 · <ruby>Hidarikumi 106-5<rt>字左組106-5</rt></ruby>, <ruby>Sichinohe<rt>七戸町</rt></ruby>, <ruby>Kamikita District<rt>上北郡</rt></ruby>, <ruby>Aomori Prefecture<rt>青森県</rt></ruby>"
   }
 }

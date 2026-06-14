@@ -29,28 +29,69 @@
     "ariaLabel": "Today's operations dashboard",
     "subtitle": "Transparent operations info",
     "updatedAt": "Updated Jun 13, 9:00",
-    "lift": { "label": "Rope tow", "value": "2 operating", "note": "No chairlifts · rope only" },
-    "courses": { "label": "Courses", "value": "GS 620 m + SL 420 m", "note": "Max 1,000 m · 25° pitch" },
-    "snow": { "label": "Snow", "value": "Pure powder", "note": "Untracked · 100% advanced" },
-    "night": { "label": "Night skiing", "value": "18:00–20:00", "note": "Wed & Fri only" }
+    "lift": {
+      "label": "Rope tow",
+      "value": "2 operating",
+      "note": "No chairlifts · rope only"
+    },
+    "courses": {
+      "label": "Courses",
+      "value": "GS 620 m + SL 420 m",
+      "note": "Max 1,000 m · 25° pitch"
+    },
+    "snow": {
+      "label": "Snow",
+      "value": "Pure powder",
+      "note": "Untracked · 100% advanced"
+    },
+    "night": {
+      "label": "Night skiing",
+      "value": "18:00–20:00",
+      "note": "Wed & Fri only"
+    }
   },
   "transit": {
     "eyebrow": "Beyond Tomamu",
     "title": "Next to a mega-resort,<br />rope-tow pure powder.",
     "lead": "One step off the bustle of adjacent Tomamu Resort—about 3 km along a narrow levee road from National Route 237, the same distance from Shimukappu Station. A national ski hill with no lifts and no crowds: 100% advanced skiers and a 34-minute average stay—compact, intense Japow. Reachable by rental car or taxi, and the launch point for Secret Powder Experience tours from Tomamu guests.",
-    "specs": ["2 rope tows only", "100% advanced skiers", "~3 km from Shimukappu Stn."],
+    "specs": [
+      "2 rope tows only",
+      "100% advanced skiers",
+      "~3 km from Shimukappu Stn."
+    ],
     "ctaPatronage": "View Powder Patronage",
     "ctaLive": "Today's operations",
     "imgAlt": "Beyond Tomamu mega-resort—a rope-tow-only pure powder hill at the end of a narrow levee road"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Rope tows, snow & night skiing" },
-    "patronage": { "label": "Patronage", "title": "Powder Patronage" },
-    "tour": { "label": "Tour", "title": "Secret Powder Experience" },
-    "rope": { "label": "Rope tow", "title": "Rope Tow Master" },
-    "rental": { "label": "Rental", "title": "Mobile fat skis" },
-    "ecosystem": { "label": "Food & onsen", "title": "Road station · onsen · distillery" },
-    "access": { "label": "Access", "title": "Levee road · Route 237" }
+    "today": {
+      "label": "Today",
+      "title": "Rope tows, snow & night skiing"
+    },
+    "patronage": {
+      "label": "Patronage",
+      "title": "Powder Patronage"
+    },
+    "tour": {
+      "label": "Tour",
+      "title": "Secret Powder Experience"
+    },
+    "rope": {
+      "label": "Rope tow",
+      "title": "Rope Tow Master"
+    },
+    "rental": {
+      "label": "Rental",
+      "title": "Mobile fat skis"
+    },
+    "ecosystem": {
+      "label": "Food & onsen",
+      "title": "Road station · onsen · distillery"
+    },
+    "access": {
+      "label": "Access",
+      "title": "Levee road · Route 237"
+    }
   },
   "highlights": {
     "eyebrow": "Why Shimukappu Central",
@@ -74,7 +115,11 @@
     "localPrice": "Villagers free",
     "donationDaily": "Donation ¥1,000/day",
     "donationSeason": "Donation ¥10,000/season",
-    "specs": ["Digital donation QR", "Villagers stay free", "2 rope tows · 100% advanced"],
+    "specs": [
+      "Digital donation QR",
+      "Villagers stay free",
+      "2 rope tows · 100% advanced"
+    ],
     "noticeTitle": "Strategy note:",
     "noticeBody": "34-minute average stay, 100% advanced skiers—protect uncrowded pure powder as everyday village use while extending visitor ARPU to ¥6,700–19,000 through patronage, secret tours, and the village ecosystem.",
     "cta": "Powder Patronage details",
@@ -85,7 +130,11 @@
     "title": "Secret Powder Experience,<br />¥30,000–50,000.",
     "lead": "A premium tour for Tomamu guests—taxi transfer, rope-tow coaching, and pure powder laps packaged as one experience. A high-value line that safely guides mega-resort visitors to the adjacent national hidden gem (LP strategy).",
     "price": "Secret Powder Experience ¥30,000–50,000",
-    "specs": ["Taxi from Tomamu", "Rope-tow coaching", "Pure powder experience"],
+    "specs": [
+      "Taxi from Tomamu",
+      "Rope-tow coaching",
+      "Pure powder experience"
+    ],
     "whisper": "A flagship built on geographic proximity to Tomamu—beyond two rope tows, the core of differentiation and guest spend.",
     "cta": "Book the secret tour",
     "imgAlt": "Taxi from Tomamu to Secret Powder Experience—rope-tow coaching on pure powder"
@@ -95,7 +144,11 @@
     "title": "Rope Tow Master,<br />wooden tag ¥1,500–2,000.",
     "lead": "Because this hill runs on rope tows alone—certify proper loading, timing, and advanced efficiency with the Rope Tow Master program. A wooden tag credential that brands Shimukappu Central's rope-tow culture (LP concept).",
     "price": "Certification ¥1,500–2,000",
-    "specs": ["Wooden tag credential", "Rope-tow coaching", "Advanced technique"],
+    "specs": [
+      "Wooden tag credential",
+      "Rope-tow coaching",
+      "Advanced technique"
+    ],
     "cta": "Rope Tow Master guide",
     "imgAlt": "Wooden-tag Rope Tow Master certification—the skill culture of a rope-tow-only hill"
   },
@@ -104,7 +157,11 @@
     "title": "Mobile rental,<br />fat skis ¥6,000–8,000/day.",
     "lead": "No fixed rental shop at this national hill—a mobile rental van delivers fat skis to the parking area along the levee road. Gear optimized for deep, untracked snow. A revenue complement for Powder Patronage visitors and secret-tour guests (LP concept).",
     "price": "Fat skis ¥6,000–8,000/day",
-    "specs": ["Mobile rental van", "Fat skis", "Deep snow · untracked"],
+    "specs": [
+      "Mobile rental van",
+      "Fat skis",
+      "Deep snow · untracked"
+    ],
     "noticeTitle": "Operations note:",
     "noticeBody": "Capture equipment spend even on a 34-minute average stay—mobile infrastructure delivers a no-gear-carry advanced experience on a rope-tow-only hill.",
     "cta": "Book mobile rental",
@@ -132,13 +189,34 @@
     "badge": "ZERO-REVENUE ECOSYSTEM · PURE POWDER",
     "revenueNote": "Visitor area revenue model ¥6,700–19,000/person",
     "steps": {
-      "01": { "title": "11:00 Shizen Taikan Shimukappu", "body": "Breakfast and lunch. Local ingredients for fuel" },
-      "02": { "title": "12:30 Shimukappu Stn. → hill", "body": "~3 km levee road · narrow route from Route 237" },
-      "03": { "title": "14:00 Rope-tow powder", "body": "GS 620 m + SL 420 m · 100% advanced · villagers free" },
-      "04": { "title": "15:00 Powder Patronage", "body": "Digital donation QR · ¥1,000/day" },
-      "05": { "title": "15:30 Yunosawa onsen", "body": "Mori no Shiki · bathing ¥700 · warm-up" },
-      "06": { "title": "16:30 Topeni Wakka distillery", "body": "Maple syrup and Rupu no Mori gin experience" },
-      "07": { "title": "17:30 Taxi return", "body": "Back toward Tomamu—half-day escape complete" }
+      "01": {
+        "title": "11:00 Shizen Taikan Shimukappu",
+        "body": "Breakfast and lunch. Local ingredients for fuel"
+      },
+      "02": {
+        "title": "12:30 Shimukappu Stn. → hill",
+        "body": "~3 km levee road · narrow route from Route 237"
+      },
+      "03": {
+        "title": "14:00 Rope-tow powder",
+        "body": "GS 620 m + SL 420 m · 100% advanced · villagers free"
+      },
+      "04": {
+        "title": "15:00 Powder Patronage",
+        "body": "Digital donation QR · ¥1,000/day"
+      },
+      "05": {
+        "title": "15:30 Yunosawa onsen",
+        "body": "Mori no Shiki · bathing ¥700 · warm-up"
+      },
+      "06": {
+        "title": "16:30 Topeni Wakka distillery",
+        "body": "Maple syrup and Rupu no Mori gin experience"
+      },
+      "07": {
+        "title": "17:30 Taxi return",
+        "body": "Back toward Tomamu—half-day escape complete"
+      }
     }
   },
   "guides": {
@@ -153,18 +231,22 @@
     "ecosystem": {
       "title": "Tomamu contrast × village ecosystem model course",
       "body": "Narrow levee road ~3 km from Shimukappu Station, hours (Mon/Wed/Fri 14:00–20:00, Tue/Thu 14:00–18:00, Sat/Sun/holidays 13:00–18:00), Shizen Taikan Shimukappu, Yunosawa onsen ¥700, Topeni Wakka / Rupu no Mori—a village loop from 11:00–17:30 designed at ¥6,700–19,000 per visitor.",
-      "hashtags": ["#ShimukappuPowder", "#NoChairlifts", "#BeyondTomamu"]
+      "hashtags": [
+        "#ShimukappuPowder",
+        "#NoChairlifts",
+        "#BeyondTomamu"
+      ]
     }
   },
   "access": {
-    "postal": "〒079-2201",
-    "line": "北海道勇払郡占冠村字中央",
+    "postal": "079-2201, Japan",
+    "line": "<ruby>Chuo<rt>字中央</rt></ruby>, <ruby>Shimukappu<rt>占冠村</rt></ruby>, <ruby>Yubari District<rt>勇払郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "Narrow levee road from National Route 237 · approx. 3 km from Shimukappu Station",
     "phone": "TEL 0167-56-2746 (ski area · in season)"
   },
   "footer": {
     "copyright": "© Shimukappu Central Ski Area — LP mock",
     "credit": "Shimukappu Village · Evaluation mock based on zero-revenue ecosystem strategy report | AI-generated images",
-    "location": "〒079-2201 北海道勇払郡占冠村字中央"
+    "location": "079-2201 · <ruby>Chuo<rt>字中央</rt></ruby>, <ruby>Shimukappu<rt>占冠村</rt></ruby>, <ruby>Yubari District<rt>勇払郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

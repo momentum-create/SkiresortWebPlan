@@ -23,26 +23,58 @@
     "ariaLabel": "Today's operations dashboard",
     "subtitle": "Transparent operations info",
     "updatedAt": "Updated Jun 13, 9:00",
-    "lift1": { "label": "Lift 1", "value": "Operating", "note": "Including ropeway" },
-    "lift2": { "label": "Lift 2", "value": "Closed", "note": "2026 season restoration under review" },
-    "snow": { "label": "Snow quality", "value": "Furano class", "note": "Uncrowded · private feel" },
-    "night": { "label": "Night skiing", "value": "Until 21:00", "note": "Tue–Sat from 9:00" }
+    "lift1": {
+      "label": "Lift 1",
+      "value": "Operating",
+      "note": "Including ropeway"
+    },
+    "lift2": {
+      "label": "Lift 2",
+      "value": "Closed",
+      "note": "2026 season restoration under review"
+    },
+    "snow": {
+      "label": "Snow quality",
+      "value": "Furano class",
+      "note": "Uncrowded · private feel"
+    },
+    "night": {
+      "label": "Night skiing",
+      "value": "Until 21:00",
+      "note": "Tue–Sat from 9:00"
+    }
   },
   "sanctuary": {
     "eyebrow": "Local Sanctuary",
     "title": "Furano snow quality,<br />private quiet.",
     "lead": "A municipal hill surrounded by Furano, Tomamu, and Sahoro. World-resort snow without crowds or price spikes—the value of \"real winter sport\" for eight hours at ¥2,500.",
-    "specs": ["5 courses", "Snowboards welcome", "Resident season ¥10,000"],
+    "specs": [
+      "5 courses",
+      "Snowboards welcome",
+      "Resident season ¥10,000"
+    ],
     "noticeTitle": "Honest reviews say:",
     "noticeBody": "\"Five stars if the third lift ran\"—don't hide aging infrastructure; pivot to hike-up zones and other value.",
     "ctaPass": "Secret Powder Pass",
     "imgAlt": "Quiet night-lit slopes—empty powder runs"
   },
   "paths": {
-    "pass": { "label": "Pass", "title": "Secret Powder Pass" },
-    "access": { "label": "Access", "title": "22 km from Tomamu IC" },
-    "today": { "label": "Today", "title": "Lifts · snow · night skiing" },
-    "hike": { "label": "BC intro", "title": "Hike-up zone" }
+    "pass": {
+      "label": "Pass",
+      "title": "Secret Powder Pass"
+    },
+    "access": {
+      "label": "Access",
+      "title": "22 km from Tomamu IC"
+    },
+    "today": {
+      "label": "Today",
+      "title": "Lifts · snow · night skiing"
+    },
+    "hike": {
+      "label": "BC intro",
+      "title": "Hike-up zone"
+    }
   },
   "highlights": {
     "eyebrow": "What sets us apart",
@@ -63,7 +95,11 @@
     "eyebrow": "Secret Powder Pass",
     "title": "Marriott × Montbell,<br />a three-hour secret.",
     "lead": "For Fairfield by Marriott guests beside Michi-no-Eki Minami-Furano. Bundle 4-hour lift (¥1,500), Montbell gear rental discount, and Nanpu Ezo katsu curry voucher—a half-day away from Furano crowds.",
-    "specs": ["Marriott 78 rooms", "Flagship Montbell store", "Micro-tourism"],
+    "specs": [
+      "Marriott 78 rooms",
+      "Flagship Montbell store",
+      "Micro-tourism"
+    ],
     "cta": "Book pass",
     "imgAlt": "Beside Michi-no-Eki Minami-Furano—Marriott and major outdoor hub"
   },
@@ -81,11 +117,26 @@
     "lead": "For inbound and workation guests—monetize \"gap time\" between mega-resort fatigue with a half-day journey.",
     "badge": "SECRET POWDER · MICRO TOURISM",
     "steps": {
-      "01": { "title": "Marriott Minami-Furano", "body": "Comfortable base camp · remote work" },
-      "02": { "title": "Montbell", "body": "Rent latest gear" },
-      "03": { "title": "Minami-Furano Ski Area", "body": "Four hours of empty powder (¥1,500)" },
-      "04": { "title": "Ezo katsu curry", "body": "Svalbar / Nanputei" },
-      "05": { "title": "Lake Kanayama", "body": "Optional dinner at Log Hotel Larch" }
+      "01": {
+        "title": "Marriott Minami-Furano",
+        "body": "Comfortable base camp · remote work"
+      },
+      "02": {
+        "title": "Montbell",
+        "body": "Rent latest gear"
+      },
+      "03": {
+        "title": "Minami-Furano Ski Area",
+        "body": "Four hours of empty powder (¥1,500)"
+      },
+      "04": {
+        "title": "Ezo katsu curry",
+        "body": "Svalbar / Nanputei"
+      },
+      "05": {
+        "title": "Lake Kanayama",
+        "body": "Optional dinner at Log Hotel Larch"
+      }
     }
   },
   "guides": {
@@ -100,12 +151,16 @@
     "lake": {
       "title": "Lake Kanayama winter resort concept",
       "body": "Use development corp cross-site authority to bundle smelt fishing, fat biking, night skiing, and Log Hotel Larch stays into a 2-night/3-day adventure—beyond the ski area alone.",
-      "hashtags": ["#SecretPowder", "#NanpuEzoCurry", "#LocalSanctuary"]
+      "hashtags": [
+        "#SecretPowder",
+        "#NanpuEzoCurry",
+        "#LocalSanctuary"
+      ]
     }
   },
   "access": {
-    "postal": "〒079-2402",
-    "line": "北海道空知郡南富良野町字幾寅",
+    "postal": "079-2402, Japan",
+    "line": "<ruby>Kito<rt>字幾寅</rt></ruby>, <ruby>Minami-Furano<rt>南富良野町</rt></ruby>, <ruby>Sorachi District<rt>空知郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "About 22 km from Doto Expressway Tomamu IC · old Kitoro Station area, south of Lake Kanayama · 80 free parking spaces",
     "phoneLodge": "TEL 0167-52-2143 (Minami-Furano Ski Area Lodge)",
     "phoneOps": "Lift operations 0167-52-2267 · Development Corp 0167-52-2100"
@@ -113,6 +168,6 @@
   "footer": {
     "copyright": "© Minami-Furano National Ski Area — LP mock",
     "credit": "Minami-Furano Town Development Corp. (designated manager) · Based on local sanctuary strategy report",
-    "location": "〒079-2402 北海道空知郡南富良野町字幾寅"
+    "location": "079-2402 · <ruby>Kito<rt>字幾寅</rt></ruby>, <ruby>Minami-Furano<rt>南富良野町</rt></ruby>, <ruby>Sorachi District<rt>空知郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

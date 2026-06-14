@@ -66,8 +66,12 @@ docs/mock-assets/
 
 ## 住所・電話
 
-- 郵便番号・住所行・電話番号の**数字と正式表記**は ja/en 同一可
-- `access.note` のみ英訳（アクセス説明）
+- **JA**: 郵便番号・住所行は `ja.json` の正式表記（プレーンテキスト）
+- **EN**: 住所は英語表記を主とし、地名は `<ruby>English<rt>日本語</rt></ruby>` でルビ風注記
+  - `access.line` · `footer.location` は `data-i18n-html` でバインド
+  - 生成: `node scripts/apply-en-address-ruby.mjs`
+- `access.note` は英訳（アクセス説明）
+- 電話番号の数字は ja/en 同一可。括弧内注記は英訳
 
 ## 合格基準（検証）
 

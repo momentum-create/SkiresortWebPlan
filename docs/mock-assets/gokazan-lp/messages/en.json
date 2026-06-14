@@ -23,25 +23,57 @@
     "ariaLabel": "Today's operations dashboard",
     "subtitle": "Real-time conditions",
     "updatedAt": "Updated Feb 7, 8:30",
-    "lift": { "label": "Lift", "value": "Operating", "note": "1 single · night skiing available" },
-    "driftIce": { "label": "Drift ice", "value": "Shore contact", "note": "Peak late Jan–Feb" },
-    "courses": { "label": "Courses", "value": "4/4 open", "note": "Okhotsk 31°" },
-    "snow": { "label": "Snow depth", "value": "Check required", "note": "Restrictions possible after rain" }
+    "lift": {
+      "label": "Lift",
+      "value": "Operating",
+      "note": "1 single · night skiing available"
+    },
+    "driftIce": {
+      "label": "Drift ice",
+      "value": "Shore contact",
+      "note": "Peak late Jan–Feb"
+    },
+    "courses": {
+      "label": "Courses",
+      "value": "4/4 open",
+      "note": "Okhotsk 31°"
+    },
+    "snow": {
+      "label": "Snow depth",
+      "value": "Check required",
+      "note": "Restrictions possible after rain"
+    }
   },
   "expert": {
     "eyebrow": "Japow Local",
     "title": "A local secret<br />for experts.",
     "lead": "79% advanced skiers. Okhotsk Course up to 27° with careful grooming and larch-protected snow—the opposite of Niseko, a local powder paradise.",
-    "specs": ["Panorama 1,000 m", "Okhotsk 27°", "XC 4,500 m"],
+    "specs": [
+      "Panorama 1,000 m",
+      "Okhotsk 27°",
+      "XC 4,500 m"
+    ],
     "ctaCourses": "Courses & XC",
     "ctaAccess": "Access & location",
     "imgAlt": "Carving on Okhotsk Course—a local expert hill where 79% are advanced"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Snow & operations" },
-    "pass": { "label": "Pass", "title": "Resort Pass" },
-    "slopes": { "label": "Slopes", "title": "4 courses + XC" },
-    "access": { "label": "Access", "title": "In Yubetsu Town" }
+    "today": {
+      "label": "Today",
+      "title": "Snow & operations"
+    },
+    "pass": {
+      "label": "Pass",
+      "title": "Resort Pass"
+    },
+    "slopes": {
+      "label": "Slopes",
+      "title": "4 courses + XC"
+    },
+    "access": {
+      "label": "Access",
+      "title": "In Yubetsu Town"
+    }
   },
   "highlights": {
     "eyebrow": "Why Gokazan",
@@ -86,10 +118,22 @@
     "lead": "From ¥1,500 point spending to line-and-area consumption—half- to full-day model courses to multiply ARPU.",
     "badge": "YUBETSU DRIFT ICE PREMIUM",
     "steps": {
-      "am": { "title": "Gokazan skiing", "body": "Ski drift-ice and Saroma views. XC too" },
-      "noon": { "title": "Yubetsu seafood", "body": "Scallop & oyster lunch at Ribbon etc." },
-      "pm": { "title": "Ryugudai Observatory", "body": "Observe and photograph drift ice up close" },
-      "eve": { "title": "Tulip-no-Yu", "body": "Sauna and onsen. Souvenir shopping" }
+      "am": {
+        "title": "Gokazan skiing",
+        "body": "Ski drift-ice and Saroma views. XC too"
+      },
+      "noon": {
+        "title": "Yubetsu seafood",
+        "body": "Scallop & oyster lunch at Ribbon etc."
+      },
+      "pm": {
+        "title": "Ryugudai Observatory",
+        "body": "Observe and photograph drift ice up close"
+      },
+      "eve": {
+        "title": "Tulip-no-Yu",
+        "body": "Sauna and onsen. Souvenir shopping"
+      }
     }
   },
   "guides": {
@@ -104,18 +148,22 @@
     "snowPlay": {
       "title": "When you don't ski",
       "body": "Turn low-snow risk into opportunity. Snow BBQ, fire pits, sledding—monetize non-ski content without lifts. Complements families split by single-chair lifts.",
-      "hashtags": ["#DriftIceSki", "#SaromaPanorama", "#GokazanJapow"]
+      "hashtags": [
+        "#DriftIceSki",
+        "#SaromaPanorama",
+        "#GokazanJapow"
+      ]
     }
   },
   "access": {
-    "postal": "〒099-6323",
-    "line": "北海道紋別郡湧別町北兵村二区100番地",
+    "postal": "099-6323, Japan",
+    "line": "<ruby>Kitahei Village Section 2, No. 100<rt>北兵村二区100番地</rt></ruby>, <ruby>Yubetsu<rt>湧別町</rt></ruby>, <ruby>Mombetsu District<rt>紋別郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "About 20 minutes by car from JR Engaru Station · about 5 minutes by car to Kamiyubetsu Onsen Tulip-no-Yu",
     "phone": "TEL 01586-2-3111 (Gokazan Ski Area Lodge)"
   },
   "footer": {
     "copyright": "© Gokazan Ski Area (Yubetsu) — LP mock",
     "credit": "Designated manager: Sawaguchi Sangyo Co., Ltd. · AI-generated mock images",
-    "location": "〒099-6323 北海道紋別郡湧別町北兵村二区100番地"
+    "location": "099-6323 · <ruby>Kitahei Village Section 2, No. 100<rt>北兵村二区100番地</rt></ruby>, <ruby>Yubetsu<rt>湧別町</rt></ruby>, <ruby>Mombetsu District<rt>紋別郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

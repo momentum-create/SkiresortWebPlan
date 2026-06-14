@@ -30,10 +30,22 @@
     "imgAlt": "Traveler walking white hills—the stroll route from Biei Station to the ski area"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Today's operations" },
-    "access": { "label": "Access", "title": "Walking from the station" },
-    "wellness": { "label": "Snow play", "title": "Snow wellness area" },
-    "pricing": { "label": "Pricing", "title": "Free lift & rentals" }
+    "today": {
+      "label": "Today",
+      "title": "Today's operations"
+    },
+    "access": {
+      "label": "Access",
+      "title": "Walking from the station"
+    },
+    "wellness": {
+      "label": "Snow play",
+      "title": "Snow wellness area"
+    },
+    "pricing": {
+      "label": "Pricing",
+      "title": "Free lift & rentals"
+    }
   },
   "highlights": {
     "eyebrow": "Why Biei",
@@ -63,11 +75,26 @@
     "title": "A full day<br />starting at the station",
     "lead": "A customer journey where FIT travelers explore snow play, culture, and views independently after arriving at Biei Station.",
     "steps": {
-      "01": { "title": "Arrival & intro", "body": "Biei Station. Cold-weather rentals, coffee to-go at ARBOLITO and more" },
-      "02": { "title": "Immersion", "body": "15-minute walk. Snowshoes, sleds, snow play plaza" },
-      "03": { "title": "Restore & nourish", "body": "Pot-au-feu at Okiraku-tei, warming lunch" },
-      "04": { "title": "Culture & reflection", "body": "Art walks at Takuma-kan and Birch Tree Corridor" },
-      "05": { "title": "Views & finale", "body": "Blue Pond and Shirahige Falls light-up" }
+      "01": {
+        "title": "Arrival & intro",
+        "body": "Biei Station. Cold-weather rentals, coffee to-go at ARBOLITO and more"
+      },
+      "02": {
+        "title": "Immersion",
+        "body": "15-minute walk. Snowshoes, sleds, snow play plaza"
+      },
+      "03": {
+        "title": "Restore & nourish",
+        "body": "Pot-au-feu at Okiraku-tei, warming lunch"
+      },
+      "04": {
+        "title": "Culture & reflection",
+        "body": "Art walks at Takuma-kan and Birch Tree Corridor"
+      },
+      "05": {
+        "title": "Views & finale",
+        "body": "Blue Pond and Shirahige Falls light-up"
+      }
     }
   },
   "guides": {
@@ -82,18 +109,22 @@
     "responsible": {
       "title": "The landscape is someone's livelihood",
       "body": "The landscape is someone's livelihood. No entry to farmland or private property. How to shoot minimalist photos in welcoming spaces. Enjoying Biei as a responsible traveler.",
-      "hashtags": ["#BieiWinterAesthetic", "#SnowGlobeVillage", "#WinterWellnessHokkaido"]
+      "hashtags": [
+        "#BieiWinterAesthetic",
+        "#SnowGlobeVillage",
+        "#WinterWellnessHokkaido"
+      ]
     }
   },
   "access": {
-    "postal": "〒071-0218",
-    "line": "北海道上川郡美瑛町字大村村山",
+    "postal": "071-0218, Japan",
+    "line": "<ruby>Omura-Murayama<rt>字大村村山</rt></ruby>, <ruby>Biei Town<rt>美瑛町</rt></ruby>, <ruby>Kamikawa District<rt>上川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "About a 15-minute walk (approx. 1.5 km) from JR Furano Line Biei Station",
     "phone": "TEL 0166-92-5808 (Biei Town)"
   },
   "footer": {
     "copyright": "© Biei Town Ski Area — LP mock",
     "credit": "Images: AI-generated mocks (production will use real photos and official assets)",
-    "location": "〒071-0218 北海道上川郡美瑛町字大村村山"
+    "location": "071-0218 · <ruby>Omura-Murayama<rt>字大村村山</rt></ruby>, <ruby>Biei Town<rt>美瑛町</rt></ruby>, <ruby>Kamikawa District<rt>上川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

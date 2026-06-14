@@ -34,17 +34,33 @@
     "eyebrow": "Strategic Pivot",
     "title": "Lifts stopped.<br />Space rewritten.",
     "lead": "The former mass-market ski area ended public alpine skiing. ~400,000 m² reallocated to competition training and English immersion camps—a year-round specialized infrastructure built for unstable snowfall.",
-    "specs": ["SAJ certified events", "Roller skiing", "40 ha campus"],
+    "specs": [
+      "SAJ certified events",
+      "Roller skiing",
+      "40 ha campus"
+    ],
     "noticeTitle": "Public alpine skiing:",
     "noticeBody": "We do not operate lift-served public downhill skiing. We guide Nordic programs, education, and course use by advance reservation.",
     "ctaNordic": "Using competition courses",
     "imgAlt": "Athletes on a cross-country course reusing former ski terrain"
   },
   "paths": {
-    "camp": { "label": "Education", "title": "English Adventure" },
-    "access": { "label": "Access", "title": "10 min from Echigo-Tanaka" },
-    "nordic": { "label": "Competition", "title": "CC · roller ski" },
-    "schedule": { "label": "Events", "title": "Schedule" }
+    "camp": {
+      "label": "Education",
+      "title": "English Adventure"
+    },
+    "access": {
+      "label": "Access",
+      "title": "10 min from Echigo-Tanaka"
+    },
+    "nordic": {
+      "label": "Competition",
+      "title": "CC · roller ski"
+    },
+    "schedule": {
+      "label": "Events",
+      "title": "Schedule"
+    }
   },
   "highlights": {
     "eyebrow": "Two Pillars",
@@ -65,7 +81,11 @@
     "eyebrow": "English Adventure",
     "title": "Put down screens,<br />immerse in English.",
     "lead": "English outdoor camps run by Panorama LLC. Year-round from 4-night/5-day to 8-night/9-day for grades 1–9 through winter break. Former lodge base with nurse on site, multipurpose hall, craft house—glamping from summer 2025.",
-    "specs": ["Charter bus transfer", "~3 hours from Tokyo", "¥6,000 private-car discount"],
+    "specs": [
+      "Charter bus transfer",
+      "~3 hours from Tokyo",
+      "¥6,000 private-car discount"
+    ],
     "cta": "Programs & dates",
     "imgAlt": "Children at camp fire communicating in English—English Adventure"
   },
@@ -84,11 +104,26 @@
     "lead": "For education-focused urban families—charter buses and private-car discounts designed to trigger family trips around Tsunan.",
     "badge": "SPACE ARBITRAGE · EDUCATION",
     "steps": {
-      "01": { "title": "Shinjuku · Nagoya · Osaka", "body": "Official charter bus (~3 hours via Kan-Etsu)" },
-      "02": { "title": "40 ha campus", "body": "English experiences among lake, hills, low elements" },
-      "03": { "title": "Lodge life", "body": "Dining hall, showers, nurse station" },
-      "04": { "title": "Craft & camp fire", "body": "Nights to sing, make, and talk in English" },
-      "05": { "title": "Family Tsunan tour", "body": "¥6,000 discount with private-car pickup" }
+      "01": {
+        "title": "Shinjuku · Nagoya · Osaka",
+        "body": "Official charter bus (~3 hours via Kan-Etsu)"
+      },
+      "02": {
+        "title": "40 ha campus",
+        "body": "English experiences among lake, hills, low elements"
+      },
+      "03": {
+        "title": "Lodge life",
+        "body": "Dining hall, showers, nurse station"
+      },
+      "04": {
+        "title": "Craft & camp fire",
+        "body": "Nights to sing, make, and talk in English"
+      },
+      "05": {
+        "title": "Family Tsunan tour",
+        "body": "¥6,000 discount with private-car pickup"
+      }
     }
   },
   "guides": {
@@ -103,18 +138,22 @@
     "campGuide": {
       "title": "Complete English Adventure guide",
       "body": "Five screen-free days, glamping, charter bus and car discounts. How former ski land became a blue ocean in education—a premium package for urban families.",
-      "hashtags": ["#TsunanPivot", "#EnglishAdventure", "#SpaceArbitrage"]
+      "hashtags": [
+        "#TsunanPivot",
+        "#EnglishAdventure",
+        "#SpaceArbitrage"
+      ]
     }
   },
   "access": {
-    "postal": "〒949-8122",
-    "line": "新潟県中魚沼郡津南町大字上郷上田甲1745-1",
+    "postal": "949-8122, Japan",
+    "line": "<ruby>Kamigo Kamida Ko 1745-1<rt>大字上郷上田甲1745-1</rt></ruby>, <ruby>Tsunan<rt>津南町</rt></ruby>, <ruby>Nakauonuma District<rt>中魚沼郡</rt></ruby>, <ruby>Niigata Prefecture<rt>新潟県</rt></ruby>",
     "note": "About 50 minutes by car from Kan-Etsu Shiozawa-Ishiuchi IC · about 10 minutes by car from JR Echigo-Tanaka Station · 300 parking spaces",
     "phone": "TEL 025-765-2040 (Panorama LLC)"
   },
   "footer": {
     "copyright": "© Mountain Park Tsunan — LP mock",
     "credit": "Operated by Panorama LLC · Based on pivot strategy report · AI-generated mock images",
-    "location": "〒949-8122 新潟県中魚沼郡津南町大字上郷上田甲1745-1"
+    "location": "949-8122 · <ruby>Kamigo Kamida Ko 1745-1<rt>大字上郷上田甲1745-1</rt></ruby>, <ruby>Tsunan<rt>津南町</rt></ruby>, <ruby>Nakauonuma District<rt>中魚沼郡</rt></ruby>, <ruby>Niigata Prefecture<rt>新潟県</rt></ruby>"
   }
 }

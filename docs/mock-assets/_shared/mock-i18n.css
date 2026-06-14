@@ -31,3 +31,20 @@
   outline: 2px solid var(--accent, #3d5a80);
   outline-offset: 2px;
 }
+
+/* EN address: English primary + Japanese place-name ruby */
+html[lang="en"] ruby {
+  ruby-position: over;
+}
+
+html[lang="en"] rt {
+  font-size: 0.58em;
+  font-weight: 400;
+  color: var(--muted, #5a6478);
+  letter-spacing: 0.02em;
+}
+
+html[lang="en"] .access-line ruby,
+html[lang="en"] .footer-location ruby {
+  font-weight: 600;
+}

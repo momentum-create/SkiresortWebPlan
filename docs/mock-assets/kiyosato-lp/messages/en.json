@@ -29,16 +29,32 @@
     "eyebrow": "Transit Skiing",
     "title": "Five minutes<br />from Midori Station.",
     "lead": "About 0.5 km from JR Senmo Line Midori Station. For rail travelers without a car, a rare station-adjacent ski area nationwide. Walk to adjacent day-use bath Midori-no-Yu.",
-    "specs": ["Single chairlift", "2 courses", "Midori-no-Yu adjacent"],
+    "specs": [
+      "Single chairlift",
+      "2 courses",
+      "Midori-no-Yu adjacent"
+    ],
     "ctaAccess": "Access & walk from station",
     "ctaPricing": "Pricing (3-hour ticket ¥1,200)",
     "imgAlt": "Long turns on an empty run—ideal practice at Midori Ski Area"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Snow & operations" },
-    "access": { "label": "Access", "title": "5 min from Midori Station" },
-    "slopes": { "label": "Slopes", "title": "Courses & snow park" },
-    "nearby": { "label": "Nearby", "title": "Midori-no-Yu · NAP" }
+    "today": {
+      "label": "Today",
+      "title": "Snow & operations"
+    },
+    "access": {
+      "label": "Access",
+      "title": "5 min from Midori Station"
+    },
+    "slopes": {
+      "label": "Slopes",
+      "title": "Courses & snow park"
+    },
+    "nearby": {
+      "label": "Nearby",
+      "title": "Midori-no-Yu · NAP"
+    }
   },
   "highlights": {
     "eyebrow": "Why Midori Ski",
@@ -77,11 +93,26 @@
     "lead": "Model course for car-free travelers and youth—a zero-emission day snow trip.",
     "badge": "ZERO EMISSION SKI TRIP",
     "steps": {
-      "01": { "title": "JR Midori Station", "body": "Arrive on Senmo Line. Five-minute walk to slopes" },
-      "02": { "title": "Powder & park", "body": "Practice on empty runs. Snow park experience" },
-      "03": { "title": "NAP", "body": "Local sandwich lunch at the rest hut" },
-      "04": { "title": "Midori-no-Yu", "body": "Recover at adjacent onsen" },
-      "05": { "title": "Return by JR", "body": "Walk back to station. No rental car needed" }
+      "01": {
+        "title": "JR Midori Station",
+        "body": "Arrive on Senmo Line. Five-minute walk to slopes"
+      },
+      "02": {
+        "title": "Powder & park",
+        "body": "Practice on empty runs. Snow park experience"
+      },
+      "03": {
+        "title": "NAP",
+        "body": "Local sandwich lunch at the rest hut"
+      },
+      "04": {
+        "title": "Midori-no-Yu",
+        "body": "Recover at adjacent onsen"
+      },
+      "05": {
+        "title": "Return by JR",
+        "body": "Walk back to station. No rental car needed"
+      }
     }
   },
   "guides": {
@@ -96,18 +127,22 @@
     "handfree": {
       "title": "How to visit hands-free",
       "body": "Offset no on-site rental with Ski Ta-Q-Bin and lodging delivery partnerships. Web pages to remove the top barrier for new guests: \"you must bring your own gear.\"",
-      "hashtags": ["#TransitSkiing", "#JapowLocal", "#RailwaySkiArea"]
+      "hashtags": [
+        "#TransitSkiing",
+        "#JapowLocal",
+        "#RailwaySkiArea"
+      ]
     }
   },
   "access": {
-    "postal": "〒099-4525",
-    "line": "北海道斜里郡清里町緑町51-1",
+    "postal": "099-4525, Japan",
+    "line": "<ruby>Midori 51-1<rt>緑町51-1</rt></ruby>, <ruby>Kiyosato<rt>清里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "About a 5-minute walk (~0.5 km) from JR Senmo Line Midori Station · adjacent Midori-no-Yu",
     "phone": "TEL 0152-27-5512 (Kiyosato Town)"
   },
   "footer": {
     "copyright": "© Kiyosato Midori Ski Area — LP mock",
     "credit": "Operated by Kiyosato Town · Category 1 → standalone site evaluation · AI-generated mock images",
-    "location": "〒099-4525 北海道斜里郡清里町緑町51-1"
+    "location": "099-4525 · <ruby>Midori 51-1<rt>緑町51-1</rt></ruby>, <ruby>Kiyosato<rt>清里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }

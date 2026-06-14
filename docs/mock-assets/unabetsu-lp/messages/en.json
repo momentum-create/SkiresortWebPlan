@@ -21,25 +21,58 @@
     "ariaLabel": "Today's operations dashboard",
     "subtitle": "Today's conditions",
     "updatedAt": "Updated Feb 7, 8:45",
-    "lift": { "label": "Lift", "value": "Operating", "note": "1 pair lift" },
-    "driftIce": { "label": "Drift ice", "value": "Shore contact", "note": "Dramatic views below" },
-    "courses": { "label": "Courses", "value": "3/3 open", "note": "Night skiing available" },
-    "snow": { "label": "Snow quality", "value": "Groomed, good", "note": "Check after rain" }
+    "lift": {
+      "label": "Lift",
+      "value": "Operating",
+      "note": "1 pair lift"
+    },
+    "driftIce": {
+      "label": "Drift ice",
+      "value": "Shore contact",
+      "note": "Dramatic views below"
+    },
+    "courses": {
+      "label": "Courses",
+      "value": "3/3 open",
+      "note": "Night skiing available"
+    },
+    "snow": {
+      "label": "Snow quality",
+      "value": "Groomed, good",
+      "note": "Check after rain"
+    }
   },
   "quality": {
     "eyebrow": "Shiretoko",
     "title": "Not just<br />the views.",
     "lead": "From ultra-low elevation (~50 m), Okhotsk drift ice fills your sightline. At the same time, Salmon Course up to 31° with careful grooming—a serious carving hill.",
-    "specs": ["Larch 25°", "Center 29°", "Salmon 31°", "Night skiing"],
+    "specs": [
+      "Larch 25°",
+      "Center 29°",
+      "Salmon 31°",
+      "Night skiing"
+    ],
     "ctaMap": "Course map",
     "ctaPricing": "Ticket prices",
     "imgAlt": "Carving turn on a larch run—with drift ice in the background"
   },
   "paths": {
-    "today": { "label": "Today", "title": "Operations & conditions" },
-    "access": { "label": "Access", "title": "From Shari & Shiretoko" },
-    "slopes": { "label": "Slopes", "title": "3 courses · drift-ice views" },
-    "rental": { "label": "Book", "title": "Hands-free rental" }
+    "today": {
+      "label": "Today",
+      "title": "Operations & conditions"
+    },
+    "access": {
+      "label": "Access",
+      "title": "From Shari & Shiretoko"
+    },
+    "slopes": {
+      "label": "Slopes",
+      "title": "3 courses · drift-ice views"
+    },
+    "rental": {
+      "label": "Book",
+      "title": "Hands-free rental"
+    }
   },
   "highlights": {
     "eyebrow": "Why Unabetsu",
@@ -72,10 +105,22 @@
     "cta": "View area tour plans",
     "imgAlt": "Road to Heaven—Shari area drive",
     "steps": {
-      "01": { "title": "Arrival", "body": "Shari / Shiretoko area. Check today's conditions on the dashboard" },
-      "02": { "title": "Scenic runs", "body": "Hands-free rental + 2-hour ticket. Ski the drift-ice view" },
-      "03": { "title": "Explore", "body": "Road to Heaven, warm up at onsen" },
-      "04": { "title": "Share", "body": "UGC with drift ice backdrop—for the next visitor" }
+      "01": {
+        "title": "Arrival",
+        "body": "Shari / Shiretoko area. Check today's conditions on the dashboard"
+      },
+      "02": {
+        "title": "Scenic runs",
+        "body": "Hands-free rental + 2-hour ticket. Ski the drift-ice view"
+      },
+      "03": {
+        "title": "Explore",
+        "body": "Road to Heaven, warm up at onsen"
+      },
+      "04": {
+        "title": "Share",
+        "body": "UGC with drift ice backdrop—for the next visitor"
+      }
     }
   },
   "guides": {
@@ -90,18 +135,22 @@
     "shiretoko": {
       "title": "Shiretoko & Shari half-day model course",
       "body": "Stopover plans paired with icebreaker cruises and drift-ice walks. Road to Heaven, onsen, lodge lunch—a tour package aligned with Shari's second tourism promotion plan.",
-      "hashtags": ["#DriftIceSki", "#ShiretokoGateway", "#OkhotskView"]
+      "hashtags": [
+        "#DriftIceSki",
+        "#ShiretokoGateway",
+        "#OkhotskView"
+      ]
     }
   },
   "access": {
-    "postal": "〒099-4122",
-    "line": "北海道斜里郡斜里町字峰浜110番地",
+    "postal": "099-4122, Japan",
+    "line": "<ruby>Minehama 110<rt>字峰浜110番地</rt></ruby>, <ruby>Shari Town<rt>斜里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
     "note": "Gateway to the Shiretoko Peninsula, within Shari Town (car access is typical)",
     "phone": "TEL 0152-28-2225"
   },
   "footer": {
     "copyright": "© Unabetsu Ski Area (Kaibetsu) — LP mock",
     "credit": "Operated by Shiretoko Shari Tourism Association NPO | AI-generated mock images",
-    "location": "〒099-4122 北海道斜里郡斜里町字峰浜110番地"
+    "location": "099-4122 · <ruby>Minehama 110<rt>字峰浜110番地</rt></ruby>, <ruby>Shari Town<rt>斜里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
   }
 }
