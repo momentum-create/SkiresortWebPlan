@@ -80,7 +80,8 @@
       },
       "02": {
         "title": "Immersion",
-        "body": "15-minute walk. Snowshoes, sleds, snow play plaza"
+        "body": "Free snow play plaza (15-min walk) or a guided hill snowshoe tour",
+        "linkLabel": "Snow play guide"
       },
       "03": {
         "title": "Restore & nourish",
@@ -100,7 +101,8 @@
   "guides": {
     "wellness": {
       "title": "Snow wellness experiences",
-      "body": "Kanjiki meditation walks with local farm guides, play wellness on designated snowfields. A hub where non-skiing visitors from Asia can safely enjoy snow—the opposite of Niseko: silence, introspection, cocooning."
+      "body": "Gateway to official programs like the Furari Winter Walk hill snowshoe tour and Tokotoko Adventure—plus a one-day model pairing free play at the town ski area.",
+      "thumbAlt": "Snowshoeing Biei snowfields—a snow wellness experience"
     },
     "walk": {
       "title": "Micro-tourism on foot from the station",
@@ -181,6 +183,58 @@
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shirogane+Blue+Pond+Biei+Hokkaido",
     "heroImageAlt": "Shirogane Blue Pond at night under light-up—birch silhouettes and cobalt water",
     "galleryAlt": "Winter at Shirogane Blue Pond—cobalt surface framed by snow"
+  },
+  "snowPlay": {
+    "meta": {
+      "title": "Snow Play Experiences — Biei Town Ski Area",
+      "description": "Furari Winter Walk snowshoe tour, Tokotoko Adventure booking, and free snow play—official links included"
+    },
+    "backLink": "Back to Biei guide",
+    "hero": {
+      "eyebrow": "Snow wellness",
+      "title": "Snow play<br />without skiing",
+      "tagline": "From a free snow plaza to guided hill snowshoes—touch Biei winter"
+    },
+    "notice": "Seasons, prices, and capacity change—each operator's official site is authoritative. Hill access may require a licensed guide (no trespass on farmland or private land).",
+    "introTitle": "Three entry points",
+    "introLead": "Biei Town Ski Area offers free snow play. Go further with the tourism association's hill tour or local operator bookings.",
+    "introBody": "Enjoy only in welcoming spaces—no entering patchwork farmland. Choose designated routes and guided experiences.",
+    "hubEyebrow": "Free · Walkable",
+    "hubTitle": "Town ski area snow play plaza",
+    "hubLead": "About a 15-minute walk from JR Biei Station. Sledding, snowmen, deep-snow play—a wellness-oriented free zone (lift free).",
+    "hubCta": "See access",
+    "hubLink": "./#access",
+    "experiencesEyebrow": "Guided · Book",
+    "experiencesTitle": "Official & bookable programs",
+    "experiencesLead": "For hill views and adventures, check the latest info and book on the official pages below.",
+    "furari": {
+      "eyebrow": "Biei Tourism Association",
+      "title": "\"Furari Winter Walk\"",
+      "subtitle": "Scenic hill snowshoe in Biei",
+      "lead": "Crisp air and marshmallow hills—a picture-book snowscape on beginner-friendly snowshoes. Meet at Shiki-no-Joho-kan next to JR Biei Station.",
+      "seasonLabel": "Season",
+      "season": "Typically late December–early March (varies with snow)",
+      "meetLabel": "Meet",
+      "meet": "Shiki-no-Joho-kan (Biei Tourism Association) · 1 min from JR Biei Station",
+      "durationLabel": "Duration",
+      "duration": "About 2 hours (morning & afternoon departures)",
+      "note": "Hill snowshoeing runs only on permitted guided tours. You cannot walk the hills without an authorized guide.",
+      "cta": "Official tourism association page",
+      "url": "https://www.biei-hokkaido.jp/ja/facility/hill-snowshoe-tours"
+    },
+    "tokotoko": {
+      "eyebrow": "Local operator",
+      "title": "Tokotoko Adventure",
+      "subtitle": "Book Biei winter activities",
+      "lead": "Snowshoe and snow experiences bookable online. Check availability and courses on the reservation site.",
+      "cta": "Go to booking site",
+      "url": "https://tokotoko-adventure.stores.jp/reserve/tokotoko-adventure"
+    },
+    "pairingTitle": "Sample one-day pairing",
+    "pairingLead": "AM: Furari Winter Walk → Lunch near the station → PM: free snow play at the town ski area → Night: Shirogane Blue Pond light-up.",
+    "pairingBluePondCta": "Blue Pond guide",
+    "heroImageAlt": "Snowshoeing Biei snowfields—a snow wellness experience",
+    "galleryAlt": "White hills and clear winter sky—Biei snow wellness scenery"
   },
   "access": {
     "postal": "071-0218, Japan",

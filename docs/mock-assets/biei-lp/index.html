@@ -94,10 +94,16 @@
             <span class="path-tile__title" data-i18n="paths.access.title">駅からの歩き方</span>
             <span class="path-tile__arrow" aria-hidden="true">→</span>
           </a>
-          <a href="#" class="path-tile span-8">
-            <span class="path-tile__label" data-i18n="paths.wellness.label">雪遊び</span>
-            <span class="path-tile__title" data-i18n="paths.wellness.title">スノーウェルネス・エリア</span>
-            <span class="path-tile__arrow" aria-hidden="true">→</span>
+          <a href="snow-play.html" class="path-tile path-tile--visual span-8">
+            <span class="path-tile__bg" aria-hidden="true">
+              <img src="lp-mock-biei-wellness.png" alt="" width="1600" height="1100" />
+            </span>
+            <span class="path-tile__overlay" aria-hidden="true"></span>
+            <span class="path-tile__content">
+              <span class="path-tile__label" data-i18n="paths.wellness.label">雪遊び</span>
+              <span class="path-tile__title" data-i18n="paths.wellness.title">スノーウェルネス・エリア</span>
+              <span class="path-tile__arrow" aria-hidden="true">→</span>
+            </span>
           </a>
           <a href="#" class="path-tile span-4">
             <span class="path-tile__label" data-i18n="paths.pricing.label">料金</span>
@@ -140,7 +146,7 @@
               <p class="lead" style="margin-top:1rem" data-i18n="highlights.primary.lead">
                 滑走を主目的としない、雪に触れ・感じ・心身を回復する空間。スノーシュー瞑想歩行、雪だるま、そり遊び——巨大リゾートの喧騒がない、コクーニング・ウェルネスのサンクチュアリ。
               </p>
-              <a href="#" class="btn btn-primary" style="margin-top:2rem" data-i18n="highlights.primary.cta">雪遊び体験を見る</a>
+              <a href="snow-play.html" class="btn btn-primary" style="margin-top:2rem" data-i18n="highlights.primary.cta">雪遊び体験を見る</a>
             </div>
           </article>
 
@@ -220,7 +226,8 @@
           <div class="journey-step">
             <p class="journey-step__num">02</p>
             <p class="journey-step__title" data-i18n="journey.steps.02.title">没入・体験</p>
-            <p class="journey-step__body" data-i18n="journey.steps.02.body">徒歩15分。スノーシュー、そり、雪遊びひろば</p>
+            <p class="journey-step__body" data-i18n="journey.steps.02.body">徒歩15分の無料雪遊びひろば、または丘のスノーシューツアー</p>
+            <a href="snow-play.html" class="journey-step__link" data-i18n="journey.steps.02.linkLabel">雪遊び体験ガイド</a>
           </div>
           <div class="journey-step">
             <p class="journey-step__num">03</p>
@@ -254,10 +261,23 @@
               <span class="guide-icon" aria-hidden="true">−</span>
             </button>
             <div class="guide-panel is-open" id="panel-wellness">
-              <p class="lead" data-i18n="guides.wellness.body">
-                地元農家ガイドによるかんじき瞑想歩行、指定雪原でのプレイ・ウェルネス。アジア圏の非滑走層が、安全に雪と戯れるためのハブ拠点。ニセコの対極——静寂、内省、コクーニング。
-              </p>
-              <a href="#" class="btn btn-ghost" style="margin-top:1.25rem" data-i18n="common.read">読む</a>
+              <div class="guide-preview">
+                <div class="guide-preview__thumb">
+                  <img
+                    src="lp-mock-biei-wellness.png"
+                    data-i18n-attr="alt:guides.wellness.thumbAlt"
+                    alt="美瑛の雪原をスノーシューで歩く"
+                    width="280"
+                    height="350"
+                  />
+                </div>
+                <div>
+                  <p class="lead" data-i18n="guides.wellness.body">
+                    美瑛の丘スノーシュー「ふら～り 冬さんぽ」や Tokotoko Adventure など、公式・認定プログラムへの入口。
+                  </p>
+                  <a href="snow-play.html" class="btn btn-ghost" style="margin-top:1.25rem" data-i18n="common.read">読む</a>
+                </div>
+              </div>
             </div>
           </li>
           <li class="guide-item">
