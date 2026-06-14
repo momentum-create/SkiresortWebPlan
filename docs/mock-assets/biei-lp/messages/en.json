@@ -118,13 +118,14 @@
   },
   "access": {
     "postal": "071-0218, Japan",
-    "line": "<ruby>Omura-Murayama<rt>字大村村山</rt></ruby>, <ruby>Biei Town<rt>美瑛町</rt></ruby>, <ruby>Kamikawa District<rt>上川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
+    "line": "Omura-Murayama, Biei-cho, Kamikawa-gun, Hokkaido",
     "note": "About a 15-minute walk (approx. 1.5 km) from JR Furano Line Biei Station",
-    "phone": "TEL 0166-92-5808 (Biei Town)"
+    "phone": "TEL 0166-92-5808 (Biei Town)",
+    "places": "<span class=\"place-unit\"><ruby>北海道<rt>Hokkaido</rt></ruby></span><span class=\"place-unit\"><ruby>上川郡<rt>Kamikawa-gun</rt></ruby></span><span class=\"place-unit\"><ruby>美瑛町<rt>Biei-cho</rt></ruby></span><span class=\"place-unit\"><ruby>字大村村山<rt>Omura-Murayama</rt></ruby></span>"
   },
   "footer": {
     "copyright": "© Biei Town Ski Area — LP mock",
     "credit": "Images: AI-generated mocks (production will use real photos and official assets)",
-    "location": "071-0218 · <ruby>Omura-Murayama<rt>字大村村山</rt></ruby>, <ruby>Biei Town<rt>美瑛町</rt></ruby>, <ruby>Kamikawa District<rt>上川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
+    "location": "071-0218 · Omura-Murayama, Biei-cho, Kamikawa-gun, Hokkaido"
   }
 }

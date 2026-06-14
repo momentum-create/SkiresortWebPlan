@@ -32,19 +32,43 @@
   outline-offset: 2px;
 }
 
-/* EN address: English primary + Japanese place-name ruby */
-html[lang="en"] ruby {
-  ruby-position: over;
+/* EN address: plain English line + administrative-unit place row (ja order) */
+html[lang="en"] .access-places {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.65rem 1.5rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
 }
 
-html[lang="en"] rt {
-  font-size: 0.58em;
-  font-weight: 400;
-  color: var(--muted, #5a6478);
-  letter-spacing: 0.02em;
+html[lang="ja"] .access-places {
+  display: none;
 }
 
-html[lang="en"] .access-line ruby,
-html[lang="en"] .footer-location ruby {
+html[lang="en"] .place-unit {
+  display: inline-block;
+  text-align: center;
+  line-height: 1.35;
+}
+
+html[lang="en"] .place-unit ruby {
+  ruby-position: under;
+  -webkit-ruby-position: after;
+}
+
+html[lang="en"] .place-unit ruby > rb,
+html[lang="en"] .place-unit ruby {
+  font-size: 1.05rem;
   font-weight: 600;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+html[lang="en"] .place-unit rt {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted, #5a6478);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
 }

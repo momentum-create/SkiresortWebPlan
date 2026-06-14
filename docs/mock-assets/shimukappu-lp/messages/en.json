@@ -240,13 +240,14 @@
   },
   "access": {
     "postal": "079-2201, Japan",
-    "line": "<ruby>Chuo<rt>字中央</rt></ruby>, <ruby>Shimukappu<rt>占冠村</rt></ruby>, <ruby>Yubari District<rt>勇払郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
+    "line": "Chuo, Shimukappu, Yubari-gun, Hokkaido",
     "note": "Narrow levee road from National Route 237 · approx. 3 km from Shimukappu Station",
-    "phone": "TEL 0167-56-2746 (ski area · in season)"
+    "phone": "TEL 0167-56-2746 (ski area · in season)",
+    "places": "<span class=\"place-unit\"><ruby>北海道<rt>Hokkaido</rt></ruby></span><span class=\"place-unit\"><ruby>勇払郡<rt>Yubari-gun</rt></ruby></span><span class=\"place-unit\"><ruby>占冠村<rt>Shimukappu</rt></ruby></span><span class=\"place-unit\"><ruby>字中央<rt>Chuo</rt></ruby></span>"
   },
   "footer": {
     "copyright": "© Shimukappu Central Ski Area — LP mock",
     "credit": "Shimukappu Village · Evaluation mock based on zero-revenue ecosystem strategy report | AI-generated images",
-    "location": "079-2201 · <ruby>Chuo<rt>字中央</rt></ruby>, <ruby>Shimukappu<rt>占冠村</rt></ruby>, <ruby>Yubari District<rt>勇払郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
+    "location": "079-2201 · Chuo, Shimukappu, Yubari-gun, Hokkaido"
   }
 }

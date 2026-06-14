@@ -144,13 +144,14 @@
   },
   "access": {
     "postal": "099-4122, Japan",
-    "line": "<ruby>Minehama 110<rt>字峰浜110番地</rt></ruby>, <ruby>Shari Town<rt>斜里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
+    "line": "Minehama 110, Shari, Shari-gun, Hokkaido",
     "note": "Gateway to the Shiretoko Peninsula, within Shari Town (car access is typical)",
-    "phone": "TEL 0152-28-2225"
+    "phone": "TEL 0152-28-2225",
+    "places": "<span class=\"place-unit\"><ruby>北海道<rt>Hokkaido</rt></ruby></span><span class=\"place-unit\"><ruby>斜里郡<rt>Shari-gun</rt></ruby></span><span class=\"place-unit\"><ruby>斜里町<rt>Shari</rt></ruby></span><span class=\"place-unit\"><ruby>字峰浜110番地<rt>Minehama 110</rt></ruby></span>"
   },
   "footer": {
     "copyright": "© Unabetsu Ski Area (Kaibetsu) — LP mock",
     "credit": "Operated by Shiretoko Shari Tourism Association NPO | AI-generated mock images",
-    "location": "099-4122 · <ruby>Minehama 110<rt>字峰浜110番地</rt></ruby>, <ruby>Shari Town<rt>斜里町</rt></ruby>, <ruby>Shari District<rt>斜里郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
+    "location": "099-4122 · Minehama 110, Shari, Shari-gun, Hokkaido"
   }
 }

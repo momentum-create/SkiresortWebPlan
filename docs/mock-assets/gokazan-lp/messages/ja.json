@@ -23,25 +23,57 @@
     "ariaLabel": "本日の運営ダッシュボード",
     "subtitle": "リアルタイムコンディション",
     "updatedAt": "更新 2/7 8:30",
-    "lift": { "label": "リフト", "value": "運行中", "note": "シングル1基 · ナイター可" },
-    "driftIce": { "label": "流氷", "value": "接岸中", "note": "1月下旬〜2月ピーク" },
-    "courses": { "label": "コース", "value": "4/4 開放", "note": "オホーツク 31°" },
-    "snow": { "label": "積雪", "value": "要確認", "note": "降雨時は制限あり" }
+    "lift": {
+      "label": "リフト",
+      "value": "運行中",
+      "note": "シングル1基 · ナイター可"
+    },
+    "driftIce": {
+      "label": "流氷",
+      "value": "接岸中",
+      "note": "1月下旬〜2月ピーク"
+    },
+    "courses": {
+      "label": "コース",
+      "value": "4/4 開放",
+      "note": "オホーツク 31°"
+    },
+    "snow": {
+      "label": "積雪",
+      "value": "要確認",
+      "note": "降雨時は制限あり"
+    }
   },
   "expert": {
     "eyebrow": "Japow Local",
     "title": "玄人の、<br />秘境。",
     "lead": "利用者の79%が上級者。最大斜度27度のオホーツクコース、丁寧な圧雪、カラマツ林が守る雪質——ニセコの対極にある、ローカルなパウダー天国。",
-    "specs": ["パノラマ 1,000m", "オホーツク 27°", "クロカン 4,500m"],
+    "specs": [
+      "パノラマ 1,000m",
+      "オホーツク 27°",
+      "クロカン 4,500m"
+    ],
     "ctaCourses": "コース・クロカン",
     "ctaAccess": "アクセス・所在地",
     "imgAlt": "オホーツクコースでカービング——上級者79%のローカル玄人ゲレンデ"
   },
   "paths": {
-    "today": { "label": "今日", "title": "積雪・営業状況" },
-    "pass": { "label": "パス", "title": "Resort Pass" },
-    "slopes": { "label": "ゲレンデ", "title": "4コース＋クロカン" },
-    "access": { "label": "アクセス", "title": "湧別町内" }
+    "today": {
+      "label": "今日",
+      "title": "積雪・営業状況"
+    },
+    "pass": {
+      "label": "パス",
+      "title": "Resort Pass"
+    },
+    "slopes": {
+      "label": "ゲレンデ",
+      "title": "4コース＋クロカン"
+    },
+    "access": {
+      "label": "アクセス",
+      "title": "湧別町内"
+    }
   },
   "highlights": {
     "eyebrow": "五鹿山の魅力",
@@ -86,10 +118,22 @@
     "lead": "1,500円の点消費から、線と面の消費へ。ARPU倍増のための半日〜1日モデルコース。",
     "badge": "YUBETSU DRIFT ICE PREMIUM",
     "steps": {
-      "am": { "title": "五鹿山スキー", "body": "流氷・サロマ湖ビューを滑る。クロカンも" },
-      "noon": { "title": "湧別シーフード", "body": "リボン等でホタテ・龍宮カキランチ" },
-      "pm": { "title": "龍宮台展望台", "body": "流氷を間近で観測・撮影" },
-      "eve": { "title": "チューリップの湯", "body": "サウナ・温泉で整える。土産購入" }
+      "am": {
+        "title": "五鹿山スキー",
+        "body": "流氷・サロマ湖ビューを滑る。クロカンも"
+      },
+      "noon": {
+        "title": "湧別シーフード",
+        "body": "リボン等でホタテ・龍宮カキランチ"
+      },
+      "pm": {
+        "title": "龍宮台展望台",
+        "body": "流氷を間近で観測・撮影"
+      },
+      "eve": {
+        "title": "チューリップの湯",
+        "body": "サウナ・温泉で整える。土産購入"
+      }
     }
   },
   "guides": {
@@ -104,14 +148,19 @@
     "snowPlay": {
       "title": "滑らない日の楽しみ方",
       "body": "雪不足リスクを逆手に。雪中BBQ・焚き火ベース、ソリ遊び——リフトに乗らずとも収益化する非滑走型コンテンツ。1人乗りリフトで家族が分断される課題への補完策。",
-      "hashtags": ["#DriftIceSki", "#SaromaPanorama", "#GokazanJapow"]
+      "hashtags": [
+        "#DriftIceSki",
+        "#SaromaPanorama",
+        "#GokazanJapow"
+      ]
     }
   },
   "access": {
     "postal": "〒099-6323",
     "line": "北海道紋別郡湧別町北兵村二区100番地",
     "note": "JR遠軽駅から車で約20分 · かみゆうべつ温泉チューリップの湯まで車で約5分",
-    "phone": "TEL 01586-2-3111（五鹿山スキー場ロッジ）"
+    "phone": "TEL 01586-2-3111（五鹿山スキー場ロッジ）",
+    "places": ""
   },
   "footer": {
     "copyright": "© 五鹿山スキー場（湧別町）— LP案モック",

@@ -68,7 +68,13 @@
 
     document.querySelectorAll("[data-i18n-html]").forEach((el) => {
       const val = getByPath(messages, el.dataset.i18nHtml);
-      if (val != null) el.innerHTML = val;
+      if (val != null && val !== "") {
+        el.innerHTML = val;
+        el.hidden = false;
+      } else {
+        el.innerHTML = "";
+        el.hidden = true;
+      }
     });
 
     document.querySelectorAll("[data-i18n-attr]").forEach((el) => {

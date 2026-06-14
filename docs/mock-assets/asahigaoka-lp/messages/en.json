@@ -192,13 +192,14 @@
   },
   "access": {
     "postal": "044-0083, Japan",
-    "line": "<ruby>Asahi 37-1<rt>字旭37番地1</rt></ruby>, <ruby>Kutchan<rt>倶知安町</rt></ruby>, <ruby>Abuta District<rt>虻田郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
+    "line": "Asahi 37-1, Kutchan, Abuta-gun, Hokkaido",
     "note": "About 3 minutes by car from Kutchan Station and downtown · ~100 parking spaces",
-    "phone": "TEL 0136-23-2743 (<ruby>Yukinko Hall<rt>雪ん子館</rt></ruby>, winter season)"
+    "phone": "TEL 0136-23-2743 (<ruby>Yukinko Hall<rt>雪ん子館</rt></ruby>, winter season)",
+    "places": "<span class=\"place-unit\"><ruby>北海道<rt>Hokkaido</rt></ruby></span><span class=\"place-unit\"><ruby>虻田郡<rt>Abuta-gun</rt></ruby></span><span class=\"place-unit\"><ruby>倶知安町<rt>Kutchan</rt></ruby></span><span class=\"place-unit\"><ruby>字旭37番地1<rt>Asahi 37-1</rt></ruby></span>"
   },
   "footer": {
     "copyright": "© Kutchan Asahigaoka Ski Area — LP mock",
     "credit": "Kutchan Town · Evaluation mock based on local-hill dual-pricing strategy report | AI-generated images",
-    "location": "044-0083 · <ruby>Asahi 37-1<rt>字旭37番地1</rt></ruby>, <ruby>Kutchan<rt>倶知安町</rt></ruby>, <ruby>Abuta District<rt>虻田郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
+    "location": "044-0083 · Asahi 37-1, Kutchan, Abuta-gun, Hokkaido"
   }
 }

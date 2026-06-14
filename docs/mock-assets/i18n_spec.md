@@ -67,8 +67,9 @@ docs/mock-assets/
 ## 住所・電話
 
 - **JA**: 郵便番号・住所行は `ja.json` の正式表記（プレーンテキスト）
-- **EN**: 住所は英語表記を主とし、地名は `<ruby>English<rt>日本語</rt></ruby>` でルビ風注記
-  - `access.line` · `footer.location` は `data-i18n-html` でバインド
+- **EN**:
+  - `access.line` · `footer.location` — **プレーン英語**（ルビなし・読める1行）
+  - `access.places` — 行政単位ごとの地名行（例: 北海道 · 上川郡 · 美瑛町 · 字大村村山）。`<ruby>日本語<rt>English</rt></ruby>` を **単語単位**で `place-unit` に分割。`data-i18n-html`
   - 生成: `node scripts/apply-en-address-ruby.mjs`
 - `access.note` は英訳（アクセス説明）
 - 電話番号の数字は ja/en 同一可。括弧内注記は英訳

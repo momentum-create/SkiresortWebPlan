@@ -26,10 +26,22 @@
     "imgAlt": "東北新幹線の車内から雪景色を望む旅のイメージ"
   },
   "paths": {
-    "today": { "label": "今日", "title": "今日の運営" },
-    "access": { "label": "アクセス", "title": "アクセス" },
-    "map": { "label": "ゲレンデ", "title": "ゲレンデマップ" },
-    "pricing": { "label": "料金", "title": "料金・レンタル" }
+    "today": {
+      "label": "今日",
+      "title": "今日の運営"
+    },
+    "access": {
+      "label": "アクセス",
+      "title": "アクセス"
+    },
+    "map": {
+      "label": "ゲレンデ",
+      "title": "ゲレンデマップ"
+    },
+    "pricing": {
+      "label": "料金",
+      "title": "料金・レンタル"
+    }
   },
   "highlights": {
     "eyebrow": "七戸の魅力",
@@ -72,7 +84,8 @@
     "postal": "〒039-2568",
     "line": "青森県上北郡七戸町字左組106-5",
     "note": "東北新幹線「七戸十和田駅」からタクシー約10分（目安）",
-    "phone": "TEL 0176-62-5612"
+    "phone": "TEL 0176-62-5612",
+    "places": ""
   },
   "footer": {
     "copyright": "© 七戸町営スキー場 — LP案モック",

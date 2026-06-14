@@ -222,14 +222,15 @@
   },
   "access": {
     "postal": "098-2501, Japan",
-    "line": "<ruby>Otoifuke 200-6<rt>字音威子府200-6</rt></ruby>, <ruby>Otoifuke Village<rt>音威子府村</rt></ruby>, <ruby>Nakagawa District<rt>中川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>",
+    "line": "Otoifuke 200-6, Otoifuke, Nakagawa-gun, Hokkaido",
     "note": "About 15 minutes on foot from JR Otoineppu Station · along National Route 40",
     "phone": "TEL 01656-5-3305 (ski area · in season)",
-    "phoneOffSeason": "TEL 01656-5-3313 (off-season)"
+    "phoneOffSeason": "TEL 01656-5-3313 (off-season)",
+    "places": "<span class=\"place-unit\"><ruby>北海道<rt>Hokkaido</rt></ruby></span><span class=\"place-unit\"><ruby>中川郡<rt>Nakagawa-gun</rt></ruby></span><span class=\"place-unit\"><ruby>音威子府村<rt>Otoifuke</rt></ruby></span><span class=\"place-unit\"><ruby>字音威子府200-6<rt>Otoifuke 200-6</rt></ruby></span>"
   },
   "footer": {
     "copyright": "© Otoifuji Ski Area — LP mock",
     "credit": "Otoineppu Village · Evaluation mock based on hidden Japow, station-walk, and dual-pricing strategy report | AI-generated images",
-    "location": "098-2501 · <ruby>Otoifuke 200-6<rt>字音威子府200-6</rt></ruby>, <ruby>Otoifuke Village<rt>音威子府村</rt></ruby>, <ruby>Nakagawa District<rt>中川郡</rt></ruby>, <ruby>Hokkaido<rt>北海道</rt></ruby>"
+    "location": "098-2501 · Otoifuke 200-6, Otoifuke, Nakagawa-gun, Hokkaido"
   }
 }
