@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "2026-06-14",
+  "source": "Mapular Icon Creator",
+  "format": "png",
+  "note": "Circle + glyph baked in. Use 32px on map; 48px for retina or active state.",
+  "markers": {
+    "food": {
+      "label": { "ja": "飲食", "en": "Food" },
+      "color": "#5a6f85",
+      "files": { "32": "marker-food-32.png", "48": "marker-food-48.png" }
+    },
+    "onsen": {
+      "label": { "ja": "温泉", "en": "Onsen" },
+      "color": "#7ec8e3",
+      "files": { "32": "marker-onsen-32.png", "48": "marker-onsen-48.png" }
+    },
+    "transit": {
+      "label": { "ja": "駅", "en": "Station" },
+      "color": "#2f8f8f",
+      "files": { "32": "marker-transit-32.png", "48": "marker-transit-48.png" }
+    },
+    "parking": {
+      "label": { "ja": "駐車場", "en": "Parking" },
+      "color": "#3d5a80",
+      "files": { "32": "marker-parking-32.png", "48": "marker-parking-48.png" }
+    },
+    "ski": {
+      "label": { "ja": "スキー場", "en": "Ski area" },
+      "color": "#5e6f8a",
+      "files": {
+        "32": "marker-ski-32.png",
+        "48": "marker-ski-48.png",
+        "svg32": "marker-ski-32.svg",
+        "svg48": "marker-ski-48.svg",
+        "innerSvg": "marker-ski-inner.svg"
+      }
+    },
+    "blue-pond": {
+      "label": { "ja": "青い池", "en": "Blue Pond" },
+      "color": "#4588b5",
+      "files": {
+        "32": "marker-blue-pond-32.png",
+        "48": "marker-blue-pond-48.png",
+        "svg32": "marker-blue-pond-32.svg",
+        "svg48": "marker-blue-pond-48.svg",
+        "innerSvg": "marker-blue-pond-inner.svg"
+      }
+    }
+  },
+  "bieiAreaMapping": {
+    "food": "food",
+    "onsen": "onsen",
+    "anchor.biei-station": "transit",
+    "anchor.ski": "ski",
+    "anchor.blue-pond": "blue-pond"
+  },
+  "bieiAreaMappingNotes": {
+    "ja": "青い池は立木＋水面の白シルエット。温泉（水色）より青みを強くした背景。",
+    "en": "Blue Pond uses trees-in-water glyph on a deeper pond-blue circle."
+  }
+}

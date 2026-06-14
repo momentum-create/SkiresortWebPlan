@@ -1,6 +1,5 @@
 /**
- * Biei area map — food, onsen & anchor POIs (Google Maps embed + list).
- * APIキー不要。リスト選択で該当スポットを Google マップにフォーカス。
+ * Biei area map — Leaflet POI map (Plan A: ski-centric cluster + custom pins).
  */
 (function () {
   const STORAGE_KEY = "mock-lp-locale";
@@ -8,6 +7,7 @@
   const resortId = params.get("resort") || "biei";
   const embed = params.get("embed") === "1";
   const locale = params.get("lang") || localStorage.getItem(STORAGE_KEY) || "ja";
+  const ICON_BASE = "_shared/icons/";
 
   const LAYER_KEYS = ["food", "onsen", "anchor"];
 
@@ -16,14 +16,14 @@
       backHub: "← 索引",
       backLp: "← LPに戻る",
       title: "周辺マップ",
-      lead: "飲食・温泉・拠点を重ねて、雪遊びと青い池の回遊を設計",
+      lead: "町民スキー場を起点に、周辺の飲食・温泉・拠点を重ねて回遊を設計",
       filterAll: "全表示",
       filterFood: "飲食",
       filterOnsen: "温泉",
       filterAnchor: "拠点",
-      filterHint: "飲食と温泉は同時表示できます",
-      mapHint: "リストから選ぶと Google マップでその場所を表示",
-      detailPick: "リストからスポットを選んでください",
+      filterHint: "飲食と温泉は同時表示できます。温泉のみのときは白金方面に切り替わります",
+      mapHint: "ピンをタップするかリストから選ぶとハイライトされます",
+      detailPick: "リストまたは地図のピンからスポットを選んでください",
       openMaps: "Google Mapで開く",
       readGuide: "特集を読む",
       spotCount: "{n}件",
@@ -51,19 +51,20 @@
       loadError: "マップデータを読み込めませんでした。",
       needHttp:
         "file:// では動きません。npx serve docs/mock-assets -p 3456 を実行してください。",
+      leafletError: "地図ライブラリを読み込めませんでした。",
     },
     en: {
       backHub: "← Index",
       backLp: "← Back to guide",
       title: "Area map",
-      lead: "Layer food, onsen, and hubs to plan snow play and Blue Pond loops",
+      lead: "Layer food, onsen, and hubs around Biei Town Ski Area",
       filterAll: "Show all",
       filterFood: "Food",
       filterOnsen: "Onsen",
       filterAnchor: "Hubs",
-      filterHint: "Food and onsen can be shown together",
-      mapHint: "Pick from the list to show the spot in Google Maps",
-      detailPick: "Select a spot from the list",
+      filterHint: "Food and onsen can overlap. Onsen-only snaps to Shirogane area",
+      mapHint: "Tap a pin or pick from the list to highlight a spot",
+      detailPick: "Select a spot from the list or map pins",
       openMaps: "Open in Google Maps",
       readGuide: "Read guide",
       spotCount: "{n} spots",
@@ -90,6 +91,7 @@
       },
       loadError: "Could not load map data.",
       needHttp: "Run npx serve docs/mock-assets -p 3456 (file:// will not work).",
+      leafletError: "Could not load the map library.",
     },
   };
 
@@ -117,21 +119,6 @@
     );
   }
 
-  function googleEmbedUrl({ lat, lon, zoom, query, pin }) {
-    const hl = locale === "en" ? "en" : "ja";
-    const z = String(zoom);
-    if (pin) {
-      return `https://maps.google.com/maps?q=${lat},${lon}&hl=${hl}&z=${z}&output=embed`;
-    }
-    const q = query || `${lat},${lon}`;
-    const text = typeof q === "string" ? q : `${lat},${lon}`;
-    return (
-      "https://maps.google.com/maps?q=" +
-      encodeURIComponent(text) +
-      `&ll=${lat},${lon}&hl=${hl}&z=${z}&output=embed`
-    );
-  }
-
   function parseLayers() {
     const raw = params.get("layers");
     if (!raw) return new Set(LAYER_KEYS);
@@ -141,14 +128,21 @@
   }
 
   let mapData = null;
-  let googleFrame = null;
+  let markerManifest = null;
+  let leafletMap = null;
+  let markerLayer = null;
+  const markerById = new Map();
   let selectedId = null;
   let activeLayers = parseLayers();
+  let skipNextMoveEnd = false;
 
   const el = {
     stage: document.getElementById("area-stage"),
     list: document.getElementById("area-list"),
     detail: document.getElementById("area-detail"),
+    embedToolbar: null,
+    embedFilters: null,
+    embedPicker: null,
     title: document.getElementById("area-rail-title"),
     lead: document.getElementById("area-rail-lead"),
     resortName: document.getElementById("area-resort-name"),
@@ -156,7 +150,6 @@
     hubLink: document.getElementById("area-hub-link"),
     filters: document.getElementById("area-filters"),
     filterHint: document.getElementById("area-filter-hint"),
-    mapHint: null,
     disclaimer: document.getElementById("area-disclaimer"),
   };
 
@@ -174,45 +167,149 @@
     return allFeatures().filter((f) => activeLayers.has(f.group));
   }
 
-  function viewportForLayers() {
-    const v = mapData.viewports || {};
-    const layers = [...activeLayers];
-    if (layers.length === 1 && v[layers[0]]) return v[layers[0]];
-    if (activeLayers.has("food") && activeLayers.has("onsen") && !activeLayers.has("anchor") && v.foodOnsen) {
-      return v.foodOnsen;
-    }
-    return v.default || {
-      lat: mapData.center?.[0] ?? 43.55,
-      lon: mapData.center?.[1] ?? 142.55,
-      zoom: mapData.zoom ?? 10,
-      query: mapData.name,
-    };
+  function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
-  function viewForFeature(feature) {
-    return {
-      lat: feature.lat,
-      lon: feature.lon,
-      zoom: feature.zoom || 16,
-      pin: true,
-    };
+  function syncDocumentLang() {
+    document.documentElement.lang = locale === "en" ? "en" : "ja";
+    document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+      const on = btn.dataset.langSwitch === locale;
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.setAttribute("aria-current", on ? "true" : "false");
+    });
   }
 
-  function syncGoogleMap(feature) {
-    if (!googleFrame) return;
-    const view = feature ? viewForFeature(feature) : viewportForLayers();
-    if (feature) {
-      googleFrame.src = googleEmbedUrl(view);
+  function scrollBehavior() {
+    return prefersReducedMotion() ? "auto" : "smooth";
+  }
+
+  function markerKeyFor(feature) {
+    if (!markerManifest) return feature.group === "food" ? "food" : feature.group;
+    const mapping = markerManifest.bieiAreaMapping || {};
+    if (feature.group === "food") return mapping.food || "food";
+    if (feature.group === "onsen") return mapping.onsen || "onsen";
+    return mapping[`anchor.${feature.id}`] || "food";
+  }
+
+  function iconPath(key, size) {
+    const files = markerManifest?.markers?.[key]?.files;
+    const file = files?.[size] || files?.["32"];
+    return file ? `${ICON_BASE}${file}` : null;
+  }
+
+  function markerSize(feature, active) {
+    if (active) return 48;
+    if (feature.id === "ski") return 40;
+    return 32;
+  }
+
+  function makeIcon(feature, active) {
+    const size = markerSize(feature, active);
+    const key = markerKeyFor(feature);
+    const assetSize = size >= 48 || (feature.id === "ski" && !active) ? "48" : "32";
+    const url = iconPath(key, assetSize);
+    if (!url || !window.L) return null;
+    return window.L.icon({
+      iconUrl: url,
+      iconSize: [size, size],
+      iconAnchor: [size / 2, size / 2],
+      className: active ? "area-pin area-pin--active" : "area-pin",
+    });
+  }
+
+  function resolveBoundsProfile() {
+    const hasFood = activeLayers.has("food");
+    const hasOnsen = activeLayers.has("onsen");
+    const hasAnchor = activeLayers.has("anchor");
+    if (hasOnsen && !hasFood && !hasAnchor) return "onsen";
+    if (hasAnchor && !hasFood && !hasOnsen) return "anchorAll";
+    return "skiFood";
+  }
+
+  function featuresForBounds(profile) {
+    const cfg = mapData.boundsProfiles?.[profile];
+    const visible = filteredFeatures();
+    if (!cfg) return visible;
+    return visible.filter((f) => {
+      if (cfg.includeGroups && !cfg.includeGroups.includes(f.group)) return false;
+      if (cfg.excludeFoodIds && f.group === "food" && cfg.excludeFoodIds.includes(f.id)) {
+        return false;
+      }
+      if (cfg.excludeAnchorIds && f.group === "anchor" && cfg.excludeAnchorIds.includes(f.id)) {
+        return false;
+      }
+      if (cfg.includeAnchorIds && f.group === "anchor" && !cfg.includeAnchorIds.includes(f.id)) {
+        return false;
+      }
+      return true;
+    });
+  }
+
+  function fitMapToProfile(animate) {
+    if (!leafletMap) return;
+    const profile = resolveBoundsProfile();
+    const feats = featuresForBounds(profile);
+    const cfg = mapData.boundsProfiles?.[profile];
+    if (!feats.length) {
+      const c = mapData.center || [43.5897, 142.4449];
+      skipNextMoveEnd = true;
+      leafletMap.setView(c, cfg?.maxZoom || 12, { animate: !!animate });
       return;
     }
-    const query = typeof view.query === "object" ? pick(view.query) : view.query;
-    googleFrame.src = googleEmbedUrl({
-      lat: view.lat,
-      lon: view.lon,
-      zoom: view.zoom,
-      query: query || `${view.lat},${view.lon}`,
-      pin: false,
+    const bounds = window.L.latLngBounds(feats.map((f) => [f.lat, f.lon]));
+    const pad = embed ? [24, 24] : [40, 40];
+    skipNextMoveEnd = true;
+    leafletMap.fitBounds(bounds, {
+      padding: pad,
+      maxZoom: cfg?.maxZoom ?? 13,
+      animate: !!animate,
     });
+  }
+
+  function panToFeature(feature) {
+    if (!leafletMap || !feature) return;
+    skipNextMoveEnd = true;
+    leafletMap.setView([feature.lat, feature.lon], 14, { animate: !prefersReducedMotion() });
+    syncMarkerStyles();
+  }
+
+  function syncMarkerStyles() {
+    markerById.forEach((marker, id) => {
+      const feature = allFeatures().find((f) => f.id === id);
+      if (!feature || !activeLayers.has(feature.group)) return;
+      const active = id === selectedId;
+      const icon = makeIcon(feature, active);
+      if (icon) marker.setIcon(icon);
+      marker.setZIndexOffset(active ? 1000 : feature.id === "ski" ? 500 : 0);
+    });
+  }
+
+  function renderMarkers() {
+    if (!leafletMap || !markerLayer) return;
+    markerLayer.clearLayers();
+    markerById.clear();
+
+    const visible = filteredFeatures();
+    for (const f of visible) {
+      const icon = makeIcon(f, f.id === selectedId);
+      if (!icon) continue;
+      const marker = window.L.marker([f.lat, f.lon], {
+        icon,
+        title: pick(f.shortLabel) || pick(f.label),
+      });
+      const label = pick(f.shortLabel) || pick(f.label);
+      marker.bindTooltip(label, {
+        direction: "top",
+        offset: [0, -12],
+        opacity: 0.95,
+        className: "area-pin-tooltip",
+      });
+      marker.on("click", () => select(f.id));
+      marker.addTo(markerLayer);
+      markerById.set(f.id, marker);
+    }
+    syncMarkerStyles();
   }
 
   function guideHref(feature) {
@@ -228,18 +325,26 @@
     return `${resortId}-lp/${langQ}`;
   }
 
-  function select(id) {
+  function select(id, options = {}) {
+    const { pan = true, fromList = false } = options;
     selectedId = id;
     const feature = allFeatures().find((f) => f.id === id);
-    if (!feature) return;
+    if (!feature || !activeLayers.has(feature.group)) return;
 
     document.querySelectorAll(".area-list-item").forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.featureId === id);
-      if (btn.dataset.featureId === id) btn.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      if (fromList && btn.dataset.featureId === id) {
+        btn.scrollIntoView({ block: "nearest", behavior: scrollBehavior() });
+      }
     });
 
-    syncGoogleMap(feature);
+    syncMarkerStyles();
+    if (pan) panToFeature(feature);
     renderDetail(feature);
+    if (embed && el.embedPicker) {
+      const sel = el.embedPicker.querySelector("select");
+      if (sel) sel.value = id;
+    }
   }
 
   function renderDetail(feature) {
@@ -285,7 +390,7 @@
       .join("");
 
     el.list.querySelectorAll("[data-feature-id]").forEach((btn) => {
-      btn.addEventListener("click", () => select(btn.dataset.featureId));
+      btn.addEventListener("click", () => select(btn.dataset.featureId, { fromList: true }));
     });
   }
 
@@ -303,6 +408,11 @@
 
   function afterLayerChange() {
     renderFilters();
+    if (embed) {
+      ensureEmbedToolbar();
+      renderFilters(el.embedFilters);
+      renderEmbedPicker();
+    }
     renderList();
     syncUrlLayers();
 
@@ -310,10 +420,12 @@
     if (!stillVisible) {
       selectedId = null;
       if (el.detail) el.detail.innerHTML = `<p>${t("detailPick")}</p>`;
-      syncGoogleMap(null);
-      return;
+    } else {
+      renderDetail(allFeatures().find((f) => f.id === selectedId));
     }
-    syncGoogleMap(allFeatures().find((f) => f.id === selectedId));
+
+    renderMarkers();
+    fitMapToProfile(true);
   }
 
   function setAllLayers(on) {
@@ -327,8 +439,9 @@
     afterLayerChange();
   }
 
-  function renderFilters() {
-    if (!el.filters) return;
+  function renderFilters(target) {
+    const node = target || el.filters;
+    if (!node) return;
     const allOn = activeLayers.size === LAYER_KEYS.length;
     const count = filteredFeatures().length;
     const toggles = [
@@ -336,7 +449,7 @@
       ["onsen", t("filterOnsen")],
       ["anchor", t("filterAnchor")],
     ];
-    el.filters.innerHTML = `
+    node.innerHTML = `
       <button type="button" class="area-filter-btn area-filter-btn--all" data-filter-all aria-pressed="${allOn}">
         ${t("filterAll")}
       </button>
@@ -349,30 +462,70 @@
       <span class="area-filter-count">${t("spotCount", { n: count })}</span>
     `;
 
-    el.filters.querySelector("[data-filter-all]")?.addEventListener("click", () => setAllLayers(true));
+    node.querySelector("[data-filter-all]")?.addEventListener("click", () => setAllLayers(true));
 
-    el.filters.querySelectorAll("[data-layer]").forEach((btn) => {
+    node.querySelectorAll("[data-layer]").forEach((btn) => {
       btn.addEventListener("click", () => toggleLayer(btn.dataset.layer));
     });
 
-    if (el.filterHint) el.filterHint.textContent = t("filterHint");
+    if (!target && el.filterHint) el.filterHint.textContent = t("filterHint");
   }
 
-  function initGoogleMap() {
-    if (!el.stage) return;
+  function renderEmbedPicker() {
+    if (!embed || !el.embedPicker) return;
+    const items = filteredFeatures();
+    el.embedPicker.innerHTML = `
+      <label class="area-embed-picker">
+        <span class="area-embed-picker__label">${t("detailPick")}</span>
+        <select class="area-embed-picker__select" aria-label="${t("detailPick")}">
+          <option value="">${locale === "en" ? "Choose a spot…" : "スポットを選択…"}</option>
+          ${items
+            .map(
+              (f) =>
+                `<option value="${f.id}"${selectedId === f.id ? " selected" : ""}>${pick(f.label)}</option>`,
+            )
+            .join("")}
+        </select>
+      </label>`;
+    el.embedPicker.querySelector("select")?.addEventListener("change", (e) => {
+      if (e.target.value) select(e.target.value, { fromList: true });
+    });
+  }
 
+  function ensureEmbedToolbar() {
+    if (!embed || !el.stage || el.embedToolbar) return;
+    const toolbar = document.createElement("div");
+    toolbar.className = "area-embed-toolbar";
+    toolbar.setAttribute("role", "region");
+    toolbar.setAttribute("aria-label", t("title"));
+
+    el.embedFilters = document.createElement("div");
+    el.embedFilters.className = "area-filter area-filter--embed";
+    el.embedFilters.id = "area-embed-filters";
+
+    el.embedPicker = document.createElement("div");
+    el.embedPicker.className = "area-embed-picker-wrap";
+
+    toolbar.appendChild(el.embedFilters);
+    toolbar.appendChild(el.embedPicker);
+    el.stage.prepend(toolbar);
+    el.embedToolbar = toolbar;
+  }
+
+  function initLeafletMap() {
+    if (!el.stage || !window.L) return;
+
+    const toolbar = el.embedToolbar;
     el.stage.replaceChildren();
+    if (toolbar) el.stage.prepend(toolbar);
 
     const wrap = document.createElement("div");
-    wrap.className = "area-google-wrap";
+    wrap.className = "area-leaflet-wrap";
 
-    googleFrame = document.createElement("iframe");
-    googleFrame.className = "area-google-frame";
-    googleFrame.title = pick(mapData.name) || t("title");
-    googleFrame.loading = "lazy";
-    googleFrame.referrerPolicy = "no-referrer-when-downgrade";
-    googleFrame.allowFullscreen = true;
-    wrap.appendChild(googleFrame);
+    const mapEl = document.createElement("div");
+    mapEl.className = "area-leaflet-map";
+    mapEl.id = "area-leaflet-map";
+    wrap.appendChild(mapEl);
 
     if (!embed) {
       const hint = document.createElement("p");
@@ -390,7 +543,30 @@
       el.stage.appendChild(disclaimer);
     }
 
-    syncGoogleMap(null);
+    leafletMap = window.L.map(mapEl, {
+      zoomControl: !embed,
+      attributionControl: !embed,
+    });
+
+    window.L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: embed
+        ? ""
+        : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(leafletMap);
+
+    markerLayer = window.L.layerGroup().addTo(leafletMap);
+
+    leafletMap.on("moveend", () => {
+      if (skipNextMoveEnd) {
+        skipNextMoveEnd = false;
+        return;
+      }
+    });
+
+    renderMarkers();
+    fitMapToProfile(false);
+    requestAnimationFrame(() => leafletMap.invalidateSize());
   }
 
   function bindChrome() {
@@ -413,6 +589,16 @@
     }
   }
 
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
   async function boot() {
     if (location.protocol === "file:") {
       if (el.stage) el.stage.innerHTML = `<p class="map-error">${t("needHttp")}</p>`;
@@ -420,23 +606,42 @@
     }
 
     try {
-      const res = await fetch(`data/maps/${resortId}-area.json`);
-      if (!res.ok) throw new Error(res.statusText);
-      mapData = await res.json();
+      const [areaRes, manifestRes] = await Promise.all([
+        fetch(`data/maps/${resortId}-area.json`),
+        fetch(`${ICON_BASE}marker-icons.json`),
+      ]);
+      if (!areaRes.ok) throw new Error(areaRes.statusText);
+      mapData = await areaRes.json();
+      if (manifestRes.ok) markerManifest = await manifestRes.json();
     } catch {
       if (el.stage) el.stage.innerHTML = `<p class="map-error">${t("loadError")}</p>`;
       return;
     }
 
+    if (!window.L) {
+      try {
+        await loadScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
+      } catch {
+        if (el.stage) el.stage.innerHTML = `<p class="map-error">${t("leafletError")}</p>`;
+        return;
+      }
+    }
+
     bindChrome();
+    syncDocumentLang();
+    if (embed) ensureEmbedToolbar();
     renderFilters();
+    if (embed) {
+      renderFilters(el.embedFilters);
+      renderEmbedPicker();
+    }
     renderList();
-    initGoogleMap();
+    initLeafletMap();
 
     const focus = params.get("focus");
     const focusFeature = focus && allFeatures().find((f) => f.id === focus);
     if (focusFeature && activeLayers.has(focusFeature.group)) {
-      select(focus);
+      select(focus, { pan: true });
     }
   }
 

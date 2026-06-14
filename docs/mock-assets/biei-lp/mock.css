@@ -979,13 +979,14 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   overflow: hidden;
-  height: clamp(16rem, 42vw, 22rem);
+  min-height: 50dvh;
+  height: max(50dvh, clamp(16rem, 42vw, 22rem));
   background: #e8edf2;
 }
 
 @media (min-width: 768px) {
   .map-embed {
-    height: clamp(18rem, 36vw, 24rem);
+    height: max(50dvh, clamp(18rem, 36vw, 26rem));
   }
 }
 
@@ -997,6 +998,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .map-layer-btn {
+  min-height: 44px;
   padding: 0.5rem 1rem;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -1020,6 +1022,11 @@ a { color: inherit; text-decoration: none; }
   background: var(--fg);
   border-color: var(--fg);
   color: var(--surface);
+}
+
+.map-layer-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .map-layer-hint {
@@ -1105,8 +1112,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .food-spot__map-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 1rem;
+  min-height: 44px;
+  padding: 0.35rem 0;
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--accent);
@@ -1114,7 +1124,16 @@ a { color: inherit; text-decoration: none; }
   text-underline-offset: 0.15em;
 }
 
+.food-spot__map-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn:hover { transform: none; }
+  .map-layer-btn {
+    transition: none;
+  }
 }

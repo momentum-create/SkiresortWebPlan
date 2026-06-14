@@ -74,7 +74,8 @@
     "title": "After the snow,<br />warm the body",
     "lead": "Consommé and pot-au-feu simmered for hours with Biei vegetables—local food therapy for chilled bodies. Pair with nearby baths like Shirogane Onsen to complete a holistic wellness cycle.",
     "whisper": "From Okiraku-tei to steaming station cafés—and Shirogane Onsen day baths are a classic after snow play.",
-    "cta": "Nearby food & onsen guide",
+    "ctaFood": "Nearby food (10 picks)",
+    "ctaOnsen": "Nearby onsen (10 picks)",
     "imgAlt": "Biei vegetable pot-au-feu—a warming post-ski menu"
   },
   "journey": {
@@ -94,7 +95,8 @@
       "03": {
         "title": "Restore & nourish",
         "body": "Junpei's shrimp bowl, Biei Farm raclette toast—inbound-friendly food hooks after snow play",
-        "linkLabel": "Nearby food guide"
+        "linkLabel": "Nearby food guide",
+        "linkOnsen": "Nearby onsen guide"
       },
       "04": {
         "title": "Culture & reflection",
@@ -271,7 +273,7 @@
     "introLead": "Visitors to Biei—especially inbound FIT travelers—are highly sensitive to \"only-in-Hokkaido\" food and Instagram-ready settings.",
     "introBody": "We picked ten strong food stops to hook travelers before and after snow scenes. Combined with the town ski area and Blue Pond, they form a friction-free day-trip package.",
     "mapEyebrow": "Area map",
-    "mapTitle": "Area map (food & onsen)",
+    "mapTitle": "Nearby food map",
     "mapLead": "Toggle food, onsen, and hub layers—show multiple at once.",
     "mapCta": "Open full-size map",
     "spotMapLink": "View on map",
@@ -360,7 +362,7 @@
     "introLead": "Inbound visitors around Biei strongly want Japanese onsen culture and open-air baths in snowy scenery.",
     "introBody": "Ten baths that warm chilled bodies after snow play and scenic touring—designed as a digital bundle with our food map, like Japowserch set proposals.",
     "mapEyebrow": "Area map",
-    "mapTitle": "Area map (food & onsen)",
+    "mapTitle": "Nearby onsen map",
     "mapLead": "Toggle food, onsen, and hub layers—show multiple at once.",
     "mapCta": "Open full-size map",
     "spotMapLink": "View on map",

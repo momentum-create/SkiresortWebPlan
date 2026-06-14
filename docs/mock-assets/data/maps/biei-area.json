@@ -50,7 +50,23 @@
     "MapFan",
     "美瑛町観光協会"
   ],
-  "updatedAt": "2026-06-14T18:00:00+09:00",
+  "updatedAt": "2026-06-14T20:00:00+09:00",
+  "boundsProfiles": {
+    "skiFood": {
+      "includeGroups": ["food", "anchor"],
+      "excludeFoodIds": ["between", "chiyoda", "gosh"],
+      "excludeAnchorIds": ["blue-pond"],
+      "maxZoom": 13
+    },
+    "onsen": {
+      "includeGroups": ["onsen"],
+      "maxZoom": 12
+    },
+    "anchorAll": {
+      "includeGroups": ["anchor"],
+      "maxZoom": 10
+    }
+  },
   "anchors": [
     {
       "id": "biei-station",

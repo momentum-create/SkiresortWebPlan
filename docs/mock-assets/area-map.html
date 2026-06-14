@@ -4,9 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>周辺マップ — 美瑛 LP案モック</title>
-  <meta name="description" content="美瑛周辺の飲食・温泉スポットを Google マップで確認。" />
+  <meta name="description" content="美瑛周辺の飲食・温泉・拠点を町民スキー場起点のマップで確認。" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <link rel="stylesheet" href="_shared/area-map.css" />
   <link rel="stylesheet" href="_shared/mock-i18n.css" />
+  <script>
+    (function () {
+      const cur =
+        new URLSearchParams(location.search).get("lang") ||
+        localStorage.getItem("mock-lp-locale") ||
+        "ja";
+      document.documentElement.lang = cur === "en" ? "en" : "ja";
+    })();
+  </script>
 </head>
 <body class="area-map-page">
   <header class="area-topbar">
@@ -52,8 +62,11 @@
       });
     });
     const cur = new URLSearchParams(location.search).get("lang") || localStorage.getItem("mock-lp-locale") || "ja";
+    document.documentElement.lang = cur === "en" ? "en" : "ja";
     document.querySelectorAll("[data-lang-switch]").forEach((b) => {
-      b.setAttribute("aria-pressed", b.dataset.langSwitch === cur ? "true" : "false");
+      const on = b.dataset.langSwitch === cur;
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+      b.setAttribute("aria-current", on ? "true" : "false");
     });
   </script>
   <script src="_shared/area-map.js"></script>

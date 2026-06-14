@@ -1,4 +1,4 @@
-/* LP案モック — 周辺エリアマップ（Google Maps embed） */
+/* LP案モック — 周辺エリアマップ（Leaflet + カスタムピン） */
 
 :root {
   --area-bg: #f4f6f8;
@@ -46,6 +46,11 @@ body.area-map-page.area-map-page--embed {
 .area-map-page--embed .area-topbar { display: none; }
 
 .area-topbar a { color: inherit; text-decoration: none; font-size: 0.8125rem; }
+.area-topbar a:focus-visible {
+  outline: 2px solid var(--area-accent);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
 .area-topbar .logo { font-weight: 700; font-size: 0.875rem; }
 .area-topbar-actions { display: flex; align-items: center; gap: 0.75rem; }
 
@@ -72,6 +77,107 @@ body.area-map-page.area-map-page--embed {
 
 .area-map-page--embed .area-stage {
   height: 100%;
+}
+
+.area-leaflet-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #e8edf2;
+}
+
+.area-map-page--embed .area-leaflet-wrap {
+  height: 100%;
+}
+
+.area-leaflet-map {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  z-index: 0;
+}
+
+.area-map-page--embed .area-leaflet-map {
+  min-height: 100%;
+}
+
+.area-leaflet-map .leaflet-control-zoom a {
+  color: var(--area-text);
+  min-width: 44px;
+  min-height: 44px;
+  line-height: 44px;
+}
+
+.area-embed-toolbar {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--area-rail-border);
+  z-index: 2;
+}
+
+.area-filter--embed {
+  margin-top: 0;
+}
+
+.area-embed-picker-wrap {
+  width: 100%;
+}
+
+.area-embed-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.area-embed-picker__label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--area-muted);
+  letter-spacing: 0.04em;
+}
+
+.area-embed-picker__select {
+  min-height: 44px;
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--area-rail-border);
+  border-radius: 0.35rem;
+  background: #fff;
+  font-size: 0.8125rem;
+  color: var(--area-text);
+}
+
+.area-embed-picker__select:focus-visible {
+  outline: 2px solid var(--area-accent);
+  outline-offset: 2px;
+}
+
+.area-pin {
+  transition: transform 0.15s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .area-pin {
+    transition: none;
+  }
+}
+
+.area-pin--active {
+  filter: drop-shadow(0 2px 6px rgba(26, 35, 50, 0.35));
+}
+
+.area-pin-tooltip {
+  border: none;
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(26, 35, 50, 0.15);
 }
 
 .area-google-wrap {
@@ -159,7 +265,8 @@ body.area-map-page.area-map-page--embed {
 }
 
 .area-filter-btn {
-  padding: 0.25rem 0.55rem;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
   border: 1px solid var(--area-rail-border);
   border-radius: 999px;
   background: #fff;
@@ -172,6 +279,11 @@ body.area-map-page.area-map-page--embed {
   background: var(--area-accent);
   border-color: var(--area-accent);
   color: #fff;
+}
+
+.area-filter-btn:focus-visible {
+  outline: 2px solid var(--area-accent);
+  outline-offset: 2px;
 }
 
 .area-filter-btn--all[aria-pressed="true"] {
@@ -239,6 +351,11 @@ body.area-map-page.area-map-page--embed {
   box-shadow: inset 3px 0 0 var(--area-accent);
 }
 
+.area-list-item:focus-visible {
+  outline: 2px solid var(--area-accent);
+  outline-offset: -2px;
+}
+
 .area-list-item__eyebrow {
   font-size: 0.625rem;
   letter-spacing: 0.12em;
@@ -285,6 +402,7 @@ body.area-map-page.area-map-page--embed {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  min-height: 44px;
   padding: 0.45rem 0.75rem;
   border-radius: 0.35rem;
   background: var(--area-accent);
@@ -292,6 +410,11 @@ body.area-map-page.area-map-page--embed {
   font-size: 0.75rem;
   font-weight: 600;
   text-decoration: none;
+}
+
+.area-detail__actions a:focus-visible {
+  outline: 2px solid #1a2332;
+  outline-offset: 2px;
 }
 
 .area-detail__actions a.area-link-ghost {

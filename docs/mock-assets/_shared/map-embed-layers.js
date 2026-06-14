@@ -47,7 +47,10 @@
       sync();
       if (scrollToMap) {
         const section = document.getElementById("food-map") || document.getElementById("onsen-map");
-        section?.scrollIntoView({ behavior: "smooth", block: "start" });
+        section?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "start",
+        });
       }
     }
 
