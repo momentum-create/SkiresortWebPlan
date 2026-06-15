@@ -237,7 +237,7 @@ shadow: 0 1px 3px rgba(26,31,38,.25)
   <h3 id="area-popup-title-{id}">{label}</h3>
   <p class="area-map-popup__category">{category i18n}</p>
   <!-- district / phone / website: 存在時のみ -->
-  <a class="area-map-popup__cta" href="{googleMapsUrl}">VIEW MAP →</a>
+  <a class="area-map-popup__cta" href="{googleMapsUrl}">Google マップで開く →</a>
   <!-- 案 B のみ: -->
   <a class="area-map-popup__guide area-link-ghost" href="{guideHref}">特集を読む</a>
 </div>
@@ -246,10 +246,14 @@ shadow: 0 1px 3px rgba(26,31,38,.25)
 | トークン | 値 |
 |----------|-----|
 | 幅 | `min(280px, calc(100vw - 48px))` |
-| 背景 | `#1a1f26`（BKKDW 黒カード） |
-| 文字 | `#fafbfc` |
-| CTA 高 | `min-height: 44px` |
-| CTA 背景 | `var(--area-accent)` |
+| 背景 | `#ffffff` |
+| 枠 | `1.5px solid #1a1f26` |
+| 文字 | `#1a1f26` |
+| 補助文字 | `#5c6570` |
+| CTA 高 | `min-height: 36px`（padding で 44px タップ可） |
+| CTA | 背景 `#1a1f26` / 文字 `#ffffff` |
+| Secondary | 白地・黒枠・黒文字 |
+| 角丸 | `0`（BKKDW 型・角張り） |
 
 ### 5.3 状態遷移（3案共通）
 

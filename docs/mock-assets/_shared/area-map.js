@@ -14,6 +14,7 @@
 
   const LAYER_KEYS = ["food", "onsen", "anchor"];
   const DEFAULT_LAYERS = ["food", "anchor"];
+  const FIXED_ANCHOR_IDS = new Set(["ski", "biei-station"]);
 
   const UI = {
     ja: {
@@ -32,7 +33,7 @@
       spotCount: "{n}件",
       popup: {
         close: "ポップアップを閉じる",
-        viewMap: "地図で開く →",
+        viewMap: "Google マップで開く →",
         viewMapAria: "{name}を Google マップで開く",
         readGuide: "特集を読む",
         readGuideAria: "{name}の特集記事を読む",
@@ -40,6 +41,9 @@
         phoneAria: "電話 {phone} に発信",
         hubBadge: "拠点",
       },
+      fixedToggleGroup: "地図の表示",
+      fixedSki: "スキー場",
+      fixedStation: "駅",
       category: {
         anchor: "拠点",
         dairy: "乳製品",
@@ -85,7 +89,7 @@
       spotCount: "{n} spots",
       popup: {
         close: "Close popup",
-        viewMap: "VIEW MAP →",
+        viewMap: "Open in Google Maps →",
         viewMapAria: "Open {name} in Google Maps",
         readGuide: "Read guide",
         readGuideAria: "Read the guide for {name}",
@@ -93,6 +97,9 @@
         phoneAria: "Call {phone}",
         hubBadge: "Hub",
       },
+      fixedToggleGroup: "Map overlays",
+      fixedSki: "Ski area",
+      fixedStation: "Station",
       category: {
         anchor: "Hub",
         dairy: "Dairy",
@@ -176,6 +183,7 @@
   let skipNextMoveEnd = false;
   let embedRailOpen = false;
   let embedMobileMq = null;
+  let fixedAnchorVisible = { ski: true, "biei-station": true };
 
   const el = {
     shell: document.querySelector(".area-shell"),
@@ -205,6 +213,43 @@
 
   function filteredFeatures() {
     return allFeatures().filter((f) => activeLayers.has(f.group));
+  }
+
+  function isFixedAnchor(id) {
+    return FIXED_ANCHOR_IDS.has(id);
+  }
+
+  function isFixedAnchorVisible(id) {
+    if (embed) return true;
+    return fixedAnchorVisible[id] !== false;
+  }
+
+  function isFeatureOnMap(feature) {
+    if (!feature) return false;
+    if (activeLayers.has(feature.group)) return true;
+    return isFixedAnchor(feature.id) && isFixedAnchorVisible(feature.id);
+  }
+
+  function markersForRender() {
+    const visible = filteredFeatures();
+    const ids = new Set(visible.map((f) => f.id));
+    for (const id of FIXED_ANCHOR_IDS) {
+      if (!isFixedAnchorVisible(id) || ids.has(id)) continue;
+      const f = featureById(id);
+      if (f) visible.push(f);
+    }
+    return visible;
+  }
+
+  function appendVisibleFixedAnchors(feats) {
+    const result = [...feats];
+    const ids = new Set(result.map((f) => f.id));
+    for (const id of FIXED_ANCHOR_IDS) {
+      if (!isFixedAnchorVisible(id) || ids.has(id)) continue;
+      const f = featureById(id);
+      if (f) result.push(f);
+    }
+    return result;
   }
 
   function prefersReducedMotion() {
@@ -343,6 +388,43 @@
     syncFab();
   }
 
+  function initFixedAnchorToggles() {
+    if (embed || !el.stage) return;
+
+    el.stage.querySelector(".area-map-fixed-toggles")?.remove();
+
+    const bar = document.createElement("div");
+    bar.className = "area-map-fixed-toggles";
+    bar.setAttribute("role", "group");
+    bar.setAttribute("aria-label", t("fixedToggleGroup"));
+
+    for (const id of FIXED_ANCHOR_IDS) {
+      if (!featureById(id)) continue;
+      const label = document.createElement("label");
+      label.className = "area-map-fixed-toggle";
+
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.dataset.fixedAnchor = id;
+      input.checked = isFixedAnchorVisible(id);
+
+      const span = document.createElement("span");
+      span.textContent = id === "ski" ? t("fixedSki") : t("fixedStation");
+
+      input.addEventListener("change", () => {
+        fixedAnchorVisible[id] = input.checked;
+        if (!input.checked && selectedId === id) closePopup();
+        renderMarkers();
+        fitMapToProfile(true);
+      });
+
+      label.append(input, span);
+      bar.appendChild(label);
+    }
+
+    el.stage.appendChild(bar);
+  }
+
   function featuresForBounds(profile, ensureIds = []) {
     const cfg = mapData.boundsProfiles?.[profile];
     const visible = filteredFeatures();
@@ -380,7 +462,7 @@
   function fitMapToProfile(animate, ensureIds = []) {
     if (!leafletMap) return;
     const profile = resolveBoundsProfile();
-    const feats = featuresForBounds(profile, ensureIds);
+    const feats = appendVisibleFixedAnchors(featuresForBounds(profile, ensureIds));
     const cfg = mapData.boundsProfiles?.[profile] || {};
     const anim = !!animate && !prefersReducedMotion();
 
@@ -459,7 +541,7 @@
   function syncMarkerStyles() {
     markerById.forEach((marker, id) => {
       const feature = featureById(id);
-      if (!feature || !activeLayers.has(feature.group)) return;
+      if (!feature || !isFeatureOnMap(feature)) return;
       const active = id === selectedId;
       const icon = makeIcon(feature, active);
       if (icon) marker.setIcon(icon);
@@ -498,7 +580,7 @@
     markerLayer.clearLayers();
     markerById.clear();
 
-    const visible = filteredFeatures();
+    const visible = markersForRender();
     for (const f of visible) {
       const icon = makeIcon(f, f.id === selectedId);
       if (!icon) continue;
@@ -539,7 +621,7 @@
   function select(id, options = {}) {
     const { fromList = false } = options;
     const feature = featureById(id);
-    if (!feature || !activeLayers.has(feature.group)) return;
+    if (!feature || !isFeatureOnMap(feature)) return;
 
     const marker = markerById.get(id);
     if (selectedId === id && marker?.isPopupOpen?.()) {
@@ -589,12 +671,7 @@
   }
 
   function sortForList(items) {
-    const ski = items.find((f) => f.id === "ski");
-    const station = items.find((f) => f.id === "biei-station");
-    const hubs = [ski, station].filter(Boolean);
-    const hubIds = new Set(hubs.map((f) => f.id));
-    const rest = items.filter((f) => !hubIds.has(f.id));
-    return [...hubs, ...rest];
+    return items.filter((f) => !FIXED_ANCHOR_IDS.has(f.id));
   }
 
   function renderList() {
@@ -659,7 +736,7 @@
     const node = target || el.filters;
     if (!node) return;
     const allOn = activeLayers.size === LAYER_KEYS.length;
-    const count = filteredFeatures().length;
+    const count = sortForList(filteredFeatures()).length;
     const toggles = [
       ["food", t("filterFood")],
       ["onsen", t("filterOnsen")],
@@ -734,15 +811,21 @@
 
     markerLayer = window.L.layerGroup().addTo(leafletMap);
 
+    leafletMap.getContainer().addEventListener("click", (ev) => {
+      const closeBtn = ev.target.closest(".area-map-popup__close");
+      if (!closeBtn || !window.L) return;
+      window.L.DomEvent.stop(ev);
+      closePopup();
+    });
+
     leafletMap.on("click", () => closePopup());
 
     leafletMap.on("popupopen", (e) => {
-      const root = e.popup.getElement();
-      root?.querySelector(".area-map-popup__close")?.addEventListener("click", (ev) => {
-        window.L.DomEvent.stopPropagation(ev);
-        ev.preventDefault();
-        closePopup();
-      });
+      const popupEl = e.popup.getElement();
+      if (!popupEl || !window.L) return;
+      window.L.DomEvent.disableClickPropagation(popupEl);
+      const inner = popupEl.querySelector(".area-map-popup");
+      if (inner) window.L.DomEvent.disableClickPropagation(inner);
     });
 
     leafletMap.on("moveend", () => {
@@ -761,6 +844,13 @@
       leafletMap.invalidateSize();
       setTimeout(() => leafletMap?.invalidateSize(), 120);
     });
+
+    if (!embed) {
+      initFixedAnchorToggles();
+    } else {
+      el.embedListFab = null;
+      initEmbedMobileRail();
+    }
   }
 
   function applyLayersFromParent(layers) {
@@ -784,7 +874,7 @@
       if ("focus" in data) {
         if (data.focus) {
           const feature = featureById(data.focus);
-          if (feature && activeLayers.has(feature.group)) {
+          if (feature && isFeatureOnMap(feature)) {
             select(data.focus);
           }
         } else {
@@ -855,13 +945,12 @@
     syncDocumentLang();
     if (!embed) renderFilters();
     renderList();
-    initEmbedMobileRail();
     initLeafletMap();
     initEmbedMessaging();
 
     const focus = params.get("focus");
     const focusFeature = focus && featureById(focus);
-    if (focusFeature && activeLayers.has(focusFeature.group)) {
+    if (focusFeature && isFeatureOnMap(focusFeature)) {
       requestAnimationFrame(() => {
         select(focus);
         leafletMap?.invalidateSize();
