@@ -30,6 +30,7 @@
       "files": {
         "32": "marker-ski-32.png",
         "48": "marker-ski-48.png",
+        "source": "marker-ski-source.png",
         "svg32": "marker-ski-32.svg",
         "svg48": "marker-ski-48.svg",
         "innerSvg": "marker-ski-inner.svg"

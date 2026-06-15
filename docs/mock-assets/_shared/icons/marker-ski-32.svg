@@ -1,15 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 48 48" role="img" aria-label="????">
-  <circle cx="24" cy="24" r="24" fill="#5E6F8A"/>
-  <g fill="#FFFFFF">
-    <path d="M4 39.1 L44 35.9 L43.2 37.3 L3.2 40.5 Z"/>
-    <path d="M9.2 37.4 L34.8 35.1 C36.8 34.9 38.2 33.8 38.6 32.4 C38.9 31.4 38.4 30.6 37.4 30.8 L10.4 33.1 C9.2 33.2 8.6 34 8.8 35.1 C9 36.2 9.6 37.2 9.2 37.4 Z"/>
-    <path d="M7.4 39.2 L33 36.9 C35 36.7 36.4 35.6 36.8 34.2 C37.1 33.2 36.6 32.4 35.6 32.6 L8.6 34.9 C7.4 35 6.8 35.8 7 36.9 C7.2 38 7.8 39 7.4 39.2 Z"/>
-    <path d="M17.8 33.6 L21.2 33.2 L24.6 24.8 L22.4 24.2 Z"/>
-    <path d="M21.2 33.2 L26.4 32.6 L29.2 26.4 L24.6 24.8 Z"/>
-    <path d="M26.4 32.6 L30.8 31.9 L33.6 20.4 L29.2 26.4 Z"/>
-    <path d="M30.8 31.9 L33.8 31.4 L35.2 22.8 L33.6 20.4 Z"/>
-    <path d="M33.6 20.4 L35.2 22.8 L37.8 18.2 L36.2 16.8 Z"/>
-    <circle cx="37.6" cy="13.4" r="3.4"/>
-    <rect x="3.2" y="27.2" width="20.8" height="2" rx="1"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-label="スキー場"><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC6UlEQVR4nL1WW08TQRTeNzFR30wwvpngmyT+GLwEdrZeo5WdadUawcQGEeFMuRVikVJCUCTBCzwYTVRAUaRQSSxgCMSoCeqDgIIBE8CHY2akhEuLO9uWk5x0s2n7fXu+b785mmaxcvP9uwiDozrlDTqDiM74pM5g6V/L6wihEMwzfUeOe2CnlqrSz5fvJ5Q36oz/JoyjlZbfpRByUMiyDZzjrthOGC8nFP5YBd5IBJYI5dwwvBlK4A4KWYTBiF3g9Z3HeDjXVbnHErhulh8UmqYKfFV/IZRn//fJ9fSAr5AwnDwzLrhheDMI49E0gsd8MSj8tYEAEYZLM/hKU14U51UD225Xb5hbIwWhvHHrwJeloBCQ4CLhVEImdTLAvExMEa/J/pnhsj2Fw5rI9mTAHW6f/Gxp78IXb6JqBBiv1+QhkgSBc4W1+HpgBD98+oqPuwaUE1IjFKZUQc8W1ODpS9Vy9G+j4yhq6scsurx1apJQ+C7egEVVAlegCYsq7+DtB504OT2DI2OfcfrnL3zVP4wlNa2WSegMFmwRiLWzsBaHRj/ik+4IFlffxZaHnei53qDgAViwLIHh8klAMeaC0kY8cbFS3u+NvMeX4SG10a+WQFcw4YVr9dh8/zl29b7DZz2D2Dc4ijOzc1gdasdA8yM8c9lvy4RBqz8QTyhaOP+qrxn9oQ5s7ejGnvAwRqJj2NT2FMtutlmXwIRbmtjh7Hog1ic9VVJ7HrgnSXmKgxY9wHO0HKd3h4hFFcDYJBJ55ZSnyor+8wJ7+TCCULJTsGHA4LpNCJaSJWEdnC8ec5XuW7uQUM63jACD0rgrWR7j4bSDm9CXn+/fFn8vdPJMncJEusB1xr8Rd8XeTTdjQnm2XKFTDU5hwuEuO7ApeKwcZslu3YSeVI494TqeqIROYntVzYj1btcpv5FQc81CLfsioESEwrzYdja8asmUSC2xw4n8JhT6xUkmj3LZ4lrc43XE9B1aSTgL9RduRr1G3WQDegAAAABJRU5ErkJggg==" width="32" height="32"/></svg>
