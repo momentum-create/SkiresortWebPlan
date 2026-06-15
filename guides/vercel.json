@@ -5,6 +5,8 @@
   "trailingSlash": true,
   "cleanUrls": false,
   "rewrites": [
+    { "source": "/map", "destination": "/map.html" },
+    { "source": "/area-map", "destination": "/area-map.html" },
     { "source": "/:resort", "destination": "/:resort/index.html" },
     { "source": "/:resort/", "destination": "/:resort/index.html" }
   ],

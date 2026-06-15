@@ -82,6 +82,7 @@
             <button type="button" class="map-layer-btn" data-map-layer="anchor" aria-pressed="true" data-i18n="nearbyOnsen.mapLayers.anchor">拠点</button>
           </div>
           <p class="map-layer-hint" data-i18n="nearbyOnsen.mapLayers.hint">飲食と温泉は同時に表示できます</p>
+          <p class="map-layer-hint map-layer-hint--mobile" data-i18n="nearbyOnsen.mapLayers.mobileHint">ピンが重なるときは下の温泉一覧の「地図で見る」か、地図右下の「スポット一覧」をご利用ください</p>
 
           <div class="map-embed">
             <iframe
@@ -110,7 +111,7 @@
 
         <h3 class="onsen-region" data-i18n="nearbyOnsen.regions.shirogane">美瑛・白金温泉エリア</h3>
         <ol class="food-spot-list" start="1">
-          <li class="food-spot" id="spot-ao-no-bi-yuyu">
+          <li class="food-spot" id="entry-ao-no-bi-yuyu" data-spot-entry="ao-no-bi-yuyu">
             <span class="food-spot__num">01</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.ao-no-bi-yuyu.tag">源泉100% · 渓流露天</p>
@@ -119,7 +120,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=ao-no-bi-yuyu" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-park-hills">
+          <li class="food-spot" id="entry-park-hills" data-spot-entry="park-hills">
             <span class="food-spot__num">02</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.park-hills.tag">大規模リゾート · サウナ</p>
@@ -128,7 +129,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=park-hills" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-tsuewasure">
+          <li class="food-spot" id="entry-tsuewasure" data-spot-entry="tsuewasure">
             <span class="food-spot__num">03</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.tsuewasure.tag">純源泉 · ローカル温泉</p>
@@ -137,7 +138,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=tsuewasure" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-mori-no-ryotei">
+          <li class="food-spot" id="entry-mori-no-ryotei" data-spot-entry="mori-no-ryotei">
             <span class="food-spot__num">04</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.mori-no-ryotei.tag">数寄屋 · 日帰り可</p>
@@ -146,7 +147,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=mori-no-ryotei" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-mori-no-shizuku">
+          <li class="food-spot" id="entry-mori-no-shizuku" data-spot-entry="mori-no-shizuku">
             <span class="food-spot__num">05</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.mori-no-shizuku.tag">掛け流し · サウナ</p>
@@ -155,7 +156,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=mori-no-shizuku" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-kokumin">
+          <li class="food-spot" id="entry-kokumin" data-spot-entry="kokumin">
             <span class="food-spot__num">06</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.kokumin.tag">300円〜 · 銭湯文化</p>
@@ -168,7 +169,7 @@
 
         <h3 class="onsen-region" data-i18n="nearbyOnsen.regions.kamifurano">上富良野・十勝岳エリア</h3>
         <ol class="food-spot-list" start="7">
-          <li class="food-spot" id="spot-ryounkaku">
+          <li class="food-spot" id="entry-ryounkaku" data-spot-entry="ryounkaku">
             <span class="food-spot__num">07</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.ryounkaku.tag">天空の露天 · 最高所</p>
@@ -177,7 +178,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=ryounkaku" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-hakuginso">
+          <li class="food-spot" id="entry-hakuginso" data-spot-entry="hakuginso">
             <span class="food-spot__num">08</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.hakuginso.tag">ロウリュ · 北の聖地</p>
@@ -186,7 +187,7 @@
               <a href="/area-map.html?resort=biei&layers=onsen,anchor&focus=hakuginso" class="food-spot__map-link" data-i18n="nearbyOnsen.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-fukiage-roten">
+          <li class="food-spot" id="entry-fukiage-roten" data-spot-entry="fukiage-roten">
             <span class="food-spot__num">09</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.fukiage-roten.tag">24h無料 · 野湯</p>
@@ -199,7 +200,7 @@
 
         <h3 class="onsen-region" data-i18n="nearbyOnsen.regions.asahidake">旭岳・東川エリア</h3>
         <ol class="food-spot-list" start="10">
-          <li class="food-spot" id="spot-yukoma">
+          <li class="food-spot" id="entry-yukoma" data-spot-entry="yukoma">
             <span class="food-spot__num">10</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyOnsen.spots.yukoma.tag">旭岳麓 · 秘湯</p>

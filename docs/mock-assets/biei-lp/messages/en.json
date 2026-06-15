@@ -283,7 +283,8 @@
       "food": "Food",
       "onsen": "Onsen",
       "anchor": "Hubs",
-      "hint": "Food and onsen can be shown together"
+      "hint": "Food and onsen can be shown together",
+      "mobileHint": "If pins overlap, use View on map in the list below or Spot list on the map"
     },
     "linkOnsenGuide": "Nearby onsen guide (10 picks)",
     "spotsEyebrow": "10 picks",
@@ -372,7 +373,8 @@
       "food": "Food",
       "onsen": "Onsen",
       "anchor": "Hubs",
-      "hint": "Food and onsen can be shown together"
+      "hint": "Food and onsen can be shown together",
+      "mobileHint": "If pins overlap, use View on map in the list below or Spot list on the map"
     },
     "linkFoodGuide": "Nearby food guide (10 picks)",
     "spotsEyebrow": "10 picks",

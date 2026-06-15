@@ -82,6 +82,7 @@
             <button type="button" class="map-layer-btn" data-map-layer="anchor" aria-pressed="true" data-i18n="nearbyFood.mapLayers.anchor">拠点</button>
           </div>
           <p class="map-layer-hint" data-i18n="nearbyFood.mapLayers.hint">飲食と温泉は同時に表示できます</p>
+          <p class="map-layer-hint map-layer-hint--mobile" data-i18n="nearbyFood.mapLayers.mobileHint">ピンが重なるときは下の店舗一覧の「地図で見る」か、地図右下の「スポット一覧」をご利用ください</p>
 
           <div class="map-embed">
             <iframe
@@ -109,7 +110,7 @@
         </p>
 
         <ol class="food-spot-list">
-          <li class="food-spot" id="spot-junpei">
+          <li class="food-spot" id="entry-junpei" data-spot-entry="junpei">
             <span class="food-spot__num">01</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.junpei.tag">洋食 · 海老丼</p>
@@ -118,7 +119,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=junpei" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-biei-farm">
+          <li class="food-spot" id="entry-biei-farm" data-spot-entry="biei-farm">
             <span class="food-spot__num">02</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.biei-farm.tag">乳製品 · 絶景牧場</p>
@@ -127,7 +128,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=biei-farm" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-aruno">
+          <li class="food-spot" id="entry-aruno" data-spot-entry="aruno">
             <span class="food-spot__num">03</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.aruno.tag">パン · チーズフォンデュ</p>
@@ -136,7 +137,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=aruno" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-chiyoda">
+          <li class="food-spot" id="entry-chiyoda" data-spot-entry="chiyoda">
             <span class="food-spot__num">04</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.chiyoda.tag">和牛 · 農場直営</p>
@@ -145,7 +146,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=chiyoda" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-ferme">
+          <li class="food-spot" id="entry-ferme" data-spot-entry="ferme">
             <span class="food-spot__num">05</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.ferme.tag">菓子 · パン · レストラン</p>
@@ -154,7 +155,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=ferme" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-between">
+          <li class="food-spot" id="entry-between" data-spot-entry="between">
             <span class="food-spot__num">06</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.between.tag">バーガー · 森</p>
@@ -163,7 +164,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=between" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-gosh">
+          <li class="food-spot" id="entry-gosh" data-spot-entry="gosh">
             <span class="food-spot__num">07</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.gosh.tag">珈琲 · 自家焙煎</p>
@@ -172,7 +173,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=gosh" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-asperge">
+          <li class="food-spot" id="entry-asperge" data-spot-entry="asperge">
             <span class="food-spot__num">08</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.asperge.tag">フレンチ · 美瑛野菜</p>
@@ -181,7 +182,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=asperge" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-sabo">
+          <li class="food-spot" id="entry-sabo" data-spot-entry="sabo">
             <span class="food-spot__num">09</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.sabo.tag">和スイーツ · 駅近</p>
@@ -190,7 +191,7 @@
               <a href="/area-map.html?resort=biei&layers=food,anchor&focus=sabo" class="food-spot__map-link" data-i18n="nearbyFood.spotMapLink">地図で見る</a>
             </div>
           </li>
-          <li class="food-spot" id="spot-santouka">
+          <li class="food-spot" id="entry-santouka" data-spot-entry="santouka">
             <span class="food-spot__num">10</span>
             <div class="food-spot__body">
               <p class="food-spot__tag" data-i18n="nearbyFood.spots.santouka.tag">ラーメン · 旭川系</p>

@@ -10,6 +10,8 @@
   --area-popup-bg: #1a1f26;
   --area-popup-fg: #fafbfc;
   --area-popup-muted: #c5cdd6;
+  /* BKKDW Organic Drop-off: セクション内ワイド・コンパクト（≈16:9, ~22–28rem）。ビューポート全高は使わない */
+  --area-map-widget-max: min(28rem, 52vh);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -22,7 +24,7 @@ html.area-map-embed-root body.area-map-page--embed {
 
 body.area-map-page {
   margin: 0;
-  min-height: 100dvh;
+  min-height: auto;
   font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
   background: var(--area-bg);
   color: var(--area-text);
@@ -58,15 +60,46 @@ body.area-map-page.area-map-page--embed {
 .area-topbar-actions { display: flex; align-items: center; gap: 0.75rem; }
 
 .area-shell {
-  flex: 1;
+  flex: 0 1 auto;
   display: flex;
+  align-items: flex-start;
   min-height: 0;
-  min-height: calc(100dvh - 52px);
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-shell {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 72rem;
+  max-height: var(--area-map-widget-max);
+  height: auto;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-stage {
+  height: auto;
+  max-height: var(--area-map-widget-max);
+  flex: 7 1 70%;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-rail {
+  align-self: flex-start;
+  max-height: var(--area-map-widget-max);
+  overflow: hidden;
 }
 
 .area-map-page--embed .area-shell {
+  flex: 1 1 auto;
+  align-items: stretch;
   height: 100%;
   min-height: 0;
+  max-height: none;
+}
+
+.area-map-page--embed .area-stage {
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
 }
 
 .area-stage {
@@ -79,38 +112,39 @@ body.area-map-page.area-map-page--embed {
 }
 
 @media (min-width: 1024px) {
-  .area-stage {
+  body.area-map-page:not(.area-map-page--embed) .area-stage {
     flex: 7 1 70%;
-    min-height: min(72vh, 720px);
+    min-height: 0;
+    max-height: var(--area-map-widget-max);
   }
 
-  .area-rail {
+  body.area-map-page:not(.area-map-page--embed) .area-rail {
     flex: 0 0 30%;
     width: 30%;
     max-width: 30%;
+    max-height: var(--area-map-widget-max);
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .area-shell {
+  body.area-map-page:not(.area-map-page--embed) .area-shell {
     flex-direction: column;
+    max-height: none;
   }
 
-  .area-stage {
-    flex: 0 0 65%;
-    min-height: 65%;
+  body.area-map-page:not(.area-map-page--embed) .area-stage {
+    flex: 0 0 auto;
+    height: min(22rem, 48vw);
+    max-height: min(22rem, 48vw);
+    min-height: 0;
   }
 
-  .area-rail {
-    flex: 0 0 35%;
+  body.area-map-page:not(.area-map-page--embed) .area-rail {
+    flex: 1 1 auto;
     width: 100%;
     max-width: none;
-    max-height: 35%;
+    max-height: min(14rem, 32vh);
   }
-}
-
-.area-map-page--embed .area-stage {
-  height: 100%;
 }
 
 .area-leaflet-wrap {
@@ -181,7 +215,8 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
     right: 0.75rem;
     bottom: 0.75rem;
     z-index: 3;
-    min-height: 44px;
+    min-width: 48px;
+    min-height: 48px;
     padding: 0.5rem 0.85rem;
     border: 1px solid var(--area-rail-border);
     border-radius: 999px;
@@ -213,51 +248,54 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
   line-height: 44px;
 }
 
-.area-dot-pin {
+.area-pin {
+  transition: transform 0.15s ease;
+}
+
+.area-leaflet-map .leaflet-div-icon.area-pin {
   background: transparent;
   border: none;
 }
 
-.area-dot-pin__outer {
+@media (prefers-reduced-motion: reduce) {
+  .area-pin {
+    transition: none;
+  }
+}
+
+.area-pin--active {
+  filter: drop-shadow(0 2px 6px rgba(26, 35, 50, 0.35));
+}
+
+.area-pin-hit {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--area-text);
-  box-shadow: 0 1px 3px rgba(26, 31, 38, 0.25);
-  transition: transform 0.15s ease;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  pointer-events: auto;
 }
 
-.area-dot-pin--active .area-dot-pin__outer,
-.area-dot-pin--ski .area-dot-pin__outer {
-  width: 24px;
-  height: 24px;
-}
-
-.area-dot-pin--active .area-dot-pin__outer {
-  transform: scale(1.2);
-}
-
-.area-dot-pin__inner {
+.area-pin-img {
   display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--area-accent);
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: none;
 }
 
-.area-dot-pin--active .area-dot-pin__inner,
-.area-dot-pin--ski .area-dot-pin__inner {
-  width: 8px;
-  height: 8px;
+.area-pin--touch.area-pin--active .area-pin-img {
+  filter: drop-shadow(0 2px 6px rgba(26, 35, 50, 0.35));
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .area-dot-pin__outer {
-    transition: none;
-  }
+.area-pin-tooltip {
+  border: none;
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(26, 35, 50, 0.15);
 }
 
 .area-leaflet-popup .leaflet-popup-content-wrapper {
@@ -433,6 +471,20 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
   border-top: 1px solid var(--area-rail-border);
 }
 
+body.area-map-page:not(.area-map-page--embed) .area-disclaimer {
+  display: none;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-rail-foot {
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem;
+  border-top: 1px solid var(--area-rail-border);
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--area-muted);
+  background: #f8fafc;
+}
+
 .area-rail {
   width: 22rem;
   max-width: 44vw;
@@ -444,15 +496,11 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 }
 
 .area-map-page--embed .area-rail {
-  width: 30%;
-  max-width: 30%;
-  border-left: 1px solid var(--area-rail-border);
-}
-
-@media (min-width: 769px) {
-  .area-map-page--embed .area-rail {
-    display: flex;
-  }
+  /* embed は BKKDW 同型の地図ウィジェットのみ。リストは親 LP 側 */
+  display: none;
+  width: 100%;
+  max-width: none;
+  border-left: none;
 }
 
 .area-map-page--embed .area-rail-head {
@@ -629,13 +677,22 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 }
 
 @media (max-width: 768px) {
-  .area-shell { flex-direction: column; }
-  .area-rail {
+  body.area-map-page:not(.area-map-page--embed) .area-shell {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  body.area-map-page:not(.area-map-page--embed) .area-rail {
     width: 100%;
     max-width: none;
-    max-height: 42vh;
+    max-height: min(14rem, 32vh);
     border-left: none;
     border-top: 1px solid var(--area-rail-border);
   }
-  .area-stage { min-height: 60dvh; }
+
+  body.area-map-page:not(.area-map-page--embed) .area-stage {
+    min-height: 0;
+    height: min(38dvh, 14rem);
+    max-height: min(38dvh, 14rem);
+  }
 }

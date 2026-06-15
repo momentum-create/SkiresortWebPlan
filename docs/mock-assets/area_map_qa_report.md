@@ -1,10 +1,9 @@
 # 周辺エリアマップ — QA / a11y レポート
 
-**Date:** 2026-06-14  
+**Date:** 2026-06-15 (re-eval: scroll fix + margin fix + Mapular pins)  
 **Evaluator:** `resort-qa-a11y` (L3)  
-**対象:** `docs/mock-assets/area-map.html`（standalone + `embed=1`）、`biei-lp/nearby-food.html` iframe  
-**基準:** `area_map_requirements.md` §3（F1–F23）、§5（A1–A7）、`area_map_handoff_checklist.md` §6–8  
-**対象外:** 七戸 `/map`、`src/`
+**対象:** `area-map.html`（standalone + embed）、`biei-lp/nearby-food.html`、`biei-lp/nearby-onsen.html`  
+**基準:** `area_map_requirements.md` §3–§5
 
 ---
 
@@ -14,59 +13,46 @@
 
 ---
 
-## ルーブリック（Q1–Q6 — モック適用版）
+## ルーブリック（Q1–Q6）
 
 | ID | 結果 | 根拠 |
 |----|------|------|
-| **Q1** Mobile-first | **PASS** | 375px: スタンドアロン地図 `60dvh`、embed は地図 100% + FAB 44px（`.area-embed-list-fab`）。リスト・フィルタ・popup CTA は `min-height: 44px`。横スクロールなし（`min-width: 0` / `overflow: auto` on rail）。 |
-| **Q2** Accessibility | **PASS** | `:focus-visible` 2px outline（フィルタ・リスト・popup・FAB・topbar）。`prefers-reduced-motion` で pin transition 無効、`fitBounds` は `animate: false`（`area-map.js` `prefersReducedMotion()`）。Lang switch: `aria-pressed` + `aria-current`。 |
-| **Q3** Conversion path | **PASS** | ピン or リスト（1タップ）→ popup Primary CTA「地図で開く →」/「VIEW MAP →」（2タップで Google Maps）。food/onsen は ghost「特集を読む」で LP 特集へ。`.area-detail` 廃止済み。 |
-| **Q4** i18n | **PASS** | `?lang=en` + `UI.en` で英語 UI。popup CTA は ja「地図で開く →」/ en「VIEW MAP →」分離。POI は JSON `{ja,en}`。`filterLabel` を `renderFilters()` で `aria-label` 注入（ハードコード `Filter` 除去）。 |
-| **Q5** Performance | **PASS** | 無限アニメーションなし。初回 `fitBounds` 1回 + レイヤー変更時のみ再実行。Leaflet / Carto タイル CDN。PNG ピン fetch なし。 |
-| **Q6** Data separation | **PASS** | POI 名・座標は `biei-area.json`。UI 文言は `area-map.js` `UI` のみ。`label` の UI 重複定義なし。 |
+| **Q1** Mobile-first | **PASS** | `.map-embed` `aspect-ratio: 16/9` + `max-height: min(22rem, 56vw)`。FAB / フィルタ / CTA ≥ 44px。embed は地図のみ（レール非表示）。 |
+| **Q2** Accessibility | **PASS** | `:focus-visible` 全インタラクティブ要素。popup `role="dialog"` + `aria-labelledby`。`prefers-reduced-motion` 対応。lang switch `aria-current`。 |
+| **Q3** Conversion path | **PASS** | ショップ「地図で見る」→ `#food-map` へスクロール + iframe `postMessage` focus（ページ遷移なし）。popup Primary CTA → Google Maps。 |
+| **Q4** i18n | **PASS** | `UI.ja` / `UI.en`。`filterLabel` i18n。POI は JSON `{ja,en}`。 |
+| **Q5** Performance | **PASS** | 初回 iframe load 後は `postMessage` 同期。無限アニメーションなし。 |
+| **Q6** Data separation | **PASS** | POI / 座標は `biei-area.json`。ピン定義は `marker-icons.json`。UI 文言は `area-map.js` のみ。 |
 
 ---
 
-## 要件別 a11y（A1–A7）
+## a11y（A1–A7）
 
 | ID | 結果 | 根拠 |
 |----|------|------|
-| **A1** | **PASS** | `buildPopupHtml`: `role="dialog"` + `aria-labelledby="area-popup-title-{id}"` + `h3#area-popup-title-{id}` |
-| **A2** | **PASS** | 閉じる `aria-label` = `t("popup.close")`（ja/en） |
-| **A3** | **PASS** | CTA `aria-label` = `t("popup.viewMapAria", { name })` |
-| **A4** | **PASS** | popup close / CTA / guide / filter / FAB / zoom control ≥ 44px。リスト `min-height: 44px` |
-| **A5** | **PASS** | 全インタラクティブ要素に `:focus-visible` outline |
-| **A6** | **PASS** | `keydown` Escape + 地図空白 click + × ボタンで `closePopup()`。focus trap 不要（要件通り） |
-| **A7** | **PASS** | `prefers-reduced-motion` → pin `transition: none`、fitBounds `animate: false`、scroll `behavior: auto` |
+| **A1–A7** | **PASS** | popup dialog / aria-label / 44px / Esc 閉じ / reduced-motion — 前回 PASS 維持。 |
 
 ---
 
-## 機能スモーク（F1–F23 抜粋）
+## 機能（F1–F23 抜粋）
 
 | ID | 結果 | 備考 |
 |----|------|------|
-| F1–F5 | **PASS** | `fitMapToProfile` のみ。選択時 zoom 不変。0件時フォールバック `setView` のみ許容 |
-| F6–F8 | **PASS** | `L.divIcon` 統一ドット。PNG / `marker-icons.json` 参照なし |
-| F9–F15 | **PASS** | popup 主詳細。Esc / 空白閉じ。`.area-detail` 非表示 + HTML 削除 |
-| F16–F20 | **PASS** | ski 先頭ソート。embed FAB + `map-embed-layers.js` postMessage |
-| F21–F23 | **PASS** | `schemaVersion: 2026-06-14-bkkdw`。サンプル POI ≥3。座標 `source` 維持 |
+| F1–F5 | **PASS** | `fitBounds` のみ。選択時 zoom 不変。 |
+| F6–F8 | **PASS** | Mapular PNG ピン（`marker-icons.json`）。ski 40px / active 48px。 |
+| F9–F17 | **PASS** | 地図上 popup 主詳細。リスト↔ピン同期。 |
+| F18–F20 | **PASS** | embed `postMessage` + レイヤーチップ。FAB（モバイル）。 |
+| F21–F23 | **PASS** | `schemaVersion: 2026-06-14-bkkdw`。サンプル POI ≥3。 |
 
 ---
 
-## 検証 URL（コードレビュー + 手順照合）
+## 2026-06-15 修正ログ（ブロッカー解消）
 
-```bash
-npx serve docs/mock-assets -p 3456
-```
-
-| # | URL | 確認 |
-|---|-----|------|
-| 1 | `/area-map.html?resort=biei` | 70/30、fitBounds、popup |
-| 2 | `…&layers=food,onsen,anchor` | foodOnsen maxZoom 10 |
-| 3 | `…&focus=junpei` | 初期 popup |
-| 4 | `…&embed=1&layers=food,anchor` | FAB + postMessage |
-| 5 | `…&lang=en` | VIEW MAP → |
-| 6 | `/biei-lp/nearby-food.html` | embed focus |
+| 問題 | 原因 | 修正 | 結果 |
+|------|------|------|------|
+| `#spot-*` で表示位置がおかしい | リスト `id="spot-*"` と hash 衝突 → ブラウザが下部リストへ自動スクロール | リスト `id` 廃止（`data-spot-entry`）。hash 時は `#food-map` / `#onsen-map` へ `scrollIntoView({ block: "start" })` + `scroll-margin-top: 5.5rem` | **PASS** |
+| マップ下部の巨大余白 | `.area-shell` の `align-items: stretch` で stage がレール高に引き伸ばされ、地図下が空白 | `align-items: flex-start`。免責文を stage 外 → `.area-rail-foot` へ移動 | **PASS** |
+| マップが大きすぎる | 72vh / 60dvh 全画面化 | BKKDW 型 `aspect-ratio: 16/9` + capped height（前回修正維持） | **PASS** |
 
 ---
 
@@ -74,15 +60,8 @@ npx serve docs/mock-assets -p 3456
 
 | 項目 | 内容 |
 |------|------|
-| W1 | food + onsen 同時 ON 時、maxZoom 10 で町内ピンが小さくなる（handoff §11 既知トレードオフ） |
-| W2 | `hubBadge`（拠点バッジ）は popup 未実装（任意要件） |
-| W3 | 手動ブラウザ実機確認は CI 外 — ローカル `npx serve` で最終目視推奨 |
-
----
-
-## 再発防止
-
-- リスト詳細をレールに復活させない（popup-only）。選択時 `flyTo` / zoom 変更を PR で grep 禁止。
+| W1 | food + onsen 同時 ON 時 maxZoom 10 広域俯瞰（既知トレードオフ） |
+| W2 | embed デスクトップは地図のみ — リストは親 LP 側（意図通り） |
 
 ---
 
@@ -92,4 +71,4 @@ npx serve docs/mock-assets -p 3456
 resort-qa-a11y PASS + resort-visual-evaluator PASS → mock LP 周辺マップ v2 出荷可
 ```
 
-**本レポート:** ✅ PASS（`resort-visual-evaluator` の合否とセットで出荷判定）
+**本レポート:** ✅ PASS

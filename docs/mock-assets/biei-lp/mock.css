@@ -979,8 +979,12 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   overflow: hidden;
-  min-height: clamp(14rem, 32dvh, 18rem);
-  height: clamp(14rem, 32dvh, 18rem);
+  width: 100%;
+  /* BKKDW Organic Drop-off: 記事幅いっぱいの横長ブロック（≈16:9）。50dvh/72vh の全画面化はしない */
+  aspect-ratio: 16 / 9;
+  max-height: min(22rem, 56vw);
+  min-height: 11rem;
+  height: auto;
   background: #e8edf2;
 }
 
@@ -993,8 +997,20 @@ a { color: inherit; text-decoration: none; }
 
 @media (min-width: 768px) {
   .map-embed {
-    height: clamp(15rem, 30dvh, 20rem);
+    max-height: min(25rem, 42vw);
   }
+}
+
+@media (max-width: 768px) {
+  .map-embed {
+    max-height: min(24rem, 45dvh);
+    min-height: 13rem;
+  }
+}
+
+#food-map,
+#onsen-map {
+  scroll-margin-top: 5.5rem;
 }
 
 .map-layer-toggles {
@@ -1042,6 +1058,16 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 
+.map-layer-hint--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .map-layer-hint--mobile {
+    display: block;
+  }
+}
+
 .onsen-region {
   margin: 2.5rem 0 0;
   font-family: Syne, sans-serif;
@@ -1054,13 +1080,6 @@ a { color: inherit; text-decoration: none; }
 
 .onsen-region + .food-spot-list {
   margin-top: 1rem;
-}
-
-.map-embed iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
 }
 
 .food-spot-list {
@@ -1079,6 +1098,18 @@ a { color: inherit; text-decoration: none; }
   padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
   scroll-margin-top: 5rem;
+  transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.food-spot.is-map-focused {
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .food-spot {
+    transition: none;
+  }
 }
 
 @media (min-width: 640px) {

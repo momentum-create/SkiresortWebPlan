@@ -1,10 +1,11 @@
 /**
- * Biei area map — Leaflet POI map v2 (BKKDW: fitBounds overview + unified dots + map popup).
+ * Biei area map — Leaflet POI map v2 (fitBounds overview + Mapular pins + map popup).
  */
 (function () {
   const STORAGE_KEY = "mock-lp-locale";
   const FALLBACK_CENTER = [43.5897, 142.4449];
   const FALLBACK_ZOOM = 12;
+  const ICON_BASE = "_shared/icons/";
 
   const params = new URLSearchParams(location.search);
   const resortId = params.get("resort") || "biei";
@@ -166,6 +167,7 @@
   }
 
   let mapData = null;
+  let markerManifest = null;
   let leafletMap = null;
   let markerLayer = null;
   const markerById = new Map();
@@ -223,20 +225,59 @@
   }
 
   function popupOffset() {
-    return embed && embedMobileMq?.matches ? [0, -44] : [0, -12];
+    return embed && embedMobileMq?.matches ? [0, -52] : [0, -12];
   }
 
-  function makeDotIcon(feature, active) {
-    const isSki = feature.id === "ski";
-    const size = active || isSki ? 24 : 20;
-    const classes = ["area-dot-pin"];
-    if (active) classes.push("area-dot-pin--active");
-    if (isSki) classes.push("area-dot-pin--ski");
-    return window.L.divIcon({
-      className: classes.join(" "),
-      html: '<span class="area-dot-pin__outer"><span class="area-dot-pin__inner"></span></span>',
+  function popupAutoPanPadding() {
+    if (isEmbedMobile()) return [56, 56];
+    if (embed) return [48, 48];
+    return [32, 32];
+  }
+
+  function markerKeyFor(feature) {
+    if (!markerManifest) return feature.group === "food" ? "food" : feature.group;
+    const mapping = markerManifest.bieiAreaMapping || {};
+    if (feature.group === "food") return mapping.food || "food";
+    if (feature.group === "onsen") return mapping.onsen || "onsen";
+    return mapping[`anchor.${feature.id}`] || "food";
+  }
+
+  function iconPath(key, size) {
+    const files = markerManifest?.markers?.[key]?.files;
+    const file = files?.[size] || files?.["32"];
+    return file ? `${ICON_BASE}${file}` : null;
+  }
+
+  function markerSize(feature, active) {
+    if (active) return 48;
+    if (feature.id === "ski") return 40;
+    return 32;
+  }
+
+  function makeIcon(feature, active) {
+    const size = markerSize(feature, active);
+    const key = markerKeyFor(feature);
+    const assetSize = size >= 48 || (feature.id === "ski" && !active) ? "48" : "32";
+    const url = iconPath(key, assetSize);
+    if (!url || !window.L) return null;
+
+    if (isEmbedMobile()) {
+      const hitSize = active ? 52 : 48;
+      const activeClass = active ? " area-pin--active" : "";
+      const html = `<span class="area-pin-hit" aria-hidden="true"><img class="area-pin-img${activeClass}" src="${esc(url)}" width="${size}" height="${size}" alt="" draggable="false" /></span>`;
+      return window.L.divIcon({
+        html,
+        className: `area-pin area-pin--touch${active ? " area-pin--active" : ""}`,
+        iconSize: [hitSize, hitSize],
+        iconAnchor: [hitSize / 2, hitSize / 2],
+      });
+    }
+
+    return window.L.icon({
+      iconUrl: url,
       iconSize: [size, size],
       iconAnchor: [size / 2, size / 2],
+      className: active ? "area-pin area-pin--active" : "area-pin",
     });
   }
 
@@ -291,17 +332,31 @@
       el.embedListFab = btn;
     }
 
-    embedMobileMq.addEventListener("change", syncFab);
+    embedMobileMq.addEventListener("change", () => {
+      syncFab();
+      if (leafletMap) {
+        const refocus = selectedId ? featureById(selectedId) : null;
+        renderMarkers();
+        if (refocus) openPopupForFeature(refocus);
+      }
+    });
     syncFab();
   }
 
-  function featuresForBounds(profile) {
+  function featuresForBounds(profile, ensureIds = []) {
     const cfg = mapData.boundsProfiles?.[profile];
     const visible = filteredFeatures();
-    if (!cfg) return visible;
-    return visible.filter((f) => {
+    const ensureSet = new Set(ensureIds);
+
+    function passesFilter(f) {
+      if (!cfg) return true;
       if (cfg.includeGroups && !cfg.includeGroups.includes(f.group)) return false;
-      if (cfg.excludeFoodIds && f.group === "food" && cfg.excludeFoodIds.includes(f.id)) {
+      if (
+        cfg.excludeFoodIds &&
+        f.group === "food" &&
+        cfg.excludeFoodIds.includes(f.id) &&
+        !ensureSet.has(f.id)
+      ) {
         return false;
       }
       if (cfg.excludeAnchorIds && f.group === "anchor" && cfg.excludeAnchorIds.includes(f.id)) {
@@ -311,13 +366,21 @@
         return false;
       }
       return true;
-    });
+    }
+
+    const result = visible.filter(passesFilter);
+    for (const id of ensureIds) {
+      if (result.some((f) => f.id === id)) continue;
+      const extra = visible.find((f) => f.id === id);
+      if (extra) result.push(extra);
+    }
+    return result;
   }
 
-  function fitMapToProfile(animate) {
+  function fitMapToProfile(animate, ensureIds = []) {
     if (!leafletMap) return;
     const profile = resolveBoundsProfile();
-    const feats = featuresForBounds(profile);
+    const feats = featuresForBounds(profile, ensureIds);
     const cfg = mapData.boundsProfiles?.[profile] || {};
     const anim = !!animate && !prefersReducedMotion();
 
@@ -350,10 +413,10 @@
   function guideHref(feature) {
     const langQ = locale === "en" ? "?lang=en" : "";
     if (feature.group === "onsen") {
-      return `${resortId}-lp/nearby-onsen.html#spot-${feature.id}${langQ}`;
+      return `${resortId}-lp/nearby-onsen.html#entry-${feature.id}${langQ}`;
     }
     if (feature.group === "food") {
-      return `${resortId}-lp/nearby-food.html#spot-${feature.id}${langQ}`;
+      return `${resortId}-lp/nearby-food.html#entry-${feature.id}${langQ}`;
     }
     if (feature.id === "blue-pond") return `${resortId}-lp/blue-pond.html${langQ}`;
     if (feature.id === "ski") return `${resortId}-lp/snow-play.html${langQ}`;
@@ -398,7 +461,8 @@
       const feature = featureById(id);
       if (!feature || !activeLayers.has(feature.group)) return;
       const active = id === selectedId;
-      marker.setIcon(makeDotIcon(feature, active));
+      const icon = makeIcon(feature, active);
+      if (icon) marker.setIcon(icon);
       marker.setZIndexOffset(active ? 1000 : feature.id === "ski" ? 500 : 0);
     });
   }
@@ -419,6 +483,7 @@
     selectedId = null;
     syncMarkerStyles();
     syncListActive();
+    notifyParentFocus(null);
   }
 
   function openPopupForFeature(feature) {
@@ -435,8 +500,10 @@
 
     const visible = filteredFeatures();
     for (const f of visible) {
+      const icon = makeIcon(f, f.id === selectedId);
+      if (!icon) continue;
       const marker = window.L.marker([f.lat, f.lon], {
-        icon: makeDotIcon(f, f.id === selectedId),
+        icon,
         title: pick(f.shortLabel) || pick(f.label),
       });
 
@@ -445,7 +512,7 @@
         maxWidth: 300,
         minWidth: 240,
         autoPan: true,
-        autoPanPadding: embed ? [48, 48] : [32, 32],
+        autoPanPadding: popupAutoPanPadding(),
         offset: popupOffset(),
         closeButton: false,
       });
@@ -474,6 +541,12 @@
     const feature = featureById(id);
     if (!feature || !activeLayers.has(feature.group)) return;
 
+    const marker = markerById.get(id);
+    if (selectedId === id && marker?.isPopupOpen?.()) {
+      notifyParentFocus(id);
+      return;
+    }
+
     if (selectedId && selectedId !== id) {
       markerById.get(selectedId)?.closePopup();
     }
@@ -490,8 +563,18 @@
       });
     }
 
+    fitMapToProfile(true, [id]);
     openPopupForFeature(feature);
+    notifyParentFocus(id);
     if (isEmbedMobile() && fromList) setEmbedRailOpen(false);
+  }
+
+  function notifyParentFocus(id) {
+    if (!embed || window.parent === window) return;
+    window.parent.postMessage(
+      { source: "area-map", type: "focus", id: id || null },
+      location.origin,
+    );
   }
 
   function listEyebrow(feature) {
@@ -627,11 +710,14 @@
 
     el.stage.appendChild(wrap);
 
-    if (!embed && mapData.disclaimer) {
-      const disclaimer = document.createElement("p");
-      disclaimer.className = "area-disclaimer";
-      disclaimer.textContent = pick(mapData.disclaimer);
-      el.stage.appendChild(disclaimer);
+    if (!embed && mapData.disclaimer && el.rail) {
+      let foot = el.rail.querySelector(".area-rail-foot");
+      if (!foot) {
+        foot = document.createElement("div");
+        foot.className = "area-rail-foot";
+        el.rail.appendChild(foot);
+      }
+      foot.textContent = pick(mapData.disclaimer);
     }
 
     leafletMap = window.L.map(mapEl, {
@@ -695,10 +781,14 @@
       const data = e.data;
       if (!data || data.source !== "map-embed-layers") return;
       if (Array.isArray(data.layers)) applyLayersFromParent(data.layers);
-      if (data.focus) {
-        const feature = featureById(data.focus);
-        if (feature && activeLayers.has(feature.group)) {
-          select(data.focus);
+      if ("focus" in data) {
+        if (data.focus) {
+          const feature = featureById(data.focus);
+          if (feature && activeLayers.has(feature.group)) {
+            select(data.focus);
+          }
+        } else {
+          closePopup();
         }
       }
     });
@@ -740,9 +830,13 @@
     }
 
     try {
-      const areaRes = await fetch(`data/maps/${resortId}-area.json`);
+      const [areaRes, iconRes] = await Promise.all([
+        fetch(`data/maps/${resortId}-area.json`),
+        fetch(`${ICON_BASE}marker-icons.json`),
+      ]);
       if (!areaRes.ok) throw new Error(areaRes.statusText);
       mapData = await areaRes.json();
+      if (iconRes.ok) markerManifest = await iconRes.json();
     } catch {
       if (el.stage) el.stage.innerHTML = `<p class="map-error">${t("loadError")}</p>`;
       return;
@@ -761,8 +855,8 @@
     syncDocumentLang();
     if (!embed) renderFilters();
     renderList();
-    initLeafletMap();
     initEmbedMobileRail();
+    initLeafletMap();
     initEmbedMessaging();
 
     const focus = params.get("focus");
