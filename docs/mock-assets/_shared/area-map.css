@@ -72,19 +72,31 @@ body.area-map-page:not(.area-map-page--embed) .area-shell {
   width: 100%;
   max-width: 72rem;
   max-height: var(--area-map-widget-max);
-  height: auto;
+  height: var(--area-map-widget-max);
+  min-height: 22rem;
 }
 
 body.area-map-page:not(.area-map-page--embed) .area-stage {
-  height: auto;
+  height: 100%;
   max-height: var(--area-map-widget-max);
   flex: 7 1 70%;
+  align-self: stretch;
 }
 
 body.area-map-page:not(.area-map-page--embed) .area-rail {
-  align-self: flex-start;
+  align-self: stretch;
   max-height: var(--area-map-widget-max);
   overflow: hidden;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
+  flex: 1 1 auto;
+  min-height: 12rem;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-leaflet-map {
+  flex: 1 1 auto;
+  min-height: 10rem;
 }
 
 .area-map-page--embed .area-shell {
@@ -116,6 +128,7 @@ body.area-map-page:not(.area-map-page--embed) .area-rail {
   body.area-map-page:not(.area-map-page--embed) .area-stage {
     flex: 7 1 70%;
     min-height: 0;
+    height: 100%;
     max-height: var(--area-map-widget-max);
   }
 
@@ -124,6 +137,7 @@ body.area-map-page:not(.area-map-page--embed) .area-rail {
     width: 30%;
     max-width: 30%;
     max-height: var(--area-map-widget-max);
+    height: 100%;
   }
 }
 
