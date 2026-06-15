@@ -7,13 +7,13 @@
   --area-text: #1a1f26;
   --area-muted: #5c6570;
   --area-accent: #5a6f85;
-  --area-popup-bg: #ffffff;
-  --area-popup-fg: #1a1f26;
+  --area-popup-bg: #1a1f26;
+  --area-popup-fg: #ffffff;
   --area-popup-border: #1a1f26;
-  --area-popup-muted: #5c6570;
-  --area-popup-cta-bg: #1a1f26;
-  --area-popup-cta-fg: #ffffff;
-  --area-popup-cta-border: #1a1f26;
+  --area-popup-muted: rgba(255, 255, 255, 0.72);
+  --area-popup-cta-bg: #dfff00;
+  --area-popup-cta-fg: #1a1f26;
+  --area-popup-cta-border: #dfff00;
   /* BKKDW Organic Drop-off: セクション内ワイド・コンパクト。リストは最低 4 行分以上確保 */
   --area-map-widget-max: min(36rem, 70vh);
   --area-list-min: min(16rem, 38vh);
@@ -341,20 +341,20 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 
 .area-leaflet-popup .leaflet-popup-tip {
   background: var(--area-popup-bg);
-  border: 1px solid var(--area-popup-border);
+  border: none;
   box-shadow: none;
 }
 
 .area-map-popup {
   position: relative;
-  padding: 0.65rem 0.85rem 0.75rem;
+  padding: 0.7rem 0.75rem 0.6rem;
   background: var(--area-popup-bg);
   color: var(--area-popup-fg);
-  border: 1px solid var(--area-popup-border);
+  border: none;
   border-radius: 0;
-  box-shadow: 0 4px 16px rgba(26, 31, 38, 0.12);
+  box-shadow: none;
   font-size: 0.8125rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .area-map-popup__cta {
@@ -362,30 +362,30 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 0.65rem;
-  padding: 0.2rem 0.65rem;
-  min-height: 44px;
+  margin-top: 0.55rem;
+  padding: 0.32rem 0.5rem;
+  min-height: 0;
   border: 1px solid var(--area-popup-cta-border);
   border-radius: 0;
   background: var(--area-popup-cta-bg);
   color: var(--area-popup-cta-fg);
-  font-family: Syne, sans-serif;
+  font-family: Syne, "Noto Sans JP", sans-serif;
   font-size: 0.5625rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .area-map-popup__cta:hover {
-  background: #2a3344;
-  border-color: #2a3344;
+  background: #c8e600;
+  border-color: #c8e600;
 }
 
 .area-map-popup__cta:focus-visible {
-  outline: 2px solid var(--area-accent);
+  outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
 
@@ -394,50 +394,50 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-top: 0.35rem;
-  padding: 0.2rem 0.65rem;
-  min-height: 44px;
-  border: 1px solid var(--area-popup-border);
+  margin-top: 0.25rem;
+  padding: 0.28rem 0.5rem;
+  min-height: 0;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 0;
-  background: #ffffff;
+  background: transparent;
   color: var(--area-popup-fg);
-  font-size: 0.625rem;
+  font-size: 0.5625rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-decoration: none;
   text-align: center;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .area-map-popup__close {
   position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  min-width: 44px;
-  min-height: 44px;
+  top: 0.15rem;
+  right: 0.15rem;
+  min-width: 36px;
+  min-height: 36px;
   padding: 0;
   border: 1px solid transparent;
   border-radius: 0;
   background: transparent;
   color: var(--area-popup-fg);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1;
   cursor: pointer;
 }
 
 .area-map-popup__close:hover {
-  background: #f4f6f8;
-  border-color: var(--area-popup-border);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .area-map-popup__close:focus-visible {
-  outline: 2px solid var(--area-accent);
+  outline: 2px solid #dfff00;
   outline-offset: 2px;
 }
 
 .area-map-popup__title {
-  margin: 0 2rem 0.35rem 0;
-  font-size: 0.9375rem;
+  margin: 0 1.75rem 0.3rem 0;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.35;
   display: -webkit-box;
@@ -448,7 +448,7 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 
 .area-map-popup__category,
 .area-map-popup__district {
-  margin: 0.35rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.6875rem;
   color: var(--area-popup-muted);
 }
@@ -456,7 +456,7 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 .area-map-popup__phone,
 .area-map-popup__web {
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
   color: var(--area-popup-fg);
   font-size: 0.75rem;
   text-decoration: underline;
@@ -465,16 +465,17 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 
 .area-map-popup__phone:focus-visible,
 .area-map-popup__web:focus-visible {
-  outline: 2px solid var(--area-accent);
+  outline: 2px solid #dfff00;
   outline-offset: 2px;
 }
 
 .area-map-popup__guide:hover {
-  background: #f4f6f8;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .area-map-popup__guide:focus-visible {
-  outline: 2px solid var(--area-accent);
+  outline: 2px solid #dfff00;
   outline-offset: 2px;
 }
 
