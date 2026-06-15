@@ -9,13 +9,14 @@
 
 ## Verdict
 
-**PASS（厳格）** — U1/U2/U3/J2-a クローズ。コア導線（俯瞰→focus→popup→リスト連動→CTA）は合格。
+**FAIL（R1 是正前）→ 再評価待ち** — U1/U2/U3/J2-a は合格だが、**standalone レールリストの可読性で致命的欠陥（R1）**。embed 合格だけで全体 PASS としたのは評価漏れ。
 
 | ゲート | 結果 |
 |--------|------|
 | 設計原則 §2（6 項） | **5/6 PASS**（統一ピンは Mapular 上書き・許容） |
-| WARN / FAIL 是正 | **4/4 PASS** |
-| 厳格総合 | **PASS** |
+| WARN / FAIL 是正 | **4/4 PASS**（U1–U3, J2-a） |
+| **R1 レールリスト高さ** | **FAIL → 修正済み**（`area_map_r1_fix.md`） |
+| 厳格総合 | **再確認まで出荷不可** |
 
 ---
 
@@ -64,6 +65,7 @@
 | 下部余白 | **PASS** | `align-items: flex-start` + `.area-rail-foot`。 |
 | 70/30 + 高さ cap | **PASS** | `--area-map-widget-max`。全画面化しない。 |
 | レール↔ピン | **PASS** | 双方向同期。遠方店レール選択で U1 bounds 適用。 |
+| **レールリスト可読性** | **FAIL → 修正** | R1: `max-height: 14rem` でリスト 1 行化。評価漏れ。 |
 
 ---
 
@@ -88,6 +90,7 @@
 | **U2** | 特集リンクハッシュ | **PASS** ✅ | `#entry-*` / `#spot-*` 分離（`area_map_u2_fix.md`） |
 | **U3** | モバイル embed ピン密集 | **PASS** ✅ | 48px hit area + FAB + モバイルヒント + embed 高さ微増（`area_map_u3_fix.md`） |
 | **J2-a** | 親リスト active 表示 | **PASS** ✅ | `is-map-focused` 双方向同期（`area_map_j2a_fix.md`） |
+| **R1** | standalone レールリスト高さ | **FAIL → 修正** | `max-height: 14rem` 撤廃 + `--area-list-min`（`area_map_r1_fix.md`） |
 
 ---
 
@@ -122,9 +125,11 @@ npx serve docs/mock-assets -p 3456
 ## Ship gate（厳格）
 
 ```
-厳格 UX: PASS — U1/U2/U3/J2-a 全是正済み
+厳格 UX: FAIL（R1）— standalone リスト可読性。CSS 修正後に再評価
 + resort-qa-a11y PASS + resort-visual-evaluator PASS → mock LP 出荷可
 ```
+
+**評価上の反省:** J1「embed は地図のみ PASS」を standalone レール品質の代替と誤認。フルサイズマップのリストは別ジャーニー（J5）で **最低 4 行の可読高さ**を必須とする。
 
 **FAIL に格下げする条件（未達）:** U1/U2/J2-a の回帰、選択時ズームインの再導入、`#spot`/`#entry` 混同の再発。
 

@@ -10,8 +10,9 @@
   --area-popup-bg: #1a1f26;
   --area-popup-fg: #fafbfc;
   --area-popup-muted: #c5cdd6;
-  /* BKKDW Organic Drop-off: セクション内ワイド・コンパクト（≈16:9, ~22–28rem）。ビューポート全高は使わない */
-  --area-map-widget-max: min(28rem, 52vh);
+  /* BKKDW Organic Drop-off: セクション内ワイド・コンパクト。リストは最低 4 行分以上確保 */
+  --area-map-widget-max: min(36rem, 70vh);
+  --area-list-min: min(16rem, 38vh);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -143,7 +144,10 @@ body.area-map-page:not(.area-map-page--embed) .area-rail {
     flex: 1 1 auto;
     width: 100%;
     max-width: none;
-    max-height: min(14rem, 32vh);
+    max-height: none;
+    min-height: min(24rem, 52vh);
+    border-left: none;
+    border-top: 1px solid var(--area-rail-border);
   }
 }
 
@@ -198,7 +202,8 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
     right: 0;
     width: 100%;
     max-width: none;
-    max-height: min(42%, 15rem);
+    max-height: min(58%, 20rem);
+    min-height: min(14rem, 42%);
     flex-shrink: 0;
     border-left: none;
     border-top: 1px solid var(--area-rail-border);
@@ -208,6 +213,12 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
 
   .area-map-page--embed.area-embed-rail-open .area-rail {
     display: flex;
+    flex-direction: column;
+  }
+
+  .area-map-page--embed.area-embed-rail-open .area-list {
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
   .area-embed-list-fab {
@@ -237,7 +248,7 @@ body.area-map-page:not(.area-map-page--embed) .area-leaflet-wrap {
   }
 
   .area-map-page--embed.area-embed-rail-open .area-embed-list-fab {
-    bottom: calc(min(42%, 15rem) + 0.5rem);
+    bottom: calc(min(58%, 20rem) + 0.5rem);
   }
 }
 
@@ -491,8 +502,22 @@ body.area-map-page:not(.area-map-page--embed) .area-rail-foot {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   background: var(--area-rail-bg);
   border-left: 1px solid var(--area-rail-border);
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-rail-head {
+  flex-shrink: 0;
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-list {
+  flex: 1 1 auto;
+  min-height: var(--area-list-min);
+}
+
+body.area-map-page:not(.area-map-page--embed) .area-rail-foot {
+  flex-shrink: 0;
 }
 
 .area-map-page--embed .area-rail {
@@ -685,14 +710,15 @@ body.area-map-page:not(.area-map-page--embed) .area-rail-foot {
   body.area-map-page:not(.area-map-page--embed) .area-rail {
     width: 100%;
     max-width: none;
-    max-height: min(14rem, 32vh);
+    max-height: none;
+    min-height: min(26rem, 55vh);
     border-left: none;
     border-top: 1px solid var(--area-rail-border);
   }
 
   body.area-map-page:not(.area-map-page--embed) .area-stage {
     min-height: 0;
-    height: min(38dvh, 14rem);
-    max-height: min(38dvh, 14rem);
+    height: min(40dvh, 18rem);
+    max-height: min(40dvh, 18rem);
   }
 }
