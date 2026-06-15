@@ -112,24 +112,9 @@ let fixedAnchorVisible = { ski: true, "biei-station": true };
 
 #### E. UI（`area-map.html` + CSS）
 
-レール `.area-rail-head` 内、レイヤーチップの **上または下** に:
+> **⚠ A2 で上書き:** トグルはレール内ではなく **地図下部**。詳細は `area_map_a2_fixed_anchor_handoff.md`。
 
-```html
-<div class="area-fixed-toggles" role="group" aria-label="…">
-  <label class="area-fixed-toggle">
-    <input type="checkbox" data-fixed-anchor="ski" checked />
-    <span>スキー場</span>
-  </label>
-  <label class="area-fixed-toggle">
-    <input type="checkbox" data-fixed-anchor="biei-station" checked />
-    <span>駅</span>
-  </label>
-</div>
-```
-
-- コンパクト（フォント 0.75rem 前後）、**チェックボックス + ラベル**
-- タップ領域は `min-height: 44px` または label 全体クリック可
-- embed: トグルは **非表示**（地図のみ。固定ピンは常時 ON）でも可 — 要: standalone のみ表示でよい
+レール `.area-rail-head` 内への配置は **禁止**。
 
 #### F. i18n
 
@@ -189,7 +174,7 @@ let fixedAnchorVisible = { ski: true, "biei-station": true };
 docs/mock-assets/area_map_m1_a1_handoff.md に従い実装してください。
 
 P0: M1 — standalone area-map で Leaflet が白画面になる CSS 高さバグを修正。
-P1: A1 — ski / biei-station をリストから除外し、地図上はデフォルト表示。レールに小さなチェックボックスで個別 ON/OFF。
+P1: A1 — ski / biei-station をリストから除外（area_map_a2_fixed_anchor_handoff.md 参照。マップ下部チェックボックス）。
 
 完了後 guides/scripts/sync.mjs を実行し、area_map_ux_eval.md に M1/A1 行を追記。
 ```
